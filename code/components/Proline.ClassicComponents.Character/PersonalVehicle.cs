@@ -1,6 +1,7 @@
 ﻿using CitizenFX.Core;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.CGameLogic.Data;
 using Proline.ClassicOnline.CGameLogic.Internal;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,26 @@ namespace Proline.ClassicOnline.CGameLogic
                 CDebugActionsAPI.LogError(e);
             }
             return false;
+        }
+        public static Entity GetPersonalVehicle()
+        {
+            return Character.PersonalVehicle;
+        }
+
+        public static void DeletePersonalVehicle()
+        {
+            foreach (var item in Character.PersonalVehicle.AttachedBlips)
+            {
+                item.Delete();
+            }
+            Character.PersonalVehicle.IsPersistent = false;
+            Character.PersonalVehicle.Delete();
+        }
+
+
+        public static void SetCharacterPersonalVehicle(int handle)
+        {
+            Character.PersonalVehicle = new CharacterPersonalVehicle(handle);
         }
     }
 }

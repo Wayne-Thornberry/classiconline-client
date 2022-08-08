@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CGameLogic;
 using Proline.ClassicOnline.CGameLogic.Data;
+using Proline.ClassicOnline.CGameLogic.Internal;
 using Proline.Resource.IO;
 using System;
 using System.Collections.Generic;
@@ -82,9 +83,9 @@ namespace Proline.ClassicOnline.CGameLogic
                 //int x = 0;
                 //API.GetPedHeadBlendData(pedHandle,ref x);
                 //CDebugActions.CDebugActionsAPI.LogDebug(x);
-                //if (CharacterGlobals.Character != null)
-                //    return CharacterGlobals.Character.Looks;
-                //else
+                if (HasCharacter())
+                    return Character.PlayerCharacter.Looks;
+                else
                     return null;
             }
             catch (Exception e)
@@ -92,6 +93,20 @@ namespace Proline.ClassicOnline.CGameLogic
                 CDebugActionsAPI.LogError(e);
             }
             return null;
+        }
+
+        public static CharacterStats GetChracterStats()
+        {
+            return Character.PlayerCharacter.Stats;
+        }
+
+        public static void SetCharacter(PlayerCharacter character)
+        {
+            Character.PlayerCharacter = character;
+        }
+        public static bool HasCharacter()
+        {
+            return Character.PlayerCharacter != null;
         }
 
         public static void SetPedGender(int handle, char gender)
