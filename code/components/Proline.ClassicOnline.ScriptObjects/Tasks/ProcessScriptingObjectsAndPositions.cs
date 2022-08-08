@@ -16,6 +16,7 @@ using System.Reflection;
 using Proline.ClassicOnline.CCoreSystem;
 using Proline.Resource.IO;
 using Proline.ClassicOnline.CScriptBrain.Entity;
+using Proline.ClassicOnline.CPoolObjects;
 
 namespace Proline.ClassicOnline.CScriptBrain.Tasks
 {
@@ -24,34 +25,21 @@ namespace Proline.ClassicOnline.CScriptBrain.Tasks
         private static Log _log = new Log();
 
         public ProcessScriptingObjectsAndPositions()
-        {
-            _trackedHandles = new HashSet<int>();
+        { 
+            _sm = ScriptObjectManager.GetInstance();
+            _oldList = new List<int>();
         }
 
-
-        private HashSet<int> _trackedHandles;
+         
         private ScriptObjectManager _sm;
+        private List<int> _oldList;
 
         public async Task Execute()
-        {
-
-            _sm = ScriptObjectManager.GetInstance();
-            var _instance = ScriptPositionManager.GetInstance();
-            var _ht = HandleTracker.GetInstance();
-
-            var entityHandles = new Queue<int>(HandleManager.EntityHandles);
-            var addedHandles = new List<object>();
-            var removedHanldes = new List<object>();
-
-            while (entityHandles.Count > 0)
-            {
-                var handle = entityHandles.Dequeue();
-                if (_trackedHandles.Contains(handle))
-                    continue;
-                _trackedHandles.Add(handle);
-                addedHandles.Add(handle);
-                _ht.Add(handle);
-
+        { 
+            var instance = ScriptPositionManager.GetInstance(); 
+            var currentHandles = CPoolObjectsAPI.GetAllExistingPoolObjects();
+            foreach (var handle in currentHandles)
+            { 
                 if (!CitizenFX.Core.Native.API.DoesEntityExist(handle)) continue;
                 var modelHash = CitizenFX.Core.Native.API.GetEntityModel(handle);
                 if (!_sm.ContainsSO(handle) && _sm.ContainsKey(modelHash))
@@ -65,30 +53,25 @@ namespace Proline.ClassicOnline.CScriptBrain.Tasks
                     });
                 }
             }
+            var newLsit = new List<int>(currentHandles);
+            var removed = newLsit.Except(_oldList).ToArray();
 
-            var combinedHandles = new Queue<int>(_trackedHandles);
-            while (combinedHandles.Count > 0)
+            foreach (var handle in removed)
             {
-                var handle = combinedHandles.Dequeue();
-                if (CitizenFX.Core.Native.API.DoesEntityExist(handle))
-                    continue;
-                _trackedHandles.Remove(handle);
-                removedHanldes.Add(handle);
-                _ht.Remove(handle);
-
                 if (CitizenFX.Core.Native.API.DoesEntityExist(handle)) continue;
                 var modelHash = CitizenFX.Core.Native.API.GetEntityModel(handle);
                 if (!_sm.ContainsKey(modelHash)) continue;
                 if (_sm.ContainsKey(handle))
-                    _sm.Remove(handle);
+                    _sm.Remove(handle); 
             }
+            _oldList = newLsit;
 
             ProcessScriptObjects();
             //return; 
 
-            if (_instance.HasScriptPositionPairs())
+            if (instance.HasScriptPositionPairs())
             {
-                foreach (var positionsPair in _instance.GetScriptPositionsPairs())
+                foreach (var positionsPair in instance.GetScriptPositionsPairs())
                 {
                     var vector = new Vector3(positionsPair.X, positionsPair.Y, positionsPair.Z);
                     if (World.GetDistance(vector, Game.PlayerPed.Position) < 10f && !PosBlacklist.Contains(positionsPair))

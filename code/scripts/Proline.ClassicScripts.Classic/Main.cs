@@ -99,6 +99,7 @@ namespace Proline.ClassicOnline.SClassic
                             CCoreSystemAPI.StartNewScript("BlipController");
                             CCoreSystemAPI.StartNewScript("Freemode");
                             CCoreSystemAPI.StartNewScript("CharacterApts");
+                            CCoreSystemAPI.StartNewScript("MoneyBagController");
                             CDebugActionsAPI.LogDebug($"Calling Task ID for API {Thread.CurrentThread.ManagedThreadId}");
                         }
                         state = 3;

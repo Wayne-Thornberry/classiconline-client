@@ -33,12 +33,5 @@ namespace Proline.ClassicOnline.CDataStream.Events
                 _event = null;
             }
         }
-#if SERVER
-        internal static void InvokeEvent()
-        {
-            var playerEvent = new PlayerReadyEvent();
-            playerEvent.Invoke(null);
-        }
-#endif
     }
 }

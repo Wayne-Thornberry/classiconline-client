@@ -23,8 +23,11 @@ namespace Proline.ClassicOnline.CCoreSystem.Internal
         public bool IsMarkedForNolongerNeeded { get; internal set; }
         public object Instance => _instance;
         public string InstanceId => _instanceId;
-
+        private Dictionary<string, Queue<InvokedEvent>> _eventQueue;
         private Task _executionTask;
+
+     
+
         private CancellationTokenSource _tokenSource;
         private object _instance;
         private string _instanceId;
@@ -33,6 +36,7 @@ namespace Proline.ClassicOnline.CCoreSystem.Internal
         {
             _instance = instance;
             _instanceId = Guid.NewGuid().ToString();
+            _eventQueue = new Dictionary<string, Queue<InvokedEvent>>();
         }
 
         internal void Terminate()
@@ -50,6 +54,32 @@ namespace Proline.ClassicOnline.CCoreSystem.Internal
             Console.WriteLine(string.Format("{0} Script Started", Name));
             _executionTask = (Task)method.Invoke(_instance, new object[] { args, _tokenSource.Token });
             Console.WriteLine(string.Format("{0} Executed Succesfully, Running", Name));
+        }
+
+        internal bool HasEvent(string eventName)
+        {
+            return _eventQueue.ContainsKey(eventName);
+        }
+
+        internal object[] DequeueEvent(string eventName)
+        {
+            if (_eventQueue.ContainsKey(eventName))
+            {
+                var args = _eventQueue[eventName].Dequeue().Args;
+                if(_eventQueue[eventName].Count == 0)
+                {
+                    _eventQueue.Remove(eventName);
+                }
+                return args;
+            }
+            return null;
+        }
+
+        internal void EnqueueEvent(string eventName, params object[] args)
+        {
+            if(!_eventQueue.ContainsKey(eventName)) 
+                _eventQueue.Add(eventName, new Queue<InvokedEvent>());
+            _eventQueue[eventName].Enqueue(new InvokedEvent(eventName, args));
         }
     }
 }
