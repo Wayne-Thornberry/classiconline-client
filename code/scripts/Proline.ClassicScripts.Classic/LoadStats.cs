@@ -29,8 +29,8 @@ namespace Proline.ClassicOnline.SClassic
                 CDebugActionsAPI.LogDebug(walletBalance);
                 CDebugActionsAPI.LogDebug(bankBalance);
 
-                walletBalanceStat.SetValue(Convert.ToInt64(CGameLogicAPI.GetCharacterWalletBalance()));
-                bankBalanceStat.SetValue(Convert.ToInt64(CGameLogicAPI.GetCharacterBankBalance()));
+                walletBalanceStat.SetValue(CGameLogicAPI.GetCharacterWalletBalance());
+                bankBalanceStat.SetValue(CGameLogicAPI.GetCharacterBankBalance());
             }
         }
     }

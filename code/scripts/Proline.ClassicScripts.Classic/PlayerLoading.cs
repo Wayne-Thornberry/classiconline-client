@@ -37,8 +37,8 @@ namespace Proline.ClassicOnline.SClassic
                         CDataStream.API.SelectDataFile("PlayerInfo");
                         character.Health = CDataStream.API.GetDataFileValue<int>("PlayerHealth");
                         character.Position = CDataStream.API.GetDataFileValue<Vector3>("PlayerPosition");
-                        character.BankBalance = CDataStream.API.GetDataFileValue<long>("BankBalance");
-                        character.WalletBalance = CDataStream.API.GetDataFileValue<long>("WalletBalance");
+                        CGameLogicAPI.SetCharacterBankBalance(CDataStream.API.GetDataFileValue<long>("BankBalance"));
+                        CGameLogicAPI.SetCharacterWalletBalance(CDataStream.API.GetDataFileValue<long>("WalletBalance"));
                     }
 
                     if (CDataStream.API.DoesDataFileExist("PlayerStats"))
@@ -107,6 +107,7 @@ namespace Proline.ClassicOnline.SClassic
                         }
                     }
 
+                    CGameLogicAPI.SetCharacter(character);
                     CCoreSystem.CCoreSystemAPI.StartNewScript("LoadStats");
 
                 }

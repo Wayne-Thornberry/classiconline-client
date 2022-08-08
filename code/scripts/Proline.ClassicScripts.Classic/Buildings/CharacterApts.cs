@@ -25,6 +25,7 @@ namespace Proline.ClassicOnline.SClassic.Buildings
         private string _enteredBuilding;
         private string _neariestEntrance;
         private string _targetProperty;
+        private int[] _vehicles;
 
         public async Task Execute(object[] args, CancellationToken token)
         {
@@ -68,7 +69,21 @@ namespace Proline.ClassicOnline.SClassic.Buildings
                                 _interior = WorldAPI.GetPropertyInterior(_targetPropertyPart, whereAreYouEntering + "s");
                                 var interiorEntry = WorldAPI.GetPropertyEntry(_targetPropertyPart, whereAreYouEntering + "s", _neariestEntrance);
                                 _lastPoint = WorldAPI.EnterInterior(_interior, interiorEntry);
-                                Game.PlayerPed.Position = _lastPoint; 
+                                Game.PlayerPed.Position = _lastPoint;
+                                switch (_targetArea)
+                                { 
+                                    case "Garage":
+                                        {
+                                            var limit = WorldAPI.GetPropertyGarageLimit(_targetProperty);
+                                            _vehicles = new int[limit];
+                                            for (int i = 0; i < limit; i++)
+                                            {
+                                                var vehicle = await World.CreateVehicle(new Model(VehicleHash.Buffalo3), Game.PlayerPed.Position);
+                                                _vehicles[i] = vehicle.Handle;
+                                                WorldAPI.PlaceVehicleInGarageSlot(_targetProperty, i, vehicle);
+                                            }
+                                        }break;
+                                }
                                 RefreshExitPoints();
                                 stage++; 
                             }
@@ -86,23 +101,65 @@ namespace Proline.ClassicOnline.SClassic.Buildings
                         if (API.GetInteriorFromEntity(Game.PlayerPed.Handle) == 0)
                             stage = 0;
 
-                        foreach (var exit in _interiorExits)
+                        if (!Game.PlayerPed.IsInVehicle())
                         { 
-                            World.DrawMarker(MarkerType.DebugSphere, exit, new Vector3(0, 0, 0), new Vector3(0, 0, 0), new Vector3(1, 1, 1),
-                                System.Drawing.Color.FromArgb(150, 0, 0, 0));
-                            if (World.GetDistance(Game.PlayerPed.Position, exit) < 2f)
-                            { 
+                            foreach (var exit in _interiorExits)
+                            {
+                                World.DrawMarker(MarkerType.DebugSphere, exit, new Vector3(0, 0, 0), new Vector3(0, 0, 0), new Vector3(1, 1, 1),
+                                    System.Drawing.Color.FromArgb(150, 0, 0, 0));
+                                if (World.GetDistance(Game.PlayerPed.Position, exit) < 2f)
+                                {
+                                    var neariestExit = WorldAPI.GetNearestInteriorExit(_interior);
+                                    var whereAreYouExiting = WorldAPI.ExitInterior(_interior, neariestExit);
+                                    var newExit = WorldAPI.GetPropertyExit(_targetPropertyPart, _targetArea + "s", neariestExit);
+                                    var placePosition = WorldAPI.ExitBuilding(_enteredBuilding, newExit, Game.PlayerPed.IsInVehicle() ? 1 : 0);
+                                    Game.PlayerPed.Position = placePosition;
+                                    _lastPoint = placePosition;
+                                    stage++;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (Game.IsControlJustPressed(0, Control.VehicleAccelerate))
+                            {
                                 var neariestExit = WorldAPI.GetNearestInteriorExit(_interior);
-                                var whereAreYouExiting = WorldAPI.ExitInterior(_interior, neariestExit); 
+                                var whereAreYouExiting = WorldAPI.ExitInterior(_interior, neariestExit);
                                 var newExit = WorldAPI.GetPropertyExit(_targetPropertyPart, _targetArea + "s", neariestExit);
                                 var placePosition = WorldAPI.ExitBuilding(_enteredBuilding, newExit, Game.PlayerPed.IsInVehicle() ? 1 : 0);
-                                Game.PlayerPed.Position = placePosition;
-                                _lastPoint = placePosition; 
-                                stage++; 
+                                Game.PlayerPed.CurrentVehicle.Position = placePosition;
+                                _lastPoint = placePosition;
+                                stage++;
                             }
-                        } 
+                        }
                         break;
                     case 4:
+                        {
+                            // Cleanup
+                            switch (_targetArea)
+                            {
+                                case "Garage":
+                                    {  
+                                        for (int i = 0; i < _vehicles.Length; i++)
+                                        {
+                                            var vehicle = new Vehicle(_vehicles[i]);
+                                            if (Game.PlayerPed.CurrentVehicle == vehicle)
+                                            {
+                                                var pv = CGameLogic.CGameLogicAPI.GetPersonalVehicle();
+                                                pv.Delete();
+                                                CGameLogic.CGameLogicAPI.SetCharacterPersonalVehicle(_vehicles[i]);
+                                                vehicle.AttachBlip();
+                                                continue;
+                                            }
+                                            vehicle.Delete();
+                                        }
+                                    }
+                                    break;
+                            }
+                            stage++;
+                        }
+                        break;
+                    case 5:
                         {
                             if (World.GetDistance(Game.PlayerPed.Position, _lastPoint) > 4f)
                             {

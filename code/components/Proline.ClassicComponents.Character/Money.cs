@@ -170,8 +170,7 @@ namespace Proline.ClassicOnline.CGameLogic
         public static long GetCharacterWalletBalance()
         {
             try
-            {
-                
+            { 
                 return Character.WalletBalance; 
             }
             catch (Exception e)

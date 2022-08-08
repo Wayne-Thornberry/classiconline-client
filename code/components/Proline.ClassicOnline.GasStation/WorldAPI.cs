@@ -21,6 +21,9 @@ namespace Proline.ClassicOnline.CWorldObjects
             {
                 var garage = GetPropertyGarage(propertyId);
                 var layout = GetPropertyGarageLayout(propertyId);
+                var limit = GetPropertyGarageLimit(propertyId);
+                if (index > limit)
+                    return;
                 var resourceData1 = ResourceFile.Load($"data/world/garages/{garage}.json");
                 var garageInterior = JsonConvert.DeserializeObject<BuildingInteriorLink>(resourceData1.Load());
 
@@ -28,7 +31,7 @@ namespace Proline.ClassicOnline.CWorldObjects
                 var interior = JsonConvert.DeserializeObject<InteriorMetadata>(resourceData2.Load());
 
 
-                var resourceData3 = ResourceFile.Load($"data/world/garages/layout/{layout}.json");
+                var resourceData3 = ResourceFile.Load($"data/world/garages/layouts/{layout}.json");
                 var garageLayout = JsonConvert.DeserializeObject<GarageLayout>(resourceData3.Load());
 
 
@@ -46,6 +49,14 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
         }
 
+        public static int GetPropertyGarageLimit(string propertyId)
+        { 
+            if (string.IsNullOrEmpty(propertyId))
+                return 0;
+            var pm = PropertyManager.GetInstance();
+            var property = pm.GetProperty(propertyId);
+            return property.VehicleCap;
+        }
 
         public static void DrawMarker()
         {

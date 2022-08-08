@@ -1,12 +1,13 @@
 ﻿using CitizenFX.Core;
+using Proline.ClassicOnline.CGameLogic.Internal;
 using System;
 
 namespace Proline.ClassicOnline.CGameLogic.Data
 {
     public class PlayerCharacter : Entity
     {
-        public long BankBalance { get; set; }
-        public long WalletBalance { get; set; }
+        public long BankBalance => Character.BankBalance;
+        public long WalletBalance => Character.WalletBalance;
         public char Gender { get; set; } = 'm';
         public string SpawnLocation { get; set; } = "LAST_LOCATION";
         public float[] LastPosition { get; set; } = { 0f, 0f, 70f };
