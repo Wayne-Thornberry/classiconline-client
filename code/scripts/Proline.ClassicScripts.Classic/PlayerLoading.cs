@@ -9,8 +9,7 @@ using Proline.Resource;
 using Proline.CFXExtended.Core; 
 using Proline.ClassicOnline.CGameLogic;
 using Proline.ClassicOnline.CGameLogic.Data; 
-using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.SClassic.Globals;
+using Proline.ClassicOnline.CDebugActions; 
 
 namespace Proline.ClassicOnline.SClassic
 {

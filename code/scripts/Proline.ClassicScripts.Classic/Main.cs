@@ -12,8 +12,7 @@ using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CGameLogic;
 
 using Proline.ClassicOnline.CCoreSystem;
-using Proline.Resource;
-using Proline.ClassicOnline.SClassic.Globals;
+using Proline.Resource; 
 
 namespace Proline.ClassicOnline.SClassic
 {

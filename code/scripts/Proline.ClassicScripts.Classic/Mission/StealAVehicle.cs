@@ -1,8 +1,7 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.UI;
 using Proline.ClassicOnline.CScriptBrain;
-using Proline.ClassicOnline.CGameLogic;
-using Proline.ClassicOnline.SClassic.Globals;
+using Proline.ClassicOnline.CGameLogic; 
 using System;
 using System.Collections.Generic;
 using System.Linq;
