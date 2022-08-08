@@ -24,7 +24,7 @@ namespace Proline.ClassicOnline.CWorldObjects.Commands
 
         private static async Task DoThing()
         {
-            var pickup = await World.CreatePickup(PickupType.MoneyDepBag, Game.PlayerPed.Position + (Game.PlayerPed.ForwardVector * 2), new Model("xm_prop_x17_bag_01b"), 10000);
+            var pickup = await World.CreateAmbientPickup(PickupType.MoneyDepBag, Game.PlayerPed.Position + (Game.PlayerPed.ForwardVector * 2), new Model("xm_prop_x17_bag_01b"), 10000);
         }
     }
 }

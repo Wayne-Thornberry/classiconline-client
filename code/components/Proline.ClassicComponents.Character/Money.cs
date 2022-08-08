@@ -38,6 +38,11 @@ namespace Proline.ClassicOnline.CGameLogic
             }
         }
 
+        public static long GetCharacterMaxWalletBalance()
+        {
+            return 1000;
+        }
+
         public static bool HasBankBalance(long price)
         {
             return Character.BankBalance > price;

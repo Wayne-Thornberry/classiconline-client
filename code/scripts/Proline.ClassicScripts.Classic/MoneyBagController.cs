@@ -15,31 +15,55 @@ namespace Proline.ClassicOnline.SClassic
 {
     public class MoneyBagController
     {
+
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
             if (CCoreSystemAPI.GetInstanceCountOfScript("MoneyBagController") > 1)
                 return; 
 
+            if(CGameLogicAPI.GetCharacterWalletBalance() > CGameLogicAPI.GetCharacterMaxWalletBalance())
+            {
+                GiveMoneyBag();
+            }
+
             while (!token.IsCancellationRequested)
             {
-                if(CCoreSystemAPI.GetEventExitsts(this, "CEventNetworkPlayerCollectedPickup"))
+                if(CCoreSystemAPI.GetEventExitsts(this, "CEventNetworkPlayerCollectedAmbientPickup"))
                 {
-                    var test = CCoreSystemAPI.GetEventData(this, "CEventNetworkPlayerCollectedPickup");
+                    var test = CCoreSystemAPI.GetEventData(this, "CEventNetworkPlayerCollectedAmbientPickup");
                     foreach (var item in test)
                     {
                         CDebugActions.CDebugActionsAPI.LogDebug(item);
                     }
-                    var id = int.Parse(test[4].ToString());
-                    var money = int.Parse(test[3].ToString());
+                    var id = int.Parse(test[3].ToString());
+                    var money = int.Parse(test[1].ToString());
                     if (id == API.GetHashKey("xm_prop_x17_bag_01b"))
                     {
+                        if(API.GetPedDrawableVariation(Game.PlayerPed.Handle, 5) != 45)
+                        {
+                            GiveMoneyBag();
+                        }
                         CGameLogicAPI.AddValueToWalletBalance(money);
-                        API.SetPedPropIndex(Game.PlayerPed.Handle, 9, 1, 0, true);
                     }
                 }
+
+                if (API.GetPedDrawableVariation(Game.PlayerPed.Handle, 5) != 45 && CGameLogicAPI.GetCharacterWalletBalance() > CGameLogicAPI.GetCharacterMaxWalletBalance())
+                {
+                    var _value = (int)(CGameLogicAPI.GetCharacterWalletBalance() - CGameLogicAPI.GetCharacterMaxWalletBalance());
+                    CGameLogicAPI.SubtractValueFromWalletBalance(_value);
+                    var pickup = await World.CreateAmbientPickup(PickupType.MoneyDepBag, Game.PlayerPed.Position + (Game.PlayerPed.ForwardVector * 2), new Model("xm_prop_x17_bag_01b"), _value);
+                    pickup.AttachBlip();
+                    pickup.IsPersistent = true; 
+                }
+
                 await BaseScript.Delay(0);
             }
+        }
+
+        private void GiveMoneyBag()
+        {
+            API.SetPedComponentVariation(Game.PlayerPed.Handle, 5, 45, 0, 0);
         }
     }
 }
