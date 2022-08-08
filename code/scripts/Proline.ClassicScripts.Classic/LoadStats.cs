@@ -1,6 +1,7 @@
 ﻿using Proline.CFXExtended.Core;
 using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.GCharacter;
+using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.SClassic.Globals;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,7 +1,8 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.UI;
 using Proline.ClassicOnline.CScriptBrain;
-using Proline.ClassicOnline.GCharacter;
+using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.SClassic.Globals;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,7 +58,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
                         var character = CharacterGlobals.Character;
                         if (character != null)
                         {
-                            MGame.MGameAPI.SetCharacterBankBalance(MGame.MGameAPI.GetCharacterBankBalance() + _payout);
+                            CGameLogic.CGameLogicAPI.SetCharacterBankBalance(CGameLogic.CGameLogicAPI.GetCharacterBankBalance() + _payout);
                         }
                         _targetEntity.Delete();
                         break;

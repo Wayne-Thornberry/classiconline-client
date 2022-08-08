@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>net452</TargetFramework>
 		<Platforms>AnyCPU</Platforms>
@@ -9,8 +9,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Proline.ClassicComponents.Data\Proline.ClassicOnline.CDataStream.csproj" />
-		<ProjectReference Include="..\..\globals\Proline.ClassicOnline.GCharacter\Proline.ClassicOnline.GCharacter.csproj" />
+		<ProjectReference Include="..\Proline.ClassicComponents.Data\Proline.ClassicOnline.CDataStream.csproj" /> 
 	</ItemGroup>
 
 	<ItemGroup>

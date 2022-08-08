@@ -31,7 +31,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
             while (!token.IsCancellationRequested)
             {
 
-                if (Game.PlayerPed.IsInVehicle() && !MissionAPIs.GetMissionFlag() && !MGame.MGameAPI.IsInPersonalVehicle() && !MissionAPIs.IsInMissionVehicle())
+                if (Game.PlayerPed.IsInVehicle() && !MissionAPIs.GetMissionFlag() && !CGameLogic.CGameLogicAPI.IsInPersonalVehicle() && !MissionAPIs.IsInMissionVehicle())
                 {
                     _targetVehicle = Game.PlayerPed.CurrentVehicle;
                     if (!_oneTime)

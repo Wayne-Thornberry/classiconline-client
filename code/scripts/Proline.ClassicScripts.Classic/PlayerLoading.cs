@@ -8,10 +8,11 @@ using CitizenFX.Core.Native;
 using Proline.Resource;
 using Proline.CFXExtended.Core;
 using Proline.ClassicOnline.GScripting;
-using Proline.ClassicOnline.GCharacter;
-using Proline.ClassicOnline.GCharacter.Data;
-using Proline.ClassicOnline.MGame;
+using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.CGameLogic.Data;
+using Proline.ClassicOnline.CGameLogic;
 using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.SClassic.Globals;
 
 namespace Proline.ClassicOnline.SClassic
 {
@@ -61,7 +62,7 @@ namespace Proline.ClassicOnline.SClassic
                         var resemblence = CDataStream.API.GetDataFileValue<float>("Resemblance");
                         var skintone = CDataStream.API.GetDataFileValue<float>("SkinTone");
 
-                        MGameAPI.SetPedLooks(Game.PlayerPed.Handle, new CharacterLooks()
+                        CGameLogicAPI.SetPedLooks(Game.PlayerPed.Handle, new CharacterLooks()
                         {
                             Mother = mother,
                             Father = father,
@@ -112,7 +113,6 @@ namespace Proline.ClassicOnline.SClassic
 
                     CCoreSystem.CCoreSystemAPI.StartNewScript("LoadStats");
 
-                    Console.WriteLine(ScriptingGlobals.Testing);
                 }
                 else
                 {

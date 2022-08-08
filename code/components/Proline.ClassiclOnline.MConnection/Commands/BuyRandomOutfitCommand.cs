@@ -1,7 +1,7 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
 using Proline.CFXExtended.Core;
-using Proline.ClassicOnline.MGame;
+using Proline.ClassicOnline.CGameLogic;
 using Proline.Resource.Framework;
 using System;
 using System.Collections.Generic;
@@ -20,11 +20,11 @@ namespace Proline.ClassicOnline.CNetConnection.Commands
 
         protected override void OnCommandExecute(params object[] args)
         {
-            if (MGameAPI.GetCharacterBankBalance() > 250)
+            if (CGameLogicAPI.GetCharacterBankBalance() > 250)
             {
                 Game.Player.Character.Style.RandomizeOutfit();
                 Game.Player.Character.Style.RandomizeProps();
-                MGameAPI.SetCharacterBankBalance(250);
+                CGameLogicAPI.SetCharacterBankBalance(250);
             }
         }
     }

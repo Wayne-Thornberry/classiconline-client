@@ -1,7 +1,7 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
 using Proline.CFXExtended.Core;
-using Proline.ClassicOnline.GCharacter;
+using Proline.ClassicOnline.CGameLogic;
 
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using Proline.Resource.Framework;
 using System.Text;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
-using Proline.ClassicOnline.MGame;
+using Proline.ClassicOnline.CGameLogic;
 
 namespace Proline.ClassicOnline.CNetConnection.Commands
 {
@@ -23,22 +23,17 @@ namespace Proline.ClassicOnline.CNetConnection.Commands
         protected override void OnCommandExecute(params object[] args)
         {
 
-            if (MGameAPI.GetCharacterBankBalance() > 250)
+            if (CGameLogicAPI.GetCharacterBankBalance() > 250)
             {
-                if (CharacterGlobals.Character != null)
+                if (CGameLogicAPI.HasCharacter())
                 {
-                    if (CharacterGlobals.Character.PersonalVehicle != null)
+                    if (CGameLogicAPI.GetPersonalVehicle() != null)
                     {
-                        foreach (var item in CharacterGlobals.Character.PersonalVehicle.AttachedBlips)
-                        {
-                            item.Delete();
-                        }
-                        CharacterGlobals.Character.PersonalVehicle.IsPersistent = false;
-                        CharacterGlobals.Character.PersonalVehicle.Delete();
+                        CGameLogicAPI.DeletePersonalVehicle();
                     }
 
 
-                    MGameAPI.SetCharacterBankBalance(250);
+                    CGameLogicAPI.SetCharacterBankBalance(250);
                     Array values = Enum.GetValues(typeof(VehicleHash));
                     Random random = new Random();
                     VehicleHash randomBar = (VehicleHash)values.GetValue(random.Next(values.Length));
@@ -46,7 +41,7 @@ namespace Proline.ClassicOnline.CNetConnection.Commands
                     task.ContinueWith(e =>
                     {
                         var vehicle = e.Result;
-                        CharacterGlobals.Character.PersonalVehicle = new GCharacter.Data.CharacterPersonalVehicle(vehicle.Handle);
+                        CGameLogicAPI.SetPersonalVehicle(vehicle.Handle);
 
                         var id = "PlayerVehicle";
                         CDataStream.API.CreateDataFile();

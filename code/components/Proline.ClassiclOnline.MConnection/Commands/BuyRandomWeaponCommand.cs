@@ -8,7 +8,7 @@ using System.Text;
 using Proline.Resource.Framework;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
-using Proline.ClassicOnline.MGame;
+using Proline.ClassicOnline.CGameLogic;
 
 namespace Proline.ClassicOnline.CNetConnection.Commands
 {
@@ -20,7 +20,7 @@ namespace Proline.ClassicOnline.CNetConnection.Commands
 
         protected override void OnCommandExecute(params object[] args)
         {
-            if (MGameAPI.GetCharacterBankBalance() > 250)
+            if (CGameLogicAPI.GetCharacterBankBalance() > 250)
             {
 
                 Array values = Enum.GetValues(typeof(WeaponHash));
@@ -35,7 +35,7 @@ namespace Proline.ClassicOnline.CNetConnection.Commands
                 CDataStream.API.AddDataFileValue("WeaponAmmo", ammo);
                 CDataStream.API.SaveDataFile(id);
 
-                MGameAPI.SubtractValueFromBankBalance(250);
+                CGameLogicAPI.SubtractValueFromBankBalance(250);
             }
         }
     }

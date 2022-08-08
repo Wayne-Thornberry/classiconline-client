@@ -85,7 +85,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
                     if (World.GetDistance(_trailer.Position, _deliveryLoc) < 10f)
                     {
                         _trailer.Delete();
-                        MGame.MGameAPI.AddValueToBankBalance(_payout);
+                        CGameLogic.CGameLogicAPI.AddValueToBankBalance(_payout);
                         break;
                     }
                 }

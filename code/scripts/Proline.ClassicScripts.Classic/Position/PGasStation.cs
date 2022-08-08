@@ -1,7 +1,7 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.UI;
 using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.MGame;
+using Proline.ClassicOnline.CGameLogic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,7 +51,7 @@ namespace Proline.ClassicOnline.SClassic.Position
                         CDebugActionsAPI.LogDebug(_fillAmount);
                         var cost = (int)(_fillAmount * 100.00f);
                         CDebugActionsAPI.LogDebug(cost);
-                        MGameAPI.SetCharacterBankBalance(MGameAPI.GetCharacterBankBalance() - cost);
+                        CGameLogicAPI.SetCharacterBankBalance(CGameLogicAPI.GetCharacterBankBalance() - cost);
                         _fillAmount = 0f;
                         _isFilling = false;
                     }

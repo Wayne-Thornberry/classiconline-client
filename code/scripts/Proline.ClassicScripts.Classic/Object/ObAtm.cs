@@ -64,7 +64,7 @@ namespace Proline.ClassicOnline.SClassic.Object
                             {
                                 io.DisplayBalance(Game.Player.Name,
                                     "Account Balance: ",
-                                   (int)MGame.MGameAPI.GetCharacterBankBalance());
+                                   (int)CGameLogic.CGameLogicAPI.GetCharacterBankBalance());
                                 RenderMainPage();
                             }
 
@@ -203,7 +203,7 @@ namespace Proline.ClassicOnline.SClassic.Object
                                     io.SetInputSelect();
                                     io.DisplayBalance(Game.Player.Name,
                                         "Account Balance: ",
-                                         (int)MGame.MGameAPI.GetCharacterBankBalance());
+                                         (int)CGameLogic.CGameLogicAPI.GetCharacterBankBalance());
                                     getSelectionTask = io.GetCurrentSelection();
                                 }
                                 else if (Game.IsControlJustPressed(0, Control.FrontendCancel))
@@ -281,13 +281,13 @@ namespace Proline.ClassicOnline.SClassic.Object
             io.SetDataSlot(0, "Processing Amount");
             if (IsDepositing)
             { 
-                MGame.MGameAPI.SetCharacterBankBalance(MGame.MGameAPI.GetCharacterBankBalance() + selectedAmount);
-                MGame.MGameAPI.SetCharacterWalletBalance(MGame.MGameAPI.GetCharacterWalletBalance() - selectedAmount);
+                CGameLogic.CGameLogicAPI.SetCharacterBankBalance(CGameLogic.CGameLogicAPI.GetCharacterBankBalance() + selectedAmount);
+                CGameLogic.CGameLogicAPI.SetCharacterWalletBalance(CGameLogic.CGameLogicAPI.GetCharacterWalletBalance() - selectedAmount);
             }
             else
             {
-                MGame.MGameAPI.SetCharacterWalletBalance(MGame.MGameAPI.GetCharacterWalletBalance() + selectedAmount);
-                MGame.MGameAPI.SetCharacterBankBalance(MGame.MGameAPI.GetCharacterBankBalance() - selectedAmount); 
+                CGameLogic.CGameLogicAPI.SetCharacterWalletBalance(CGameLogic.CGameLogicAPI.GetCharacterWalletBalance() + selectedAmount);
+                CGameLogic.CGameLogicAPI.SetCharacterBankBalance(CGameLogic.CGameLogicAPI.GetCharacterBankBalance() - selectedAmount); 
             }
             io.DisplayMessage();
         }
@@ -331,10 +331,10 @@ namespace Proline.ClassicOnline.SClassic.Object
         private void RenderCashPage(string title, int[] cashAmounts)
         {
             DisplayedView = 1;
-            var max = IsDepositing ? MGame.MGameAPI.GetCharacterWalletBalance() : MGame.MGameAPI.GetCharacterBankBalance();
+            var max = IsDepositing ? CGameLogic.CGameLogicAPI.GetCharacterWalletBalance() : CGameLogic.CGameLogicAPI.GetCharacterBankBalance();
             cashAmounts[5] = (int)max;//(max > MAX_LIMIT ? MAX_LIMIT : max);
             io.DisplayBalance(Game.Player.Name, "Account Balance:",
-                (int)MGame.MGameAPI.GetCharacterBankBalance());
+                (int)CGameLogic.CGameLogicAPI.GetCharacterBankBalance());
             io.SetDataSlotEmpty();
             io.SetDataSlot(0, title);
             io.SetDataSlot(1, cashAmounts[0]);

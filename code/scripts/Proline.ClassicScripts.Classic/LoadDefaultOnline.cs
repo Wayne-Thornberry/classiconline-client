@@ -1,7 +1,8 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
-using Proline.ClassicOnline.GCharacter;
-using Proline.ClassicOnline.GCharacter.Data;
+using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.CGameLogic.Data;
+using Proline.ClassicOnline.SClassic.Globals;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace Proline.ClassicOnline.SClassic
                 CharacterGlobals.Character = character;
             }
 
-            MGame.MGameAPI.SetPedOutfit("mp_m_defaultoutfit", Game.PlayerPed.Handle);
+            CGameLogic.CGameLogicAPI.SetPedOutfit("mp_m_defaultoutfit", Game.PlayerPed.Handle);
         }
 
         private static PlayerCharacter CreateNewCharacter()

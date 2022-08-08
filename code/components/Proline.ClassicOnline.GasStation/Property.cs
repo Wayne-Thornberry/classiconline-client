@@ -2,8 +2,7 @@
 using Newtonsoft.Json;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CWorldObjects.Data.Ownership;
-using Proline.ClassicOnline.CWorldObjects.Internal;
-using Proline.ClassicOnline.GCharacter;
+using Proline.ClassicOnline.CWorldObjects.Internal; 
 using Proline.Resource.IO;
 using System;
 using System.Collections.Generic;

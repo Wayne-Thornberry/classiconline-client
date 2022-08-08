@@ -7,8 +7,8 @@ using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Newtonsoft.Json;
 using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.GCharacter.Data;
-using Proline.ClassicOnline.MGame;
+using Proline.ClassicOnline.CGameLogic.Data;
+using Proline.ClassicOnline.CGameLogic;
 using Proline.ClassicOnline.CCoreSystem;
 
 namespace Proline.ClassicOnline.SClassic
@@ -114,7 +114,7 @@ namespace Proline.ClassicOnline.SClassic
             var id = "CharacterLooks";
             if (!CDataStream.API.DoesDataFileExist(id))
             {
-                var pedLooks = MGameAPI.GetPedLooks(Game.PlayerPed.Handle);
+                var pedLooks = CGameLogicAPI.GetPedLooks(Game.PlayerPed.Handle);
                 CDataStream.API.CreateDataFile();
                 CDataStream.API.AddDataFileValue("Mother", pedLooks.Mother);
                 CDataStream.API.AddDataFileValue("Father", pedLooks.Father);
@@ -199,12 +199,12 @@ namespace Proline.ClassicOnline.SClassic
          
         public void RefreshCharacter(char gender)
         {
-            MGameAPI.SetPedGender(Game.PlayerPed.Handle, gender); 
+            CGameLogicAPI.SetPedGender(Game.PlayerPed.Handle, gender); 
         }
 
         public void UpdateHeritage()
         {
-            MGameAPI.SetPedLooks(Game.PlayerPed.Handle, new CharacterLooks()
+            CGameLogicAPI.SetPedLooks(Game.PlayerPed.Handle, new CharacterLooks()
             { 
                 Mother = _selectedMother,
                 Father = _selectedFather,

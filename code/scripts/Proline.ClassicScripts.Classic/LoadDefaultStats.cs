@@ -1,6 +1,6 @@
 ﻿using CitizenFX.Core;
 using Proline.CFXExtended.Core;
-using Proline.ClassicOnline.GCharacter;
+using Proline.ClassicOnline.CGameLogic;
 using System;
 using System.Collections.Generic;
 using System.Linq;

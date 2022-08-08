@@ -10,10 +10,11 @@ using Newtonsoft.Json;
 using Proline.CFXExtended.Core;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.GScripting;
-using Proline.ClassicOnline.MGame;
+using Proline.ClassicOnline.CGameLogic;
 
 using Proline.ClassicOnline.CCoreSystem;
 using Proline.Resource;
+using Proline.ClassicOnline.SClassic.Globals;
 
 namespace Proline.ClassicOnline.SClassic
 {
@@ -28,7 +29,6 @@ namespace Proline.ClassicOnline.SClassic
             API.SetInstancePriorityMode(true);
             API.SetInstancePriorityHint(3);
             // Enable Trains
-            ScriptingGlobals.Testing = 2f;
 
             API.SwitchTrainTrack(0, true);
             API.SwitchTrainTrack(3, true);

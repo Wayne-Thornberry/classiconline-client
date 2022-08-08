@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Proline.Resource.Framework;
 using System.Threading.Tasks;
-using Proline.ClassicOnline.MGame;
+using Proline.ClassicOnline.CGameLogic;
 
 namespace Proline.ClassicOnline.CGameLogic.Commands
 {
@@ -20,7 +20,7 @@ namespace Proline.ClassicOnline.CGameLogic.Commands
             if (args.Length > 0)
             {
                 long.TryParse(args[0].ToString(), out var value);
-                MGameAPI.SetCharacterWalletBalance(value);
+                CGameLogicAPI.SetCharacterWalletBalance(value);
             }
 
         }

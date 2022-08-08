@@ -1,7 +1,7 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
 using Proline.CFXExtended.Core;
-using Proline.ClassicOnline.GCharacter.Data;
+using Proline.ClassicOnline.CGameLogic.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;

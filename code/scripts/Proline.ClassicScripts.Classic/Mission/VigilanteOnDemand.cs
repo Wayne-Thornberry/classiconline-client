@@ -79,7 +79,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
         {
             if (IsAllTargetsDead())
             {
-                MGame.MGameAPI.AddValueToBankBalance(_payout);
+                CGameLogic.CGameLogicAPI.AddValueToBankBalance(_payout);
             }
 
             DeleteAllBlips(_policeVehicle);

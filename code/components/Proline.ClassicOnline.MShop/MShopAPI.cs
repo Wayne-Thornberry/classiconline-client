@@ -3,8 +3,8 @@ using CitizenFX.Core.Native;
 using Newtonsoft.Json;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CShopCatalogue.Internal;
-using Proline.ClassicOnline.GCharacter;
-using Proline.ClassicOnline.MGame;
+using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.CGameLogic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace Proline.ClassicOnline.CShopCatalogue
         {
             try
             {
-                if (CharacterGlobals.Character != null)
+                if (CGameLogicAPI.HasCharacter())
                 {
                     var manager = CatalougeManager.GetInstance();
                     var catalouge = manager.GetCatalouge("VehicleCatalouge");
@@ -29,10 +29,9 @@ namespace Proline.ClassicOnline.CShopCatalogue
 
                     if (vci == null)
                         throw new Exception("Catalouge Item not found");
-                    var character = CharacterGlobals.Character;
-                    if (character.BankBalance > vci.Price)
+                    if (CGameLogicAPI.HasBankBalance(vci.Price))
                     {
-                        var currentVehicle = character.PersonalVehicle;
+                        var currentVehicle = CGameLogicAPI.GetPersonalVehicle();
                         if (currentVehicle != null)
                         {
                             foreach (var item in currentVehicle.AttachedBlips)
@@ -44,12 +43,11 @@ namespace Proline.ClassicOnline.CShopCatalogue
                         }
 
 
-                        character.BankBalance -= vci.Price;
                         var task = World.CreateVehicle(new Model(vci.Model), World.GetNextPositionOnStreet(Game.PlayerPed.Position));
                         task.ContinueWith(e =>
                         {
                             var createdVehicle = e.Result;
-                            character.PersonalVehicle = new GCharacter.Data.CharacterPersonalVehicle(createdVehicle.Handle);
+                            CGameLogicAPI.SetPersonalVehicle(createdVehicle.Handle);
 
                             var id = "PlayerVehicle";
                             CDataStream.API.CreateDataFile();
@@ -59,7 +57,7 @@ namespace Proline.ClassicOnline.CShopCatalogue
                             if (createdVehicle.AttachedBlips.Length == 0)
                                 createdVehicle.AttachBlip();
                             CDataStream.API.SaveDataFile(id);
-                            MGameAPI.SetCharacterBankBalance(character.BankBalance);
+                            CGameLogicAPI.SubtractValueFromBankBalance(vci.Price);
                         });
 
                     }

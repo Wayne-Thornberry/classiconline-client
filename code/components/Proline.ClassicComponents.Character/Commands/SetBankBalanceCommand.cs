@@ -1,6 +1,6 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
-using Proline.ClassicOnline.GCharacter;
+using Proline.ClassicOnline.CGameLogic;
 
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Text;
 using Proline.Resource.Framework;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
-using Proline.ClassicOnline.MGame;
+using Proline.ClassicOnline.CGameLogic;
 
 namespace Proline.ClassicOnline.CGameLogic.Commands
 {
@@ -24,7 +24,7 @@ namespace Proline.ClassicOnline.CGameLogic.Commands
             if (args.Length > 0)
             {
                 long.TryParse(args[0].ToString(), out var value);
-                MGameAPI.SetCharacterBankBalance(value);
+                CGameLogicAPI.SetCharacterBankBalance(value);
             }
 
         }

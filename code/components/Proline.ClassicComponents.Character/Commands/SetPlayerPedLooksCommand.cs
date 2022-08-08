@@ -1,7 +1,7 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
-using Proline.ClassicOnline.GCharacter;
-using Proline.ClassicOnline.GCharacter.Data;
+using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.CGameLogic.Data;
 
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Text;
 using Proline.Resource.Framework;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
-using Proline.ClassicOnline.MGame;
+using Proline.ClassicOnline.CGameLogic;
 
 namespace Proline.ClassicOnline.CGameLogic.Commands
 {
@@ -28,7 +28,7 @@ namespace Proline.ClassicOnline.CGameLogic.Commands
                 looks.Father = int.Parse(args[0].ToString());
                 looks.Mother = int.Parse(args[1].ToString());
                 looks.Resemblence = float.Parse(args[2].ToString());
-                MGameAPI.SetPedLooks(Game.PlayerPed.Handle, looks);
+                CGameLogicAPI.SetPedLooks(Game.PlayerPed.Handle, looks);
             }
 
         }

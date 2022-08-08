@@ -1,8 +1,8 @@
 ﻿using CitizenFX.Core.Native;
 using Newtonsoft.Json;
 using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.GCharacter;
-using Proline.ClassicOnline.GCharacter.Data;
+using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.CGameLogic.Data;
 using Proline.Resource.IO;
 using System;
 using System.Collections.Generic;
@@ -10,18 +10,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MGame
+namespace Proline.ClassicOnline.CGameLogic
 {
 
-    public static partial class MGameAPI
+    public static partial class CGameLogicAPI
     {
 
         public static void SetPedLooks(int pedHandle, CharacterLooks looks)
         {
             try
             {
-                if (CharacterGlobals.Character != null)
-                    CharacterGlobals.Character.Looks = looks;
+                //if (CharacterGlobals.Character != null)
+                //    CharacterGlobals.Character.Looks = looks;
                 API.SetPedHeadBlendData(pedHandle, looks.Father, looks.Mother, 0, looks.Father, looks.Mother, 0, looks.Resemblence, looks.SkinTone, 0, true);
 
                 if(looks.Hair != null)
@@ -82,9 +82,9 @@ namespace Proline.ClassicOnline.MGame
                 //int x = 0;
                 //API.GetPedHeadBlendData(pedHandle,ref x);
                 //CDebugActions.CDebugActionsAPI.LogDebug(x);
-                if (CharacterGlobals.Character != null)
-                    return CharacterGlobals.Character.Looks;
-                else
+                //if (CharacterGlobals.Character != null)
+                //    return CharacterGlobals.Character.Looks;
+                //else
                     return null;
             }
             catch (Exception e)
