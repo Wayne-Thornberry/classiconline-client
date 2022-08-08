@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 using CitizenFX.Core.Native;
 
 using Proline.Resource;
-using Proline.CFXExtended.Core;
-using Proline.ClassicOnline.GScripting;
+using Proline.CFXExtended.Core; 
 using Proline.ClassicOnline.CGameLogic;
-using Proline.ClassicOnline.CGameLogic.Data;
-using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.CGameLogic.Data; 
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.SClassic.Globals;
 
@@ -33,8 +31,7 @@ namespace Proline.ClassicOnline.SClassic
                 await CDataStream.API.PullSaveFromCloud(); // Sends a load request to the server
                 if (CDataStream.API.HasSaveLoaded())
                 {
-                    PlayerCharacter character = CreateNewCharacter();
-                    CharacterGlobals.Character = character; 
+                    PlayerCharacter character = CreateNewCharacter(); 
 
                     if (CDataStream.API.DoesDataFileExist("PlayerInfo"))
                     {
@@ -96,7 +93,7 @@ namespace Proline.ClassicOnline.SClassic
                             vehicle.IsPersistent = true;
                             if (vehicle.AttachedBlips.Length == 0)
                                 vehicle.AttachBlip();
-                            CharacterGlobals.Character.PersonalVehicle = new CharacterPersonalVehicle(vehicle.Handle);
+                            CGameLogicAPI.SetCharacterPersonalVehicle(vehicle.Handle);
                         }
                     }
 

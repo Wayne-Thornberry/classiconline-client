@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Proline.ClassicOnline.CScriptBrain.Entity;
 
 namespace Proline.ClassicOnline.SClassic.Mission
 {
@@ -28,7 +29,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
             _closestDistance = 99999.0f;
             _payout = 1000;
 
-            var handles = CScriptBrainAPI.GetEntityHandlesByTypes(GScripting.EntityType.VEHICLE);
+            var handles = CScriptBrainAPI.GetEntityHandlesByTypes(EntityType.VEHICLE);
 
             foreach (var item in handles)
             {
@@ -54,9 +55,8 @@ namespace Proline.ClassicOnline.SClassic.Mission
                 if (World.GetDistance(_targetEntity.Position, _targetDeliveryPos) < 10f)
                 {
                     if (!Game.PlayerPed.IsInVehicle())
-                    {
-                        var character = CharacterGlobals.Character;
-                        if (character != null)
+                    { 
+                        if (CGameLogicAPI.HasCharacter())
                         {
                             CGameLogic.CGameLogicAPI.SetCharacterBankBalance(CGameLogic.CGameLogicAPI.GetCharacterBankBalance() + _payout);
                         }

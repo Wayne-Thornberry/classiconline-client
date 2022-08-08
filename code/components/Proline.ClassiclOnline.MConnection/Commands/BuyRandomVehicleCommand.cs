@@ -41,7 +41,7 @@ namespace Proline.ClassicOnline.CNetConnection.Commands
                     task.ContinueWith(e =>
                     {
                         var vehicle = e.Result;
-                        CGameLogicAPI.SetPersonalVehicle(vehicle.Handle);
+                        CGameLogicAPI.SetCharacterPersonalVehicle(vehicle.Handle);
 
                         var id = "PlayerVehicle";
                         CDataStream.API.CreateDataFile();

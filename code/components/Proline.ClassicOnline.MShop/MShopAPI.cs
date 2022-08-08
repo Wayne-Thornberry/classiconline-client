@@ -47,7 +47,7 @@ namespace Proline.ClassicOnline.CShopCatalogue
                         task.ContinueWith(e =>
                         {
                             var createdVehicle = e.Result;
-                            CGameLogicAPI.SetPersonalVehicle(createdVehicle.Handle);
+                            CGameLogicAPI.SetCharacterPersonalVehicle(createdVehicle.Handle);
 
                             var id = "PlayerVehicle";
                             CDataStream.API.CreateDataFile();

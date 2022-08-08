@@ -25,7 +25,7 @@ namespace Proline.ClassicOnline.SClassic
                 {
                     await BaseScript.Delay(1);
                 }
-                CharacterGlobals.Character = character;
+                CGameLogicAPI.SetCharacter(character);
             }
 
             CGameLogic.CGameLogicAPI.SetPedOutfit("mp_m_defaultoutfit", Game.PlayerPed.Handle);

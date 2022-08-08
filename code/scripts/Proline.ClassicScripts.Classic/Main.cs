@@ -8,8 +8,7 @@ using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Newtonsoft.Json;
 using Proline.CFXExtended.Core;
-using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.GScripting;
+using Proline.ClassicOnline.CDebugActions; 
 using Proline.ClassicOnline.CGameLogic;
 
 using Proline.ClassicOnline.CCoreSystem;

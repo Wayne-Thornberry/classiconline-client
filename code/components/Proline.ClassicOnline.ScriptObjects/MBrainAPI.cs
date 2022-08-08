@@ -1,7 +1,7 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.GScripting;
+using Proline.ClassicOnline.CScriptBrain.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;

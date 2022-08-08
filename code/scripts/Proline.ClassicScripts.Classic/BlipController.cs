@@ -18,12 +18,12 @@ namespace Proline.ClassicOnline.SClassic
 
             while (!token.IsCancellationRequested)
             {
-                if (CharacterGlobals.Character != null)
+                if (CGameLogicAPI.HasCharacter())
                 {
                     if (Game.PlayerPed.IsInVehicle())
                     {
                         var currentVehicle = Game.PlayerPed.CurrentVehicle;
-                        var personalVehicle = CharacterGlobals.Character.PersonalVehicle;
+                        var personalVehicle = CGameLogicAPI.GetPersonalVehicle();
                         if (personalVehicle != null)
                         {
                             if (currentVehicle == personalVehicle)
@@ -37,7 +37,7 @@ namespace Proline.ClassicOnline.SClassic
                     }
                     else
                     { 
-                        var personalVehicle = CharacterGlobals.Character.PersonalVehicle;
+                        var personalVehicle = CGameLogicAPI.GetPersonalVehicle();
                         if (personalVehicle != null)
                         {
                             foreach (var blip in personalVehicle.AttachedBlips)

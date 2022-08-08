@@ -38,6 +38,16 @@ namespace Proline.ClassicOnline.CGameLogic
             }
         }
 
+        public static CharacterStats GetChracterStats()
+        {
+            return Character.PlayerCharacter.Stats;
+        }
+
+        public static void SetCharacter(PlayerCharacter character)
+        {
+            Character.PlayerCharacter = character;
+        }
+
         public static bool HasBankBalance(long price)
         {
             return Character.BankBalance > price;
@@ -58,7 +68,7 @@ namespace Proline.ClassicOnline.CGameLogic
             Character.PersonalVehicle.Delete();
         }
 
-        public static void SetPersonalVehicle(int handle)
+        public static void SetCharacterPersonalVehicle(int handle)
         {
             Character.PersonalVehicle = new CharacterPersonalVehicle(handle);
         }

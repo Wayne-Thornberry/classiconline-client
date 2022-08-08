@@ -1,6 +1,7 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using Proline.ClassicOnline.CScriptBrain;
+using Proline.ClassicOnline.CScriptBrain.Entity;
 using Proline.ClassicOnline.MissionManager;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
             _truck = (Vehicle)Entity.FromHandle(int.Parse(args[0].ToString()));
 
 
-            var handles = CScriptBrainAPI.GetEntityHandlesByTypes(GScripting.EntityType.VEHICLE);
+            var handles = CScriptBrainAPI.GetEntityHandlesByTypes(EntityType.VEHICLE);
 
             foreach (var item in handles)
             {
