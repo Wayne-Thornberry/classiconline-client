@@ -1,5 +1,6 @@
 ﻿using CitizenFX.Core.Native;
 using Newtonsoft.Json;
+using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.GCharacter;
 using Proline.ClassicOnline.GCharacter.Data;
 using Proline.Resource.IO;
@@ -10,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.MGame
-{ 
+{
 
     public static partial class MGameAPI
     {
@@ -46,7 +47,7 @@ namespace Proline.ClassicOnline.MGame
             }
             catch (Exception e)
             {
-                MDebug.MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
         }
 
@@ -65,7 +66,7 @@ namespace Proline.ClassicOnline.MGame
             }
             catch (Exception e)
             {
-                MDebug.MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             } 
         }
 
@@ -80,7 +81,7 @@ namespace Proline.ClassicOnline.MGame
             {
                 //int x = 0;
                 //API.GetPedHeadBlendData(pedHandle,ref x);
-                //MDebug.MDebugAPI.LogDebug(x);
+                //CDebugActions.CDebugActionsAPI.LogDebug(x);
                 if (CharacterGlobals.Character != null)
                     return CharacterGlobals.Character.Looks;
                 else
@@ -88,7 +89,7 @@ namespace Proline.ClassicOnline.MGame
             }
             catch (Exception e)
             {
-                MDebug.MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return null;
         }

@@ -6,8 +6,8 @@ using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Proline.CFXExtended.Core.Scaleforms;
-using Proline.ClassicOnline.MDebug;
-using Proline.ClassicOnline.MScripting;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CCoreSystem;
 
 namespace Proline.ClassicOnline.SClassic.UI
 {
@@ -28,10 +28,10 @@ namespace Proline.ClassicOnline.SClassic.UI
             {
                 if (Game.IsControlJustPressed(0, Control.CharacterWheel))
                 {
-                    MDebugAPI.LogDebug("BUTTON PRESSED");
+                    CDebugActionsAPI.LogDebug("BUTTON PRESSED");
                     plySwitch = new PlayerSwitch();
                     await plySwitch.Load();
-                    MDebugAPI.LogDebug("LOAD DONE");
+                    CDebugActionsAPI.LogDebug("LOAD DONE");
                     if (plySwitch.IsLoaded)
                     {
                         plySwitch.SetSwitchVisible(true);
@@ -42,7 +42,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                             plySwitch.SetSwitchSlot(i, 1, i, i == sel, "");
                         }
                     }
-                    MDebugAPI.LogDebug("EFFECY");
+                    CDebugActionsAPI.LogDebug("EFFECY");
                     Screen.Effects.Start(ScreenEffect.SwitchHudFranklinOut, 0, true);
                     Game.PlaySound("CHARACTER_SELECT", "HUD_FRONTEND_DEFAULT_SOUNDSET");
                 }
@@ -66,7 +66,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                     var theta = rng.NextDouble() * 2 * Math.PI;
                     var x = (float)(position.X + r * Math.Cos(theta));
                     var y = (float)(position.Y + r * Math.Sin(theta));
-                    MDebugAPI.LogDebug($"R: {R}, r {r}, Theta {theta}, CurrentPos {position} X {x}, Y {y}");
+                    CDebugActionsAPI.LogDebug($"R: {R}, r {r}, Theta {theta}, CurrentPos {position} X {x}, Y {y}");
 
                     API.SwitchOutPlayer(Game.PlayerPed.Handle, 1, 1);
                     await BaseScript.Delay(3000);
@@ -84,7 +84,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                             await Game.Player.ChangeModel(new Model(-1692214353));
                             break;
                         case 3: 
-                            MScriptingAPI.StartNewScript("PlayerLoading");
+                            CCoreSystemAPI.StartNewScript("PlayerLoading");
                             break;
                     }
                     await BaseScript.Delay(3000);

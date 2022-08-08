@@ -1,8 +1,9 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
-using Proline.ClassicOnline.MDebug;
-using Proline.ClassicOnline.MWord;
-using Proline.ClassicOnline.MWorld.Internal;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CWorldObjects.Data;
+using Proline.ClassicOnline.CWorldObjects.Data.Ownership;
+using Proline.ClassicOnline.CWorldObjects.Internal;
 using Proline.Resource.IO;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MWorld
+namespace Proline.ClassicOnline.CWorldObjects
 {
     public static partial class WorldAPI
     {
@@ -31,8 +32,8 @@ namespace Proline.ClassicOnline.MWorld
                 var garageLayout = JsonConvert.DeserializeObject<GarageLayout>(resourceData3.Load());
 
 
-                MDebugAPI.LogDebug(garageLayout.VehicleSlots.Count());
-                MDebugAPI.LogDebug(index);
+                CDebugActionsAPI.LogDebug(garageLayout.VehicleSlots.Count());
+                CDebugActionsAPI.LogDebug(index);
                 var slot = garageLayout.VehicleSlots[index];
                 if (slot == null)
                     throw new Exception($"Slot not found");
@@ -41,7 +42,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
         }
 

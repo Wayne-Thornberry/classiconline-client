@@ -5,9 +5,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
-using Proline.ClassicOnline.MDebug;
-using Proline.ClassicOnline.MRendering;
-using Proline.ClassicOnline.MScreen;
+using Proline.ClassicOnline.CScreenRendering;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CGameRendering;
 
 namespace Proline.ClassicOnline.SClassic
 {
@@ -33,7 +33,7 @@ namespace Proline.ClassicOnline.SClassic
                 ScreenAPI.DrawDebugText2D(t, new PointF(0.01f, 0.05f), 0.3f, 0);
                 //foreach (Entity entity in World.GetAllProps())
                 //{ 
-                //    //MDebugAPI.LogDebug(API.GetEntityType(handle).ToString());
+                //    //CDebugActionsAPI.LogDebug(API.GetEntityType(handle).ToString());
                 //    if (entity == null) continue;
                 //    if (!API.IsEntityVisible(entity.Handle) || World.GetDistance(entity.Position, CitizenFX.Core.Game.PlayerPed.Position) > 10f) continue;
                 //    // var pos = entity.Model.GetDimensions();
@@ -43,8 +43,8 @@ namespace Proline.ClassicOnline.SClassic
                 //        $"{Math.Round(entity.Heading, 2)}\n" +
                 //        $"{entity.Health}\n";// +
                 //                             //$"{ExampleAPI.IsEntityScripted(entity.Handle)}";
-                //    //MRenderingAPI.DrawEntityBoundingBox(entity.Handle, 125, 125, 125, 100);
-                //    //MRenderingAPI.DrawDebugText3D(x, d, 3f, 0);
+                //    //CGameRenderingAPI.DrawEntityBoundingBox(entity.Handle, 125, 125, 125, 100);
+                //    //CGameRenderingAPI.DrawDebugText3D(x, d, 3f, 0);
 
                 //}
                 await BaseScript.Delay(0);

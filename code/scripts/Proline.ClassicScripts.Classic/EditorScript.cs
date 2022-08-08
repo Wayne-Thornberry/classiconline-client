@@ -7,9 +7,9 @@ using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Newtonsoft.Json;
-using Proline.ClassicOnline.MDebug;
-using Proline.ClassicOnline.MScreen;
-using Proline.ClassicOnline.MScripting;
+using Proline.ClassicOnline.CScreenRendering;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CCoreSystem;
 using Proline.Resource;
 
 namespace Proline.ClassicOnline.SClassic
@@ -68,7 +68,7 @@ namespace Proline.ClassicOnline.SClassic
                 else if (Game.IsControlJustReleased(0, Control.FrontendCancel))
                 {
                     break;
-                    //MScriptingAPI.MarkScriptAsNoLongerNeeded();
+                    //CCoreSystemAPI.MarkScriptAsNoLongerNeeded();
                 }
                 else
                 {
@@ -241,8 +241,8 @@ namespace Proline.ClassicOnline.SClassic
                 //    //    if (PointInRectangle(_p[0], _p[1], _p[2], _p[3], new Vector2(position.X, position.Y)) && entity != Game.PlayerPed && !Exists(entity))
                 //    //    {
                 //    //        _garbage.Add(entity);
-                //    //        MDebugAPI.LogDebug(position);
-                //    //        MDebugAPI.LogDebug(item);
+                //    //        CDebugActionsAPI.LogDebug(position);
+                //    //        CDebugActionsAPI.LogDebug(item);
                 //    //    }
                 //    //}
                 //}
@@ -343,7 +343,7 @@ namespace Proline.ClassicOnline.SClassic
             x *= -1;
             y *= -1;
             var z = _cam.Rotation.X + y * _cameraSensitivity;
-            //MDebugAPI.LogDebug(z);
+            //CDebugActionsAPI.LogDebug(z);
             if (z > 89)
             {
                 z = 89;

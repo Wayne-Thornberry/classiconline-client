@@ -1,8 +1,8 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using Newtonsoft.Json;
-using Proline.ClassicOnline.MDebug;
-using Proline.ClassicOnline.MWord;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CWorldObjects.Data.Ownership;
 using Proline.Resource.IO;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MWorld
+namespace Proline.ClassicOnline.CWorldObjects
 {
     public static partial class WorldAPI
     {
@@ -25,7 +25,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return Vector3.One;
         }
@@ -64,7 +64,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return null;
         }
@@ -79,7 +79,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return Vector3.One;
         }
@@ -106,7 +106,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return null;
         }

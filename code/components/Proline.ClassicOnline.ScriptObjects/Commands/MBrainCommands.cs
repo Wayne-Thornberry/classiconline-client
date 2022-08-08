@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MBrain.Commands
+namespace Proline.ClassicOnline.CScriptBrain.Commands
 {
-    public class MBrainCommands
+    public class CScriptBrainCommands
     {
         [Command("SaveCurrentVehicle")]
         public void SaveCurrentVehicle()
@@ -22,7 +22,7 @@ namespace Proline.ClassicOnline.MBrain.Commands
                 pv.ModelHash = cv.Model.Hash;
                 pv.LastPosition = cv.Position;
                 var json = JsonConvert.SerializeObject(pv);
-                MData.API.AddDataFileValue("PersonalVehicle", json);
+                CDataStream.API.AddDataFileValue("PersonalVehicle", json);
             }
         }
 
@@ -42,12 +42,12 @@ namespace Proline.ClassicOnline.MBrain.Commands
                 pw.Hash = (uint)weaponHash;
                 Game.PlayerPed.Weapons.Give(weaponHash, pw.AmmoCount, true, true);
                 var list = new List<PersonalWeapon>();
-                if (MData.API.DoesDataFileValueExist("PersonalWeapons"))
+                if (CDataStream.API.DoesDataFileValueExist("PersonalWeapons"))
                 {
-                    list = MData.API.GetDataFileValue<List<PersonalWeapon>>("PersonalWeapons");
+                    list = CDataStream.API.GetDataFileValue<List<PersonalWeapon>>("PersonalWeapons");
                 }
                 list.Add(pw);
-                MData.API.AddDataFileValue("PersonalWeapons", JsonConvert.SerializeObject(list));
+                CDataStream.API.AddDataFileValue("PersonalWeapons", JsonConvert.SerializeObject(list));
                 stat.SetValue(stat.GetValue() - 250);
 
             }

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MScripting
+namespace Proline.ClassicOnline.CCoreSystem
 {
-    public static partial class MScriptingAPI
+    public static partial class CCoreSystemAPI
     {
      
     }

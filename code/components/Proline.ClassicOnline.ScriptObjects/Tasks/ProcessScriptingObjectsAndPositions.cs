@@ -7,17 +7,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Proline.ClassicOnline.MBrain.Data;
-using Proline.ClassicOnline.MData;
-using Proline.ClassicOnline.MBrain.Entity;
+using Proline.ClassicOnline.CScriptBrain.Data;
+using Proline.ClassicOnline.CDataStream;
 using Proline.CFXExtended.Core;
 using Proline.Resource;
-using Proline.ClassicOnline.MDebug;
+using Proline.ClassicOnline.CDebugActions;
 using System.Reflection;
-using Proline.ClassicOnline.MScripting;
+using Proline.ClassicOnline.CCoreSystem;
 using Proline.Resource.IO;
+using Proline.ClassicOnline.CScriptBrain.Entity;
 
-namespace Proline.ClassicOnline.MBrain.Tasks
+namespace Proline.ClassicOnline.CScriptBrain.Tasks
 {
     public class ProcessScriptingObjectsAndPositions
     {
@@ -94,7 +94,7 @@ namespace Proline.ClassicOnline.MBrain.Tasks
                     if (World.GetDistance(vector, Game.PlayerPed.Position) < 10f && !PosBlacklist.Contains(positionsPair))
                     {
                         Resource.Console.WriteLine(_log.Debug("In range"));
-                        MScriptingAPI.StartNewScript(positionsPair.ScriptName, vector);
+                        CCoreSystemAPI.StartNewScript(positionsPair.ScriptName, vector);
                         PosBlacklist.Add(positionsPair);
                     }
                     else if (World.GetDistance(vector, Game.PlayerPed.Position) > 10f && PosBlacklist.Contains(positionsPair))
@@ -133,7 +133,7 @@ namespace Proline.ClassicOnline.MBrain.Tasks
                 if (IsEntityWithinActivationRange(entity, Game.PlayerPed, item.ActivationRange) && so.State == 0)
                 {
                     _log.Debug(so.Handle + " Player is within range here, we should start the script and no longer track this for processing");
-                    MScriptingAPI.StartNewScript(item.ScriptName, so.Handle);
+                    CCoreSystemAPI.StartNewScript(item.ScriptName, so.Handle);
                     so.State = 1;
                     _sm.Remove(so.Handle);
                     return;

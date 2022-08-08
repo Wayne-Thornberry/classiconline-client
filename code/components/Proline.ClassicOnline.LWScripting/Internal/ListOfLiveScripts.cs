@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
 
-namespace Proline.ClassicOnline.MScripting.Internal
+namespace Proline.ClassicOnline.CCoreSystem.Internal
 {
     internal class ListOfLiveScripts : List<LiveScript>
     {

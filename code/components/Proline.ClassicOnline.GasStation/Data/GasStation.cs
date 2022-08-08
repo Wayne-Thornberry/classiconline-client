@@ -1,4 +1,4 @@
-﻿namespace Proline.ClassicOnline.MWorld.Client.Data
+﻿namespace Proline.ClassicOnline.CWorldObjects.Data
 {
     internal class GasStation
     {

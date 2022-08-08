@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
 using Proline.ClassicOnline.MGame;
 
-namespace Proline.ClassicOnline.MConnection.Commands
+namespace Proline.ClassicOnline.CNetConnection.Commands
 {
     public class BuyRandomVehicleCommand : ResourceCommand
     {
@@ -21,13 +21,13 @@ namespace Proline.ClassicOnline.MConnection.Commands
         }
 
         protected override void OnCommandExecute(params object[] args)
-        { 
+        {
 
             if (MGameAPI.GetCharacterBankBalance() > 250)
             {
                 if (CharacterGlobals.Character != null)
                 {
-                    if(CharacterGlobals.Character.PersonalVehicle != null)
+                    if (CharacterGlobals.Character.PersonalVehicle != null)
                     {
                         foreach (var item in CharacterGlobals.Character.PersonalVehicle.AttachedBlips)
                         {
@@ -49,18 +49,18 @@ namespace Proline.ClassicOnline.MConnection.Commands
                         CharacterGlobals.Character.PersonalVehicle = new GCharacter.Data.CharacterPersonalVehicle(vehicle.Handle);
 
                         var id = "PlayerVehicle";
-                        MData.API.CreateDataFile();
-                        MData.API.AddDataFileValue("VehicleHash", vehicle.Model.Hash);
-                        MData.API.AddDataFileValue("VehiclePosition", JsonConvert.SerializeObject(vehicle.Position));
+                        CDataStream.API.CreateDataFile();
+                        CDataStream.API.AddDataFileValue("VehicleHash", vehicle.Model.Hash);
+                        CDataStream.API.AddDataFileValue("VehiclePosition", JsonConvert.SerializeObject(vehicle.Position));
                         vehicle.IsPersistent = true;
                         if (vehicle.AttachedBlips.Length == 0)
                             vehicle.AttachBlip();
-                        MData.API.SaveDataFile(id);
+                        CDataStream.API.SaveDataFile(id);
 
                     });
                 }
 
-                
+
             }
         }
     }

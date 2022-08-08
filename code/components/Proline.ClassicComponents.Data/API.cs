@@ -6,7 +6,7 @@ using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using Newtonsoft.Json;
 
-namespace Proline.ClassicOnline.MData
+namespace Proline.ClassicOnline.CDataStream
 {
     public static partial class API
     {

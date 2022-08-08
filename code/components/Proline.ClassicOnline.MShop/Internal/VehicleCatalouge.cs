@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MShop.Internal
+namespace Proline.ClassicOnline.CShopCatalogue.Internal
 {
     internal class VehicleCatalougeItem : CatalougeItem
     {

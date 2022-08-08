@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using CitizenFX.Core;
 using CitizenFX.Core.UI;
 using Proline.CFXExtended.Core;
-using Proline.ClassicOnline.MScripting;
+using Proline.ClassicOnline.CCoreSystem;
 
 namespace Proline.ClassicOnline.SClassic
 {
@@ -35,7 +35,7 @@ namespace Proline.ClassicOnline.SClassic
                 }
                 else
                 {
-                    MScriptingAPI.MarkScriptAsNoLongerNeeded(this);
+                    CCoreSystemAPI.MarkScriptAsNoLongerNeeded(this);
                 }
                 await BaseScript.Delay(0);
             }

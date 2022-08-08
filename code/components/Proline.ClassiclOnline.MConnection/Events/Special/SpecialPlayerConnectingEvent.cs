@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MConnection.Events.Special
+namespace Proline.ClassicOnline.CNetConnection.Events.Special
 {
     internal partial class SpecialPlayerConnectingEvent : NativeEvent
     {

@@ -1,6 +1,6 @@
 ﻿using CitizenFX.Core;
 
-namespace Proline.ClassicOnline.MConnection.Internal
+namespace Proline.ClassicOnline.CNetConnection.Internal
 {
     internal class PlayerConnection
     {

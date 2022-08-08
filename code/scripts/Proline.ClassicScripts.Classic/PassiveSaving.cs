@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Proline.CFXExtended.Core;
 using CitizenFX.Core.Native;
-using Proline.ClassicOnline.MScripting;
+using Proline.ClassicOnline.CCoreSystem;
 
 namespace Proline.ClassicOnline.SClassic
 {
@@ -23,13 +23,13 @@ namespace Proline.ClassicOnline.SClassic
                 if (DateTime.UtcNow > nextSaveTime)
                 {
                     var id = "PlayerInfo";
-                    if (MData.API.DoesDataFileExist(id))
+                    if (CDataStream.API.DoesDataFileExist(id))
                     {
-                        MData.API.SelectDataFile(id);
-                        MData.API.SetDataFileValue("PlayerPosition", JsonConvert.SerializeObject(Game.PlayerPed.Position));
+                        CDataStream.API.SelectDataFile(id);
+                        CDataStream.API.SetDataFileValue("PlayerPosition", JsonConvert.SerializeObject(Game.PlayerPed.Position));
                     }
-                    MScriptingAPI.StartNewScript("SaveNow");
-                    while (MScriptingAPI.GetInstanceCountOfScript("SaveNow") > 0)
+                    CCoreSystemAPI.StartNewScript("SaveNow");
+                    while (CCoreSystemAPI.GetInstanceCountOfScript("SaveNow") > 0)
                     {
                         await BaseScript.Delay(1);
                     }

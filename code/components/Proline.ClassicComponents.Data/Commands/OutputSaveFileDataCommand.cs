@@ -1,5 +1,5 @@
 ﻿using CitizenFX.Core;
-using Proline.ClassicOnline.MData.Internal;
+using Proline.ClassicOnline.CDataStream.Internal;
 
 using Proline.Resource.Framework;
 using System;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
 
-namespace Proline.ClassicOnline.MData.Commands
+namespace Proline.ClassicOnline.CDataStream.Commands
 {
     public class OutputSaveFileDataCommand : ResourceCommand
     {
@@ -19,7 +19,7 @@ namespace Proline.ClassicOnline.MData.Commands
 
         protected override void OnCommandExecute(params object[] args)
         {
-            if(args.Length > 0)
+            if (args.Length > 0)
             {
                 var identifier = args[0].ToString();
                 var sm = DataFileManager.GetInstance();
@@ -27,6 +27,6 @@ namespace Proline.ClassicOnline.MData.Commands
                 var saveFile = save.GetSaveFile(identifier);
                 Console.WriteLine(saveFile.GetRawData());
             }
-        } 
+        }
     }
 }

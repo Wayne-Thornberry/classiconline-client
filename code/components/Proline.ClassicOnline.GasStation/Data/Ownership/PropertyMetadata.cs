@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CitizenFX.Core;
 
-namespace Proline.ClassicOnline.MWord
+namespace Proline.ClassicOnline.CWorldObjects.Data.Ownership
 {
     internal class PropertyMetadata
     {
@@ -17,6 +17,6 @@ namespace Proline.ClassicOnline.MWord
         public int VehicleCap { get; set; }
         public string Id { get; set; }
         public string Building { get; set; }
-    } 
-     
+    }
+
 }

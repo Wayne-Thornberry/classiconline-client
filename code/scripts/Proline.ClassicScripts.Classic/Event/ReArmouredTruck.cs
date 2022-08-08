@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
-using Proline.ClassicOnline.MScripting;
+using Proline.ClassicOnline.CCoreSystem;
 
 namespace Proline.ClassicOnline.SClassic.Event
 {
@@ -103,8 +103,8 @@ namespace Proline.ClassicOnline.SClassic.Event
                 }
                 else
                 {
-                    MScriptingAPI.MarkScriptAsNoLongerNeeded(this);
-                    MScriptingAPI.TerminateScriptInstance(this);
+                    CCoreSystemAPI.MarkScriptAsNoLongerNeeded(this);
+                    CCoreSystemAPI.TerminateScriptInstance(this);
                 }
                 await BaseScript.Delay(0);
             }

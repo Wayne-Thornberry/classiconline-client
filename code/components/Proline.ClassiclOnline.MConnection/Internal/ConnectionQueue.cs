@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MConnection.Internal
+namespace Proline.ClassicOnline.CNetConnection.Internal
 {
     internal class ConnectionQueue : Queue<PlayerConnection>
     {

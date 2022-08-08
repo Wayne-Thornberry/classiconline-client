@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using CitizenFX.Core;
 
-namespace Proline.ClassicOnline.MScreen.Minimap
+namespace Proline.ClassicOnline.CScreenRendering
 {
     public static class MinimapAPI
     {

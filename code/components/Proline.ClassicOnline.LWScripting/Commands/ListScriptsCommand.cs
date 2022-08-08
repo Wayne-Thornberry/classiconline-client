@@ -1,6 +1,5 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
-using Proline.ClassicOnline.MScripting.Internal;
 
 using System;
 using System.Collections.Generic;
@@ -9,8 +8,9 @@ using Proline.Resource.Framework;
 using System.Text;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
+using Proline.ClassicOnline.CCoreSystem.Internal;
 
-namespace Proline.ClassicOnline.MScripting.Commands
+namespace Proline.ClassicOnline.CCoreSystem.Commands
 {
     public class ListScriptsCommand : ResourceCommand
     {
@@ -24,7 +24,7 @@ namespace Proline.ClassicOnline.MScripting.Commands
             foreach (var item in sm.Keys)
             {
                 Console.WriteLine(item);
-            } 
-        } 
+            }
+        }
     }
 }

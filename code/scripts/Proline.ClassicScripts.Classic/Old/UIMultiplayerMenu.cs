@@ -7,7 +7,7 @@ using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using Proline.CFXExtended.Core.Scaleforms;
 
-namespace Proline.ClassicOnline.SClassic.UI
+namespace Proline.ClassicOnline.SClassic.Old
 {
     //public struct MultiplayerMenuSlot
     //{

@@ -1,9 +1,9 @@
 ﻿using CitizenFX.Core;
 using System.Collections.Generic;
 
-namespace Proline.ClassicOnline.MWord
+namespace Proline.ClassicOnline.CWorldObjects.Data.Ownership
 {
-     
+
     internal class BuildingAccessPoint
     {
         public string Id { get; set; }
@@ -15,14 +15,14 @@ namespace Proline.ClassicOnline.MWord
     }
 
     internal class BuildingExitPoint
-    { 
+    {
         public float Heading { get; set; }
         public Vector3 Position { get; set; }
 
     }
     internal class BuildingMetadata
     {
-        public string Id { get; set; } 
+        public string Id { get; set; }
         public Vector2 WorldPos { get; set; }
         public List<BuildingAccessPoint> AccessPoints { get; set; }
     }

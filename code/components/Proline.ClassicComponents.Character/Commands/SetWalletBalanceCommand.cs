@@ -5,8 +5,9 @@ using System.Linq;
 using System.Text;
 using Proline.Resource.Framework;
 using System.Threading.Tasks;
+using Proline.ClassicOnline.MGame;
 
-namespace Proline.ClassicOnline.MGame.Commands
+namespace Proline.ClassicOnline.CGameLogic.Commands
 {
     public class SetWalletBalanceCommand : ResourceCommand
     {
@@ -19,7 +20,7 @@ namespace Proline.ClassicOnline.MGame.Commands
             if (args.Length > 0)
             {
                 long.TryParse(args[0].ToString(), out var value);
-                MGame.MGameAPI.SetCharacterWalletBalance(value);
+                MGameAPI.SetCharacterWalletBalance(value);
             }
 
         }

@@ -2,12 +2,12 @@
 using System.Drawing;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
-using Proline.ClassicOnline.MScreen;
+using Proline.ClassicOnline.CScreenRendering;
 
-namespace Proline.ClassicOnline.MRendering
+namespace Proline.ClassicOnline.CGameRendering
 {
-    public static class MRenderingAPI
-    {  
+    public static class CGameRenderingAPI
+    {
 
         public static void DrawDebugText3D(string text, Vector3 vector3, float scale2, int font)
         {
@@ -332,6 +332,6 @@ namespace Proline.ClassicOnline.MRendering
 
                 // API.DrawLine(x1, y1, z1, x2, y2, z2, r, g, b, a);
             }
-        } 
+        }
     }
 }

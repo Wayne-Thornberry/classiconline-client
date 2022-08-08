@@ -1,7 +1,7 @@
 ﻿using CitizenFX.Core;
 using System.Collections.Generic;
 
-namespace Proline.ClassicOnline.MWord
+namespace Proline.ClassicOnline.CWorldObjects.Data
 {
     public class GarageSlot
     {
@@ -11,7 +11,7 @@ namespace Proline.ClassicOnline.MWord
     }
 
     internal class GarageLayout
-    { 
+    {
         public List<GarageSlot> VehicleSlots { get; set; }
-    } 
+    }
 }

@@ -1,6 +1,6 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
-using Proline.ClassicOnline.MData.Internal;
+using Proline.ClassicOnline.CDataStream.Internal;
 
 using Proline.Resource.Framework;
 using System;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
 
-namespace Proline.ClassicOnline.MData.Commands
+namespace Proline.ClassicOnline.CDataStream.Commands
 {
     public class OutputActiveSaveFilePropertiesCommand : ResourceCommand
     {
@@ -20,12 +20,12 @@ namespace Proline.ClassicOnline.MData.Commands
 
         protected override void OnCommandExecute(params object[] args)
         {
-            var sm = DataFileManager.GetInstance(); 
+            var sm = DataFileManager.GetInstance();
             var saveFile = sm.ActiveFile;
             foreach (var item in saveFile.Properties.Keys)
             {
                 Console.WriteLine(JsonConvert.SerializeObject(saveFile.Properties));
             }
-        } 
+        }
     }
 }

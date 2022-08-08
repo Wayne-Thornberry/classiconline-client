@@ -1,8 +1,8 @@
-﻿using Proline.ClassicOnline.MWord;
+﻿using Proline.ClassicOnline.CWorldObjects.Data.Ownership;
 using System;
 using System.Collections.Generic;
 
-namespace Proline.ClassicOnline.MWorld.Internal
+namespace Proline.ClassicOnline.CWorldObjects.Internal
 {
     internal class BuildingManager
     {
@@ -21,7 +21,7 @@ namespace Proline.ClassicOnline.MWorld.Internal
         }
 
         internal BuildingMetadata GetBuilding(string interiorName)
-        { 
+        {
             if (_interiors.ContainsKey(interiorName))
                 return _interiors[interiorName];
             return null;

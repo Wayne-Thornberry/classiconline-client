@@ -1,5 +1,5 @@
 ﻿using CitizenFX.Core;
-using Newtonsoft.Json; 
+using Newtonsoft.Json;
 
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using Proline.Resource.Framework;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
 
-namespace Proline.ClassicOnline.MWorld.Commands
+namespace Proline.ClassicOnline.CWorldObjects.Commands
 {
     public class SpawnVehicleCommand : ResourceCommand
     {
@@ -19,13 +19,13 @@ namespace Proline.ClassicOnline.MWorld.Commands
 
         protected override void OnCommandExecute(params object[] args)
         {
-            if(args.Length > 0)
+            if (args.Length > 0)
             {
                 try
                 {
                     VehicleHash randomBar;
-                    if(Enum.TryParse(args[0].ToString(), true, out randomBar))
-                    { 
+                    if (Enum.TryParse(args[0].ToString(), true, out randomBar))
+                    {
                         World.CreateVehicle(new Model(randomBar), World.GetNextPositionOnStreet(Game.PlayerPed.Position));
                     };
                 }

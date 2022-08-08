@@ -1,10 +1,10 @@
 ﻿using CitizenFX.Core;
 using System.Collections.Generic;
 
-namespace Proline.ClassicOnline.MWord
+namespace Proline.ClassicOnline.CWorldObjects.Data.Ownership
 {
     internal class InteriorEntryPoints
-    { 
+    {
         public float Heading { get; set; }
         public Vector3 Position { get; set; }
     }

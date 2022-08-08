@@ -2,6 +2,7 @@
 using CitizenFX.Core.Native;
 using Newtonsoft.Json;
 using Proline.CFXExtended.Core;
+using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.GCharacter.Data;
 using System;
 using System.Collections.Generic;
@@ -30,24 +31,24 @@ namespace Proline.ClassicOnline.SClassic
             }
 
             var id = "PlayerInfo";
-            if (!MData.API.DoesDataFileExist(id))
+            if (!CDataStream.API.DoesDataFileExist(id))
             {
-                MData.API.CreateDataFile();
-                MData.API.AddDataFileValue("PlayerHealth", Game.PlayerPed.Health);
-                MData.API.AddDataFileValue("PlayerPosition", JsonConvert.SerializeObject(Game.PlayerPed.Position));
-                MData.API.AddDataFileValue("BankBalance", 0);
-                MData.API.AddDataFileValue("WalletBalance", 0);
-                MData.API.SaveDataFile(id);
-                MDebug.MDebugAPI.LogDebug(id + " Created and saved");
+                CDataStream.API.CreateDataFile();
+                CDataStream.API.AddDataFileValue("PlayerHealth", Game.PlayerPed.Health);
+                CDataStream.API.AddDataFileValue("PlayerPosition", JsonConvert.SerializeObject(Game.PlayerPed.Position));
+                CDataStream.API.AddDataFileValue("BankBalance", 0);
+                CDataStream.API.AddDataFileValue("WalletBalance", 0);
+                CDataStream.API.SaveDataFile(id);
+                CDebugActionsAPI.LogDebug(id + " Created and saved");
             }
 
 
 
-            //ClassicOnline.MData.API.DoesDataFileExist("PlayerVehicle");
-            //if (ClassicOnline.MData.API.DoesDataFileValueExist("VehicleHash"))
+            //ClassicOnline.CDataStream.API.DoesDataFileExist("PlayerVehicle");
+            //if (ClassicOnline.CDataStream.API.DoesDataFileValueExist("VehicleHash"))
             //{
-            //    var pv = (VehicleHash)ClassicOnline.MData.API.GetDataFileValue<uint>("VehicleHash");
-            //    var position = ClassicOnline.MData.API.GetDataFileValue<Vector3>("VehiclePosition");
+            //    var pv = (VehicleHash)ClassicOnline.CDataStream.API.GetDataFileValue<uint>("VehicleHash");
+            //    var position = ClassicOnline.CDataStream.API.GetDataFileValue<Vector3>("VehiclePosition");
             //    var vehicle = await World.CreateVehicle(new Model(pv), position);
             //    vehicle.PlaceOnNextStreet();
             //    vehicle.IsPersistent = true;
@@ -57,25 +58,25 @@ namespace Proline.ClassicOnline.SClassic
             //}
 
             id = "PlayerOutfit";
-            if (!MData.API.DoesDataFileExist(id))
+            if (!CDataStream.API.DoesDataFileExist(id))
             {
-                MData.API.CreateDataFile();
+                CDataStream.API.CreateDataFile();
                 var outfit = new CharacterOutfit();
                 outfit.Components = list;
                 var json = JsonConvert.SerializeObject(outfit);
-                MData.API.AddDataFileValue("CharacterOutfit", json);
-                MData.API.SaveDataFile(id);
-                MDebug.MDebugAPI.LogDebug(id + " Created and saved");
+                CDataStream.API.AddDataFileValue("CharacterOutfit", json);
+                CDataStream.API.SaveDataFile(id);
+                CDebugActionsAPI.LogDebug(id + " Created and saved");
             }
 
             id = "PlayerStats";
-            if (!MData.API.DoesDataFileExist(id))
+            if (!CDataStream.API.DoesDataFileExist(id))
             {
-                MData.API.CreateDataFile();
-                MData.API.AddDataFileValue("MP0_WALLET_BALANCE", stat.GetValue());
-                MData.API.AddDataFileValue("BANK_BALANCE", stat2.GetValue());
-                MData.API.SaveDataFile(id);
-                MDebug.MDebugAPI.LogDebug(id + " Created and saved");
+                CDataStream.API.CreateDataFile();
+                CDataStream.API.AddDataFileValue("MP0_WALLET_BALANCE", stat.GetValue());
+                CDataStream.API.AddDataFileValue("BANK_BALANCE", stat2.GetValue());
+                CDataStream.API.SaveDataFile(id);
+                CDebugActionsAPI.LogDebug(id + " Created and saved");
             }
 
         }

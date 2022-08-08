@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
 
-namespace Proline.ClassicOnline.MData.Internal
+namespace Proline.ClassicOnline.CDataStream.Internal
 {
     public class DataFile
     {

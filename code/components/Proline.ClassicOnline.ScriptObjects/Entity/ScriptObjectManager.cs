@@ -1,11 +1,11 @@
-﻿using Proline.ClassicOnline.MBrain.Data;
+﻿using Proline.ClassicOnline.CScriptBrain.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MBrain.Entity
+namespace Proline.ClassicOnline.CScriptBrain.Entity
 {
     internal class ScriptObjectManager
     {

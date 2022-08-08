@@ -10,8 +10,9 @@ using System.Text;
 using Proline.Resource.Framework;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
+using Proline.ClassicOnline.MGame;
 
-namespace Proline.ClassicOnline.MGame.Commands
+namespace Proline.ClassicOnline.CGameLogic.Commands
 {
     public class SetPlayerPedLooksCommand : ResourceCommand
     {
@@ -22,7 +23,7 @@ namespace Proline.ClassicOnline.MGame.Commands
         protected override void OnCommandExecute(params object[] args)
         {
             var looks = new CharacterLooks();
-            if(args.Length == 3)
+            if (args.Length == 3)
             {
                 looks.Father = int.Parse(args[0].ToString());
                 looks.Mother = int.Parse(args[1].ToString());

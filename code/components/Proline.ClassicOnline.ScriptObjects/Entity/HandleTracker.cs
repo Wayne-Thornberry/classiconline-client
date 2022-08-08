@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Proline.ClassicOnline.MBrain.Entity
+namespace Proline.ClassicOnline.CScriptBrain.Entity
 {
     internal class HandleTracker
     {

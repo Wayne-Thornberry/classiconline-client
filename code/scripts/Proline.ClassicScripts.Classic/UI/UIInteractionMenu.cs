@@ -1,9 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using CitizenFX.Core;
-using Proline.ClassicOnline.MScripting; 
-using Proline.ClassicOnline.MScreen.Menus;
-using Proline.ClassicOnline.MScreen.Menus.MenuItems;
+using Proline.ClassicOnline.CCoreSystem;
+using Proline.ClassicOnline.CScreenRendering.Menus.MenuItems;
+using Proline.ClassicOnline.CScreenRendering.Menus;
 
 namespace Proline.ClassicOnline.SClassic.UI
 {
@@ -24,7 +24,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                 await controller.Process();
                 if (!menu.Visible)
                 {
-                    MScriptingAPI.MarkScriptAsNoLongerNeeded(this);
+                    CCoreSystemAPI.MarkScriptAsNoLongerNeeded(this);
                 }
                 await BaseScript.Delay(0);
             }

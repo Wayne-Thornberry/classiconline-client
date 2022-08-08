@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Proline.ClassicOnline.MScreen.Menus.MenuItems;
+using Proline.ClassicOnline.CScreenRendering.Menus.MenuItems;
 
-namespace Proline.ClassicOnline.MScreen.Menus
+namespace Proline.ClassicOnline.CScreenRendering.Menus
 {
     public struct Appearance
     {

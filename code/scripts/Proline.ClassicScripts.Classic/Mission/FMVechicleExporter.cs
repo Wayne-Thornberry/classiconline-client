@@ -4,8 +4,8 @@ using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Proline.CFXExtended.Core;
+using Proline.ClassicOnline.CScreenRendering;
 using Proline.ClassicOnline.MissionManager;
-using Proline.ClassicOnline.MScreen.Minimap;
 
 namespace Proline.ClassicOnline.SClassic.Mission
 {

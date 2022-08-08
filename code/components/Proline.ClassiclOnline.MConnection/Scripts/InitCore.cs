@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CitizenFX.Core;
-using Proline.ClassicOnline.MConnection.Events;
+using Proline.ClassicOnline.CNetConnection.Events;
 
 
-namespace Proline.ClassicOnline.MConnection.Scripts
+namespace Proline.ClassicOnline.CNetConnection.Scripts
 {
-    public class InitCore 
+    public class InitCore
     {
 
         public async Task Execute()
         {
-            PlayerJoinedEvent.SubscribeEvent(); 
+            PlayerJoinedEvent.SubscribeEvent();
         }
     }
 }

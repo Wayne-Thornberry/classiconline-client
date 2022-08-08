@@ -1,6 +1,6 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
-using Proline.ClassicOnline.MWorld;
+using Proline.ClassicOnline.CWorldObjects;
 
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using Proline.Resource.Framework;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
 
-namespace Proline.ClassicOnline.MWorld.Commands
+namespace Proline.ClassicOnline.CWorldObjects.Commands
 {
     public class PopulateTwoGarageRandomCommand : ResourceCommand
     {

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
 
-namespace Proline.ClassicOnline.MScripting.Internal
+namespace Proline.ClassicOnline.CCoreSystem.Internal
 {
     internal class ScriptTypeLibrary : Dictionary<string, Type>
     {
@@ -24,13 +24,13 @@ namespace Proline.ClassicOnline.MScripting.Internal
         internal Type GetScriptType(string scriptName)
         {
             if (string.IsNullOrEmpty(scriptName)) return null;
-            if (this.ContainsKey(scriptName))
+            if (ContainsKey(scriptName))
                 return this[scriptName];
             return null;
         }
         internal bool DoesScriptTypeExist(string scriptName)
         {
-            return this.ContainsKey(scriptName);
+            return ContainsKey(scriptName);
         }
 
         internal void ProcessAssembly(string assemblyString)
@@ -42,8 +42,8 @@ namespace Proline.ClassicOnline.MScripting.Internal
             Console.WriteLine($"Found {types.Count()} scripts that have an execute method");
             foreach (var item in types)
             {
-                if(!this.ContainsKey(item.Name))
-                    this.Add(item.Name, item);
+                if (!ContainsKey(item.Name))
+                    Add(item.Name, item);
                 else
                     Console.WriteLine($"{item.Name} DUPLICATE?????");
 

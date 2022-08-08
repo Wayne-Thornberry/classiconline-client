@@ -3,9 +3,9 @@ using Proline.ServerAccess.IO;
 using System;
 using Console = Proline.Resource.Console;
 
-namespace Proline.ClassicOnline.MDebug
+namespace Proline.ClassicOnline.CDebugActions
 {
-    public static class MDebugAPI
+    public static class CDebugActionsAPI
     {
         private static Log _log => new Log();
 
@@ -17,7 +17,7 @@ namespace Proline.ClassicOnline.MDebug
                 var line = _log.Debug(obj.ToString());
                 // Output to console
                 Console.WriteLine(line);
-                if(outputToServer)
+                if (outputToServer)
                     ServerConsole.WriteLine(line);
                 // Duplciate to server
             }
@@ -26,7 +26,7 @@ namespace Proline.ClassicOnline.MDebug
 
                 throw;
             }
-        } 
+        }
 
         public static void LogWarn(object obj, bool outputToServer = false)
         {

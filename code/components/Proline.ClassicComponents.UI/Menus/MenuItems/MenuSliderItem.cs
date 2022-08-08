@@ -1,8 +1,9 @@
 ﻿using System.Drawing;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
+using Proline.ClassicOnline.CScreenRendering.Menus;
 
-namespace Proline.ClassicOnline.MScreen.Menus.MenuItems
+namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
 {
     public class MenuSliderItem : MenuItem
     {

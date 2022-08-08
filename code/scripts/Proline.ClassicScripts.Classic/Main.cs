@@ -8,11 +8,11 @@ using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Newtonsoft.Json;
 using Proline.CFXExtended.Core;
+using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.GScripting;
-using Proline.ClassicOnline.MDebug;
 using Proline.ClassicOnline.MGame;
 
-using Proline.ClassicOnline.MScripting;
+using Proline.ClassicOnline.CCoreSystem;
 using Proline.Resource;
 
 namespace Proline.ClassicOnline.SClassic
@@ -58,20 +58,20 @@ namespace Proline.ClassicOnline.SClassic
                             API.SetNoLoadingScreen(true);
                             API.DoScreenFadeIn(500);
 
-                            MScriptingAPI.StartNewScript("UIMainMenu");
-                            while (MScriptingAPI.GetInstanceCountOfScript("UIMainMenu") > 0)
+                            CCoreSystemAPI.StartNewScript("UIMainMenu");
+                            while (CCoreSystemAPI.GetInstanceCountOfScript("UIMainMenu") > 0)
                             {
                                 await BaseScript.Delay(1);
                             }
 
-                            if(MScriptingAPI.GetInstanceCountOfScript("CharacterCreator") > 0)
+                            if(CCoreSystemAPI.GetInstanceCountOfScript("CharacterCreator") > 0)
                             {
                                 state = 999;
                                 break;
                             }
-                            else if (MScriptingAPI.GetInstanceCountOfScript("PlayerLoading") > 0)
+                            else if (CCoreSystemAPI.GetInstanceCountOfScript("PlayerLoading") > 0)
                             {
-                                while (MScriptingAPI.GetInstanceCountOfScript("PlayerLoading") > 0)
+                                while (CCoreSystemAPI.GetInstanceCountOfScript("PlayerLoading") > 0)
                                 {
                                     await BaseScript.Delay(1);
                                 }
@@ -89,19 +89,19 @@ namespace Proline.ClassicOnline.SClassic
                     case 2:
                         {
 
-                            //  MScriptingAPI.StartNewScript("DebugInterface");
-                            //MScriptingAPI.StartNewScript("ReArmouredTruck");
-                            MScriptingAPI.StartNewScript("FMVechicleExporter");
-                            MScriptingAPI.StartNewScript("PlayerDeath");
-                            MScriptingAPI.StartNewScript("UIPlayerSwitch");
-                            MScriptingAPI.StartNewScript("FMControls");
-                            MScriptingAPI.StartNewScript("VehicleFuel");
-                            MScriptingAPI.StartNewScript("PassiveSaving");
-                            MScriptingAPI.StartNewScript("UIFreemodeHUD");
-                            MScriptingAPI.StartNewScript("BlipController");
-                            MScriptingAPI.StartNewScript("Freemode");
-                            MScriptingAPI.StartNewScript("CharacterApts");
-                            MDebug.MDebugAPI.LogDebug($"Calling Task ID for API {Thread.CurrentThread.ManagedThreadId}");
+                            //  CCoreSystemAPI.StartNewScript("DebugInterface");
+                            //CCoreSystemAPI.StartNewScript("ReArmouredTruck");
+                            CCoreSystemAPI.StartNewScript("FMVechicleExporter");
+                            CCoreSystemAPI.StartNewScript("PlayerDeath");
+                            CCoreSystemAPI.StartNewScript("UIPlayerSwitch");
+                            CCoreSystemAPI.StartNewScript("FMControls");
+                            CCoreSystemAPI.StartNewScript("VehicleFuel");
+                            CCoreSystemAPI.StartNewScript("PassiveSaving");
+                            CCoreSystemAPI.StartNewScript("UIFreemodeHUD");
+                            CCoreSystemAPI.StartNewScript("BlipController");
+                            CCoreSystemAPI.StartNewScript("Freemode");
+                            CCoreSystemAPI.StartNewScript("CharacterApts");
+                            CDebugActionsAPI.LogDebug($"Calling Task ID for API {Thread.CurrentThread.ManagedThreadId}");
                         }
                         state = 3;
                         break;
@@ -119,13 +119,13 @@ namespace Proline.ClassicOnline.SClassic
                         //}
                         break;
                     case 999: 
-                        while (MScriptingAPI.GetInstanceCountOfScript("CharacterCreator") > 0)
+                        while (CCoreSystemAPI.GetInstanceCountOfScript("CharacterCreator") > 0)
                         {
                             await BaseScript.Delay(1);
                         }
 
 
-                        while (MScriptingAPI.GetInstanceCountOfScript("StartIntro") > 0)
+                        while (CCoreSystemAPI.GetInstanceCountOfScript("StartIntro") > 0)
                         {
                             await BaseScript.Delay(1);
                         }

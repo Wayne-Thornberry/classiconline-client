@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
-using Proline.ClassicOnline.MDebug;
+using Proline.ClassicOnline.CDebugActions;
 
 namespace Proline.ClassicOnline.SClassic.Object
 {
@@ -43,11 +43,11 @@ namespace Proline.ClassicOnline.SClassic.Object
                         Game.PlayerPed.Position.Y, Game.PlayerPed.Position.Z,
                         "dlc_heist_fleeca_bank_door_sounds", false, 0, false);
                     await BaseScript.Delay(500);
-                    MDebugAPI.LogDebug("Checking if the animation is playing\n");
+                    CDebugActionsAPI.LogDebug("Checking if the animation is playing\n");
                     while (API.IsEntityPlayingAnim(LocalEntity.Handle, "anim@heists@fleeca_bank@bank_vault_door",
                         "bank_vault_door_opens", 3))
                     {
-                        MDebugAPI.LogDebug("Animation is playing\n");
+                        CDebugActionsAPI.LogDebug("Animation is playing\n");
                         if (API.GetEntityAnimCurrentTime(LocalEntity.Handle, "anim@heists@fleeca_bank@bank_vault_door",
                                 "bank_vault_door_opens") >= 1f)
                         {
@@ -58,7 +58,7 @@ namespace Proline.ClassicOnline.SClassic.Object
                             API.SetEntityRotation(LocalEntity.Handle, test.X, test.Y, test.Z, 2, true);
                             API.ForceEntityAiAndAnimationUpdate(LocalEntity.Handle);
                             API.SetModelAsNoLongerNeeded((uint)API.GetHashKey("hei_prop_heist_sec_door"));
-                            MDebugAPI.LogDebug("Finished");
+                            CDebugActionsAPI.LogDebug("Finished");
                         }
 
                         await BaseScript.Delay(0);

@@ -1,7 +1,8 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using Newtonsoft.Json;
-using Proline.ClassicOnline.MWorld;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CWorldObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace Proline.ClassicOnline.SClassic.Buildings
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (MScripting.MScriptingAPI.GetInstanceCountOfScript("CharacterApts") > 1)
+            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("CharacterApts") > 1)
                 return;
             var properties = new string[] { "apt_richmaj_he_01", "apt_dpheights_he_01" };
             var stage = 0; 
@@ -106,7 +107,7 @@ namespace Proline.ClassicOnline.SClassic.Buildings
                             if (World.GetDistance(Game.PlayerPed.Position, _lastPoint) > 4f)
                             {
                                 stage = 0;
-                                MDebug.MDebugAPI.LogDebug(stage);
+                                CDebugActionsAPI.LogDebug(stage);
                             }
                         }
                         break;
@@ -131,7 +132,7 @@ namespace Proline.ClassicOnline.SClassic.Buildings
             {
                 var x = WorldAPI.GetInteriorExit(_interior, i);
                 _interiorExits.Add(x);
-                MDebug.MDebugAPI.LogDebug($"{i} {JsonConvert.SerializeObject(x)}");
+                CDebugActionsAPI.LogDebug($"{i} {JsonConvert.SerializeObject(x)}");
             };
         }
     }

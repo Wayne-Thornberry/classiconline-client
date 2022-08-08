@@ -5,7 +5,8 @@ using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Proline.CFXExtended.Core.Scaleforms;
-using Proline.ClassicOnline.MScripting;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CCoreSystem;
 
 namespace Proline.ClassicOnline.SClassic.UI
 {
@@ -62,7 +63,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                     SelectedItem = Items[SelectedIndex - 1];
                     Game.PlaySound("NAV_UP_DOWN", "HUD_FREEMODE_SOUNDSET");
                     Scaleform.SetSelectedIndex(SelectedIndex);
-                    MDebug.MDebugAPI.LogDebug(SelectedIndex);
+                    CDebugActionsAPI.LogDebug(SelectedIndex);
                 }
                 else if (Game.IsControlJustPressed(0, Control.FrontendDown))
                 {
@@ -71,7 +72,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                     SelectedItem = Items[SelectedIndex - 1];
                     Game.PlaySound("NAV_UP_DOWN", "HUD_FREEMODE_SOUNDSET");
                     Scaleform.SetSelectedIndex(SelectedIndex);
-                    MDebug.MDebugAPI.LogDebug(SelectedIndex);
+                    CDebugActionsAPI.LogDebug(SelectedIndex);
                 }
                 else if (Game.IsControlJustPressed(0, Control.FrontendAccept))
                 {
@@ -80,7 +81,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                     {
                         case 1:
                             { 
-                                MScriptingAPI.StartNewScript("PlayerLoading");
+                                CCoreSystemAPI.StartNewScript("PlayerLoading");
                                 Stage = -1;
                                 Hide();
                             }
@@ -94,7 +95,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                                 {
                                     await BaseScript.Delay(0);
                                 }
-                                MScriptingAPI.StartNewScript("CharacterCreator");
+                                CCoreSystemAPI.StartNewScript("CharacterCreator");
                                 Stage = -1;
                                 Hide();
                                 Screen.LoadingPrompt.Hide();
@@ -102,7 +103,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                             }
                             break;
                     }
-                    MDebug.MDebugAPI.LogDebug(SelectedIndex);
+                    CDebugActionsAPI.LogDebug(SelectedIndex);
                 }
                 else if (Game.IsControlJustPressed(0, Control.FrontendCancel))
                 {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.SClassic
+namespace Proline.ClassicOnline.SClassic.Mission
 {
     public class Trucking
     {
@@ -23,7 +23,7 @@ namespace Proline.ClassicOnline.SClassic
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (MScripting.MScriptingAPI.GetInstanceCountOfScript("Trucking") > 1)
+            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("Trucking") > 1)
                 return;
 
             if (!MissionAPIs.BeginMission())
@@ -38,7 +38,7 @@ namespace Proline.ClassicOnline.SClassic
             MissionAPIs.TrackPoolObjectForMission(_trailer);
 
             _deliveryLoc = new Vector3(-430.9589f, -2713.246f, 5.000218f);
-            _payout = (int) (10.0f * World.GetDistance(_trailer.Position, _deliveryLoc));
+            _payout = (int)(10.0f * World.GetDistance(_trailer.Position, _deliveryLoc));
 
             _truck.AttachBlip();
             _trailer.AttachBlip();
@@ -61,7 +61,7 @@ namespace Proline.ClassicOnline.SClassic
                 }
                 else
                 {
-                    if(World.GetDistance(_trailer.Position, _deliveryLoc) < 10f)
+                    if (World.GetDistance(_trailer.Position, _deliveryLoc) < 10f)
                     {
                         _trailer.Delete();
                         MGame.MGameAPI.AddValueToBankBalance(_payout);

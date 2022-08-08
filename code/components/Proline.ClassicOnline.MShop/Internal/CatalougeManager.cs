@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Proline.ClassicOnline.MShop.Internal
+namespace Proline.ClassicOnline.CShopCatalogue.Internal
 {
     internal class CatalougeManager
     {

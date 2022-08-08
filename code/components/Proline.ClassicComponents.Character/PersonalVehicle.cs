@@ -1,4 +1,5 @@
 ﻿using CitizenFX.Core;
+using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.GCharacter;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace Proline.ClassicOnline.MGame
             }
             catch (Exception e)
             {
-                MDebug.MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return false;
         }

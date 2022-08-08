@@ -16,11 +16,11 @@ namespace Proline.ClassicOnline.SClassic
         public async Task Execute(object[] args, CancellationToken token)
         {
             await Game.Player.ChangeModel(new Model(1885233650)); 
-            if (!MData.API.HasSaveLoaded())
+            if (!CDataStream.API.HasSaveLoaded())
             {
                 PlayerCharacter character = CreateNewCharacter();
-                MScripting.MScriptingAPI.StartNewScript("LoadDefaultStats");
-                while (MScripting.MScriptingAPI.GetInstanceCountOfScript("LoadDefaultStats") > 0)
+                CCoreSystem.CCoreSystemAPI.StartNewScript("LoadDefaultStats");
+                while (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("LoadDefaultStats") > 0)
                 {
                     await BaseScript.Delay(1);
                 }

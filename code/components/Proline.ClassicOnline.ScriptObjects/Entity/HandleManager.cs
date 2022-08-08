@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MBrain.Entity
+namespace Proline.ClassicOnline.CScriptBrain.Entity
 {
     internal static partial class HandleManager
     {

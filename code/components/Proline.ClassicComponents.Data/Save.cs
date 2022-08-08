@@ -1,7 +1,7 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
-using Proline.ClassicOnline.MData.Internal;
-using Proline.ClassicOnline.MDebug;
+using Proline.ClassicOnline.CDataStream.Internal;
+using Proline.ClassicOnline.CDebugActions;
 using Proline.ServerAccess.IO;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
 
-namespace Proline.ClassicOnline.MData
+namespace Proline.ClassicOnline.CDataStream
 {
     public static partial class API
     {
@@ -31,7 +31,7 @@ namespace Proline.ClassicOnline.MData
                 var files = save.GetSaveFiles().Where(e => e.HasUpdated);
                 if(files.Count() > 0)
                 {
-                    MDebugAPI.LogDebug($"Saving...");
+                    CDebugActionsAPI.LogDebug($"Saving...");
                     foreach (var file in files)
                     {
                         try
@@ -41,24 +41,24 @@ namespace Proline.ClassicOnline.MData
                                 throw new Exception($"Cannot save file, current save file is null");
                             };
                             var json = JsonConvert.SerializeObject(file.Properties);
-                            MDebugAPI.LogDebug($"Saving file... {json}");
+                            CDebugActionsAPI.LogDebug($"Saving file... {json}");
                             await ServerFile.WriteLocalFile(Path.Combine(path, file.Name + ".json"), json);
                             file.HasUpdated = false;
                         }
                         catch (Exception e)
                         {
-                            MDebugAPI.LogDebug(e.ToString());
+                            CDebugActionsAPI.LogDebug(e.ToString());
                         }
                     }
                 }
                 else
                 {
-                    MDebugAPI.LogDebug("Cannot send save to cloud, No save files to save");
+                    CDebugActionsAPI.LogDebug("Cannot send save to cloud, No save files to save");
                 }
                
                 if (save.HasChanged)
                 {
-                    MDebugAPI.LogDebug($"Saving manifest...");
+                    CDebugActionsAPI.LogDebug($"Saving manifest...");
                     var saveFiles = save.GetSaveFiles().Select(e => e.Name);
                     await ServerFile.WriteLocalFile(Path.Combine(path, "Manifest.json"), JsonConvert.SerializeObject(saveFiles));
                     save.HasChanged = false;
@@ -67,7 +67,7 @@ namespace Proline.ClassicOnline.MData
             }
             catch (Exception e)
             {
-                MDebugAPI.LogDebug(e.ToString());
+                CDebugActionsAPI.LogDebug(e.ToString());
             }
         } 
         public static bool IsSaveInProgress()
@@ -79,7 +79,7 @@ namespace Proline.ClassicOnline.MData
             }
             catch (Exception e)
             {
-                MDebugAPI.LogDebug(e.ToString());
+                CDebugActionsAPI.LogDebug(e.ToString());
             }
             return false;
         }
@@ -98,7 +98,7 @@ namespace Proline.ClassicOnline.MData
             }
             catch (Exception e)
             {
-                MDebugAPI.LogDebug(e.ToString());
+                CDebugActionsAPI.LogDebug(e.ToString());
             }
             return null;
         }
@@ -107,9 +107,9 @@ namespace Proline.ClassicOnline.MData
         {
             try
             {
-                MDebugAPI.LogDebug("Load Request put in");
+                CDebugActionsAPI.LogDebug("Load Request put in");
                 var fm = DataFileManager.GetInstance();
-                MDebugAPI.LogInfo("Waiting for callback to be completed...");
+                CDebugActionsAPI.LogInfo("Waiting for callback to be completed...");
                 var identifier = Game.Player.Name;
                 var data = await ServerFile.ReadLocalFile($"Saves/{identifier}/Manifest.json");
                 if (data == null) 
@@ -135,7 +135,7 @@ namespace Proline.ClassicOnline.MData
             }
             catch (Exception e)
             {
-                MDebugAPI.LogDebug(e.ToString());
+                CDebugActionsAPI.LogDebug(e.ToString());
             }
         }
 
@@ -148,7 +148,7 @@ namespace Proline.ClassicOnline.MData
             }
             catch (Exception e)
             {
-                MDebugAPI.LogDebug(e.ToString());
+                CDebugActionsAPI.LogDebug(e.ToString());
             }
             return false;
         }

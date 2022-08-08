@@ -4,9 +4,9 @@ using System;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MGame
+namespace Proline.ClassicOnline.CGameLogic.Scripts
 {
-    public class InitCore 
+    public class InitCore
     {
 
     }

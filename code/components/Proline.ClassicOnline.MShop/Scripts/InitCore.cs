@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
-using Proline.ClassicOnline.MDebug;
-using Proline.ClassicOnline.MShop.Internal;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CShopCatalogue.Internal;
 
 using Proline.Resource.IO;
 using System;
@@ -9,15 +9,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MShop.Scripts
+namespace Proline.ClassicOnline.CShopCatalogue.Scripts
 {
-    internal class InitCore 
+    internal class InitCore
     {
         public async Task Execute()
         {
             var data = ResourceFile.Load("data/catalogue/catalogue-vehicles.json");
-            MDebugAPI.LogDebug(data);
+            CDebugActionsAPI.LogDebug(data);
             CatalougeManager.GetInstance().Register("VehicleCatalouge", JsonConvert.DeserializeObject<VehicleCatalouge>(data.Load()));
         }
-     }
+    }
 }

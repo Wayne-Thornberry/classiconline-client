@@ -1,5 +1,4 @@
-﻿using CitizenFX.Core;
-using Proline.ClassicOnline.MDebug;
+﻿using CitizenFX.Core; 
 using Proline.Resource;
 using Proline.Resource.Logging;
 using System;
@@ -11,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
 
-namespace Proline.ClassicOnline.MScripting.Internal
+namespace Proline.ClassicOnline.CCoreSystem.Internal
 {
     internal class LiveScript
     {

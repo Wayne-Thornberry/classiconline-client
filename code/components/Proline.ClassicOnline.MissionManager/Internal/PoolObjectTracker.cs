@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MissionManager.Internal
+namespace Proline.ClassicOnline.CMissionManager.Internal
 {
     internal class PoolObjectTracker
     {
@@ -13,7 +13,7 @@ namespace Proline.ClassicOnline.MissionManager.Internal
         private List<PoolObject> _list;
 
         public PoolObjectTracker()
-        { 
+        {
             if (_list == null)
                 _list = new List<PoolObject>();
         }
@@ -50,7 +50,7 @@ namespace Proline.ClassicOnline.MissionManager.Internal
                 return;
             _list.Add(obj);
         }
-        
+
         internal IEnumerable<PoolObject> GetPoolObjects()
         {
             if (_list == null)

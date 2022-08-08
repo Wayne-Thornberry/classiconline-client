@@ -1,8 +1,8 @@
-﻿using Proline.ClassicOnline.MWord;
+﻿using Proline.ClassicOnline.CWorldObjects.Data.Ownership;
 using System;
 using System.Collections.Generic;
 
-namespace Proline.ClassicOnline.MWorld.Internal
+namespace Proline.ClassicOnline.CWorldObjects.Internal
 {
     internal class PropertyManager
     {
@@ -21,7 +21,7 @@ namespace Proline.ClassicOnline.MWorld.Internal
         }
 
         internal PropertyMetadata GetProperty(string propertyName)
-        { 
+        {
             if (_properties.ContainsKey(propertyName))
                 return _properties[propertyName];
             return null;

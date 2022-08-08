@@ -6,9 +6,10 @@ using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Newtonsoft.Json;
+using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.GCharacter.Data;
 using Proline.ClassicOnline.MGame;
-using Proline.ClassicOnline.MScripting;
+using Proline.ClassicOnline.CCoreSystem;
 
 namespace Proline.ClassicOnline.SClassic
 {
@@ -25,8 +26,8 @@ namespace Proline.ClassicOnline.SClassic
             _interiorId = API.GetInteriorAtCoords(_interiorLoc.X, _interiorLoc.Y, _interiorLoc.Z);
             _selectedOutfit = new CharacterOutfit();// Default outfit from json 
             ScriptStage = 0;
-            MScripting.MScriptingAPI.StartNewScript("LoadDefaultOnline");
-            while (MScripting.MScriptingAPI.GetInstanceCountOfScript("LoadDefaultOnline") > 0)
+            CCoreSystem.CCoreSystemAPI.StartNewScript("LoadDefaultOnline");
+            while (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("LoadDefaultOnline") > 0)
             {
                 await BaseScript.Delay(1);
             }
@@ -78,49 +79,49 @@ namespace Proline.ClassicOnline.SClassic
             Screen.LoadingPrompt.Show("Loading Classic Online...");
             //API.SwitchOutPlayer(Game.PlayerPed.Handle, 1, 1); 
 
-            MScriptingAPI.StartNewScript("PlayerSetup");
-            while (MScriptingAPI.GetInstanceCountOfScript("PlayerSetup") > 0)
+            CCoreSystemAPI.StartNewScript("PlayerSetup");
+            while (CCoreSystemAPI.GetInstanceCountOfScript("PlayerSetup") > 0)
             {
                 await BaseScript.Delay(1);
             }
 
             Game.PlayerPed.Position = new Vector3(0, 0, 70);
             var id = "PlayerInfo";
-            if (MData.API.DoesDataFileExist(id))
+            if (CDataStream.API.DoesDataFileExist(id))
             {
-                MData.API.SelectDataFile(id);
-                MData.API.SetDataFileValue("PlayerPosition", JsonConvert.SerializeObject(Game.PlayerPed.Position));
+                CDataStream.API.SelectDataFile(id);
+                CDataStream.API.SetDataFileValue("PlayerPosition", JsonConvert.SerializeObject(Game.PlayerPed.Position));
             }
 
-            MScriptingAPI.StartNewScript("SaveNow");
-            while (MScriptingAPI.GetInstanceCountOfScript("SaveNow") > 0)
+            CCoreSystemAPI.StartNewScript("SaveNow");
+            while (CCoreSystemAPI.GetInstanceCountOfScript("SaveNow") > 0)
             {
                 await BaseScript.Delay(1);
             }
 
-            MScriptingAPI.StartNewScript("PlayerLoading");
-            while (MScriptingAPI.GetInstanceCountOfScript("PlayerLoading") > 0)
+            CCoreSystemAPI.StartNewScript("PlayerLoading");
+            while (CCoreSystemAPI.GetInstanceCountOfScript("PlayerLoading") > 0)
             {
                 await BaseScript.Delay(1);
             }
             Screen.LoadingPrompt.Hide(); 
-            MScriptingAPI.StartNewScript("StartIntro");
+            CCoreSystemAPI.StartNewScript("StartIntro");
 
         }
 
         private void Finish()
         {
             var id = "CharacterLooks";
-            if (!MData.API.DoesDataFileExist(id))
+            if (!CDataStream.API.DoesDataFileExist(id))
             {
                 var pedLooks = MGameAPI.GetPedLooks(Game.PlayerPed.Handle);
-                MData.API.CreateDataFile();
-                MData.API.AddDataFileValue("Mother", pedLooks.Mother);
-                MData.API.AddDataFileValue("Father", pedLooks.Father);
-                MData.API.AddDataFileValue("Resemblance", pedLooks.Resemblence);
-                MData.API.AddDataFileValue("SkinTone", pedLooks.SkinTone);
-                MData.API.SaveDataFile(id);
-                MDebug.MDebugAPI.LogDebug(id + " Created and saved");
+                CDataStream.API.CreateDataFile();
+                CDataStream.API.AddDataFileValue("Mother", pedLooks.Mother);
+                CDataStream.API.AddDataFileValue("Father", pedLooks.Father);
+                CDataStream.API.AddDataFileValue("Resemblance", pedLooks.Resemblence);
+                CDataStream.API.AddDataFileValue("SkinTone", pedLooks.SkinTone);
+                CDataStream.API.SaveDataFile(id);
+                CDebugActionsAPI.LogDebug(id + " Created and saved");
             }
 
             ScriptStage = -1;

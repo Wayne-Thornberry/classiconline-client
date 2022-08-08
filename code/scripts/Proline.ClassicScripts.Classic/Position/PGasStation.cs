@@ -1,5 +1,6 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.UI;
+using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.MGame;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.SClassic
+namespace Proline.ClassicOnline.SClassic.Position
 {
     public class PGasStation
     {
@@ -18,11 +19,11 @@ namespace Proline.ClassicOnline.SClassic
 
         public async Task Execute(object[] args, CancellationToken token)
         {
-            var position = (Vector3) args[0];
+            var position = (Vector3)args[0];
             _fillPerTick = 0.3f;
             while (!token.IsCancellationRequested)
             {
-                if(World.GetDistance(position, Game.PlayerPed.Position) > 10f)
+                if (World.GetDistance(position, Game.PlayerPed.Position) > 10f)
                 {
                     break;
                 }
@@ -33,24 +34,24 @@ namespace Proline.ClassicOnline.SClassic
                     Screen.DisplayHelpTextThisFrame("Press ~INPUT_CONTEXT~ to refil the vehicle");
                     if (Game.IsControlJustPressed(0, Control.Context))
                     {
-                        MDebug.MDebugAPI.LogDebug(vehicle.FuelLevel);
+                        CDebugActionsAPI.LogDebug(vehicle.FuelLevel);
                     }
                     else if (Game.IsControlPressed(0, Control.Context))
                     {
-                        if(vehicle.FuelLevel < 100f)
-                        { 
+                        if (vehicle.FuelLevel < 100f)
+                        {
                             vehicle.FuelLevel += _fillPerTick * Game.LastFrameTime;
                             _fillAmount += _fillPerTick * Game.LastFrameTime;
                             _isFilling = true;
                         }
                     }
-                    else if(Game.IsControlJustReleased(0, Control.Context) && _isFilling)
+                    else if (Game.IsControlJustReleased(0, Control.Context) && _isFilling)
                     {
-                        MDebug.MDebugAPI.LogDebug(vehicle.FuelLevel);
-                        MDebug.MDebugAPI.LogDebug(_fillAmount);
-                        var cost = (int) ((_fillAmount * 100.00f));
-                        MDebug.MDebugAPI.LogDebug(cost);
-                        MGame.MGameAPI.SetCharacterBankBalance(MGameAPI.GetCharacterBankBalance() - cost);
+                        CDebugActionsAPI.LogDebug(vehicle.FuelLevel);
+                        CDebugActionsAPI.LogDebug(_fillAmount);
+                        var cost = (int)(_fillAmount * 100.00f);
+                        CDebugActionsAPI.LogDebug(cost);
+                        MGameAPI.SetCharacterBankBalance(MGameAPI.GetCharacterBankBalance() - cost);
                         _fillAmount = 0f;
                         _isFilling = false;
                     }

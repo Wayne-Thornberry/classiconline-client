@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MScripting.Events
+namespace Proline.ClassicOnline.CCoreSystem.Events
 {
     internal partial class PlayerJoinedEvent : LoudEvent
     {

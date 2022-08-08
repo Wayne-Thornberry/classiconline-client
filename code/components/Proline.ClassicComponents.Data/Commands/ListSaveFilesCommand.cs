@@ -1,5 +1,4 @@
 ﻿using CitizenFX.Core;
-using Proline.ClassicOnline.MData.Internal;
 
 using System;
 using System.Collections.Generic;
@@ -8,8 +7,9 @@ using System.Text;
 using Proline.Resource.Framework;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
+using Proline.ClassicOnline.CDataStream.Internal;
 
-namespace Proline.ClassicOnline.MData.Commands
+namespace Proline.ClassicOnline.CDataStream.Commands
 {
     public class ListSaveFilesCommand : ResourceCommand
     {
@@ -23,8 +23,8 @@ namespace Proline.ClassicOnline.MData.Commands
             var save = sm.GetSave(Game.Player);
             foreach (var saveFile in save.GetSaveFiles())
             {
-                Console.WriteLine(String.Format("{0},{1},{2}", saveFile.Name, saveFile.LastChanged, saveFile.HasUpdated));
+                Console.WriteLine(string.Format("{0},{1},{2}", saveFile.Name, saveFile.LastChanged, saveFile.HasUpdated));
             }
-        } 
+        }
     }
 }

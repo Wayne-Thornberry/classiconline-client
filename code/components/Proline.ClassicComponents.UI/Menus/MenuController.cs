@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
-using Proline.ClassicOnline.MScreen.Menus.MenuItems;
+using Proline.ClassicOnline.CScreenRendering.Menus.MenuItems;
 
-namespace Proline.ClassicOnline.MScreen.Menus
+namespace Proline.ClassicOnline.CScreenRendering.Menus
 {
     public class AspectRatioException : Exception
     {

@@ -1,5 +1,5 @@
 ﻿using CitizenFX.Core;
-using Proline.ClassicOnline.MScripting.Internal;
+using Proline.ClassicOnline.CCoreSystem.Internal;
 using Proline.Resource.Eventing;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MScripting.Events
+namespace Proline.ClassicOnline.CCoreSystem.Events
 {
     internal partial class PlayerReadyEvent : LoudEvent
     {
@@ -44,12 +44,12 @@ namespace Proline.ClassicOnline.MScripting.Events
 
         protected override object OnEventTriggered(params object[] args)
         {
-            if(args.Length > 0)
+            if (args.Length > 0)
             {
                 var username = args[0].ToString();
                 Console.WriteLine(username);
                 if (Game.Player.Name.Equals(username, StringComparison.CurrentCultureIgnoreCase)) return null;
-               
+
             }
             return null;
 

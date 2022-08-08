@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
 
-namespace Proline.ClassicOnline.MConnection.Commands
+namespace Proline.ClassicOnline.CNetConnection.Commands
 {
     public class BuyRandomOutfitCommand : ResourceCommand
     {
@@ -19,9 +19,9 @@ namespace Proline.ClassicOnline.MConnection.Commands
         }
 
         protected override void OnCommandExecute(params object[] args)
-        { 
+        {
             if (MGameAPI.GetCharacterBankBalance() > 250)
-            { 
+            {
                 Game.Player.Character.Style.RandomizeOutfit();
                 Game.Player.Character.Style.RandomizeProps();
                 MGameAPI.SetCharacterBankBalance(250);

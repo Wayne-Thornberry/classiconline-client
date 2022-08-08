@@ -1,14 +1,14 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
-using Proline.ClassicOnline.MData.Internal;
-using Proline.ClassicOnline.MDebug;
+using Proline.ClassicOnline.CDataStream.Internal;
+using Proline.ClassicOnline.CDebugActions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MData
+namespace Proline.ClassicOnline.CDataStream
 {
     public static partial class API
     {
@@ -36,7 +36,7 @@ namespace Proline.ClassicOnline.MData
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e.ToString());
+                CDebugActionsAPI.LogError(e.ToString());
             }
         }
 
@@ -50,7 +50,7 @@ namespace Proline.ClassicOnline.MData
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e.ToString());
+                CDebugActionsAPI.LogError(e.ToString());
             }
             return false;
         }
@@ -77,7 +77,7 @@ namespace Proline.ClassicOnline.MData
             }
             catch (Exception e)
             {
-                MDebugAPI.LogDebug(e.ToString());
+                CDebugActionsAPI.LogDebug(e.ToString());
             }
         }
         public static void SelectDataFile(string identifier)
@@ -93,7 +93,7 @@ namespace Proline.ClassicOnline.MData
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e.ToString());
+                CDebugActionsAPI.LogError(e.ToString());
             }
         }
         public static bool DoesDataFileValueExist(string key)
@@ -110,7 +110,7 @@ namespace Proline.ClassicOnline.MData
             }
             catch (Exception e)
             {
-                MDebugAPI.LogDebug(e.ToString());
+                CDebugActionsAPI.LogDebug(e.ToString());
             }
             return false;
         }
@@ -130,7 +130,7 @@ namespace Proline.ClassicOnline.MData
             }
             catch (Exception e)
             {
-                MDebugAPI.LogDebug(e.ToString());
+                CDebugActionsAPI.LogDebug(e.ToString());
             }
         }
         public static void SetDataFileValue(string key, object value)
@@ -150,7 +150,7 @@ namespace Proline.ClassicOnline.MData
             }
             catch (Exception e)
             {
-                MDebugAPI.LogDebug(e.ToString());
+                CDebugActionsAPI.LogDebug(e.ToString());
             }
         }
         public static object GetDataFileValue(string key)
@@ -161,7 +161,7 @@ namespace Proline.ClassicOnline.MData
             }
             catch (Exception e)
             {
-                MDebugAPI.LogDebug(e.ToString());
+                CDebugActionsAPI.LogDebug(e.ToString());
             }
             return null;
         }
@@ -182,7 +182,7 @@ namespace Proline.ClassicOnline.MData
             }
             catch (Exception e)
             {
-                MDebugAPI.LogDebug(e.ToString());
+                CDebugActionsAPI.LogDebug(e.ToString());
             }
             return default;
         }

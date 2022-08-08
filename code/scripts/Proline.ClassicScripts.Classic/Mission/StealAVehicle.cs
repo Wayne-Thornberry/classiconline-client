@@ -1,7 +1,7 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.UI;
+using Proline.ClassicOnline.CScriptBrain;
 using Proline.ClassicOnline.GCharacter;
-using Proline.ClassicOnline.MBrain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.SClassic
+namespace Proline.ClassicOnline.SClassic.Mission
 {
     public class StealAVehicle
     {
@@ -22,12 +22,12 @@ namespace Proline.ClassicOnline.SClassic
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (MScripting.MScriptingAPI.GetInstanceCountOfScript("StealAVehicle") > 1)
+            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("StealAVehicle") > 1)
                 return;
             _closestDistance = 99999.0f;
             _payout = 1000;
 
-            var handles = MBrainAPI.GetEntityHandlesByTypes(GScripting.EntityType.VEHICLE);
+            var handles = CScriptBrainAPI.GetEntityHandlesByTypes(GScripting.EntityType.VEHICLE);
 
             foreach (var item in handles)
             {
@@ -51,14 +51,14 @@ namespace Proline.ClassicOnline.SClassic
             {
                 _targetBlip.Alpha = 0;
                 if (World.GetDistance(_targetEntity.Position, _targetDeliveryPos) < 10f)
-                { 
+                {
                     if (!Game.PlayerPed.IsInVehicle())
                     {
                         var character = CharacterGlobals.Character;
-                        if(character != null)
+                        if (character != null)
                         {
                             MGame.MGameAPI.SetCharacterBankBalance(MGame.MGameAPI.GetCharacterBankBalance() + _payout);
-                        } 
+                        }
                         _targetEntity.Delete();
                         break;
                     }
@@ -71,7 +71,7 @@ namespace Proline.ClassicOnline.SClassic
                     {
                         _targetBlip.Alpha = 255;
                     }
-                } 
+                }
                 await BaseScript.Delay(0);
             }
         }

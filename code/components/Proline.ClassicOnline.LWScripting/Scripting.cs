@@ -1,6 +1,7 @@
 ﻿using CitizenFX.Core;
-using Proline.ClassicOnline.MDebug;
-using Proline.ClassicOnline.MScripting.Internal;
+using Proline.ClassicOnline.CCoreSystem.Internal;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CCoreSystem.Internal;
 using Proline.Resource.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
 
-namespace Proline.ClassicOnline.MScripting
+namespace Proline.ClassicOnline.CCoreSystem
 {
-    public static partial class MScriptingAPI
+    public static partial class CCoreSystemAPI
     {
         public static int StartNewScript(string scriptName, params object[] args)
         {
@@ -45,7 +46,7 @@ namespace Proline.ClassicOnline.MScripting
                 script.Execute(args);
                 var scriptTask = script.ExecutionTask;
                 Console.WriteLine(String.Format("Task Id {0}, Is Complete {1}, Status {2} ", scriptTask.Id, scriptTask.IsCompleted, scriptTask.Status));
-                MDebug.MDebugAPI.LogDebug($"Calling Task ID for API {Task.CurrentId}");
+                CDebugActionsAPI.LogDebug($"Calling Task ID for API {Task.CurrentId}");
                 return script.Id;
             }
             catch (Exception e)

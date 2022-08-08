@@ -1,8 +1,8 @@
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
-using Proline.ClassicOnline.MDebug;
-using Proline.ClassicOnline.MScripting;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CCoreSystem;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -28,8 +28,8 @@ namespace Proline.ClassicOnline.SClassic.Object
                 {
                     if (LocalEntity.Model == API.GetHashKey("prop_till_01_dam"))
                     {
-                        MDebugAPI.LogDebug(((uint)LocalEntity.Model.Hash).ToString());
-                        MDebugAPI.LogDebug(((uint)LocalEntity.Model.Hash).ToString());
+                        CDebugActionsAPI.LogDebug(((uint)LocalEntity.Model.Hash).ToString());
+                        CDebugActionsAPI.LogDebug(((uint)LocalEntity.Model.Hash).ToString());
                     }
 
                     if (!LocalEntity.HasBeenDamagedByAnyWeapon())
@@ -48,8 +48,8 @@ namespace Proline.ClassicOnline.SClassic.Object
                                 1f,
                                 (uint)API.GetHashKey("prop_till_01"), (uint)API.GetHashKey("prop_till_01_dam"), true);
 
-                            MScriptingAPI.MarkScriptAsNoLongerNeeded(this);
-                            MScriptingAPI.TerminateScriptInstance(this);
+                            CCoreSystemAPI.MarkScriptAsNoLongerNeeded(this);
+                            CCoreSystemAPI.TerminateScriptInstance(this);
                         }
                     }
                     else
@@ -59,14 +59,14 @@ namespace Proline.ClassicOnline.SClassic.Object
                                 0, 0),
                             new Model("prop_money_bag_01"), 0);
 
-                        MScriptingAPI.MarkScriptAsNoLongerNeeded(this);
-                        MScriptingAPI.TerminateScriptInstance(this);
+                        CCoreSystemAPI.MarkScriptAsNoLongerNeeded(this);
+                        CCoreSystemAPI.TerminateScriptInstance(this);
                     }
                 }
                 else
                 {
-                    MScriptingAPI.MarkScriptAsNoLongerNeeded(this);
-                    MScriptingAPI.TerminateScriptInstance(this);
+                    CCoreSystemAPI.MarkScriptAsNoLongerNeeded(this);
+                    CCoreSystemAPI.TerminateScriptInstance(this);
                 }
                 await BaseScript.Delay(0);
             }

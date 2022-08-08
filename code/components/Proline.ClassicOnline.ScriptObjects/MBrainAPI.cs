@@ -1,5 +1,6 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
+using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.GScripting;
 using System;
 using System.Collections.Generic;
@@ -7,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MBrain
+namespace Proline.ClassicOnline.CScriptBrain
 {
-    public static class MBrainAPI
+    public static class CScriptBrainAPI
     {
         public static int[] GetEntityHandlesByTypes(EntityType type)
         {
@@ -63,7 +64,7 @@ namespace Proline.ClassicOnline.MBrain
 
                 throw;
             }
-         
+
         }
 
         public static CitizenFX.Core.Entity GetNeariestEntity(EntityType type)
@@ -78,8 +79,8 @@ namespace Proline.ClassicOnline.MBrain
                     var entity = CitizenFX.Core.Entity.FromHandle(item);
                     var distance = World.GetDistance(entity.Position, Game.PlayerPed.Position);
                     if (distance < _closestDistance)
-                    { 
-                        MDebug.MDebugAPI.LogDebug("Found a vehicle");
+                    {
+                        CDebugActionsAPI.LogDebug("Found a vehicle");
                         _entity = entity;
                         _closestDistance = distance;
                     }

@@ -1,5 +1,5 @@
 ﻿using CitizenFX.Core;
-using Proline.ClassicOnline.MissionManager.Internal;
+using Proline.ClassicOnline.CMissionManager.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;

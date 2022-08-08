@@ -1,9 +1,9 @@
-﻿using Proline.ClassicOnline.MBrain.Data;
-using Proline.ClassicOnline.MDebug;
+﻿using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CScriptBrain.Data;
 using System;
 using System.Collections.Generic;
 
-namespace Proline.ClassicOnline.MBrain.Entity
+namespace Proline.ClassicOnline.CScriptBrain.Entity
 {
     internal class ScriptPositionManager
     {
@@ -36,7 +36,7 @@ namespace Proline.ClassicOnline.MBrain.Entity
 
         internal void AddScriptPositionPairs(ScriptPositionsPair[] scriptPositionPairs)
         {
-            MDebug.MDebugAPI.LogDebug($"Added {scriptPositionPairs.Length} to track for script positions");
+            CDebugActionsAPI.LogDebug($"Added {scriptPositionPairs.Length} to track for script positions");
             _scriptPositionPairs = scriptPositionPairs;
         }
     }

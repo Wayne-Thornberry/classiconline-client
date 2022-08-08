@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Proline.ClassicOnline.MShop.Internal
+namespace Proline.ClassicOnline.CShopCatalogue.Internal
 {
 
     internal abstract class Catalouge

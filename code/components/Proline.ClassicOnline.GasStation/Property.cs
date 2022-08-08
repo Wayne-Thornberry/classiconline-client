@@ -1,9 +1,9 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CWorldObjects.Data.Ownership;
+using Proline.ClassicOnline.CWorldObjects.Internal;
 using Proline.ClassicOnline.GCharacter;
-using Proline.ClassicOnline.MDebug;
-using Proline.ClassicOnline.MWord;
-using Proline.ClassicOnline.MWorld.Internal;
 using Proline.Resource.IO;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MWorld
+namespace Proline.ClassicOnline.CWorldObjects
 {
     public static partial class WorldAPI
     {
@@ -34,16 +34,16 @@ namespace Proline.ClassicOnline.MWorld
                 //ResourceFile resourceData2 = null; 
                  
                 //var folderName = GetPropertyPartType(propertyPart);
-                //MDebugAPI.LogDebug(folderName);
-                //MDebugAPI.LogDebug(propertyPart);
+                //CDebugActionsAPI.LogDebug(folderName);
+                //CDebugActionsAPI.LogDebug(propertyPart);
 
                 //// Load the link file
                 //resourceData1 = ResourceFile.Load($"data/world/{folderName}/{propertyPart}.json");
                 //var buildingInteriorLink = JsonConvert.DeserializeObject<BuildingInteriorLink>(resourceData1.Load()); 
                 //var targetEntryPointString = buildingInteriorLink.ExteriorEntrances[entranceId];
 
-                //MDebugAPI.LogDebug(folderName);
-                //MDebugAPI.LogDebug(buildingInteriorLink.Interior);
+                //CDebugActionsAPI.LogDebug(folderName);
+                //CDebugActionsAPI.LogDebug(buildingInteriorLink.Interior);
                 //// Load interior file
                 //resourceData2 = ResourceFile.Load($"data/world/interiors/{buildingInteriorLink.Interior}.json");
                 //var interiorMetadata = JsonConvert.DeserializeObject<InteriorMetadata>(resourceData2.Load()); 
@@ -53,7 +53,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return Vector3.One;
         }
@@ -71,7 +71,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return "";
         }
@@ -87,7 +87,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return "";
 
@@ -105,7 +105,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return "";
 
@@ -123,7 +123,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return "";
 
@@ -141,7 +141,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return "";
 
@@ -160,7 +160,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return "";
         }
@@ -183,7 +183,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return "";
         }
@@ -206,8 +206,8 @@ namespace Proline.ClassicOnline.MWorld
                 //var propertyType = propertyPart.Split('_')[0];
                 //var abc = GetPropertyPartType(propertyPart);
                  
-                //MDebugAPI.LogDebug("tes");
-                //MDebugAPI.LogDebug(exitId);
+                //CDebugActionsAPI.LogDebug("tes");
+                //CDebugActionsAPI.LogDebug(exitId);
 
                 //resourceData1 = ResourceFile.Load($"data/world/{abc}/{propertyPart}.json");
                 //var buildingInteriorLink = JsonConvert.DeserializeObject<BuildingInteriorLink>(resourceData1.Load()); 
@@ -218,15 +218,15 @@ namespace Proline.ClassicOnline.MWorld
                 //var interiorMetadata = JsonConvert.DeserializeObject<BuildingMetadata>(resourceData2.Load()); 
                 //var targetEntryPoint = interiorMetadata.ExitPoints.FirstOrDefault(e => e.Id.Equals(targetEntryPointString));
 
-                //MDebugAPI.LogDebug("tes");
-                //MDebugAPI.LogDebug(propertyPart);
+                //CDebugActionsAPI.LogDebug("tes");
+                //CDebugActionsAPI.LogDebug(propertyPart);
 
                 //Game.PlayerPed.Position = targetEntryPoint.Position;
                 //return targetEntryPoint.Id;
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return "";
         }
@@ -243,7 +243,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return "";
         }
@@ -260,7 +260,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return "";
         }
@@ -277,7 +277,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return Vector3.One;
         }
@@ -297,7 +297,7 @@ namespace Proline.ClassicOnline.MWorld
             }
             catch (Exception e)
             {
-                MDebugAPI.LogError(e);
+                CDebugActionsAPI.LogError(e);
             }
             return 0;
         }

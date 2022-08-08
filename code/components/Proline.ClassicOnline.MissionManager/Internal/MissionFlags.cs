@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MissionManager
+namespace Proline.ClassicOnline.CMissionManager.Internal
 {
     internal static class MissionFlags
     {

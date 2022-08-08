@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MScreen
+namespace Proline.ClassicOnline.CScreenRendering
 {
     public static class ScreenAPI
     {
@@ -72,7 +72,7 @@ namespace Proline.ClassicOnline.MScreen
 
         private static float DegToRad(float _deg)
         {
-            double Radian = (Math.PI / 180) * _deg;
+            double Radian = Math.PI / 180 * _deg;
             return (float)Radian;
         }
 

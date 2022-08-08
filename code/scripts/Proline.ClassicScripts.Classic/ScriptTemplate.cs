@@ -14,7 +14,7 @@ namespace Proline.ClassicOnline.SClassic
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (MScripting.MScriptingAPI.GetInstanceCountOfScript("ScriptTemplate") > 1)
+            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("ScriptTemplate") > 1)
                 return;
 
 

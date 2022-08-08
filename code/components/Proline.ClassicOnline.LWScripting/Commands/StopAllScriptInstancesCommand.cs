@@ -1,6 +1,5 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
-using Proline.ClassicOnline.MScripting.Internal;
 
 using System;
 using System.Collections.Generic;
@@ -8,8 +7,9 @@ using System.Linq;
 using Proline.Resource.Framework;
 using System.Text;
 using System.Threading.Tasks;
+using Proline.ClassicOnline.CCoreSystem.Internal;
 
-namespace Proline.ClassicOnline.MScripting.Commands
+namespace Proline.ClassicOnline.CCoreSystem.Commands
 {
     public class StopAllScriptInstancesCommand : ResourceCommand
     {
@@ -28,14 +28,14 @@ namespace Proline.ClassicOnline.MScripting.Commands
                 }
             }
             else
-            { 
+            {
                 var scriptName = args[0].ToString();
                 var scripts = sm.Where(e => e.Name.Equals(scriptName));
                 foreach (var script in scripts)
                 {
                     script.Terminate();
-                } 
+                }
             }
-        } 
+        }
     }
 }

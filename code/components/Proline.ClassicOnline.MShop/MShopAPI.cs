@@ -1,16 +1,17 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using Newtonsoft.Json;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CShopCatalogue.Internal;
 using Proline.ClassicOnline.GCharacter;
 using Proline.ClassicOnline.MGame;
-using Proline.ClassicOnline.MShop.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MShop
+namespace Proline.ClassicOnline.CShopCatalogue
 {
     internal static partial class MShopAPI
     {
@@ -18,12 +19,12 @@ namespace Proline.ClassicOnline.MShop
         {
             try
             {
-                if(CharacterGlobals.Character != null)
+                if (CharacterGlobals.Character != null)
                 {
                     var manager = CatalougeManager.GetInstance();
                     var catalouge = manager.GetCatalouge("VehicleCatalouge");
                     if (catalouge == null)
-                        throw new Exception("Catalouge not found"); 
+                        throw new Exception("Catalouge not found");
                     var vci = (VehicleCatalougeItem)catalouge.GetItem(vehicleName);
 
                     if (vci == null)
@@ -43,7 +44,7 @@ namespace Proline.ClassicOnline.MShop
                         }
 
 
-                        character.BankBalance -= vci.Price;  
+                        character.BankBalance -= vci.Price;
                         var task = World.CreateVehicle(new Model(vci.Model), World.GetNextPositionOnStreet(Game.PlayerPed.Position));
                         task.ContinueWith(e =>
                         {
@@ -51,23 +52,23 @@ namespace Proline.ClassicOnline.MShop
                             character.PersonalVehicle = new GCharacter.Data.CharacterPersonalVehicle(createdVehicle.Handle);
 
                             var id = "PlayerVehicle";
-                            MData.API.CreateDataFile();
-                            MData.API.AddDataFileValue("VehicleHash", createdVehicle.Model.Hash);
-                            MData.API.AddDataFileValue("VehiclePosition", JsonConvert.SerializeObject(createdVehicle.Position));
+                            CDataStream.API.CreateDataFile();
+                            CDataStream.API.AddDataFileValue("VehicleHash", createdVehicle.Model.Hash);
+                            CDataStream.API.AddDataFileValue("VehiclePosition", JsonConvert.SerializeObject(createdVehicle.Position));
                             createdVehicle.IsPersistent = true;
                             if (createdVehicle.AttachedBlips.Length == 0)
                                 createdVehicle.AttachBlip();
-                            MData.API.SaveDataFile(id);
+                            CDataStream.API.SaveDataFile(id);
                             MGameAPI.SetCharacterBankBalance(character.BankBalance);
                         });
 
                     }
                 }
-               
+
             }
             catch (Exception e)
-            { 
-                MDebug.MDebugAPI.LogError(e);
+            {
+                CDebugActionsAPI.LogError(e);
             }
         }
     }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MScripting.Internal
+namespace Proline.ClassicOnline.CCoreSystem.Internal
 {
     internal class ScriptingConfigSection
     {

@@ -1,4 +1,5 @@
 ﻿using Proline.CFXExtended.Core;
+using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.GCharacter;
 using System;
 using System.Collections.Generic;
@@ -25,8 +26,8 @@ namespace Proline.ClassicOnline.SClassic
                     var walletBalance = stats.GetStat("WALLET_BALANCE");
                     var bankBalance = stats.GetStat("BANK_BALANCE");
 
-                    MDebug.MDebugAPI.LogDebug(walletBalance);
-                    MDebug.MDebugAPI.LogDebug(bankBalance);
+                    CDebugActionsAPI.LogDebug(walletBalance);
+                    CDebugActionsAPI.LogDebug(bankBalance);
 
                     walletBalanceStat.SetValue(Convert.ToInt64(CharacterGlobals.Character.WalletBalance));
                     bankBalanceStat.SetValue(Convert.ToInt64(CharacterGlobals.Character.BankBalance));

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proline.ClassicOnline.CMissionManager.Internal;
+using System;
 
 namespace Proline.ClassicOnline.MissionManager
 {

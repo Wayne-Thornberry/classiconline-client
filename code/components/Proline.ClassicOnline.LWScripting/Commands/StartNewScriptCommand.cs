@@ -7,8 +7,9 @@ using System.Linq;
 using Proline.Resource.Framework;
 using System.Text;
 using System.Threading.Tasks;
+using Proline.ClassicOnline.CCoreSystem;
 
-namespace Proline.ClassicOnline.MScripting.Commands
+namespace Proline.ClassicOnline.CCoreSystem.Commands
 {
     public class StartNewScriptCommand : ResourceCommand
     {
@@ -23,7 +24,7 @@ namespace Proline.ClassicOnline.MScripting.Commands
                 return;
             }
             var scriptName = args[0].ToString();
-            MScriptingAPI.StartNewScript(scriptName);
-        } 
+            CCoreSystemAPI.StartNewScript(scriptName);
+        }
     }
 }

@@ -4,7 +4,7 @@ using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Proline.CFXExtended.Core;
-using Proline.ClassicOnline.MDebug;
+using Proline.ClassicOnline.CDebugActions;
 
 namespace Proline.ClassicOnline.SClassic
 {
@@ -116,8 +116,8 @@ namespace Proline.ClassicOnline.SClassic
                         _deathStage = 0;
                         break;
                 }
-                //MDebugAPI.LogDebug(Stage);
-                //MDebugAPI.LogDebug(_timer);
+                //CDebugActionsAPI.LogDebug(Stage);
+                //CDebugActionsAPI.LogDebug(_timer);
                 await BaseScript.Delay(0);
             }
         }
@@ -126,7 +126,7 @@ namespace Proline.ClassicOnline.SClassic
         private void ReviveSelf()
         {
             Game.PlayerPed.Position = Game.PlayerPed.Position;
-            MDebugAPI.LogDebug("reviving");
+            CDebugActionsAPI.LogDebug("reviving");
             API.NetworkRespawnCoords(Game.PlayerPed.Handle, Game.PlayerPed.Position.X, Game.PlayerPed.Position.Y,
                 Game.PlayerPed.Position.Z, false, false);
             API.ResurrectPed(Game.PlayerPed.Handle);

@@ -1,6 +1,6 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
-using Proline.ClassicOnline.MBrain;
+using Proline.ClassicOnline.CScriptBrain;
 using Proline.ClassicOnline.MissionManager;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.SClassic
+namespace Proline.ClassicOnline.SClassic.Mission
 {
     public class TruckingOnDemand
     {
@@ -25,7 +25,7 @@ namespace Proline.ClassicOnline.SClassic
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (MScripting.MScriptingAPI.GetInstanceCountOfScript("TruckingOnDemand") > 1)
+            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("TruckingOnDemand") > 1)
                 return;
             if (!MissionAPIs.BeginMission())
                 return;
@@ -34,18 +34,18 @@ namespace Proline.ClassicOnline.SClassic
 
             _truckSpawnLoc = new Vector3(829.9249f, -2950.439f, 4.902536f);
             _trailerSpawnLoc = new Vector3(865.3315f, -2986.426f, 4.900764f);
-            _truck = (Vehicle) Entity.FromHandle(int.Parse(args[0].ToString()));
+            _truck = (Vehicle)Entity.FromHandle(int.Parse(args[0].ToString()));
 
 
-            var handles = MBrainAPI.GetEntityHandlesByTypes(GScripting.EntityType.VEHICLE);
+            var handles = CScriptBrainAPI.GetEntityHandlesByTypes(GScripting.EntityType.VEHICLE);
 
             foreach (var item in handles)
             {
                 var entity = Entity.FromHandle(item);
                 var distance = World.GetDistance(entity.Position, Game.PlayerPed.Position);
-                if (distance < _closestDistance &&  IsValidModel(entity.Model))
+                if (distance < _closestDistance && IsValidModel(entity.Model))
                 {
-                    _trailer = (Vehicle) entity;
+                    _trailer = (Vehicle)entity;
                     _closestDistance = distance;
                 }
             }
@@ -82,7 +82,7 @@ namespace Proline.ClassicOnline.SClassic
                 }
                 else
                 {
-                    if(World.GetDistance(_trailer.Position, _deliveryLoc) < 10f)
+                    if (World.GetDistance(_trailer.Position, _deliveryLoc) < 10f)
                     {
                         _trailer.Delete();
                         MGame.MGameAPI.AddValueToBankBalance(_payout);
@@ -96,7 +96,7 @@ namespace Proline.ClassicOnline.SClassic
         }
 
         private bool IsValidModel(Model model)
-        { 
+        {
             return model == VehicleHash.Trailers || model == VehicleHash.Trailers2 || model == VehicleHash.Trailers3 || model == VehicleHash.Trailers4;
         }
     }

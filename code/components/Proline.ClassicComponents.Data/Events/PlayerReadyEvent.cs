@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.MData.Events
+namespace Proline.ClassicOnline.CDataStream.Events
 {
     internal partial class PlayerReadyEvent : LoudEvent
     {

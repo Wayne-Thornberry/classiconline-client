@@ -1,7 +1,8 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
-using Proline.ClassicOnline.MBrain;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CScriptBrain;
 using Proline.ClassicOnline.MissionManager;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.SClassic
+namespace Proline.ClassicOnline.SClassic.Mission
 {
     public class VigilanteOnDemand
     {
@@ -24,7 +25,7 @@ namespace Proline.ClassicOnline.SClassic
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (MScripting.MScriptingAPI.GetInstanceCountOfScript("VigilanteOnDemand") > 1)
+            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("VigilanteOnDemand") > 1)
                 return;
             if (!MissionAPIs.BeginMission())
                 return;
@@ -37,7 +38,7 @@ namespace Proline.ClassicOnline.SClassic
             MissionAPIs.TrackPoolObjectForMission(_policeVehicle);
 
 
-            var handles = MBrainAPI.GetEntityHandlesByTypes(GScripting.EntityType.VEHICLE);
+            var handles = CScriptBrainAPI.GetEntityHandlesByTypes(GScripting.EntityType.VEHICLE);
 
             foreach (var item in handles)
             {
@@ -46,8 +47,8 @@ namespace Proline.ClassicOnline.SClassic
                 if (distance < _closestDistance && IsValidModel(entity.Model) && entity != _policeVehicle && entity.Driver != null)
                 {
                     if (entity.Driver.IsDead) continue;
-                    MDebug.MDebugAPI.LogDebug("Found a vehicle");
-                    _target = (Vehicle)entity;
+                    CDebugActionsAPI.LogDebug("Found a vehicle");
+                    _target = entity;
                     _closestDistance = distance;
                 }
             }
@@ -165,7 +166,7 @@ namespace Proline.ClassicOnline.SClassic
             if (item.LastVehicle != null)
             {
                 var vehicle = item.LastVehicle;
-                DeleteAllBlips(vehicle); 
+                DeleteAllBlips(vehicle);
                 if (item.AttachedBlip != null)
                 {
                     item.AttachedBlip.Alpha = 255;
@@ -175,9 +176,9 @@ namespace Proline.ClassicOnline.SClassic
 
         private void CurrentVehicleCheck(Ped ped)
         {
-            if(ped == null)
+            if (ped == null)
             {
-                MDebug.MDebugAPI.LogDebug("PED IS NULL WTF?????");
+                CDebugActionsAPI.LogDebug("PED IS NULL WTF?????");
             }
             if (ped.IsInVehicle())
             {
@@ -218,7 +219,7 @@ namespace Proline.ClassicOnline.SClassic
         }
 
         private bool IsValidModel(Model model)
-        { 
+        {
             return model.IsCar;
         }
     }
