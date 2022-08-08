@@ -129,6 +129,24 @@ namespace Proline.ClassicOnline.MWorld
 
         }
 
+        public static string GetPropertyGarageLayout(string propertyId)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(propertyId))
+                    return "";
+                var pm = PropertyManager.GetInstance();
+                var property = pm.GetProperty(propertyId);
+                return property.Layout;
+            }
+            catch (Exception e)
+            {
+                MDebugAPI.LogError(e);
+            }
+            return "";
+
+        }
+
         public static string GetPropertyInterior(string propertyId, string propertyType)
         {
             try

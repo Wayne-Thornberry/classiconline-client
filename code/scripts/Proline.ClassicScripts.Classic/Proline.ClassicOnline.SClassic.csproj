@@ -12,19 +12,19 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\components\Proline.ClassicComponents.Character\Proline.ClassicOnline.MGame.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicComponents.Data\Proline.ClassicOnline.MData.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicComponents.UI\Proline.ClassicOnline.MScreen.csproj" /> 
+    <ProjectReference Include="..\..\components\Proline.ClassicComponents.Character\Proline.ClassicOnline.CGameLogic.csproj" />
+    <ProjectReference Include="..\..\components\Proline.ClassicComponents.Data\Proline.ClassicOnline.CDataStream.csproj" />
+    <ProjectReference Include="..\..\components\Proline.ClassicComponents.UI\Proline.ClassicOnline.CScreenRendering.csproj" /> 
     <ProjectReference Include="..\..\globals\Proline.ClassicGlobals.Globals\Proline.ClassicOnline.GScripting.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassiclOnline.MConnection\Proline.ClassicOnline.MConnection.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicOnline.DebugInterface\Proline.ClassicOnline.MRendering.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicOnline.F8Console\Proline.ClassicOnline.MDebug.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicOnline.GasStation\Proline.ClassicOnline.MWorld.csproj" />
+    <ProjectReference Include="..\..\components\Proline.ClassiclOnline.MConnection\Proline.ClassicOnline.CNetConnection.csproj" />
+    <ProjectReference Include="..\..\components\Proline.ClassicOnline.DebugInterface\Proline.ClassicOnline.CGameRendering.csproj" />
+    <ProjectReference Include="..\..\components\Proline.ClassicOnline.F8Console\Proline.ClassicOnline.CDebugActions.csproj" />
+    <ProjectReference Include="..\..\components\Proline.ClassicOnline.GasStation\Proline.ClassicOnline.CWorldObjects.csproj" />
     <ProjectReference Include="..\..\globals\Proline.ClassicOnline.GCharacter\Proline.ClassicOnline.GCharacter.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicOnline.LWScripting\Proline.ClassicOnline.MScripting.csproj" />
+    <ProjectReference Include="..\..\components\Proline.ClassicOnline.LWScripting\Proline.ClassicOnline.CCoreSystem.csproj" />
     <ProjectReference Include="..\..\components\Proline.ClassicOnline.MissionManager\Proline.ClassicOnline.CMissionManager.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicOnline.MShop\Proline.ClassicOnline.MShop.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicOnline.ScriptObjects\Proline.ClassicOnline.MBrain.csproj" />
+    <ProjectReference Include="..\..\components\Proline.ClassicOnline.MShop\Proline.ClassicOnline.CShopCatalogue.csproj" />
+    <ProjectReference Include="..\..\components\Proline.ClassicOnline.ScriptObjects\Proline.ClassicOnline.CScriptBrain.csproj" />
   </ItemGroup>
  
   <ItemGroup>

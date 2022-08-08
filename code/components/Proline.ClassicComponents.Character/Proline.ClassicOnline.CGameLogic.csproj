@@ -1,32 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
 	<PropertyGroup>
 		<TargetFramework>net452</TargetFramework>
 		<Platforms>AnyCPU</Platforms>
 		<Configurations>Debug;Release</Configurations>
 	</PropertyGroup>
-
-	<ItemGroup>
-	  <None Remove="Data\GarageInterior.cs~RF7261113f.TMP" />
-	</ItemGroup>
-
 	<ItemGroup>
 	  <PackageReference Include="CitizenFX.Core.Client" Version="1.0.5738" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Proline.ClassicOnline.F8Console\Proline.ClassicOnline.MDebug.csproj" />
-	  <ProjectReference Include="..\..\globals\Proline.ClassicOnline.GCharacter\Proline.ClassicOnline.GCharacter.csproj" />
-	</ItemGroup>
+    <ProjectReference Include="..\Proline.ClassicComponents.Data\Proline.ClassicOnline.CDataStream.csproj" />
+    <ProjectReference Include="..\..\globals\Proline.ClassicOnline.GCharacter\Proline.ClassicOnline.GCharacter.csproj" />
+  </ItemGroup>
 
 	<ItemGroup>
 		<Reference Include="Microsoft.CSharp" />
 		<Reference Include="Newtonsoft.Json">
 			<HintPath>..\..\..\vendor\Newtonsoft.Json.dll</HintPath>
-		</Reference> 
+		</Reference>
+		<Reference Include="Proline.CFXExtended.Core">
+		  <HintPath>E:\artifacts\CFXExtended\Proline.CFXExtended.Core.dll</HintPath>
+		</Reference>
 		<Reference Include="Proline.Resource.Client">
 			<HintPath>E:\artifacts\ResourceLibs\Client\Proline.Resource.Client.dll</HintPath>
-		</Reference>
+		</Reference> 
 		<Reference Include="Proline.Resource.Configuration.Client">
 			<HintPath>E:\artifacts\ResourceLibs\Client\Proline.Resource.Configuration.Client.dll</HintPath>
 		</Reference>
@@ -43,5 +40,7 @@
 			<HintPath>E:\artifacts\ResourceLibs\Client\Proline.Resource.Scripting.Client.dll</HintPath>
 		</Reference>
 	</ItemGroup>
+
+
 
 </Project>

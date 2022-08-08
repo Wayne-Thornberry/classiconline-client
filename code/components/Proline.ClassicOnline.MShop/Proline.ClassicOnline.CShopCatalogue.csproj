@@ -8,18 +8,18 @@
 	  <PackageReference Include="CitizenFX.Core.Client" Version="1.0.5738" />
 	</ItemGroup>
 
+
 	<ItemGroup>
-    <ProjectReference Include="..\Proline.ClassicComponents.Data\Proline.ClassicOnline.MData.csproj" />
+    <ProjectReference Include="..\Proline.ClassicComponents.Character\Proline.ClassicOnline.CGameLogic.csproj" />
+    <ProjectReference Include="..\Proline.ClassicComponents.Data\Proline.ClassicOnline.CDataStream.csproj" />
     <ProjectReference Include="..\..\globals\Proline.ClassicOnline.GCharacter\Proline.ClassicOnline.GCharacter.csproj" />
   </ItemGroup>
+
 
 	<ItemGroup>
 		<Reference Include="Microsoft.CSharp" />
 		<Reference Include="Newtonsoft.Json">
 			<HintPath>..\..\..\vendor\Newtonsoft.Json.dll</HintPath>
-		</Reference>
-		<Reference Include="Proline.CFXExtended.Core">
-		  <HintPath>E:\artifacts\CFXExtended\Proline.CFXExtended.Core.dll</HintPath>
 		</Reference>
 		<Reference Include="Proline.Resource.Client">
 			<HintPath>E:\artifacts\ResourceLibs\Client\Proline.Resource.Client.dll</HintPath>
