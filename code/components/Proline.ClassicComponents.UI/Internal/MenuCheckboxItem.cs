@@ -1,8 +1,8 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
-using Proline.ClassicOnline.CScreenRendering.Menus;
+using Proline.ClassicOnline.CScreenRendering;
 
-namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
+namespace Proline.ClassicOnline.SClassic.UI.Menu
 {
     public class MenuCheckboxItem : MenuItem
     {
@@ -82,10 +82,10 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
         {
             var leftSide = false;
             var leftAligned = ParentMenu.LeftAligned;
-            return leftSide ? leftAligned ? 20f / MenuController.ScreenWidth :
-                API.GetSafeZoneSize() - (Width - 20f) / MenuController.ScreenWidth :
-                leftAligned ? (Width - 20f) / MenuController.ScreenWidth :
-                API.GetSafeZoneSize() - 20f / MenuController.ScreenWidth;
+            return leftSide ? leftAligned ? 20f / CScreenRenderingAPI.GetScreenWidth() :
+                API.GetSafeZoneSize() - (Width - 20f) / CScreenRenderingAPI.GetScreenWidth() :
+                leftAligned ? (Width - 20f) / CScreenRenderingAPI.GetScreenWidth() :
+                API.GetSafeZoneSize() - 20f / CScreenRenderingAPI.GetScreenWidth();
         }
 
         internal override void Draw(int offset)
@@ -103,10 +103,10 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
 
             var name = GetSpriteName();
             var spriteY = (ParentMenu.Position.Y + (Index - offset) * RowHeight + 20f + yOffset) /
-                          MenuController.ScreenHeight;
+                          CScreenRenderingAPI.GetScreenHeight();
             var spriteX = GetSpriteX();
-            var spriteHeight = 45f / MenuController.ScreenHeight;
-            var spriteWidth = 45f / MenuController.ScreenWidth;
+            var spriteHeight = 45f / CScreenRenderingAPI.GetScreenHeight();
+            var spriteWidth = 45f / CScreenRenderingAPI.GetScreenWidth();
             var color = GetSpriteColour();
 
             API.DrawSprite("commonmenu", name, spriteX, spriteY, spriteWidth, spriteHeight, 0f, color, color, color,

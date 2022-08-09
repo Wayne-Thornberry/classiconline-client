@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.SClassic
+namespace Proline.ClassicOnline.SClassic.Tools
 {
     public class PedComponentViewer
     {
@@ -28,7 +28,7 @@ namespace Proline.ClassicOnline.SClassic
             {
                 if (Game.IsControlJustPressed(0, Control.FrontendUp))
                 {
-                    
+
                     _componentId++;
                     _drawableId = 0;
                     _textureId = 0;

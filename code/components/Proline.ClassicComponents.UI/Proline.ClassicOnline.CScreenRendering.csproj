@@ -7,6 +7,16 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Internal\**" />
+	  <EmbeddedResource Remove="Internal\**" />
+	  <None Remove="Internal\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Menu.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="CitizenFX.Core.Client" Version="1.0.5738" />
 	</ItemGroup>
 

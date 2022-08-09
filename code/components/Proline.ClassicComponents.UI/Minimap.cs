@@ -3,7 +3,7 @@ using CitizenFX.Core;
 
 namespace Proline.ClassicOnline.CScreenRendering
 {
-    public static class MinimapAPI
+    public static partial class CScreenRenderingAPI
     {
         public static async Task FlashBlip(Blip blip, int duration = 100)
         {

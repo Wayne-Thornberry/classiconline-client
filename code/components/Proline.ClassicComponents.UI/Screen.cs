@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CScreenRendering
 {
-    public static class ScreenAPI
+    public static partial class CScreenRenderingAPI
     {
         public static void Draw2DBox(float x, float y, float width, float heigth, Color color)
         {

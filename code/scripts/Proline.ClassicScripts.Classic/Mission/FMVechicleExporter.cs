@@ -42,7 +42,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
                         _blip.IsFlashing = true;
                         Screen.DisplayHelpTextThisFrame("Deliver this vehicle to the docks to earn some money");
                         API.PlaySoundFrontend(-1, "INFO", "HUD_FRONTEND_DEFAULT_SOUNDSET", true);
-                        MinimapAPI.FlashBlip(_blip);
+                        CScreenRenderingAPI.FlashBlip(_blip);
                         _oneTime = true;
                     }
 

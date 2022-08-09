@@ -12,7 +12,7 @@ using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CCoreSystem;
 using Proline.Resource;
 
-namespace Proline.ClassicOnline.SClassic
+namespace Proline.ClassicOnline.SClassic.Tools
 {
     public class EditorScript
     {
@@ -87,10 +87,10 @@ namespace Proline.ClassicOnline.SClassic
                         new Vector3(0, 0, 0), new Vector3(1, 1, 1), Color.FromArgb(150, 255, 255, 255));
                 }
 
-                ScreenAPI.ScreenRelToWorld(_cam.Position, _cam.Rotation, new Vector2(_cx, _cy), out var dir);
+                CScreenRenderingAPI.ScreenRelToWorld(_cam.Position, _cam.Rotation, new Vector2(_cx, _cy), out var dir);
                 _raycastResult = World.Raycast(_cam.Position, dir, 1000f, IntersectOptions.Everything);
                 if (_raycastResult.DitHit)
-                { 
+                {
                     World.DrawMarker(MarkerType.DebugSphere, _raycastResult.HitPosition, new Vector3(0, 0, 0),
                         new Vector3(0, 0, 0), new Vector3(1, 1, 1), Color.FromArgb(150, 255, 255, 255));
                 }
@@ -155,7 +155,7 @@ namespace Proline.ClassicOnline.SClassic
             {
                 _cx = Game.GetControlNormal(0, Control.CursorX);
                 _cy = Game.GetControlNormal(0, Control.CursorY);
-                ScreenAPI.ScreenRelToWorld(_cam.Position, _cam.Rotation, new Vector2(_cx, _cy), out var dir);
+                CScreenRenderingAPI.ScreenRelToWorld(_cam.Position, _cam.Rotation, new Vector2(_cx, _cy), out var dir);
                 _raycastResult = World.Raycast(_cam.Position, dir, 1000f, IntersectOptions.Everything);
                 if (_raycastResult.DitHit)
                 {

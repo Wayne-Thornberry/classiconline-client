@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
+namespace Proline.ClassicOnline.SClassic.UI.Menu
 {
     public class MenuListItem : MenuItem
     {

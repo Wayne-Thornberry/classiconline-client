@@ -5,9 +5,9 @@ using System.Linq;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
-using Proline.ClassicOnline.CScreenRendering.Menus;
+using Proline.ClassicOnline.CScreenRendering;
 
-namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
+namespace Proline.ClassicOnline.SClassic.UI.Menu
 {
     public class Menu
     {
@@ -42,12 +42,12 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                     API.SetScriptGfxAlign(LeftAligned ? 76 : 82, 84);
                     API.SetScriptGfxAlignParams(0f, 0f, 0f, 0f);
 
-                    var x = (Position.X + headerSize.Width / 2f) / MenuController.ScreenWidth;
-                    var y = (Position.Y + headerSize.Height / 2f) / MenuController.ScreenHeight;
-                    var width = headerSize.Width / MenuController.ScreenWidth;
-                    var height = headerSize.Height / MenuController.ScreenHeight;
+                    var x = (Position.X + headerSize.Width / 2f) / CScreenRenderingAPI.GetScreenWidth();
+                    var y = (Position.Y + headerSize.Height / 2f) / CScreenRenderingAPI.GetScreenHeight();
+                    var width = headerSize.Width / CScreenRenderingAPI.GetScreenWidth();
+                    var height = headerSize.Height / CScreenRenderingAPI.GetScreenHeight();
 
-                    API.DrawSprite(MenuController._texture_dict, MenuController._header_texture, x, y, width, height,
+                    API.DrawSprite(CScreenRenderingAPI.GetMenuTextureDict(), CScreenRenderingAPI.GetMenuHeaderTexture(), x, y, width, height,
                         0f, 255, 255, 255, 255);
 
                     API.ResetScriptGfxAlign();
@@ -57,7 +57,7 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                     #region Draw Header Menu Title
 
                     var font = 1;
-                    var size = 45f * 27f / MenuController.ScreenHeight;
+                    var size = 45f * 27f / CScreenRenderingAPI.GetScreenHeight();
                     //float size = 1.1f;
 
                     API.SetScriptGfxAlign(76, 84);
@@ -70,11 +70,11 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                     API.SetTextJustification(0);
                     API.AddTextComponentSubstringPlayerName(MenuTitle);
                     if (LeftAligned)
-                        API.EndTextCommandDisplayText(headerSize.Width / 2f / MenuController.ScreenWidth,
+                        API.EndTextCommandDisplayText(headerSize.Width / 2f / CScreenRenderingAPI.GetScreenWidth(),
                             y - API.GetTextScaleHeight(size, font) / 2f);
                     else
                         API.EndTextCommandDisplayText(
-                            API.GetSafeZoneSize() - headerSize.Width / 2f / MenuController.ScreenWidth,
+                            API.GetSafeZoneSize() - headerSize.Width / 2f / CScreenRenderingAPI.GetScreenWidth(),
                             y - API.GetTextScaleHeight(size, font) / 2f);
 
                     API.ResetScriptGfxAlign();
@@ -97,10 +97,10 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                     var bgHeight = 38f;
 
 
-                    var x = (Position.X + headerSize.Width / 2f) / MenuController.ScreenWidth;
-                    var y = (Position.Y + MenuItemsYOffset + bgHeight / 2f) / MenuController.ScreenHeight;
-                    var width = headerSize.Width / MenuController.ScreenWidth;
-                    var height = bgHeight / MenuController.ScreenHeight;
+                    var x = (Position.X + headerSize.Width / 2f) / CScreenRenderingAPI.GetScreenWidth();
+                    var y = (Position.Y + MenuItemsYOffset + bgHeight / 2f) / CScreenRenderingAPI.GetScreenHeight();
+                    var width = headerSize.Width / CScreenRenderingAPI.GetScreenWidth();
+                    var height = bgHeight / CScreenRenderingAPI.GetScreenHeight();
 
                     API.DrawRect(x, y, width, height, 0, 0, 0, 250);
                     API.ResetScriptGfxAlign();
@@ -112,7 +112,7 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                     if (!string.IsNullOrEmpty(MenuSubtitle))
                     {
                         var font = 0;
-                        var size = 14f * 27f / MenuController.ScreenHeight;
+                        var size = 14f * 27f / CScreenRenderingAPI.GetScreenHeight();
                         //float size = 0.34f;
 
                         API.SetScriptGfxAlign(76, 84);
@@ -124,12 +124,12 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                         API.SetTextJustification(1);
                         API.AddTextComponentSubstringPlayerName("~HUD_COLOUR_HB_BLUE~" + MenuSubtitle.ToUpper());
                         if (LeftAligned)
-                            API.EndTextCommandDisplayText(10f / MenuController.ScreenWidth,
-                                y - (API.GetTextScaleHeight(size, font) / 2f + 4f / MenuController.ScreenHeight));
+                            API.EndTextCommandDisplayText(10f / CScreenRenderingAPI.GetScreenWidth(),
+                                y - (API.GetTextScaleHeight(size, font) / 2f + 4f / CScreenRenderingAPI.GetScreenHeight()));
                         else
                             API.EndTextCommandDisplayText(
-                                API.GetSafeZoneSize() - (headerSize.Width - 10f) / MenuController.ScreenWidth,
-                                y - (API.GetTextScaleHeight(size, font) / 2f + 4f / MenuController.ScreenHeight));
+                                API.GetSafeZoneSize() - (headerSize.Width - 10f) / CScreenRenderingAPI.GetScreenWidth(),
+                                y - (API.GetTextScaleHeight(size, font) / 2f + 4f / CScreenRenderingAPI.GetScreenHeight()));
 
                         API.ResetScriptGfxAlign();
                     }
@@ -142,7 +142,7 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                     if (CounterPreText != null || MaxItemsOnScreen < Size)
                     {
                         var font = 0;
-                        var size = 14f * 27f / MenuController.ScreenHeight;
+                        var size = 14f * 27f / CScreenRenderingAPI.GetScreenHeight();
                         //float size = 0.34f;
 
                         API.SetScriptGfxAlign(76, 84);
@@ -155,15 +155,15 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                         API.AddTextComponentSubstringPlayerName("~HUD_COLOUR_HB_BLUE~" + counterText.ToUpper());
                         if (LeftAligned)
                         {
-                            API.SetTextWrap(0f, 485f / MenuController.ScreenWidth);
-                            API.EndTextCommandDisplayText(10f / MenuController.ScreenWidth,
-                                y - (API.GetTextScaleHeight(size, font) / 2f + 4f / MenuController.ScreenHeight));
+                            API.SetTextWrap(0f, 485f / CScreenRenderingAPI.GetScreenWidth());
+                            API.EndTextCommandDisplayText(10f / CScreenRenderingAPI.GetScreenWidth(),
+                                y - (API.GetTextScaleHeight(size, font) / 2f + 4f / CScreenRenderingAPI.GetScreenHeight()));
                         }
                         else
                         {
-                            API.SetTextWrap(0f, API.GetSafeZoneSize() - 10f / MenuController.ScreenWidth);
+                            API.SetTextWrap(0f, API.GetSafeZoneSize() - 10f / CScreenRenderingAPI.GetScreenWidth());
                             API.EndTextCommandDisplayText(0f,
-                                y - (API.GetTextScaleHeight(size, font) / 2f + 4f / MenuController.ScreenHeight));
+                                y - (API.GetTextScaleHeight(size, font) / 2f + 4f / CScreenRenderingAPI.GetScreenHeight()));
                         }
 
                         API.ResetScriptGfxAlign();
@@ -187,10 +187,10 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                     var bgHeight = 38f * MathUtil.Clamp(_MenuItems.Count, 0, MaxItemsOnScreen);
 
 
-                    var x = (Position.X + headerSize.Width / 2f) / MenuController.ScreenWidth;
-                    var y = (Position.Y + MenuItemsYOffset + (bgHeight + 1f) / 2f) / MenuController.ScreenHeight;
-                    var width = headerSize.Width / MenuController.ScreenWidth;
-                    var height = (bgHeight + 1f) / MenuController.ScreenHeight;
+                    var x = (Position.X + headerSize.Width / 2f) / CScreenRenderingAPI.GetScreenWidth();
+                    var y = (Position.Y + MenuItemsYOffset + (bgHeight + 1f) / 2f) / CScreenRenderingAPI.GetScreenHeight();
+                    var width = headerSize.Width / CScreenRenderingAPI.GetScreenWidth();
+                    var height = (bgHeight + 1f) / CScreenRenderingAPI.GetScreenHeight();
 
                     //DrawSprite(MenuController._texture_dict, "gradient_bgd", x, y, width, height, 0f, 255, 255, 255, 255);
                     API.DrawRect(x, y, width, height, 0, 0, 0, 180);
@@ -216,17 +216,17 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                     {
                         #region background
 
-                        var width = Width / MenuController.ScreenWidth;
-                        var height = 60f / MenuController.ScreenWidth;
-                        var x = (Position.X + Width / 2f) / MenuController.ScreenWidth;
-                        var y = MenuItemsYOffset / MenuController.ScreenHeight + height / 2f +
-                                6f / MenuController.ScreenHeight;
+                        var width = Width / CScreenRenderingAPI.GetScreenWidth();
+                        var height = 60f / CScreenRenderingAPI.GetScreenWidth();
+                        var x = (Position.X + Width / 2f) / CScreenRenderingAPI.GetScreenWidth();
+                        var y = MenuItemsYOffset / CScreenRenderingAPI.GetScreenHeight() + height / 2f +
+                                6f / CScreenRenderingAPI.GetScreenHeight();
 
                         API.SetScriptGfxAlign(LeftAligned ? 76 : 82, 84);
                         API.SetScriptGfxAlignParams(0f, 0f, 0f, 0f);
 
                         API.DrawRect(x, y, width, height, 0, 0, 0, 180);
-                        descriptionYOffset = height; // + (1f / MenuController.ScreenHeight);
+                        descriptionYOffset = height; // + (1f / CScreenRenderingAPI.GetScreenHeight());
                         API.ResetScriptGfxAlign();
 
                         #endregion
@@ -236,16 +236,16 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                         API.SetScriptGfxAlign(76, 84);
                         API.SetScriptGfxAlignParams(0f, 0f, 0f, 0f);
                         var xMin = 0f;
-                        var xMax = Width / MenuController.ScreenWidth;
-                        var xCenter = 250f / MenuController.ScreenWidth;
-                        var yTop = y - 20f / MenuController.ScreenHeight;
-                        var yBottom = y - 10f / MenuController.ScreenHeight;
+                        var xMax = Width / CScreenRenderingAPI.GetScreenWidth();
+                        var xCenter = 250f / CScreenRenderingAPI.GetScreenWidth();
+                        var yTop = y - 20f / CScreenRenderingAPI.GetScreenHeight();
+                        var yBottom = y - 10f / CScreenRenderingAPI.GetScreenHeight();
 
                         API.BeginTextCommandDisplayText("STRING");
                         API.AddTextComponentSubstringPlayerName("↑");
 
                         API.SetTextFont(0);
-                        API.SetTextScale(1f, 14f * 27f / MenuController.ScreenHeight);
+                        API.SetTextScale(1f, 14f * 27f / CScreenRenderingAPI.GetScreenHeight());
                         //SetTextScale(0.35f, 0.35f);
                         API.SetTextJustification(0);
                         if (LeftAligned)
@@ -255,9 +255,9 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                         }
                         else
                         {
-                            xMin = API.GetSafeZoneSize() - (Width - 10f) / MenuController.ScreenWidth;
-                            xMax = API.GetSafeZoneSize() - 10f / MenuController.ScreenWidth;
-                            xCenter = API.GetSafeZoneSize() - 250f / MenuController.ScreenWidth;
+                            xMin = API.GetSafeZoneSize() - (Width - 10f) / CScreenRenderingAPI.GetScreenWidth();
+                            xMax = API.GetSafeZoneSize() - 10f / CScreenRenderingAPI.GetScreenWidth();
+                            xCenter = API.GetSafeZoneSize() - 250f / CScreenRenderingAPI.GetScreenWidth();
                             API.SetTextWrap(xMin, xMax);
                             API.EndTextCommandDisplayText(xCenter, yTop);
                         }
@@ -266,7 +266,7 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                         API.AddTextComponentSubstringPlayerName("↓");
 
                         API.SetTextFont(0);
-                        API.SetTextScale(1f, 14f * 27f / MenuController.ScreenHeight);
+                        API.SetTextScale(1f, 14f * 27f / CScreenRenderingAPI.GetScreenHeight());
                         //SetTextScale(0.35f, 0.35f);
                         API.SetTextJustification(0);
                         if (LeftAligned)
@@ -296,12 +296,12 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                         #region description text
 
                         var font = 0;
-                        var textSize = 14f * 27f / MenuController.ScreenHeight;
+                        var textSize = 14f * 27f / CScreenRenderingAPI.GetScreenHeight();
                         //float textSize = 0.35f;
 
-                        var textMinX = 0f + 10f / MenuController.ScreenWidth;
-                        var textMaxX = Width / MenuController.ScreenWidth - 10f / MenuController.ScreenWidth;
-                        var textY = MenuItemsYOffset / MenuController.ScreenHeight + 16f / MenuController.ScreenHeight +
+                        var textMinX = 0f + 10f / CScreenRenderingAPI.GetScreenWidth();
+                        var textMaxX = Width / CScreenRenderingAPI.GetScreenWidth() - 10f / CScreenRenderingAPI.GetScreenWidth();
+                        var textY = MenuItemsYOffset / CScreenRenderingAPI.GetScreenHeight() + 16f / CScreenRenderingAPI.GetScreenHeight() +
                                     descriptionYOffset;
 
                         API.SetScriptGfxAlign(76, 84);
@@ -321,8 +321,8 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                         }
                         else
                         {
-                            textMinX = API.GetSafeZoneSize() - (Width - 10f) / MenuController.ScreenWidth;
-                            textMaxX = API.GetSafeZoneSize() - 10f / MenuController.ScreenWidth;
+                            textMinX = API.GetSafeZoneSize() - (Width - 10f) / CScreenRenderingAPI.GetScreenWidth();
+                            textMaxX = API.GetSafeZoneSize() - 10f / CScreenRenderingAPI.GetScreenWidth();
                             API.SetTextWrap(textMinX, textMaxX);
                             API.EndTextCommandDisplayText(textMinX, textY);
                         }
@@ -355,29 +355,29 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
 
                         #region background
 
-                        var descWidth = Width / MenuController.ScreenWidth;
-                        var descHeight = (textHeight + 0.005f) * lineCount + 8f / MenuController.ScreenHeight +
-                                         2.5f / MenuController.ScreenHeight;
-                        var descX = (Position.X + Width / 2f) / MenuController.ScreenWidth;
-                        var descY = textY - 6f / MenuController.ScreenHeight + descHeight / 2f;
+                        var descWidth = Width / CScreenRenderingAPI.GetScreenWidth();
+                        var descHeight = (textHeight + 0.005f) * lineCount + 8f / CScreenRenderingAPI.GetScreenHeight() +
+                                         2.5f / CScreenRenderingAPI.GetScreenHeight();
+                        var descX = (Position.X + Width / 2f) / CScreenRenderingAPI.GetScreenWidth();
+                        var descY = textY - 6f / CScreenRenderingAPI.GetScreenHeight() + descHeight / 2f;
 
                         API.SetScriptGfxAlign(LeftAligned ? 76 : 82, 84);
                         API.SetScriptGfxAlignParams(0f, 0f, 0f, 0f);
 
-                        API.DrawRect(descX, descY - descHeight / 2f + 2f / MenuController.ScreenHeight, descWidth,
-                            4f / MenuController.ScreenHeight, 0, 0, 0, 200);
+                        API.DrawRect(descX, descY - descHeight / 2f + 2f / CScreenRenderingAPI.GetScreenHeight(), descWidth,
+                            4f / CScreenRenderingAPI.GetScreenHeight(), 0, 0, 0, 200);
                         API.DrawRect(descX, descY, descWidth, descHeight, 0, 0, 0, 180);
 
                         API.ResetScriptGfxAlign();
 
                         #endregion
 
-                        descriptionYOffset += descY + descHeight / 2f - 4f / MenuController.ScreenHeight;
+                        descriptionYOffset += descY + descHeight / 2f - 4f / CScreenRenderingAPI.GetScreenHeight();
                     }
                     else
                     {
-                        descriptionYOffset += MenuItemsYOffset / MenuController.ScreenHeight +
-                                              2f / MenuController.ScreenHeight + descriptionYOffset;
+                        descriptionYOffset += MenuItemsYOffset / CScreenRenderingAPI.GetScreenHeight() +
+                                              2f / CScreenRenderingAPI.GetScreenHeight() + descriptionYOffset;
                     }
                 }
 
@@ -399,11 +399,11 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                             API.PushScaleformMovieMethodParameterInt(listItem.ListIndex * 10); // opacity percent
                             API.EndScaleformMovieMethod();
 
-                            var width = Width / MenuController.ScreenWidth;
-                            var height = 700f / 500f * Width / MenuController.ScreenHeight;
-                            var x = Width / 2f / MenuController.ScreenWidth;
-                            var y = descriptionYOffset + height / 2f + 4f / MenuController.ScreenHeight;
-                            if (Size > MaxItemsOnScreen) y -= 30f / MenuController.ScreenHeight;
+                            var width = Width / CScreenRenderingAPI.GetScreenWidth();
+                            var height = 700f / 500f * Width / CScreenRenderingAPI.GetScreenHeight();
+                            var x = Width / 2f / CScreenRenderingAPI.GetScreenWidth();
+                            var y = descriptionYOffset + height / 2f + 4f / CScreenRenderingAPI.GetScreenHeight();
+                            if (Size > MaxItemsOnScreen) y -= 30f / CScreenRenderingAPI.GetScreenHeight();
 
                             API.SetScriptGfxAlign(LeftAligned ? 76 : 82, 84);
                             API.SetScriptGfxAlignParams(0f, 0f, 0f, 0f);
@@ -456,11 +456,11 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                             API.PushScaleformMovieMethodParameterBool(true);
                             API.EndScaleformMovieMethod();
 
-                            var width = Width / MenuController.ScreenWidth;
-                            var height = 700f / 500f * Width / MenuController.ScreenHeight;
-                            var x = Width / 2f / MenuController.ScreenWidth;
-                            var y = descriptionYOffset + height / 2f + 4f / MenuController.ScreenHeight;
-                            if (Size > MaxItemsOnScreen) y -= 30f / MenuController.ScreenHeight;
+                            var width = Width / CScreenRenderingAPI.GetScreenWidth();
+                            var height = 700f / 500f * Width / CScreenRenderingAPI.GetScreenHeight();
+                            var x = Width / 2f / CScreenRenderingAPI.GetScreenWidth();
+                            var y = descriptionYOffset + height / 2f + 4f / CScreenRenderingAPI.GetScreenHeight();
+                            if (Size > MaxItemsOnScreen) y -= 30f / CScreenRenderingAPI.GetScreenHeight();
 
                             API.SetScriptGfxAlign(LeftAligned ? 76 : 82, 84);
                             API.SetScriptGfxAlignParams(0f, 0f, 0f, 0f);
@@ -806,7 +806,7 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
 
         public bool Visible { get; set; }
 
-        public bool LeftAligned => MenuController.MenuAlignment == MenuController.MenuAlignmentOption.Left;
+        public bool LeftAligned => CScreenRenderingAPI.GetMenuAlignment() == 0;
 
         public PointF Position { get; } = new PointF(0f, 0f);
 
@@ -1003,14 +1003,15 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                 }
 
                 API.PlaySoundFrontend(-1, "SELECT", "HUD_FRONTEND_DEFAULT_SOUNDSET", false);
-                if (MenuController.MenuButtons.ContainsKey(item))
-                {
-                    // this updates the parent menu.
-                    MenuController.AddSubmenu(MenuController.GetCurrentMenu(), MenuController.MenuButtons[item]);
+                // NEED TO COME BACK TO THIS
+                //if (MenuController.MenuButtons.ContainsKey(item))
+                //{
+                //    // this updates the parent menu.
+                //    MenuController.AddSubmenu(MenuController.GetCurrentMenu(), MenuController.MenuButtons[item]);
 
-                    MenuController.GetCurrentMenu().CloseMenu();
-                    MenuController.MenuButtons[item].OpenMenu();
-                }
+                //    MenuController.GetCurrentMenu().CloseMenu();
+                //    MenuController.MenuButtons[item].OpenMenu();
+                //}
             }
             else if (item != null && !item.Enabled)
             {
@@ -1093,7 +1094,7 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
         /// </summary>
         public void GoLeft()
         {
-            if (MenuController.AreMenuButtonsEnabled)
+            if (CScreenRenderingAPI.IsMenuButtonsEnabled())
             {
                 var item = _MenuItems.ElementAt(CurrentIndex);
                 if (item.Enabled && item is MenuListItem listItem)
@@ -1138,7 +1139,7 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
         /// </summary>
         public void GoRight()
         {
-            if (MenuController.AreMenuButtonsEnabled)
+            if (CScreenRenderingAPI.IsMenuButtonsEnabled())
             {
                 var item = _MenuItems.ElementAt(CurrentIndex);
                 if (item.Enabled && item is MenuListItem listItem)

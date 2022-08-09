@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.SClassic
+namespace Proline.ClassicOnline.SClassic.Tools
 {
     public class PedPropViewer
     {
@@ -27,7 +27,7 @@ namespace Proline.ClassicOnline.SClassic
             {
                 if (Game.IsControlJustPressed(0, Control.FrontendUp))
                 {
-                    
+
                     _componentId++;
                     _drawableId = 0;
                     _textureId = 0;
@@ -89,7 +89,7 @@ namespace Proline.ClassicOnline.SClassic
                     justPressed = true;
                 }
                 if (justPressed)
-                { 
+                {
                     API.ClearAllPedProps(Game.PlayerPed.Handle);
                     API.SetPedPropIndex(Game.PlayerPed.Handle, _componentId, _drawableId, _textureId, true);
                     Screen.ShowSubtitle($"Component {_componentId} Drawable {_drawableId} Texture: {_textureId} Name: {API.GetHashNameForProp(Game.PlayerPed.Handle, _componentId, _drawableId, _textureId).ToString()}");

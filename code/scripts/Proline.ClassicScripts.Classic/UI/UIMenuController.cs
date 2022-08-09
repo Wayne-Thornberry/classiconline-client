@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using CitizenFX.Core;
+using Proline.ClassicOnline.CCoreSystem; 
 using CitizenFX.Core.Native;
+using System.Collections.Generic;
 using CitizenFX.Core.UI;
-using Proline.ClassicOnline.CScreenRendering.Menus.MenuItems;
+using System.Linq;
+using System;
+using Proline.ClassicOnline.SClassic.UI.Menu;
+using Proline.ClassicOnline.CScreenRendering;
 
-namespace Proline.ClassicOnline.CScreenRendering.Menus
+namespace Proline.ClassicOnline.SClassic.UI
 {
     public class AspectRatioException : Exception
     {
@@ -16,64 +19,54 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus
         }
     }
 
-    public class MenuController
+    public enum MenuAlignmentOption
     {
-        public enum MenuAlignmentOption
+        Left,
+        Right
+    }
+
+
+    public class UIMenuController
+    {
+        public UIMenuController()
         {
-            Left,
-            Right
+
         }
 
         public const string _texture_dict = "commonmenu";
         public const string _header_texture = "interaction_bgd";
 
-        internal static int _scale = API.RequestScaleformMovie("INSTRUCTIONAL_BUTTONS");
+        internal  int _scale = API.RequestScaleformMovie("INSTRUCTIONAL_BUTTONS");
 
-        private static int ManualTimerForGC = API.GetGameTimer();
+        private  int ManualTimerForGC = API.GetGameTimer();
 
-        private static MenuAlignmentOption _alignment = MenuAlignmentOption.Left;
+        private  MenuAlignmentOption _alignment = MenuAlignmentOption.Left;
 
-        public static MenuController Controller { get; set; }
 
-        /// <summary>
-        ///     Constructor
-        /// </summary>
-        public MenuController()
-        {
-            Controller = this;
-        }
+         
 
-        public async Task Process()
-        {
-            await ProcessMenus();
-            await DrawInstructionalButtons();
-            await ProcessMainButtons();
-            await ProcessDirectionalButtons();
-            await ProcessToggleMenuButton();
-        }
+        public  List<int> Menus { get; protected set; } = new List<int>();
 
-        public static List<Menu> Menus { get; protected set; } = new List<Menu>();
+        private  float AspectRatio => API.GetScreenAspectRatio(false);
+        public  float ScreenWidth => 1080 * AspectRatio;
+        public  float ScreenHeight => 1080;
+        public  bool DisableMenuButtons { get; set; } = false;
 
-        private static float AspectRatio => API.GetScreenAspectRatio(false);
-        public static float ScreenWidth => 1080 * AspectRatio;
-        public static float ScreenHeight => 1080;
-        public static bool DisableMenuButtons { get; set; } = false;
-
-        public static bool AreMenuButtonsEnabled => Menus.Any(m => m.Visible) && !Game.IsPaused &&
+        public  bool AreMenuButtonsEnabled => Menus.Any(m => m.Visible) && !Game.IsPaused &&
                                                     Screen.Fading.IsFadedIn && !API.IsPlayerSwitchInProgress() &&
                                                     !DisableMenuButtons && !Game.Player.IsDead;
 
-        public static bool EnableManualGCs { get; set; } = true;
-        public static bool DontOpenAnyMenu { get; set; } = false;
-        public static bool PreventExitingMenu { get; set; } = false;
-        public static bool DisableBackButton { get; set; } = false;
-        public static Control MenuToggleKey { get; set; } = Control.InteractionMenu;
+        public  bool EnableManualGCs { get; set; } = true;
+        public  bool DontOpenAnyMenu { get; set; } = false;
+        public  bool PreventExitingMenu { get; set; } = false;
+        public  bool DisableBackButton { get; set; } = false;
+        public  Control MenuToggleKey { get; set; } = Control.InteractionMenu;
 
-        internal static Dictionary<MenuItem, Menu> MenuButtons { get; } = new Dictionary<MenuItem, Menu>();
+        internal  Dictionary<MenuItem, int> MenuButtons { get; } = new Dictionary<MenuItem, int>();
 
-        public static Menu MainMenu { get; set; }
+        public  int MainMenu { get; set; }
 
-        public static MenuAlignmentOption MenuAlignment
+        public  MenuAlignmentOption MenuAlignment
         {
             get => _alignment;
             set
@@ -99,53 +92,10 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus
         }
 
         /// <summary>
-        ///     This binds the <paramref name="childMenu" /> menu to the <paramref name="menuItem" /> and sets the menu's parent to
-        ///     <paramref name="parentMenu" />.
-        /// </summary>
-        /// <param name="parentMenu"></param>
-        /// <param name="childMenu"></param>
-        /// <param name="menuItem"></param>
-        public static void BindMenuItem(Menu parentMenu, Menu childMenu, MenuItem menuItem)
-        {
-            AddSubmenu(parentMenu, childMenu);
-            if (MenuButtons.ContainsKey(menuItem))
-                MenuButtons[menuItem] = childMenu;
-            else
-                MenuButtons.Add(menuItem, childMenu);
-        }
-
-        /// <summary>
-        ///     This adds the <paramref name="menu" /> <see cref="Menu" /> to the <see cref="Menus" /> list.
-        /// </summary>
-        /// <param name="menu"></param>
-        public static void AddMenu(Menu menu)
-        {
-            if (!Menus.Contains(menu))
-            {
-                Menus.Add(menu);
-                // automatically set the first menu as the main menu if none is set yet, this can be changed at any time though.
-                if (MainMenu == null) MainMenu = menu;
-            }
-        }
-
-        /// <summary>
-        ///     Adds the <paramref name="child" /> <see cref="Menu" /> to the menus list and sets the menu's parent to
-        ///     <paramref name="parent" />.
-        /// </summary>
-        /// <param name="parent"></param>
-        /// <param name="child"></param>
-        public static void AddSubmenu(Menu parent, Menu child)
-        {
-            if (!Menus.Contains(child))
-                AddMenu(child);
-            child.ParentMenu = parent;
-        }
-
-        /// <summary>
         ///     Loads the texture dict for the common menu sprites.
         /// </summary>
         /// <returns></returns>
-        private static async Task LoadAssets()
+        private  async Task LoadAssets()
         {
             if (!API.HasStreamedTextureDictLoaded(_texture_dict) || !API.HasStreamedTextureDictLoaded("mpleaderboard"))
             {
@@ -159,54 +109,23 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus
         /// <summary>
         ///     Unloads the texture dict for the common menu sprites.
         /// </summary>
-        private static void UnloadAssets()
+        private  void UnloadAssets()
         {
             if (API.HasStreamedTextureDictLoaded(_texture_dict))
                 API.SetStreamedTextureDictAsNoLongerNeeded(_texture_dict);
         }
 
         /// <summary>
-        ///     Returns the currently opened menu.
-        /// </summary>
-        /// <returns></returns>
-        public static Menu GetCurrentMenu()
-        {
-            if (Menus.Any(m => m.Visible))
-                return Menus.Find(m => m.Visible);
-            return null;
-        }
-
-        /// <summary>
-        ///     Returns true if any menu is currently open.
-        /// </summary>
-        /// <returns></returns>
-        public static bool IsAnyMenuOpen()
-        {
-            return Menus.Any(m => m.Visible);
-        }
-
-        /// <summary>
-        ///     Closes all menus.
-        /// </summary>
-        public static void CloseAllMenus()
-        {
-            Menus.ForEach(m =>
-            {
-                if (m.Visible) m.CloseMenu();
-            });
-        }
-
-        /// <summary>
         ///     Disables the most important controls for when a menu is open.
         /// </summary>
-        private static void DisableControls()
+        private  void DisableControls()
         {
             #region Disable Inputs when any menu is open.
 
-            if (IsAnyMenuOpen())
+            if (CScreenRenderingAPI.IsAnyMenuOpen())
             {
                 // Close all menus when the player dies.
-                if (Game.PlayerPed.IsDead) CloseAllMenus();
+                if (Game.PlayerPed.IsDead) CScreenRenderingAPI.CloseAllMenus();
 
                 // Disable Gamepad/Controller Specific controls:
                 if (Game.CurrentInputMode == InputMode.GamePad)
@@ -279,16 +198,16 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus
         ///     Draws all the menus that are visible on the screen.
         /// </summary>
         /// <returns></returns>
-        private static async Task ProcessMenus()
+        private  async Task ProcessMenus()
         {
-            if (Menus.Count > 0 && IsAnyMenuOpen() && !Game.IsPaused && !Game.Player.IsDead && API.IsScreenFadedIn() &&
+            if (Menus.Count > 0 && CScreenRenderingAPI.IsAnyMenuOpen() && !Game.IsPaused && !Game.Player.IsDead && API.IsScreenFadedIn() &&
                 !API.IsPlayerSwitchInProgress())
             {
                 await LoadAssets();
 
                 DisableControls();
 
-                var menu = GetCurrentMenu();
+                var menu = CScreenRenderingAPI.GetCurrentMenu();
                 if (menu != null)
                 {
                     if (DontOpenAnyMenu)
@@ -314,11 +233,11 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus
             }
         }
 
-        internal static async Task DrawInstructionalButtons()
+        internal  async Task DrawInstructionalButtons()
         {
             if (!Game.IsPaused && !Game.Player.IsDead && API.IsScreenFadedIn() && !API.IsPlayerSwitchInProgress())
             {
-                var menu = GetCurrentMenu();
+                var menu = CScreenRenderingAPI.GetCurrentMenu();
                 if (menu != null && menu.Visible && menu.EnableInstructionalButtons)
                 {
                     if (!API.HasScaleformMovieLoaded(_scale))
@@ -354,7 +273,7 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus
             DisposeInstructionalButtonsScaleform();
         }
 
-        private static void DisposeInstructionalButtonsScaleform()
+        private  void DisposeInstructionalButtonsScaleform()
         {
             if (API.HasScaleformMovieLoaded(_scale)) API.SetScaleformMovieAsNoLongerNeeded(ref _scale);
         }
@@ -368,9 +287,9 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus
         /// <returns></returns>
         private async Task ProcessMainButtons()
         {
-            if (IsAnyMenuOpen())
+            if (CScreenRenderingAPI.IsAnyMenuOpen())
             {
-                var currentMenu = GetCurrentMenu();
+                var currentMenu = CScreenRenderingAPI.GetCurrentMenu();
                 if (currentMenu != null && !DontOpenAnyMenu)
                 {
                     if (PreventExitingMenu)
@@ -379,7 +298,7 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus
                         Game.DisableControlThisFrame(0, Control.FrontendPauseAlternate);
                     }
 
-                    if (currentMenu.Visible && AreMenuButtonsEnabled)
+                    if (CScreenRenderingAPI.IsAnyMenuOpen() && AreMenuButtonsEnabled)
                     {
                         // Select / Enter
                         if (Game.IsDisabledControlJustReleased(0, Control.FrontendAccept) ||
@@ -387,7 +306,7 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus
                             Game.IsDisabledControlJustReleased(0, Control.VehicleMouseControlOverride) ||
                             Game.IsControlJustReleased(0, Control.VehicleMouseControlOverride))
                         {
-                            if (currentMenu.Size > 0) currentMenu.SelectItem(currentMenu.CurrentIndex);
+                            if (CScreenRenderingAPI.GetMenuItemSize() > 0) CScreenRenderingAPI.SelectMenuItem(CScreenRenderingAPI.GetCurrentSelectedIndex());
                         }
                         // Cancel / Go Back
                         else if (Game.IsDisabledControlJustReleased(0, Control.PhoneCancel) && !DisableBackButton)
@@ -473,14 +392,14 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus
             if (!Game.IsPaused && !API.IsPauseMenuRestarting() && API.IsScreenFadedIn() &&
                 !API.IsPlayerSwitchInProgress() && !Game.Player.IsDead)
             {
-                if (IsAnyMenuOpen())
+                if (CScreenRenderingAPI.IsAnyMenuOpen())
                 {
                     if (Game.CurrentInputMode == InputMode.MouseAndKeyboard)
                         if ((Game.IsControlJustPressed(0, MenuToggleKey) ||
                              Game.IsDisabledControlJustPressed(0, MenuToggleKey)) && !PreventExitingMenu)
                         {
-                            var menu = GetCurrentMenu();
-                            if (menu != null) menu.CloseMenu();
+                            var menu = CScreenRenderingAPI.GetCurrentMenu();
+                            CScreenRenderingAPI.CloseMenu();
                         }
                 }
                 else
@@ -497,7 +416,7 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus
                             {
                                 if (MainMenu != null)
                                 {
-                                    MainMenu.OpenMenu();
+                                    CScreenRenderingAPI.OpenMenu(0);
                                 }
                                 else
                                 {
@@ -519,7 +438,7 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus
                             if (Menus.Count > 0)
                             {
                                 if (MainMenu != null)
-                                    MainMenu.OpenMenu();
+                                    CScreenRenderingAPI.OpenMenu(0);
                                 else
                                     Menus[0].OpenMenu();
                             }
@@ -666,6 +585,25 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus
                 }
         }
 
-        #endregion
-    }
+
+        public async Task Execute(object[] args, CancellationToken token)
+        {
+            // Dupe protection
+            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("UIMenuController") > 1)
+                return;
+
+
+            while (!token.IsCancellationRequested)
+            {
+                await ProcessMenus();
+                await DrawInstructionalButtons();
+                await ProcessMainButtons();
+                await ProcessDirectionalButtons();
+                await ProcessToggleMenuButton();
+
+                await BaseScript.Delay(0);
+            }
+        }
+    } 
 }
+#endregion

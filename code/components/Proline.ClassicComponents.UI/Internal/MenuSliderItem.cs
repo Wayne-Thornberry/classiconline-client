@@ -1,9 +1,9 @@
 ﻿using System.Drawing;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
-using Proline.ClassicOnline.CScreenRendering.Menus;
+using Proline.ClassicOnline.CScreenRendering;
 
-namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
+namespace Proline.ClassicOnline.SClassic.UI.Menu
 {
     public class MenuSliderItem : MenuItem
     {
@@ -70,17 +70,17 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
             var yOffset = ParentMenu.MenuItemsYOffset + 1f -
                           RowHeight * MathUtil.Clamp(ParentMenu.Size, 0, ParentMenu.MaxItemsOnScreen);
 
-            var width = 150f / MenuController.ScreenWidth;
-            var height = 10f / MenuController.ScreenHeight;
+            var width = 150f / CScreenRenderingAPI.GetScreenWidth();
+            var height = 10f / CScreenRenderingAPI.GetScreenHeight();
             var y = (ParentMenu.Position.Y + (Index - indexOffset) * RowHeight + 20f + yOffset) /
-                    MenuController.ScreenHeight;
-            var x = (ParentMenu.Position.X + Width) / MenuController.ScreenWidth - width / 2f -
-                    8f / MenuController.ScreenWidth;
-            if (!ParentMenu.LeftAligned) x = width / 2f - 8f / MenuController.ScreenWidth;
+                    CScreenRenderingAPI.GetScreenHeight();
+            var x = (ParentMenu.Position.X + Width) / CScreenRenderingAPI.GetScreenWidth() - width / 2f -
+                    8f / CScreenRenderingAPI.GetScreenWidth();
+            if (!ParentMenu.LeftAligned) x = width / 2f - 8f / CScreenRenderingAPI.GetScreenWidth();
 
             if (SliderLeftIcon != Icon.NONE && SliderRightIcon != Icon.NONE)
             {
-                x -= 40f / MenuController.ScreenWidth;
+                x -= 40f / CScreenRenderingAPI.GetScreenWidth();
 
                 var leftColor = GetSpriteColour(SliderLeftIcon, Selected);
                 var rightColor = GetSpriteColour(SliderRightIcon, Selected);
@@ -94,13 +94,13 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
 
                 if (ParentMenu.LeftAligned)
                     API.DrawSprite(textureDictionary, GetSpriteName(SliderLeftIcon, Selected),
-                        x - (width / 2f + 4f / MenuController.ScreenWidth) - GetSpriteSize(SliderLeftIcon, true) / 2f,
+                        x - (width / 2f + 4f / CScreenRenderingAPI.GetScreenWidth()) - GetSpriteSize(SliderLeftIcon, true) / 2f,
                         y, GetSpriteSize(SliderLeftIcon, true), GetSpriteSize(SliderLeftIcon, false), 0f, leftColor,
                         leftColor, leftColor, 255);
                 else
                     API.DrawSprite(textureDictionary, GetSpriteName(SliderLeftIcon, Selected),
-                        x - (width + 4f / MenuController.ScreenWidth) - GetSpriteSize(SliderLeftIcon, true) -
-                        20f / MenuController.ScreenWidth, y, GetSpriteSize(SliderLeftIcon, true),
+                        x - (width + 4f / CScreenRenderingAPI.GetScreenWidth()) - GetSpriteSize(SliderLeftIcon, true) -
+                        20f / CScreenRenderingAPI.GetScreenWidth(), y, GetSpriteSize(SliderLeftIcon, true),
                         GetSpriteSize(SliderLeftIcon, false), 0f, leftColor, leftColor, leftColor, 255);
 
 
@@ -117,8 +117,8 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
                 BackgroundColor.A);
 
             var xOffset =
-                Map(Position, Min, Max, -(width / 4f * MenuController.ScreenWidth),
-                    width / 4f * MenuController.ScreenWidth) / MenuController.ScreenWidth;
+                Map(Position, Min, Max, -(width / 4f * CScreenRenderingAPI.GetScreenWidth()),
+                    width / 4f * CScreenRenderingAPI.GetScreenWidth()) / CScreenRenderingAPI.GetScreenWidth();
 
             // bar (foreground)
             if (!ParentMenu.LeftAligned)
@@ -134,11 +134,11 @@ namespace Proline.ClassicOnline.CScreenRendering.Menus.MenuItems
             if (ShowDivider)
             {
                 if (!ParentMenu.LeftAligned)
-                    API.DrawRect(x - width + 4f / MenuController.ScreenWidth, y, 4f / MenuController.ScreenWidth,
-                        RowHeight / MenuController.ScreenHeight / 2f, 255, 255, 255, 255);
+                    API.DrawRect(x - width + 4f / CScreenRenderingAPI.GetScreenWidth(), y, 4f / CScreenRenderingAPI.GetScreenWidth(),
+                        RowHeight / CScreenRenderingAPI.GetScreenHeight() / 2f, 255, 255, 255, 255);
                 else
-                    API.DrawRect(x + 2f / MenuController.ScreenWidth, y, 4f / MenuController.ScreenWidth,
-                        RowHeight / MenuController.ScreenHeight / 2f, 255, 255, 255, 255);
+                    API.DrawRect(x + 2f / CScreenRenderingAPI.GetScreenWidth(), y, 4f / CScreenRenderingAPI.GetScreenWidth(),
+                        RowHeight / CScreenRenderingAPI.GetScreenHeight() / 2f, 255, 255, 255, 255);
             }
 
             #endregion

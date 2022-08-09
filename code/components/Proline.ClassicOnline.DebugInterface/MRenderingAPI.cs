@@ -23,7 +23,7 @@ namespace Proline.ClassicOnline.CGameRendering
             var p = new PointF(x, y);//(x / 1280) * 1f, (y / 720) * 1f);
 
             if (p == PointF.Empty) return;
-            ScreenAPI.DrawDebugText2D(text, p, scale, font);
+            CScreenRenderingAPI.DrawDebugText2D(text, p, scale, font);
         }
 
         public static void DrawEntityBoundingBox(int ent, int r, int g, int b, int a)

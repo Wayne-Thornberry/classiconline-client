@@ -8,6 +8,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="UI\UIMenuController.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="CitizenFX.Core.Client" Version="1.0.5738" />
 	</ItemGroup>
 
