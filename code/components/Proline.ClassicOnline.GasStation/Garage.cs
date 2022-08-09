@@ -58,11 +58,6 @@ namespace Proline.ClassicOnline.CWorldObjects
             return property.VehicleCap;
         }
 
-        public static void DrawMarker()
-        {
-
-        }
-
         public static Vector3 GetBuildingWorldPos(object neariestBulding)
         {
             throw new NotImplementedException();

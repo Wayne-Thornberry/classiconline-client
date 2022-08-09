@@ -1,11 +1,11 @@
 using System.Drawing;
 using CitizenFX.Core;
 
-namespace Proline.CFXExtended.Core
+namespace Proline.ClassicOnline.CWorldObjects.Internal
 {
-    public abstract class Marker : ISpatial
+    public class Marker : ISpatial
     {
-        protected Marker(Vector3 position, Vector3 rotation, Vector3 scale)
+        public Marker(Vector3 position, Vector3 rotation, Vector3 scale)
         {
             Position = position;
             Rotation = rotation;
@@ -14,7 +14,7 @@ namespace Proline.CFXExtended.Core
             Color = Color.White;
         }
 
-        protected Marker(Vector3 position, Vector3 rotation, Vector3 scale, MarkerType type)
+        public Marker(Vector3 position, Vector3 rotation, Vector3 scale, MarkerType type)
         {
             Position = position;
             Rotation = rotation;
@@ -23,7 +23,7 @@ namespace Proline.CFXExtended.Core
             Color = Color.White;
         }
 
-        protected Marker(Vector3 position, Vector3 rotation, Vector3 scale, MarkerType type, Color color)
+        public Marker(Vector3 position, Vector3 rotation, Vector3 scale, MarkerType type, Color color)
         {
             Position = position;
             Rotation = rotation;
@@ -36,6 +36,7 @@ namespace Proline.CFXExtended.Core
         public Vector3 Rotation { get; set; }
         public Vector3 Scale { get; set; }
         public MarkerType Type { get; set; }
+        public float ActivationRange { get; set; }
         public Color Color { get; set; }
         //public bool IsInMarker => World.GetDistance(Game.PlayerPed.Position, Position) < Scale.X;
 

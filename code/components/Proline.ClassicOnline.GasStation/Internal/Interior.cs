@@ -2,7 +2,7 @@ using System;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 
-namespace Proline.CFXExtended.Core
+namespace Proline.ClassicOnline.CWorldObjects.Internal
 {
     public class Interior : IExistable
     {
@@ -16,7 +16,7 @@ namespace Proline.CFXExtended.Core
         public int InteriorId { get; set; }
         public int InteriorGroup => GetInteriorGroup(InteriorId);
         public bool IsReady => IsInteriorReady(InteriorId);
-        public bool IsPlayerInInterior => IsEntityInInterior(InteriorId, CitizenFX.Core.Game.PlayerPed);
+        public bool IsPlayerInInterior => IsEntityInInterior(InteriorId, Game.PlayerPed);
 
         public bool IsActive
         {

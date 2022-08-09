@@ -1,6 +1,6 @@
 using CitizenFX.Core;
 
-namespace Proline.CFXExtended.Core
+namespace Proline.ClassicOnline.CWorldObjects.Internal
 {
     public class Door : Entity
     {
