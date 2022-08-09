@@ -1,22 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Newtonsoft.Json;
-using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.CGameLogic.Data;
-using Proline.ClassicOnline.CGameLogic;
 using Proline.ClassicOnline.CCoreSystem;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.CGameLogic.Data;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.SClassic
 {
     public class CharacterCreator
     {
         public async Task Execute(object[] args, CancellationToken token)
-        { 
+        {
             _initialCamera = World.CreateCamera(new Vector3(402.668f, -1002.000f, -98.504f), new Vector3(0, 0, 0), 50f);
             _mainCamera = World.CreateCamera(new Vector3(402.668f, -1000.000f, -98.504f), new Vector3(0, 0, 0), 50f);
             _closeUpCamera = World.CreateCamera(new Vector3(402.800f, -998.500f, -98.304f), new Vector3(0, 0, 0), 50f);
@@ -104,7 +102,7 @@ namespace Proline.ClassicOnline.SClassic
             {
                 await BaseScript.Delay(1);
             }
-            Screen.LoadingPrompt.Hide(); 
+            Screen.LoadingPrompt.Hide();
             CCoreSystemAPI.StartNewScript("StartIntro");
 
         }
@@ -126,12 +124,12 @@ namespace Proline.ClassicOnline.SClassic
 
             ScriptStage = -1;
         }
-         
+
 
         private Camera _initialCamera;
         private Camera _mainCamera;
         private Camera _closeUpCamera;
-        private Camera _photoCamera; 
+        private Camera _photoCamera;
         private Vector3 _spawnLocation;
         private CharacterOutfit _selectedOutfit;
         private int _interiorId;
@@ -139,7 +137,7 @@ namespace Proline.ClassicOnline.SClassic
         private int _selectedFather;
         private float _resemblence;
         private float _skin;
-        private Vector3 _interiorLoc; 
+        private Vector3 _interiorLoc;
 
         private void OnScriptStageChanged()
         {
@@ -184,7 +182,8 @@ namespace Proline.ClassicOnline.SClassic
 
 
         private int _scriptStage;
-        public int ScriptStage { 
+        public int ScriptStage
+        {
             get
             {
                 return _scriptStage;
@@ -196,22 +195,22 @@ namespace Proline.ClassicOnline.SClassic
                 OnScriptStageChanged();
             }
         }
-         
+
         public void RefreshCharacter(char gender)
         {
-            CGameLogicAPI.SetPedGender(Game.PlayerPed.Handle, gender); 
+            CGameLogicAPI.SetPedGender(Game.PlayerPed.Handle, gender);
         }
 
         public void UpdateHeritage()
         {
             CGameLogicAPI.SetPedLooks(Game.PlayerPed.Handle, new CharacterLooks()
-            { 
+            {
                 Mother = _selectedMother,
                 Father = _selectedFather,
                 Resemblence = _resemblence * 0.1f,
-                SkinTone = _skin * 0.1f, 
-            }); 
+                SkinTone = _skin * 0.1f,
+            });
         }
-         
+
     }
 }

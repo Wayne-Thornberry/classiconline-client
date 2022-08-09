@@ -1,9 +1,6 @@
 ﻿using Proline.ClassicOnline.CCoreSystem.Internal;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CCoreSystem
 {
@@ -46,7 +43,7 @@ namespace Proline.ClassicOnline.CCoreSystem
             {
                 var sm = ListOfLiveScripts.GetInstance();
                 var script = sm.FirstOrDefault(e => e.Instance == scriptInstance);
-                return script.DequeueEvent(eventName); 
+                return script.DequeueEvent(eventName);
             }
             catch (Exception e)
             {

@@ -1,12 +1,5 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using CitizenFX.Core;
 using Proline.Resource.Framework;
-using System.Threading.Tasks;
-using Proline.ClassicOnline.CGameLogic;
-using CitizenFX.Core;
 
 namespace Proline.ClassicOnline.CGameLogic.Commands
 {
@@ -18,7 +11,7 @@ namespace Proline.ClassicOnline.CGameLogic.Commands
 
         protected override void OnCommandExecute(params object[] args)
         {
-            Game.PlayerPed.Kill(); 
+            Game.PlayerPed.Kill();
         }
     }
 }

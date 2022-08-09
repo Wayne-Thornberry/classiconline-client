@@ -1,14 +1,9 @@
 ﻿using CitizenFX.Core;
-using CitizenFX.Core.UI;
 using Newtonsoft.Json;
-using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.CCoreSystem;
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Proline.CFXExtended.Core;
-using CitizenFX.Core.Native;
-using Proline.ClassicOnline.CCoreSystem;
 
 namespace Proline.ClassicOnline.SClassic
 {

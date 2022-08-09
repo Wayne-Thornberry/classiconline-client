@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
 
@@ -29,7 +28,7 @@ namespace Proline.ClassicOnline.CDataStream
                 var identifier = Game.Player.Name;
                 var path = $"Saves/{identifier}/";
                 var files = save.GetSaveFiles().Where(e => e.HasUpdated);
-                if(files.Count() > 0)
+                if (files.Count() > 0)
                 {
                     CDebugActionsAPI.LogDebug($"Saving...");
                     foreach (var file in files)
@@ -55,7 +54,7 @@ namespace Proline.ClassicOnline.CDataStream
                 {
                     CDebugActionsAPI.LogDebug("Cannot send save to cloud, No save files to save");
                 }
-               
+
                 if (save.HasChanged)
                 {
                     CDebugActionsAPI.LogDebug($"Saving manifest...");
@@ -69,7 +68,7 @@ namespace Proline.ClassicOnline.CDataStream
             {
                 CDebugActionsAPI.LogDebug(e.ToString());
             }
-        } 
+        }
         public static bool IsSaveInProgress()
         {
             try
@@ -112,24 +111,24 @@ namespace Proline.ClassicOnline.CDataStream
                 CDebugActionsAPI.LogInfo("Waiting for callback to be completed...");
                 var identifier = Game.Player.Name;
                 var data = await ServerFile.ReadLocalFile($"Saves/{identifier}/Manifest.json");
-                if (data == null) 
+                if (data == null)
                     throw new Exception("No manifest data for player save has been found");
                 var manifest = JsonConvert.DeserializeObject<List<string>>(data);
                 var instance = DataFileManager.GetInstance();
                 var save = instance.GetSave(Game.Player);
                 foreach (var item in manifest)
-                { 
+                {
                     var result1 = await ServerFile.ReadLocalFile($"Saves/{identifier}/{item}.json");
                     Console.WriteLine(item);
-                    var properties =  JsonConvert.DeserializeObject<Dictionary<string,object>>(result1);
+                    var properties = JsonConvert.DeserializeObject<Dictionary<string, object>>(result1);
                     var saveFile = new SaveFile()
                     {
                         Name = item,
                         Properties = properties,
                     };
                     save.InsertSaveFile(saveFile);
-                } 
-                  
+                }
+
                 instance.HasLoadedFromNet = true;
                 fm.HasLoadedFromNet = true;
             }
@@ -143,7 +142,7 @@ namespace Proline.ClassicOnline.CDataStream
         {
             try
             {
-                var fm = DataFileManager.GetInstance(); 
+                var fm = DataFileManager.GetInstance();
                 return fm.HasLoadedFromNet;
             }
             catch (Exception e)
@@ -153,6 +152,6 @@ namespace Proline.ClassicOnline.CDataStream
             return false;
         }
 
-         
+
     }
 }

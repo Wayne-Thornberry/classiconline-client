@@ -1,5 +1,4 @@
-﻿using CitizenFX.Core;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Proline.ClassicOnline.CWorldObjects.Data.Ownership
 {

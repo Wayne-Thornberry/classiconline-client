@@ -3,10 +3,6 @@ using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CShopCatalogue.Internal;
 
 using Proline.Resource.IO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CShopCatalogue.Scripts

@@ -1,8 +1,8 @@
-﻿using System;
-using System.Drawing;
-using CitizenFX.Core;
+﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using Proline.ClassicOnline.CScreenRendering;
+using System;
+using System.Drawing;
 
 namespace Proline.ClassicOnline.CGameRendering
 {

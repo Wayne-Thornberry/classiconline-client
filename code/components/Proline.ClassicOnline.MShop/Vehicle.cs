@@ -1,14 +1,9 @@
 ﻿using CitizenFX.Core;
-using CitizenFX.Core.Native;
 using Newtonsoft.Json;
 using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CGameLogic;
 using Proline.ClassicOnline.CShopCatalogue.Internal;
-using Proline.ClassicOnline.CGameLogic; 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CShopCatalogue
 {

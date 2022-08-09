@@ -1,7 +1,7 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using CitizenFX.Core;
+﻿using CitizenFX.Core;
 using Proline.ClassicOnline.CCoreSystem;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.SClassic
 {

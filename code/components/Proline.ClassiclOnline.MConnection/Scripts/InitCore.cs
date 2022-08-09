@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Proline.ClassicOnline.CNetConnection.Events;
 using System.Threading.Tasks;
-using CitizenFX.Core;
-using Proline.ClassicOnline.CNetConnection.Events;
 
 
 namespace Proline.ClassicOnline.CNetConnection.Scripts

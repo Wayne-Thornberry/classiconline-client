@@ -1,11 +1,11 @@
-﻿using System;
+﻿using CitizenFX.Core;
+using CitizenFX.Core.Native;
+using Proline.ClassicOnline.Scaleforms;
+using System;
 using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using CitizenFX.Core;
-using CitizenFX.Core.Native;
-using Proline.ClassicOnline.Scaleforms;
 
 namespace Proline.ClassicOnline.SClassic.Old
 {

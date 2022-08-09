@@ -1,10 +1,6 @@
 ﻿using Proline.CFXExtended.Core;
 using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.CGameLogic; 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Proline.ClassicOnline.CGameLogic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,8 +9,8 @@ namespace Proline.ClassicOnline.SClassic
     public class LoadStats
     {
         public async Task Execute(object[] args, CancellationToken token)
-        { 
-            if(CGameLogicAPI.HasCharacter())
+        {
+            if (CGameLogicAPI.HasCharacter())
             {
                 var stats = CGameLogicAPI.GetChracterStats();
                 if (stats == null)

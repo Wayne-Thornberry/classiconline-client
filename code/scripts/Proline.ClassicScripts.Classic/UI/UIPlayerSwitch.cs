@@ -1,13 +1,13 @@
-﻿using System;
+﻿using CitizenFX.Core;
+using CitizenFX.Core.Native;
+using CitizenFX.Core.UI;
+using Proline.ClassicOnline.CCoreSystem;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.Scaleforms;
+using System;
 using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
-using CitizenFX.Core;
-using CitizenFX.Core.Native;
-using CitizenFX.Core.UI;
-using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.CCoreSystem;
-using Proline.ClassicOnline.Scaleforms;
 
 namespace Proline.ClassicOnline.SClassic.UI
 {
@@ -83,7 +83,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                         case 2:
                             await Game.Player.ChangeModel(new Model(-1692214353));
                             break;
-                        case 3: 
+                        case 3:
                             CCoreSystemAPI.StartNewScript("PlayerLoading");
                             break;
                     }

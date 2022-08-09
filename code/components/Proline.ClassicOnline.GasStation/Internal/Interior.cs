@@ -1,6 +1,6 @@
-using System;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
+using System;
 
 namespace Proline.ClassicOnline.CWorldObjects.Internal
 {

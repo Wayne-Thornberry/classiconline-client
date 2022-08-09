@@ -4,9 +4,6 @@ using Proline.ClassicOnline.CDebugActions;
 using Proline.Resource.IO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CDataStream
 {
@@ -15,7 +12,7 @@ namespace Proline.ClassicOnline.CDataStream
         public static int GetNumOfAudioSamples()
         {
             try
-            { 
+            {
                 var resourceData2 = ResourceFile.Load($"data/audio/fronend_usages.json");
                 var buildingMetaData = JsonConvert.DeserializeObject<List<SoundExample>>(resourceData2.Load());
                 return buildingMetaData.Count;
@@ -27,7 +24,7 @@ namespace Proline.ClassicOnline.CDataStream
             return 0;
         }
 
-        public static void GetAudioSamplesAtIndex(int id, out string audioId, out string audioRef,  out bool enabled)
+        public static void GetAudioSamplesAtIndex(int id, out string audioId, out string audioRef, out bool enabled)
         {
             audioId = "";
             audioRef = "";
@@ -38,12 +35,12 @@ namespace Proline.ClassicOnline.CDataStream
                 var buildingMetaData = JsonConvert.DeserializeObject<List<SoundExample>>(resourceData2.Load());
                 audioId = buildingMetaData[id].AudioId;
                 audioRef = buildingMetaData[id].AudioRef;
-                enabled = buildingMetaData[id].Enabled; 
+                enabled = buildingMetaData[id].Enabled;
             }
             catch (Exception e)
             {
                 CDebugActionsAPI.LogError(e.ToString());
-            } 
+            }
         }
     }
 }

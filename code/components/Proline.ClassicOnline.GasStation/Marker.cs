@@ -2,10 +2,6 @@
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CWorldObjects.Internal;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CWorldObjects
 {
@@ -17,7 +13,7 @@ namespace Proline.ClassicOnline.CWorldObjects
             {
                 var instance = MarkerManager.GetInstance();
                 var marker = new Marker(position, new Vector3(0, 0, 0), Vector3.One, MarkerType.DebugSphere, System.Drawing.Color.FromArgb(150, 255, 255, 255));
-                marker.ActivationRange = activationRange; 
+                marker.ActivationRange = activationRange;
                 return instance.AddMarker(marker);
             }
             catch (Exception e)
@@ -25,7 +21,7 @@ namespace Proline.ClassicOnline.CWorldObjects
                 CDebugActionsAPI.LogError(e);
             }
             return 0;
-        } 
+        }
 
         public static void DrawMarker(int handle)
         {
@@ -34,7 +30,7 @@ namespace Proline.ClassicOnline.CWorldObjects
                 var instance = MarkerManager.GetInstance();
                 var marker = instance.GetMarker(handle);
                 marker.Draw();
-             }
+            }
             catch (Exception e)
             {
                 CDebugActionsAPI.LogError(e);
@@ -68,7 +64,7 @@ namespace Proline.ClassicOnline.CWorldObjects
             catch (Exception e)
             {
                 CDebugActionsAPI.LogError(e);
-            } 
+            }
         }
     }
 }

@@ -1,9 +1,8 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using CitizenFX.Core;
+﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
-using Proline.CFXExtended.Core;
 using Proline.ClassicOnline.Scaleforms;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.SClassic.Object
 {
@@ -19,7 +18,7 @@ namespace Proline.ClassicOnline.SClassic.Object
 
         public static Entity NearestEntity { get; set; }
         public string[] ValidModels { get; set; }
-         
+
         public Atm Display { get; set; }
         public int SelectedAmount { get; set; }
         public int DisplayedView { get; set; }
@@ -27,7 +26,7 @@ namespace Proline.ClassicOnline.SClassic.Object
         public int ScriptStage { get; set; }
         public int CashMultiplier { get; set; }
         public int SelectedOption { get; private set; }
-         
+
         private int selectedAmount;
         private const int MAX_LIMIT = 10000;
 
@@ -37,7 +36,7 @@ namespace Proline.ClassicOnline.SClassic.Object
         {
             var entityHandle = (int)args[0];
             var entity = Entity.FromHandle(entityHandle);
-            ValidModels = new[] { "prop_atm_01", "prop_atm_02", "prop_atm_03", "prop_fleeca_atm" }; 
+            ValidModels = new[] { "prop_atm_01", "prop_atm_02", "prop_atm_03", "prop_fleeca_atm" };
             CashAmounts = new[] { 100, 200, 500, 1000, 5000, MAX_LIMIT };
             DisplayedView = 0;
             ScriptStage = 9;
@@ -280,14 +279,14 @@ namespace Proline.ClassicOnline.SClassic.Object
             io.SetDataSlotEmpty();
             io.SetDataSlot(0, "Processing Amount");
             if (IsDepositing)
-            { 
+            {
                 CGameLogic.CGameLogicAPI.SetCharacterBankBalance(CGameLogic.CGameLogicAPI.GetCharacterBankBalance() + selectedAmount);
                 CGameLogic.CGameLogicAPI.SetCharacterWalletBalance(CGameLogic.CGameLogicAPI.GetCharacterWalletBalance() - selectedAmount);
             }
             else
             {
                 CGameLogic.CGameLogicAPI.SetCharacterWalletBalance(CGameLogic.CGameLogicAPI.GetCharacterWalletBalance() + selectedAmount);
-                CGameLogic.CGameLogicAPI.SetCharacterBankBalance(CGameLogic.CGameLogicAPI.GetCharacterBankBalance() - selectedAmount); 
+                CGameLogic.CGameLogicAPI.SetCharacterBankBalance(CGameLogic.CGameLogicAPI.GetCharacterBankBalance() - selectedAmount);
             }
             io.DisplayMessage();
         }

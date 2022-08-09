@@ -1,11 +1,5 @@
-﻿using CitizenFX.Core; 
-using Proline.ClassicOnline.CCoreSystem.Events;
-using Proline.ClassicOnline.CCoreSystem.Internal;
+﻿using CitizenFX.Core;
 using Proline.ClassicOnline.CScriptObjs.Tasks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CScriptObjs.Scripts

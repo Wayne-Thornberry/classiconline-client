@@ -1,9 +1,5 @@
 ﻿using CitizenFX.Core.Native;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CPoolObjects.Internal
 {
@@ -127,7 +123,7 @@ namespace Proline.ClassicOnline.CPoolObjects.Internal
         }
 
         public bool FindNextProp(out int handle)
-        { 
+        {
             switch (stage)
             {
                 case 0:

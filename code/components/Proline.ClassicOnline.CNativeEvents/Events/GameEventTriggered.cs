@@ -1,13 +1,10 @@
-﻿using Proline.ClassicOnline.CDebugActions;
-using Proline.Resource.Eventing;
-using System;
-using CitizenFX.Core;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using Proline.ClassicOnline.CCoreSystem;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.Resource.Eventing;
+using System;
+using System.Collections.Generic;
 
 namespace Proline.ClassicOnline.CNativeEvents.Events
 {
@@ -224,7 +221,7 @@ namespace Proline.ClassicOnline.CNativeEvents.Events
             {
                 CCoreSystemAPI.TriggerScriptEvent(eventName, data.ToArray());
                 foreach (var item in data)
-                { 
+                {
                     CDebugActionsAPI.LogDebug($"[{item}]");
                 }
             }

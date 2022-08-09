@@ -1,6 +1,5 @@
 ﻿using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CScriptAreas.Data;
-using System;
 using System.Collections.Generic;
 
 namespace Proline.ClassicOnline.CScriptAreas.Entity

@@ -1,11 +1,6 @@
 ﻿using CitizenFX.Core;
-using CitizenFX.Core.Native;
 using Proline.ClassicOnline.CGameLogic;
-using Proline.ClassicOnline.CGameLogic.Data; 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Proline.ClassicOnline.CGameLogic.Data;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15,7 +10,7 @@ namespace Proline.ClassicOnline.SClassic
     {
         public async Task Execute(object[] args, CancellationToken token)
         {
-            await Game.Player.ChangeModel(new Model(1885233650)); 
+            await Game.Player.ChangeModel(new Model(1885233650));
             if (!CDataStream.CDataStreamAPI.HasSaveLoaded())
             {
                 PlayerCharacter character = CreateNewCharacter();
@@ -36,6 +31,6 @@ namespace Proline.ClassicOnline.SClassic
             character.Stats = new CharacterStats();
             return character;
         }
-    
+
     }
 }

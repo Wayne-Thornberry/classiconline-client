@@ -1,12 +1,12 @@
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
-using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CCoreSystem;
+using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.Scaleforms;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.SClassic.UI
 {
@@ -80,13 +80,13 @@ namespace Proline.ClassicOnline.SClassic.UI
                     switch (SelectedIndex)
                     {
                         case 1:
-                            { 
+                            {
                                 CCoreSystemAPI.StartNewScript("PlayerLoading");
                                 Stage = -1;
                                 Hide();
                             }
                             break;
-                       case 2:
+                        case 2:
                             {
                                 API.DoScreenFadeOut(100);
                                 Screen.LoadingPrompt.Show("Loading Character Creator...");

@@ -10,7 +10,7 @@ namespace Proline.ClassicOnline.Scaleforms
         public void SetTitleBarTime(int x, int y, int z)
         {
             CallFunction("SET_TITLEBAR_TIME", x, y, z);
-        } 
+        }
 
         public void SetSleepMode(bool v)
         {
@@ -35,7 +35,7 @@ namespace Proline.ClassicOnline.Scaleforms
             CallFunction("SET_SIGNAL_STRENGTH", x);
         }
         public void SetTheme(int x)
-        { 
+        {
             CallFunction("SET_THEME", x);
         }
         public void DisplayView(int x, int y)

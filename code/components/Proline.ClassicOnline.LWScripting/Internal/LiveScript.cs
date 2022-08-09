@@ -1,11 +1,5 @@
-﻿using CitizenFX.Core; 
-using Proline.Resource;
-using Proline.Resource.Logging;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
@@ -26,7 +20,7 @@ namespace Proline.ClassicOnline.CCoreSystem.Internal
         private Dictionary<string, Queue<InvokedEvent>> _eventQueue;
         private Task _executionTask;
 
-     
+
 
         private CancellationTokenSource _tokenSource;
         private object _instance;
@@ -66,7 +60,7 @@ namespace Proline.ClassicOnline.CCoreSystem.Internal
             if (_eventQueue.ContainsKey(eventName))
             {
                 var args = _eventQueue[eventName].Dequeue().Args;
-                if(_eventQueue[eventName].Count == 0)
+                if (_eventQueue[eventName].Count == 0)
                 {
                     _eventQueue.Remove(eventName);
                 }
@@ -77,7 +71,7 @@ namespace Proline.ClassicOnline.CCoreSystem.Internal
 
         internal void EnqueueEvent(string eventName, params object[] args)
         {
-            if(!_eventQueue.ContainsKey(eventName)) 
+            if (!_eventQueue.ContainsKey(eventName))
                 _eventQueue.Add(eventName, new Queue<InvokedEvent>());
             _eventQueue[eventName].Enqueue(new InvokedEvent(eventName, args));
         }

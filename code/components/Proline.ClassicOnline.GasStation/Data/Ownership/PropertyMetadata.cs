@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CitizenFX.Core;
-
-namespace Proline.ClassicOnline.CWorldObjects.Data.Ownership
+﻿namespace Proline.ClassicOnline.CWorldObjects.Data.Ownership
 {
     internal class PropertyMetadata
     {

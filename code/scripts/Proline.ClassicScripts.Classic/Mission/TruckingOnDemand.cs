@@ -1,12 +1,7 @@
 ﻿using CitizenFX.Core;
-using CitizenFX.Core.Native;
 using Proline.ClassicOnline.CScriptObjs;
 using Proline.ClassicOnline.CScriptObjs.Entity;
 using Proline.ClassicOnline.MissionManager;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

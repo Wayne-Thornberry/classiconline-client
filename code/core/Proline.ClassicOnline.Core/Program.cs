@@ -1,14 +1,8 @@
-﻿using CitizenFX.Core;
-using Newtonsoft.Json;
-using Proline.ClassicOnline.CCoreSystem;
-using Proline.ClassicOnline.Engine.Component; 
-using Proline.Resource.Configuration;
+﻿using Newtonsoft.Json;
+using Proline.ClassicOnline.Engine.Component;
 using Proline.Resource.IO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
 
 namespace Proline.ClassicOnline.Engine
@@ -30,7 +24,7 @@ namespace Proline.ClassicOnline.Engine
 
                 // Load the components
                 var componentJson = ResourceFile.Load("components.json");
-                var components = JsonConvert.DeserializeObject<string[]>(componentJson.Load()); 
+                var components = JsonConvert.DeserializeObject<string[]>(componentJson.Load());
 
                 foreach (var item in components)
                 {
@@ -41,12 +35,12 @@ namespace Proline.ClassicOnline.Engine
                     _components.Add(container.Name, container);
                 }
 
-                 // Init_Core
-                 // - Finds all scripts that are marked InitializeCore
-                 // - Execute Core Initializations
+                // Init_Core
+                // - Finds all scripts that are marked InitializeCore
+                // - Execute Core Initializations
                 foreach (var container in _components.Values)
-                {  
-                    Console.WriteLine(string.Format("Invoking {0} {1}", container.Name, ComponentContainer.INITCORESCRIPTNAME)); 
+                {
+                    Console.WriteLine(string.Format("Invoking {0} {1}", container.Name, ComponentContainer.INITCORESCRIPTNAME));
                     try
                     {
                         container.ExecuteScript(ComponentContainer.INITCORESCRIPTNAME);
@@ -67,7 +61,7 @@ namespace Proline.ClassicOnline.Engine
                 foreach (var container in _components.Values)
                 {
                     try
-                    { 
+                    {
                         Console.WriteLine(string.Format("Invoking {0} {1}", container.Name, ComponentContainer.INITSESSIONSCRIPTNAME));
                         try
                         {
@@ -80,7 +74,7 @@ namespace Proline.ClassicOnline.Engine
                         catch (Exception e)
                         {
                             throw;
-                        } 
+                        }
                     }
                     catch (Exception e)
                     {
@@ -96,7 +90,7 @@ namespace Proline.ClassicOnline.Engine
                 Console.WriteLine(e);
             }
         }
-         
+
 
     }
 }

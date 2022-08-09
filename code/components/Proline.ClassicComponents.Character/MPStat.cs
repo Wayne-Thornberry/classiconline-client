@@ -1,5 +1,5 @@
-﻿using System;
-using CitizenFX.Core.Native;
+﻿using CitizenFX.Core.Native;
+using System;
 
 namespace Proline.CFXExtended.Core
 {
@@ -50,7 +50,7 @@ namespace Proline.CFXExtended.Core
             }
 
             return default;
-        } 
+        }
         public static void SetStatValue<T>(uint hash, T value)
         {
             if (!MPStat.IsValidStat(hash)) return;
@@ -110,8 +110,8 @@ namespace Proline.CFXExtended.Core
         public StatAttributes GetAttributes()
         {
             return new StatAttributes();
-        } 
-        
+        }
+
     }
 
     public class StatAttributes

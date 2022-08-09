@@ -5,10 +5,7 @@ using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CWorldObjects.Data.Ownership;
 using Proline.Resource.IO;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CWorldObjects
 {
@@ -20,7 +17,7 @@ namespace Proline.ClassicOnline.CWorldObjects
             {
                 var resourceData2 = ResourceFile.Load($"data/world/interiors/{interiorId}.json");
                 var buildingMetaData = JsonConvert.DeserializeObject<InteriorMetadata>(resourceData2.Load());
-                var entryPoint = buildingMetaData.AccessPoints.FirstOrDefault(e=>e.Id.Equals(entranceId));
+                var entryPoint = buildingMetaData.AccessPoints.FirstOrDefault(e => e.Id.Equals(entranceId));
                 return entryPoint.OnFoot.Position;
             }
             catch (Exception e)
@@ -34,7 +31,7 @@ namespace Proline.ClassicOnline.CWorldObjects
         {
             var resourceData2 = ResourceFile.Load($"data/world/interiors/{interiorId}.json");
             var interiorMetadata = JsonConvert.DeserializeObject<InteriorMetadata>(resourceData2.Load());
-            var targetEntryPoint = interiorMetadata.AccessPoints.FirstOrDefault(e => e.Id.Equals(exitId)); 
+            var targetEntryPoint = interiorMetadata.AccessPoints.FirstOrDefault(e => e.Id.Equals(exitId));
             return targetEntryPoint.Tag;
         }
 
@@ -87,7 +84,7 @@ namespace Proline.ClassicOnline.CWorldObjects
         {
             try
             {
-                if(string.IsNullOrEmpty(interiorId))
+                if (string.IsNullOrEmpty(interiorId))
                     interiorId = GetNearestInterior();
                 var resourceData2 = ResourceFile.Load($"data/world/interiors/{interiorId}.json");
                 var interiorMetadata = JsonConvert.DeserializeObject<InteriorMetadata>(resourceData2.Load());

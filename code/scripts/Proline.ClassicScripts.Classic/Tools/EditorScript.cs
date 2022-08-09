@@ -1,16 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using CitizenFX.Core;
+﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Newtonsoft.Json;
 using Proline.ClassicOnline.CScreenRendering;
-using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.CCoreSystem;
 using Proline.Resource;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.SClassic.Tools
 {

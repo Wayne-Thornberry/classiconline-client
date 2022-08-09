@@ -1,9 +1,5 @@
 ﻿using CitizenFX.Core;
-using Proline.ClassicOnline.CGameLogic; 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Proline.ClassicOnline.CGameLogic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -35,7 +31,7 @@ namespace Proline.ClassicOnline.SClassic
                         }
                     }
                     else
-                    { 
+                    {
                         var personalVehicle = CGameLogicAPI.GetPersonalVehicle();
                         if (personalVehicle != null)
                         {

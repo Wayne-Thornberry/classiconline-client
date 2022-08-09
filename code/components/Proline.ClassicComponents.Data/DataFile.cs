@@ -4,9 +4,6 @@ using Proline.ClassicOnline.CDataStream.Internal;
 using Proline.ClassicOnline.CDebugActions;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CDataStream
 {
@@ -25,13 +22,13 @@ namespace Proline.ClassicOnline.CDataStream
         {
             try
             {
-                var fm = DataFileManager.GetInstance(); 
+                var fm = DataFileManager.GetInstance();
                 var saveFile = new SaveFile();
                 saveFile.Name = "Tempname";
                 saveFile.Properties = new Dictionary<string, object>();
                 saveFile.LastChanged = DateTime.UtcNow;
                 saveFile.HasUpdated = true;
-                fm.TempFile = saveFile; 
+                fm.TempFile = saveFile;
                 fm.ActiveFile = saveFile;
             }
             catch (Exception e)
@@ -63,17 +60,17 @@ namespace Proline.ClassicOnline.CDataStream
                 if (string.IsNullOrEmpty(identifier))
                 {
                     throw new ArgumentException("Identitier argument cannot be null or empty");
-                } 
+                }
 
-                var fm = DataFileManager.GetInstance();  
+                var fm = DataFileManager.GetInstance();
                 var id = identifier;//string.IsNullOrEmpty(identifier) ? "SaveFile" + index : identifier;
                 var tempFile = fm.TempFile;
-                tempFile.Name = id; 
-                if(fm.TempFile != null)
-                { 
+                tempFile.Name = id;
+                if (fm.TempFile != null)
+                {
                     fm.GetSave(Game.Player).InsertSaveFile(fm.TempFile);
                     fm.ClearTempFile();
-                } 
+                }
             }
             catch (Exception e)
             {
@@ -139,7 +136,7 @@ namespace Proline.ClassicOnline.CDataStream
             {
                 var fm = DataFileManager.GetInstance();
                 var saveFile = fm.ActiveFile;
-                if (saveFile == null) 
+                if (saveFile == null)
                     throw new Exception("No save file has been targed");
                 var dictionary = saveFile.Properties;
                 if (dictionary == null)
@@ -171,8 +168,8 @@ namespace Proline.ClassicOnline.CDataStream
             {
                 var fm = DataFileManager.GetInstance();
                 var saveFile = fm.ActiveFile;
-                if (saveFile == null) 
-                        throw new Exception("No save file has been targed");
+                if (saveFile == null)
+                    throw new Exception("No save file has been targed");
                 var dictionary = saveFile.Properties;
                 if (dictionary.ContainsKey(key))
                     return JsonConvert.DeserializeObject<T>(dictionary[key].ToString());

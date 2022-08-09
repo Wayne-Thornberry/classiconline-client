@@ -1,10 +1,9 @@
-﻿using CitizenFX.Core; 
+﻿using CitizenFX.Core;
 using Proline.Resource.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
 
@@ -33,7 +32,7 @@ namespace Proline.ClassicOnline.Engine.Component
         internal static ComponentContainer Load(string assemblyString)
         {
 
-            var assembly = Assembly.Load(assemblyString); 
+            var assembly = Assembly.Load(assemblyString);
             var componentContainer = new ComponentContainer(assembly);
             componentContainer.Scripts = new Dictionary<string, ComponentScript>();
             componentContainer.Commands = new List<ResourceCommand>();

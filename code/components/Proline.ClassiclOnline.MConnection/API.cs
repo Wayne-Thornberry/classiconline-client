@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Proline.ClassicOnline.CNetConnection
+﻿namespace Proline.ClassicOnline.CNetConnection
 {
     public partial class MConnection
     {

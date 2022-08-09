@@ -5,7 +5,7 @@ using CitizenFX.Core.Native;
 
 namespace Proline.CFXExtended.Core
 {
-    public class UIBox 
+    public class UIBox
     {
 
         public void Draw(float x, float y, float w, float h, int r, int g, int b, int a)

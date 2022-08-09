@@ -1,5 +1,4 @@
 ﻿using Proline.ClassicOnline.CWorldObjects.Data.Ownership;
-using System;
 using System.Collections.Generic;
 
 namespace Proline.ClassicOnline.CWorldObjects.Internal

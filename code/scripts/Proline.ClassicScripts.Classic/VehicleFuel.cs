@@ -1,6 +1,6 @@
+using CitizenFX.Core;
 using System.Threading;
 using System.Threading.Tasks;
-using CitizenFX.Core;
 
 namespace Proline.ClassicOnline.SClassic
 {
@@ -33,7 +33,7 @@ namespace Proline.ClassicOnline.SClassic
                         continue;
                     }
                     Game.PlayerPed.CurrentVehicle.FuelLevel -= Game.PlayerPed.CurrentVehicle.CurrentRPM / ConsumptionRate * Game.LastFrameTime;
-                    if (Game.PlayerPed.CurrentVehicle.FuelLevel < DetectionLevel) 
+                    if (Game.PlayerPed.CurrentVehicle.FuelLevel < DetectionLevel)
                         Game.PlayerPed.CurrentVehicle.FuelLevel = 0f;
 
                 }

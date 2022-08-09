@@ -1,16 +1,8 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
-using Proline.CFXExtended.Core;
 using Proline.ClassicOnline.CGameLogic;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Proline.Resource.Framework;
-using System.Text;
-using System.Threading.Tasks;
-using Console = Proline.Resource.Console;
-using Proline.ClassicOnline.CGameLogic;
+using System;
 
 namespace Proline.ClassicOnline.CNetConnection.Commands
 {

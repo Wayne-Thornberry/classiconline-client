@@ -1,6 +1,6 @@
-﻿using System.Threading;
+﻿using CitizenFX.Core;
+using System.Threading;
 using System.Threading.Tasks;
-using CitizenFX.Core;
 
 namespace Proline.ClassicOnline.SClassic
 {

@@ -1,11 +1,7 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using Proline.ClassicOnline.CCoreSystem;
-using Proline.ClassicOnline.CGameLogic; 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Proline.ClassicOnline.CGameLogic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -19,11 +15,11 @@ namespace Proline.ClassicOnline.SClassic
         {
             // Dupe protection
             if (CCoreSystemAPI.GetInstanceCountOfScript("MoneyBagController") > 1)
-                return;  
+                return;
 
             while (!token.IsCancellationRequested)
             {
-                if(CCoreSystemAPI.GetEventExitsts(this, "CEventNetworkPlayerCollectedAmbientPickup"))
+                if (CCoreSystemAPI.GetEventExitsts(this, "CEventNetworkPlayerCollectedAmbientPickup"))
                 {
                     var test = CCoreSystemAPI.GetEventData(this, "CEventNetworkPlayerCollectedAmbientPickup");
                     foreach (var item in test)
@@ -48,11 +44,11 @@ namespace Proline.ClassicOnline.SClassic
                     CGameLogicAPI.SubtractValueFromWalletBalance(_value);
                     var pickup = await World.CreateAmbientPickup(PickupType.MoneyDepBag, Game.PlayerPed.Position + (Game.PlayerPed.ForwardVector * 2), new Model("xm_prop_x17_bag_01b"), _value);
                     pickup.AttachBlip();
-                    pickup.IsPersistent = true; 
+                    pickup.IsPersistent = true;
                 }
 
                 if (API.GetPedDrawableVariation(Game.PlayerPed.Handle, 5) == 45 && !_updated)
-                { 
+                {
                     CGameLogicAPI.SetCharacterMaxWalletBalance(1000000);
                     _updated = true;
                 }

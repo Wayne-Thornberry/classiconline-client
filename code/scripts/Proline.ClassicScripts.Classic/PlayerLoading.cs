@@ -1,15 +1,10 @@
 ﻿using CitizenFX.Core;
-using Newtonsoft.Json;
-using System.Collections.Generic;
+using CitizenFX.Core.Native;
+using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.CGameLogic.Data;
 using System.Threading;
 using System.Threading.Tasks;
-using CitizenFX.Core.Native;
-
-using Proline.Resource;
-using Proline.CFXExtended.Core; 
-using Proline.ClassicOnline.CGameLogic;
-using Proline.ClassicOnline.CGameLogic.Data; 
-using Proline.ClassicOnline.CDebugActions; 
 
 namespace Proline.ClassicOnline.SClassic
 {
@@ -30,7 +25,7 @@ namespace Proline.ClassicOnline.SClassic
                 await CDataStream.CDataStreamAPI.PullSaveFromCloud(); // Sends a load request to the server
                 if (CDataStream.CDataStreamAPI.HasSaveLoaded())
                 {
-                    PlayerCharacter character = CreateNewCharacter(); 
+                    PlayerCharacter character = CreateNewCharacter();
 
                     if (CDataStream.CDataStreamAPI.DoesDataFileExist("PlayerInfo"))
                     {
@@ -49,7 +44,7 @@ namespace Proline.ClassicOnline.SClassic
                         character.Stats.SetStat("WALLET_BALANCE", x);
                         character.Stats.SetStat("BANK_BALANCE", y);
                     }
-                     
+
                     if (CDataStream.CDataStreamAPI.DoesDataFileExist("CharacterLooks"))
                     {
                         CDataStream.CDataStreamAPI.SelectDataFile("CharacterLooks");
@@ -81,11 +76,11 @@ namespace Proline.ClassicOnline.SClassic
                     }
 
                     if (CDataStream.CDataStreamAPI.DoesDataFileExist("PlayerVehicle"))
-                    { 
+                    {
                         CDataStream.CDataStreamAPI.SelectDataFile("PlayerVehicle");
                         if (CDataStream.CDataStreamAPI.DoesDataFileValueExist("VehicleHash"))
                         {
-                            var pv = (VehicleHash) (uint) CDataStream.CDataStreamAPI.GetDataFileValue<int>("VehicleHash");
+                            var pv = (VehicleHash)(uint)CDataStream.CDataStreamAPI.GetDataFileValue<int>("VehicleHash");
                             var position = CDataStream.CDataStreamAPI.GetDataFileValue<Vector3>("VehiclePosition");
                             var vehicle = await World.CreateVehicle(new Model(pv), Game.PlayerPed.Position);
                             vehicle.PlaceOnNextStreet();
@@ -141,6 +136,6 @@ namespace Proline.ClassicOnline.SClassic
             character.Stats = new CharacterStats();
             return character;
         }
-         
+
     }
 }

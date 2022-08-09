@@ -2,10 +2,6 @@
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Proline.ClassicOnline.CDataStream;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -52,7 +48,7 @@ namespace Proline.ClassicOnline.SClassic.Tools
                 }
                 else if (Game.IsControlJustPressed(0, Control.FrontendLeft))
                 {
-                    _index2--; 
+                    _index2--;
                     if (_index2 < -1)
                     {
                         _index2 = -1;
@@ -62,7 +58,7 @@ namespace Proline.ClassicOnline.SClassic.Tools
                 else if (Game.IsControlJustPressed(0, Control.FrontendRight))
                 {
                     var max = 2000;
-                    _index2++; 
+                    _index2++;
                     if (_index2 > max)
                     {
                         _index2 = max;

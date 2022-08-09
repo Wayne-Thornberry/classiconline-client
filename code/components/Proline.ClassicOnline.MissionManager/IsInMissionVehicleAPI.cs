@@ -5,11 +5,11 @@ using System;
 namespace Proline.ClassicOnline.MissionManager
 {
     public static partial class MissionAPIs
-    { 
+    {
         public static bool IsInMissionVehicle()
         {
             try
-            { 
+            {
                 var instance = PoolObjectTracker.GetInstance();
                 return Game.PlayerPed.IsInVehicle() && instance.ContainsPoolObject(Game.PlayerPed.CurrentVehicle);
             }

@@ -1,13 +1,9 @@
-﻿using System;
+﻿using CitizenFX.Core;
+using Proline.ClassicOnline.CScreenRendering;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
-using CitizenFX.Core;
-using CitizenFX.Core.Native;
-using Proline.ClassicOnline.CScreenRendering;
-using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.CGameRendering;
 
 namespace Proline.ClassicOnline.SClassic.Tools
 {

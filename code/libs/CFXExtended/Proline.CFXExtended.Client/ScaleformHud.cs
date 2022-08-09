@@ -1,8 +1,8 @@
-using System.Drawing;
-using System.Threading.Tasks;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
+using System.Drawing;
+using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.Scaleforms
 {

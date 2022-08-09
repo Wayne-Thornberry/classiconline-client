@@ -1,13 +1,6 @@
 ﻿using CitizenFX.Core;
-using Newtonsoft.Json;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Proline.Resource.Framework;
 using System.Threading.Tasks;
-using Console = Proline.Resource.Console;
 
 namespace Proline.ClassicOnline.CWorldObjects.Commands
 {

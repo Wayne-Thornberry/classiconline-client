@@ -1,7 +1,5 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using CitizenFX.Core;
-using Proline.ClassicOnline.CCoreSystem; 
 namespace Proline.ClassicOnline.SClassic.UI
 {
     public class UIInteractionMenu

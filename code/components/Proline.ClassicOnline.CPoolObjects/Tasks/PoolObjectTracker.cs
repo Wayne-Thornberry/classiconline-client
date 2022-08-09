@@ -1,15 +1,8 @@
-﻿using CitizenFX.Core;
-using CitizenFX.Core.Native;
-using Newtonsoft.Json;
+﻿using Proline.ClassicOnline.CPoolObjects.Internal;
 using Proline.Resource.Logging;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Proline.Resource;
-using System.Reflection;
-using Proline.Resource.IO;
-using Proline.ClassicOnline.CPoolObjects.Internal;
 
 namespace Proline.ClassicOnline.CPoolObjects.Tasks
 {
@@ -24,13 +17,13 @@ namespace Proline.ClassicOnline.CPoolObjects.Tasks
         private HashSet<int> _trackedHandles;
 
         public async Task Execute()
-        { 
+        {
             var oldHandles = _trackedHandles;
             _trackedHandles = new HashSet<int>();
             var currentHandles = ProcessWorldPoolItems();
 
             var addedHandles = currentHandles.Except(oldHandles);
-            var removedHandles = oldHandles.Except(currentHandles); 
+            var removedHandles = oldHandles.Except(currentHandles);
 
             ProcessAddedHandles(addedHandles);
             ProcessOldHandles(removedHandles);
@@ -48,7 +41,7 @@ namespace Proline.ClassicOnline.CPoolObjects.Tasks
             foreach (var item in handles)
             {
                 //CDebugActions.CDebugActionsAPI.LogDebug($"Added Handle {item} Found, Exists: {API.DoesEntityExist(item)}");
-            } 
+            }
         }
 
         private void ProcessOldHandles(IEnumerable<int> handles)
@@ -56,7 +49,7 @@ namespace Proline.ClassicOnline.CPoolObjects.Tasks
             foreach (var item in handles)
             {
                 //CDebugActions.CDebugActionsAPI.LogDebug($"Removed Handle {item} Found, Exists: {API.DoesEntityExist(item)}");
-            } 
+            }
         }
 
         private HashSet<int> ProcessWorldPoolItems()
@@ -69,22 +62,22 @@ namespace Proline.ClassicOnline.CPoolObjects.Tasks
 
             while (pickupHanldeFinder.FindNextProp(out int handle))
             {
-                handles.Add(handle); 
+                handles.Add(handle);
             }
 
             while (objectHanldeFinder.FindNextProp(out int handle))
             {
-                handles.Add(handle); 
+                handles.Add(handle);
             }
 
             while (vehicleHanldeFinder.FindNextProp(out int handle))
             {
-                handles.Add(handle); 
+                handles.Add(handle);
             }
 
             while (pedHanldeFinder.FindNextProp(out int handle))
             {
-                handles.Add(handle); 
+                handles.Add(handle);
             }
             return handles;
         }

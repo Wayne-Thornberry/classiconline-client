@@ -5,10 +5,7 @@ using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CWorldObjects.Data.Ownership;
 using Proline.Resource.IO;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CWorldObjects
 {
@@ -17,20 +14,20 @@ namespace Proline.ClassicOnline.CWorldObjects
         public static string GetNearestBuilding()
         {
             try
-            { 
+            {
                 var resourceData = ResourceFile.Load($"data/world/buildings.json");
                 var worldBuildings = JsonConvert.DeserializeObject<string[]>(resourceData.Load());
                 var distance = 99999f;
                 var entranceString = "";
                 var playPos = new Vector2(Game.PlayerPed.Position.X, Game.PlayerPed.Position.Y);
                 foreach (var item in worldBuildings)
-                { 
+                {
                     var resourceData2 = ResourceFile.Load($"data/world/buildings/{item}.json");
                     var buildingMetaData = JsonConvert.DeserializeObject<BuildingMetadata>(resourceData2.Load());
                     var d = API.GetDistanceBetweenCoords(buildingMetaData.WorldPos.X,
                         buildingMetaData.WorldPos.Y, 0, playPos.X, playPos.Y, 0, false);
                     if (d < distance)
-                    { 
+                    {
                         distance = d;
                         entranceString = buildingMetaData.Id;
                     }
@@ -47,7 +44,7 @@ namespace Proline.ClassicOnline.CWorldObjects
         internal static Vector3 GetBuildingPosition(string buildingId)
         {
             try
-            { 
+            {
                 var resourceData2 = ResourceFile.Load($"data/world/buildings/{buildingId}.json");
                 var buildingMetaData = JsonConvert.DeserializeObject<BuildingMetadata>(resourceData2.Load());
                 return new Vector3(buildingMetaData.WorldPos.X, buildingMetaData.WorldPos.Y, 0f);
@@ -111,11 +108,11 @@ namespace Proline.ClassicOnline.CWorldObjects
 
 
         public static string GetNearestBuildingEntrance(string building)
-        { 
+        {
             try
             {
-                if(string.IsNullOrEmpty(building))
-                 building = GetNearestBuilding(); 
+                if (string.IsNullOrEmpty(building))
+                    building = GetNearestBuilding();
                 var resourceData2 = ResourceFile.Load($"data/world/buildings/{building}.json");
                 var interiorMetadata = JsonConvert.DeserializeObject<BuildingMetadata>(resourceData2.Load());
                 var distance = 99999f;
@@ -142,7 +139,7 @@ namespace Proline.ClassicOnline.CWorldObjects
             try
             {
                 var resourceData2 = ResourceFile.Load($"data/world/buildings/{buildingId}.json");
-                var buildingMetaData = JsonConvert.DeserializeObject<BuildingMetadata>(resourceData2.Load()); 
+                var buildingMetaData = JsonConvert.DeserializeObject<BuildingMetadata>(resourceData2.Load());
                 return new Vector3(buildingMetaData.WorldPos.X, buildingMetaData.WorldPos.Y, 0);
             }
             catch (Exception e)
@@ -153,9 +150,9 @@ namespace Proline.ClassicOnline.CWorldObjects
         }
 
         public static string EnterBuilding(string buildingId, string buildingEntrance)
-        { 
+        {
             try
-            { 
+            {
                 var resourceData2 = ResourceFile.Load($"data/world/buildings/{buildingId}.json");
                 var buildingMetaData = JsonConvert.DeserializeObject<BuildingMetadata>(resourceData2.Load());
                 var entrance = buildingMetaData.AccessPoints.FirstOrDefault(e => e.Id.Equals(buildingEntrance));
@@ -167,7 +164,7 @@ namespace Proline.ClassicOnline.CWorldObjects
             {
                 CDebugActionsAPI.LogError(e);
             }
-            return ""; 
+            return "";
         }
         public static Vector3 ExitBuilding(string buildingId, string accessPoint, int type = 0)
         {
@@ -182,7 +179,7 @@ namespace Proline.ClassicOnline.CWorldObjects
                 switch (type)
                 {
                     case 0: pos = entrance.ExitOnFoot.Position; break;
-                    case 1: pos =  entrance.ExitInVehicle.Position; break;
+                    case 1: pos = entrance.ExitInVehicle.Position; break;
                 }
                 return pos;
             }

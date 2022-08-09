@@ -1,10 +1,4 @@
-﻿using CitizenFX.Core;
-using Proline.CFXExtended.Core;
-using Proline.ClassicOnline.CGameLogic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Proline.CFXExtended.Core;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -20,7 +14,7 @@ namespace Proline.ClassicOnline.SClassic
             stat.SetValue(default);
             stat2.SetValue(default);
 
-          
+
         }
     }
 }

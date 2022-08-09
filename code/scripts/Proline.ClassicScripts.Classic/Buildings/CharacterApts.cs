@@ -3,23 +3,20 @@ using CitizenFX.Core.Native;
 using Newtonsoft.Json;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CWorldObjects;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.SClassic.Buildings
 {
     public class CharacterApts
-    { 
+    {
         private List<Vector3> _buildingEntrances;
         private List<Vector3> _interiorExits;
         private Blip _blip;
         private string _targetPropertyPart;
         private string _targetArea;
-        private Vector3 _lastPoint;  
+        private Vector3 _lastPoint;
         private Vector3 _buildingVector;
         private string _interior;
         private string _enteredBuilding;
@@ -33,7 +30,7 @@ namespace Proline.ClassicOnline.SClassic.Buildings
             if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("CharacterApts") > 1)
                 return;
             var properties = new string[] { "apt_richmaj_he_01", "apt_dpheights_he_01" };
-            var stage = 0; 
+            var stage = 0;
             while (!token.IsCancellationRequested)
             {
 
@@ -46,22 +43,22 @@ namespace Proline.ClassicOnline.SClassic.Buildings
                             RefreshEntryPoints(item);
                         }
                         stage++;
-                        break; 
-                    case 1: 
+                        break;
+                    case 1:
                         foreach (var entrance in _buildingEntrances)
-                        { 
+                        {
                             World.DrawMarker(MarkerType.DebugSphere, entrance, new Vector3(0, 0, 0), new Vector3(0, 0, 0), new Vector3(1, 1, 1),
                                 System.Drawing.Color.FromArgb(150, 0, 0, 0));
                             if (World.GetDistance(Game.PlayerPed.Position, entrance) < 2f)
                             {
                                 _enteredBuilding = WorldAPI.GetNearestBuilding();
                                 _neariestEntrance = WorldAPI.GetNearestBuildingEntrance(_enteredBuilding);
-                                _buildingVector = WorldAPI.GetBuildingWorldPos(_enteredBuilding);  
+                                _buildingVector = WorldAPI.GetBuildingWorldPos(_enteredBuilding);
                                 var whereAreYouEntering = WorldAPI.EnterBuilding(_enteredBuilding, _neariestEntrance);
                                 _targetProperty = "apt_richmaj_he_01";
                                 switch (whereAreYouEntering)
                                 {
-                                    case "Garage": _targetPropertyPart = WorldAPI.GetPropertyGarage(_targetProperty);  break;
+                                    case "Garage": _targetPropertyPart = WorldAPI.GetPropertyGarage(_targetProperty); break;
                                     case "Apartment": _targetPropertyPart = WorldAPI.GetPropertyApartment(_targetProperty); break;
                                 }
                                 _targetArea = whereAreYouEntering;
@@ -71,7 +68,7 @@ namespace Proline.ClassicOnline.SClassic.Buildings
                                 _lastPoint = WorldAPI.EnterInterior(_interior, interiorEntry);
                                 Game.PlayerPed.Position = _lastPoint;
                                 switch (_targetArea)
-                                { 
+                                {
                                     case "Garage":
                                         {
                                             var limit = WorldAPI.GetPropertyGarageLimit(_targetProperty);
@@ -82,18 +79,19 @@ namespace Proline.ClassicOnline.SClassic.Buildings
                                                 _vehicles[i] = vehicle.Handle;
                                                 WorldAPI.PlaceVehicleInGarageSlot(_targetProperty, i, vehicle);
                                             }
-                                        }break;
+                                        }
+                                        break;
                                 }
                                 RefreshExitPoints();
-                                stage++; 
+                                stage++;
                             }
-                        } 
+                        }
                         break;
                     case 2:
                         {
                             if (World.GetDistance(Game.PlayerPed.Position, _lastPoint) > 4f)
-                            { 
-                                stage++; 
+                            {
+                                stage++;
                             }
                         }
                         break;
@@ -102,7 +100,7 @@ namespace Proline.ClassicOnline.SClassic.Buildings
                             stage = 0;
 
                         if (!Game.PlayerPed.IsInVehicle())
-                        { 
+                        {
                             foreach (var exit in _interiorExits)
                             {
                                 World.DrawMarker(MarkerType.DebugSphere, exit, new Vector3(0, 0, 0), new Vector3(0, 0, 0), new Vector3(1, 1, 1),
@@ -139,7 +137,7 @@ namespace Proline.ClassicOnline.SClassic.Buildings
                             switch (_targetArea)
                             {
                                 case "Garage":
-                                    {  
+                                    {
                                         for (int i = 0; i < _vehicles.Length; i++)
                                         {
                                             var vehicle = new Vehicle(_vehicles[i]);
@@ -183,8 +181,8 @@ namespace Proline.ClassicOnline.SClassic.Buildings
         }
 
         private void RefreshExitPoints()
-        { 
-            _interiorExits = new List<Vector3>(); 
+        {
+            _interiorExits = new List<Vector3>();
             for (int i = 0; i < WorldAPI.GetNumOfInteriorExits(_interior); i++)
             {
                 var x = WorldAPI.GetInteriorExit(_interior, i);

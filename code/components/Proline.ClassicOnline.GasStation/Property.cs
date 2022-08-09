@@ -2,13 +2,9 @@
 using Newtonsoft.Json;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CWorldObjects.Data.Ownership;
-using Proline.ClassicOnline.CWorldObjects.Internal; 
+using Proline.ClassicOnline.CWorldObjects.Internal;
 using Proline.Resource.IO;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CWorldObjects
 {
@@ -31,7 +27,7 @@ namespace Proline.ClassicOnline.CWorldObjects
 
                 //ResourceFile resourceData1 = null;
                 //ResourceFile resourceData2 = null; 
-                 
+
                 //var folderName = GetPropertyPartType(propertyPart);
                 //CDebugActionsAPI.LogDebug(folderName);
                 //CDebugActionsAPI.LogDebug(propertyPart);
@@ -62,7 +58,7 @@ namespace Proline.ClassicOnline.CWorldObjects
         public static string GetPropertyExit(string propertyPart, string functionType, string neariestExit)
         {
             try
-            { 
+            {
                 var resourceData1 = ResourceFile.Load($"data/world/{functionType}/{propertyPart}.json");
                 var buildingInteriorLink = JsonConvert.DeserializeObject<BuildingInteriorLink>(resourceData1.Load());
                 var targetEntryPointString = buildingInteriorLink.InteriorExits[neariestExit];
@@ -99,7 +95,7 @@ namespace Proline.ClassicOnline.CWorldObjects
                 if (string.IsNullOrEmpty(propertyId))
                     return "";
                 var pm = PropertyManager.GetInstance();
-                var property = pm.GetProperty(propertyId); 
+                var property = pm.GetProperty(propertyId);
                 return property.Apartment;
             }
             catch (Exception e)
@@ -117,7 +113,7 @@ namespace Proline.ClassicOnline.CWorldObjects
                 if (string.IsNullOrEmpty(propertyId))
                     return "";
                 var pm = PropertyManager.GetInstance();
-                var property = pm.GetProperty(propertyId); 
+                var property = pm.GetProperty(propertyId);
                 return property.Garage;
             }
             catch (Exception e)
@@ -151,7 +147,7 @@ namespace Proline.ClassicOnline.CWorldObjects
             try
             {
                 var pm = PropertyManager.GetInstance();
-                var property = pm.GetProperty(propertyId);  
+                var property = pm.GetProperty(propertyId);
                 var resourceData1 = ResourceFile.Load($"data/world/{propertyType}/{propertyId}.json");
                 var buildingInteriorLink = JsonConvert.DeserializeObject<BuildingInteriorLink>(resourceData1.Load());
                 return buildingInteriorLink.Interior;
@@ -204,7 +200,7 @@ namespace Proline.ClassicOnline.CWorldObjects
 
                 //var propertyType = propertyPart.Split('_')[0];
                 //var abc = GetPropertyPartType(propertyPart);
-                 
+
                 //CDebugActionsAPI.LogDebug("tes");
                 //CDebugActionsAPI.LogDebug(exitId);
 
@@ -237,7 +233,7 @@ namespace Proline.ClassicOnline.CWorldObjects
                 if (string.IsNullOrEmpty(propertyId))
                     return "";
                 var pm = PropertyManager.GetInstance();
-                var property = pm.GetProperty(propertyId);  
+                var property = pm.GetProperty(propertyId);
                 return property.Building;
             }
             catch (Exception e)
@@ -267,11 +263,11 @@ namespace Proline.ClassicOnline.CWorldObjects
         public static Vector3 GetInteriorExit(string interiorId, int exitId = 0)
         {
             try
-            {   
+            {
                 ResourceFile resourceData3 = null;
                 resourceData3 = ResourceFile.Load($"data/world/interiors/{interiorId}.json");
-                var interiorMetadata = JsonConvert.DeserializeObject<InteriorMetadata>(resourceData3.Load()); 
-                var targetEntryPoint = interiorMetadata.AccessPoints[exitId]; 
+                var interiorMetadata = JsonConvert.DeserializeObject<InteriorMetadata>(resourceData3.Load());
+                var targetEntryPoint = interiorMetadata.AccessPoints[exitId];
                 return targetEntryPoint.DoorPosition;
             }
             catch (Exception e)
@@ -282,8 +278,8 @@ namespace Proline.ClassicOnline.CWorldObjects
         }
 
 
-         
-       
+
+
 
         public static int GetNumOfInteriorExits(string interiorId)
         {
@@ -291,7 +287,7 @@ namespace Proline.ClassicOnline.CWorldObjects
             {
                 ResourceFile resourceData = null;
                 resourceData = ResourceFile.Load($"data/world/interiors/{interiorId}.json");
-                var interiorMetadata = JsonConvert.DeserializeObject<InteriorMetadata>(resourceData.Load()); 
+                var interiorMetadata = JsonConvert.DeserializeObject<InteriorMetadata>(resourceData.Load());
                 return interiorMetadata.AccessPoints.Count;
             }
             catch (Exception e)

@@ -1,23 +1,15 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using CitizenFX.Core;
+﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
-using Newtonsoft.Json;
-using Proline.CFXExtended.Core;
-using Proline.ClassicOnline.CDebugActions; 
-using Proline.ClassicOnline.CGameLogic;
-
 using Proline.ClassicOnline.CCoreSystem;
-using Proline.Resource; 
+using Proline.ClassicOnline.CDebugActions;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.SClassic
 {
     public class Main
-    { 
+    {
         public async Task Execute(object[] args, CancellationToken token)
         {
 
@@ -62,7 +54,7 @@ namespace Proline.ClassicOnline.SClassic
                                 await BaseScript.Delay(1);
                             }
 
-                            if(CCoreSystemAPI.GetInstanceCountOfScript("CharacterCreator") > 0)
+                            if (CCoreSystemAPI.GetInstanceCountOfScript("CharacterCreator") > 0)
                             {
                                 state = 999;
                                 break;
@@ -115,7 +107,7 @@ namespace Proline.ClassicOnline.SClassic
                         //    }
                         //}
                         break;
-                    case 999: 
+                    case 999:
                         while (CCoreSystemAPI.GetInstanceCountOfScript("CharacterCreator") > 0)
                         {
                             await BaseScript.Delay(1);

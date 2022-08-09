@@ -1,9 +1,5 @@
 ﻿using CitizenFX.Core;
 using Proline.ClassicOnline.CWorldObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -23,7 +19,7 @@ namespace Proline.ClassicOnline.SClassic
             while (!token.IsCancellationRequested)
             {
                 WorldAPI.DrawMarker(handle);
-                if(WorldAPI.IsInMarker(handle, Game.PlayerPed.Handle))
+                if (WorldAPI.IsInMarker(handle, Game.PlayerPed.Handle))
                 {
                     break;
                 }

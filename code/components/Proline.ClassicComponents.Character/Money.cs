@@ -1,24 +1,17 @@
-﻿using CitizenFX.Core;
-using Proline.CFXExtended.Core;
-using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.CGameLogic;
+﻿using Proline.CFXExtended.Core;
 using Proline.ClassicOnline.CDataStream;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CGameLogic.Internal;
-using Proline.ClassicOnline.CGameLogic.Data;
+using System;
 
 namespace Proline.ClassicOnline.CGameLogic
 {
     public static partial class CGameLogicAPI
-    { 
+    {
         public static void SetCharacterBankBalance(long value)
         {
             try
-            { 
+            {
                 Character.BankBalance = value;
                 var bankBalanceStat = MPStat.GetStat<long>("BANK_BALANCE");
                 bankBalanceStat.SetValue(Character.BankBalance);
@@ -26,7 +19,7 @@ namespace Proline.ClassicOnline.CGameLogic
                 if (CDataStream.CDataStreamAPI.DoesDataFileExist(id))
                 {
                     CDataStream.CDataStreamAPI.SelectDataFile(id);
-                    if(CDataStreamAPI.DoesDataFileValueExist("BankBalance"))
+                    if (CDataStreamAPI.DoesDataFileValueExist("BankBalance"))
                         CDataStream.CDataStreamAPI.SetDataFileValue("BankBalance", Character.BankBalance);
                     else
                         CDataStream.CDataStreamAPI.AddDataFileValue("BankBalance", Character.BankBalance);
@@ -59,7 +52,7 @@ namespace Proline.ClassicOnline.CGameLogic
         {
             try
             {
-                
+
                 Character.BankBalance += value;
                 var bankBalanceStat = MPStat.GetStat<long>("BANK_BALANCE");
                 bankBalanceStat.SetValue(Character.BankBalance);
@@ -84,7 +77,7 @@ namespace Proline.ClassicOnline.CGameLogic
         {
             try
             {
-                
+
                 Character.BankBalance -= value;
                 var bankBalanceStat = MPStat.GetStat<long>("BANK_BALANCE");
                 bankBalanceStat.SetValue(Character.BankBalance);
@@ -108,7 +101,7 @@ namespace Proline.ClassicOnline.CGameLogic
         {
             try
             {
-                
+
                 Character.WalletBalance = value;
                 var walletBalanceStat = MPStat.GetStat<long>("MP0_WALLET_BALANCE");
                 walletBalanceStat.SetValue(Character.WalletBalance);
@@ -119,7 +112,7 @@ namespace Proline.ClassicOnline.CGameLogic
                     if (CDataStreamAPI.DoesDataFileValueExist("WalletBalance"))
                         CDataStream.CDataStreamAPI.SetDataFileValue("WalletBalance", Character.WalletBalance);
                     else
-                        CDataStream.CDataStreamAPI.AddDataFileValue("WalletBalance", Character.WalletBalance); 
+                        CDataStream.CDataStreamAPI.AddDataFileValue("WalletBalance", Character.WalletBalance);
                 }
             }
             catch (Exception e)
@@ -132,7 +125,7 @@ namespace Proline.ClassicOnline.CGameLogic
         {
             try
             {
-                
+
                 Character.WalletBalance += value;
                 var walletBalanceStat = MPStat.GetStat<long>("MP0_WALLET_BALANCE");
                 walletBalanceStat.SetValue(Character.WalletBalance);
@@ -156,7 +149,7 @@ namespace Proline.ClassicOnline.CGameLogic
         {
             try
             {
-                
+
                 Character.WalletBalance -= value;
                 var walletBalanceStat = MPStat.GetStat<long>("MP0_WALLET_BALANCE");
                 walletBalanceStat.SetValue(Character.WalletBalance);
@@ -180,8 +173,8 @@ namespace Proline.ClassicOnline.CGameLogic
         public static long GetCharacterWalletBalance()
         {
             try
-            { 
-                return Character.WalletBalance; 
+            {
+                return Character.WalletBalance;
             }
             catch (Exception e)
             {
@@ -194,7 +187,7 @@ namespace Proline.ClassicOnline.CGameLogic
         {
             try
             {
-                
+
                 return Character.BankBalance;
 
             }

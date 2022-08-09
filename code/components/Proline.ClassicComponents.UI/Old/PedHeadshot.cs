@@ -1,7 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using CitizenFX.Core;
+﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
+using System;
+using System.Threading.Tasks;
 
 namespace Proline.CFXExtended.Core
 {

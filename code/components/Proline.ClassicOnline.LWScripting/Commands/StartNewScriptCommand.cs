@@ -1,13 +1,5 @@
-﻿using CitizenFX.Core;
-using CitizenFX.Core.Native;
-
-using System;
-using System.Collections.Generic;
+﻿using Proline.Resource.Framework;
 using System.Linq;
-using Proline.Resource.Framework;
-using System.Text;
-using System.Threading.Tasks;
-using Proline.ClassicOnline.CCoreSystem;
 
 namespace Proline.ClassicOnline.CCoreSystem.Commands
 {

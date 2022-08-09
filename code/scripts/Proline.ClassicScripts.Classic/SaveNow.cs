@@ -1,13 +1,7 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.UI;
-using Newtonsoft.Json;
-using Proline.ClassicOnline.CGameLogic;
-using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Proline.CFXExtended.Core;
-using CitizenFX.Core.Native;
 
 
 namespace Proline.ClassicOnline.SClassic
@@ -20,7 +14,7 @@ namespace Proline.ClassicOnline.SClassic
             // Dupe protection
             if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("SaveNow") > 1)
                 return;
-            Screen.LoadingPrompt.Show("Saving...", LoadingSpinnerType.SocialClubSaving); 
+            Screen.LoadingPrompt.Show("Saving...", LoadingSpinnerType.SocialClubSaving);
             await CDataStream.CDataStreamAPI.SendSaveToCloud();
             await BaseScript.Delay(1000);
             Screen.LoadingPrompt.Hide();

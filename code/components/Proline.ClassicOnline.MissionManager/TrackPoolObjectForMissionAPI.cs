@@ -1,10 +1,6 @@
 ﻿using CitizenFX.Core;
 using Proline.ClassicOnline.CMissionManager.Internal;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.MissionManager
 {
@@ -14,7 +10,7 @@ namespace Proline.ClassicOnline.MissionManager
         {
             try
             {
-                if (!GetMissionFlag()) return; 
+                if (!GetMissionFlag()) return;
                 var instance = PoolObjectTracker.GetInstance();
                 instance.TrackPoolObject(obj);
             }

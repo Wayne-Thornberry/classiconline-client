@@ -1,15 +1,10 @@
 ﻿using CitizenFX.Core.Native;
 using Newtonsoft.Json;
 using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.CGameLogic;
 using Proline.ClassicOnline.CGameLogic.Data;
 using Proline.ClassicOnline.CGameLogic.Internal;
 using Proline.Resource.IO;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CGameLogic
 {
@@ -25,12 +20,12 @@ namespace Proline.ClassicOnline.CGameLogic
                 //    CharacterGlobals.Character.Looks = looks;
                 API.SetPedHeadBlendData(pedHandle, looks.Father, looks.Mother, 0, looks.Father, looks.Mother, 0, looks.Resemblence, looks.SkinTone, 0, true);
 
-                if(looks.Hair != null)
+                if (looks.Hair != null)
                     API.SetPedHairColor(pedHandle, looks.Hair.Color, looks.Hair.HighlightColor);
                 API.SetPedEyeColor(pedHandle, looks.EyeColor);
 
-                if(looks.Overlays != null)
-                { 
+                if (looks.Overlays != null)
+                {
                     for (int i = 0; i < looks.Overlays.Length; i++)
                     {
                         API.SetPedHeadOverlay(pedHandle, i, looks.Overlays[i].Index, looks.Overlays[i].Opacity);
@@ -39,7 +34,7 @@ namespace Proline.ClassicOnline.CGameLogic
 
                 }
                 if (looks.Features != null)
-                { 
+                {
                     for (int i = 0; i < looks.Features.Length; i++)
                     {
                         API.SetPedFaceFeature(pedHandle, i, looks.Features[i].Value);
@@ -68,7 +63,7 @@ namespace Proline.ClassicOnline.CGameLogic
             catch (Exception e)
             {
                 CDebugActionsAPI.LogError(e);
-            } 
+            }
         }
 
         public static void AddValueToBankBalance(object payout)

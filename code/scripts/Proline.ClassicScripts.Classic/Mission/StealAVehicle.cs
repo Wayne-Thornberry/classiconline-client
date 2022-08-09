@@ -1,14 +1,10 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.UI;
 using Proline.ClassicOnline.CGameLogic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Proline.ClassicOnline.CScriptObjs;
+using Proline.ClassicOnline.CScriptObjs.Entity;
 using System.Threading;
 using System.Threading.Tasks;
-using Proline.ClassicOnline.CScriptObjs.Entity;
-using Proline.ClassicOnline.CScriptObjs;
 
 namespace Proline.ClassicOnline.SClassic.Mission
 {
@@ -54,7 +50,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
                 if (World.GetDistance(_targetEntity.Position, _targetDeliveryPos) < 10f)
                 {
                     if (!Game.PlayerPed.IsInVehicle())
-                    { 
+                    {
                         if (CGameLogicAPI.HasCharacter())
                         {
                             CGameLogic.CGameLogicAPI.SetCharacterBankBalance(CGameLogic.CGameLogicAPI.GetCharacterBankBalance() + _payout);

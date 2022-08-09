@@ -1,14 +1,7 @@
 ﻿using CitizenFX.Core;
-using CitizenFX.Core.Native;
 using Proline.ClassicOnline.CCoreSystem.Internal;
-
-using Proline.Resource.Configuration;
-using Proline.Resource.Logging;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 using Console = Proline.Resource.Console;
 

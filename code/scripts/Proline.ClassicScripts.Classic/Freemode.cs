@@ -1,12 +1,8 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
-using Proline.ClassicOnline.MissionManager;
 using Proline.ClassicOnline.CCoreSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Proline.ClassicOnline.MissionManager;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -40,7 +36,7 @@ namespace Proline.ClassicOnline.SClassic
                         if (currentVehicle.Model == VehicleHash.Phantom || currentVehicle.Model == VehicleHash.Hauler)
                         {
                             if (!_hasHelpTextDisplayed)
-                            { 
+                            {
                                 Screen.DisplayHelpTextThisFrame("Press ~INPUT_CONTEXT~ To Start Trucking");
                                 API.PlaySoundFrontend(-1, "INFO", "HUD_FRONTEND_DEFAULT_SOUNDSET", true);
                                 _hasHelpTextDisplayed = true;
@@ -68,7 +64,7 @@ namespace Proline.ClassicOnline.SClassic
                     }
                     else
                     {
-                        if(_hasHelpTextDisplayed)
+                        if (_hasHelpTextDisplayed)
                             _hasHelpTextDisplayed = false;
                     }
 

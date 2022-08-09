@@ -1,6 +1,5 @@
 ﻿using CitizenFX.Core;
 using Proline.ClassicOnline.CGameLogic.Internal;
-using System;
 
 namespace Proline.ClassicOnline.CGameLogic.Data
 {

@@ -1,8 +1,8 @@
+using CitizenFX.Core.Native;
+using CitizenFX.Core.UI;
 using System;
 using System.Drawing;
 using System.Text;
-using CitizenFX.Core.Native;
-using CitizenFX.Core.UI;
 
 namespace Proline.CFXExtended.Core
 {

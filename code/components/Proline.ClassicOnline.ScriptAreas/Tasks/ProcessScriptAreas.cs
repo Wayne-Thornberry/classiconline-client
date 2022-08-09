@@ -1,21 +1,8 @@
 ﻿using CitizenFX.Core;
-using CitizenFX.Core.Native;
-using Newtonsoft.Json;
-
-using Proline.Resource.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks; 
-using Proline.ClassicOnline.CDataStream;
-using Proline.CFXExtended.Core;
-using Proline.Resource;
-using Proline.ClassicOnline.CDebugActions;
-using System.Reflection;
 using Proline.ClassicOnline.CCoreSystem;
-using Proline.Resource.IO;
-using Proline.ClassicOnline.CPoolObjects;
 using Proline.ClassicOnline.CScriptAreas.Entity;
+using Proline.Resource.Logging;
+using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CScriptAreas.Tasks
 {

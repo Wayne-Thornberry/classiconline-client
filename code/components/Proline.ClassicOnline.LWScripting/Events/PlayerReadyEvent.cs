@@ -1,11 +1,6 @@
 ﻿using CitizenFX.Core;
-using Proline.ClassicOnline.CCoreSystem.Internal;
 using Proline.Resource.Eventing;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CCoreSystem.Events
 {

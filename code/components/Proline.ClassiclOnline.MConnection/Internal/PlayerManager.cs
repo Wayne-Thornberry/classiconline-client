@@ -1,11 +1,7 @@
 ﻿using CitizenFX.Core;
 using Proline.ClassicOnline.CDataStream.Internal;
-using Proline.ClassicOnline.CDataStream;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CNetConnection.Internal
 {

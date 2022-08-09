@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Proline.ClassicOnline.CNativeEvents.Events;
 using System.Threading.Tasks;
-using CitizenFX.Core;
-using Proline.ClassicOnline.CNativeEvents.Events;
 
 namespace Proline.ClassicOnline.CNativeEvents.Scripts
 {

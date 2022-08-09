@@ -1,13 +1,7 @@
 ﻿using CitizenFX.Core;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Proline.Resource.Framework;
-using System.Threading.Tasks;
-using Console = Proline.Resource.Console;
 using Proline.ClassicOnline.CDataStream.Internal;
+using Proline.Resource.Framework;
+using Console = Proline.Resource.Console;
 
 namespace Proline.ClassicOnline.CDataStream.Commands
 {

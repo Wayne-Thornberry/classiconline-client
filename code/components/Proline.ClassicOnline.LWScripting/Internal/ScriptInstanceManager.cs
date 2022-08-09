@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace Proline.ClassicOnline.CCoreSystem.Internal
+﻿namespace Proline.ClassicOnline.CCoreSystem.Internal
 {
     internal class ScriptInstanceManager
     {

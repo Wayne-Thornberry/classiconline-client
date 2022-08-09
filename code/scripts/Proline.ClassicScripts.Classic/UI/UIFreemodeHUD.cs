@@ -1,11 +1,11 @@
-using System;
-using System.Drawing;
-using System.Threading;
-using System.Threading.Tasks;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Proline.ClassicOnline.Scaleforms;
+using System;
+using System.Drawing;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.SClassic.UI
 {
@@ -23,7 +23,7 @@ namespace Proline.ClassicOnline.SClassic.UI
             Rank = rank;
             Points = points;
         }
-    } 
+    }
 
     public class UIFreemodeHUD
     {
@@ -42,7 +42,7 @@ namespace Proline.ClassicOnline.SClassic.UI
         public int DisplayTime { get; set; }
         public int ScriptState { get; set; }
         public ScaleformHud RankBar { get; set; }
-         
+
 
         public MPMMFreemodeMenu Scaleform { get; }
         public bool DisplayScaleform { get; set; }
@@ -53,7 +53,7 @@ namespace Proline.ClassicOnline.SClassic.UI
         public int CurrentPage { get; private set; }
         public string Title => $"PH:RP (Public, {3})";
         public string Subtitle => $"({CurrentPage}/{MaxPage})";
-        public bool EnableControls { get; set; } 
+        public bool EnableControls { get; set; }
 
 
         private void PopulateCurrentPage()
@@ -94,21 +94,21 @@ namespace Proline.ClassicOnline.SClassic.UI
         private void NextPage()
         {
             CurrentPage++;
-            RefreshDisplay(); 
+            RefreshDisplay();
         }
 
         public void Show()
-        { 
+        {
             CurrentPage = 1;
             DisplayScaleform = true;
-            RefreshDisplay(); 
+            RefreshDisplay();
         }
 
         public void Hide()
         {
             CurrentPage = 0;
             DisplayScaleform = false;
-            EmptyCurrentPage(); 
+            EmptyCurrentPage();
         }
 
         public Vector3 ConvertLocalToWorld(Vector3 origin, Vector3 rotation, Vector3 position)
@@ -135,7 +135,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                     HudTimer();
                 Scaleform.Render2DScreenSpace(Position, Size);
                 if (Game.IsControlJustPressed(0, Control.MultiplayerInfo))
-                {   
+                {
                     switch (ScriptState)
                     {
                         case 0:
