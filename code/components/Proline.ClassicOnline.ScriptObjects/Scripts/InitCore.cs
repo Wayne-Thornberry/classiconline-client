@@ -19,7 +19,7 @@ namespace Proline.ClassicOnline.CScriptObjs.Scripts
 
         public async Task Execute()
         {
-            var data2 = ResourceFile.Load("data/brain/scriptobjects.json");
+            var data2 = ResourceFile.Load("data/brain/script_objs.json");
             CDebugActionsAPI.LogDebug(data2);
             var objs = JsonConvert.DeserializeObject<ScriptObjectData[]>(data2.Load());
             var sm = ScriptObjectManager.GetInstance();

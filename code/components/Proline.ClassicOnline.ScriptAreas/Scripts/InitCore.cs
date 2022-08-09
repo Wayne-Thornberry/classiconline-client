@@ -20,7 +20,7 @@ namespace Proline.ClassicOnline.CScriptAreas.Scripts
         public async Task Execute()
         {
             var instance = ScriptPositionManager.GetInstance();
-            var data = ResourceFile.Load("data/brain/scriptpositions.json");
+            var data = ResourceFile.Load("data/brain/script_pos.json");
             CDebugActionsAPI.LogDebug(data);
             var scriptPosition = JsonConvert.DeserializeObject<ScriptPositions>(data.Load());
             instance.AddScriptPositionPairs(scriptPosition.scriptPositionPairs);

@@ -3,8 +3,7 @@ using CitizenFX.Core.Native;
 using Newtonsoft.Json;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CShopCatalogue.Internal;
-using Proline.ClassicOnline.CGameLogic;
-using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.CGameLogic; 
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CShopCatalogue
 {
-    internal static partial class MShopAPI
+    internal static partial class CShopCatalogueAPI
     {
         public static void BuyVehicle(string vehicleName)
         {

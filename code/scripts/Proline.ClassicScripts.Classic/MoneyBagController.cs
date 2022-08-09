@@ -19,12 +19,7 @@ namespace Proline.ClassicOnline.SClassic
         {
             // Dupe protection
             if (CCoreSystemAPI.GetInstanceCountOfScript("MoneyBagController") > 1)
-                return; 
-
-            if(CGameLogicAPI.GetCharacterWalletBalance() > CGameLogicAPI.GetCharacterMaxWalletBalance())
-            {
-                //GiveMoneyBag();
-            }
+                return;  
 
             while (!token.IsCancellationRequested)
             {

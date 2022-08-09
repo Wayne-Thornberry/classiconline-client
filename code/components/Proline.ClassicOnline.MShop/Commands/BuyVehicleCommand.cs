@@ -24,7 +24,7 @@ namespace Proline.ClassicOnline.CShopCatalogue.Commands
             if (args.Length > 0)
             {
                 var vehicle = args[0].ToString();
-                MShopAPI.BuyVehicle(vehicle);
+                CShopCatalogueAPI.BuyVehicle(vehicle);
             }
 
         }
