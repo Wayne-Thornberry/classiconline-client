@@ -18,7 +18,7 @@ namespace Proline.ClassicOnline.SClassic
         public async Task Execute(object[] args, CancellationToken token)
         {
 
-            if (!CDataStream.API.IsSaveInProgress())
+            if (!CDataStream.CDataStreamAPI.IsSaveInProgress())
             {
                 // attempt to get the player id
                 // fish for the save files from the player id
@@ -27,36 +27,36 @@ namespace Proline.ClassicOnline.SClassic
                 {
                     await BaseScript.Delay(1);
                 }
-                await CDataStream.API.PullSaveFromCloud(); // Sends a load request to the server
-                if (CDataStream.API.HasSaveLoaded())
+                await CDataStream.CDataStreamAPI.PullSaveFromCloud(); // Sends a load request to the server
+                if (CDataStream.CDataStreamAPI.HasSaveLoaded())
                 {
                     PlayerCharacter character = CreateNewCharacter(); 
 
-                    if (CDataStream.API.DoesDataFileExist("PlayerInfo"))
+                    if (CDataStream.CDataStreamAPI.DoesDataFileExist("PlayerInfo"))
                     {
-                        CDataStream.API.SelectDataFile("PlayerInfo");
-                        character.Health = CDataStream.API.GetDataFileValue<int>("PlayerHealth");
-                        character.Position = CDataStream.API.GetDataFileValue<Vector3>("PlayerPosition");
-                        CGameLogicAPI.SetCharacterBankBalance(CDataStream.API.GetDataFileValue<long>("BankBalance"));
-                        CGameLogicAPI.SetCharacterWalletBalance(CDataStream.API.GetDataFileValue<long>("WalletBalance"));
+                        CDataStream.CDataStreamAPI.SelectDataFile("PlayerInfo");
+                        character.Health = CDataStream.CDataStreamAPI.GetDataFileValue<int>("PlayerHealth");
+                        character.Position = CDataStream.CDataStreamAPI.GetDataFileValue<Vector3>("PlayerPosition");
+                        CGameLogicAPI.SetCharacterBankBalance(CDataStream.CDataStreamAPI.GetDataFileValue<long>("BankBalance"));
+                        CGameLogicAPI.SetCharacterWalletBalance(CDataStream.CDataStreamAPI.GetDataFileValue<long>("WalletBalance"));
                     }
 
-                    if (CDataStream.API.DoesDataFileExist("PlayerStats"))
+                    if (CDataStream.CDataStreamAPI.DoesDataFileExist("PlayerStats"))
                     {
-                        CDataStream.API.SelectDataFile("PlayerStats");
-                        var x = CDataStream.API.GetDataFileValue<int>("MP0_WALLET_BALANCE");
-                        var y = CDataStream.API.GetDataFileValue<int>("BANK_BALANCE");
+                        CDataStream.CDataStreamAPI.SelectDataFile("PlayerStats");
+                        var x = CDataStream.CDataStreamAPI.GetDataFileValue<int>("MP0_WALLET_BALANCE");
+                        var y = CDataStream.CDataStreamAPI.GetDataFileValue<int>("BANK_BALANCE");
                         character.Stats.SetStat("WALLET_BALANCE", x);
                         character.Stats.SetStat("BANK_BALANCE", y);
                     }
                      
-                    if (CDataStream.API.DoesDataFileExist("CharacterLooks"))
+                    if (CDataStream.CDataStreamAPI.DoesDataFileExist("CharacterLooks"))
                     {
-                        CDataStream.API.SelectDataFile("CharacterLooks");
-                        var mother = CDataStream.API.GetDataFileValue<int>("Mother");
-                        var father = CDataStream.API.GetDataFileValue<int>("Father");
-                        var resemblence = CDataStream.API.GetDataFileValue<float>("Resemblance");
-                        var skintone = CDataStream.API.GetDataFileValue<float>("SkinTone");
+                        CDataStream.CDataStreamAPI.SelectDataFile("CharacterLooks");
+                        var mother = CDataStream.CDataStreamAPI.GetDataFileValue<int>("Mother");
+                        var father = CDataStream.CDataStreamAPI.GetDataFileValue<int>("Father");
+                        var resemblence = CDataStream.CDataStreamAPI.GetDataFileValue<float>("Resemblance");
+                        var skintone = CDataStream.CDataStreamAPI.GetDataFileValue<float>("SkinTone");
 
                         CGameLogicAPI.SetPedLooks(Game.PlayerPed.Handle, new CharacterLooks()
                         {
@@ -67,10 +67,10 @@ namespace Proline.ClassicOnline.SClassic
                         });
                     }
 
-                    if (CDataStream.API.DoesDataFileExist("PlayerOutfit"))
+                    if (CDataStream.CDataStreamAPI.DoesDataFileExist("PlayerOutfit"))
                     {
-                        CDataStream.API.SelectDataFile("PlayerOutfit");
-                        var outfit = CDataStream.API.GetDataFileValue<CharacterOutfit>("CharacterOutfit");
+                        CDataStream.CDataStreamAPI.SelectDataFile("PlayerOutfit");
+                        var outfit = CDataStream.CDataStreamAPI.GetDataFileValue<CharacterOutfit>("CharacterOutfit");
                         var components = outfit.Components;
                         for (int i = 0; i < components.Length; i++)
                         {
@@ -80,13 +80,13 @@ namespace Proline.ClassicOnline.SClassic
                         }
                     }
 
-                    if (CDataStream.API.DoesDataFileExist("PlayerVehicle"))
+                    if (CDataStream.CDataStreamAPI.DoesDataFileExist("PlayerVehicle"))
                     { 
-                        CDataStream.API.SelectDataFile("PlayerVehicle");
-                        if (CDataStream.API.DoesDataFileValueExist("VehicleHash"))
+                        CDataStream.CDataStreamAPI.SelectDataFile("PlayerVehicle");
+                        if (CDataStream.CDataStreamAPI.DoesDataFileValueExist("VehicleHash"))
                         {
-                            var pv = (VehicleHash) (uint) CDataStream.API.GetDataFileValue<int>("VehicleHash");
-                            var position = CDataStream.API.GetDataFileValue<Vector3>("VehiclePosition");
+                            var pv = (VehicleHash) (uint) CDataStream.CDataStreamAPI.GetDataFileValue<int>("VehicleHash");
+                            var position = CDataStream.CDataStreamAPI.GetDataFileValue<Vector3>("VehiclePosition");
                             var vehicle = await World.CreateVehicle(new Model(pv), Game.PlayerPed.Position);
                             vehicle.PlaceOnNextStreet();
                             vehicle.IsPersistent = true;
@@ -96,13 +96,13 @@ namespace Proline.ClassicOnline.SClassic
                         }
                     }
 
-                    if (CDataStream.API.DoesDataFileExist("PlayerWeapon"))
+                    if (CDataStream.CDataStreamAPI.DoesDataFileExist("PlayerWeapon"))
                     {
-                        CDataStream.API.SelectDataFile("PlayerWeapon");
-                        if (CDataStream.API.DoesDataFileValueExist("WeaponHash"))
+                        CDataStream.CDataStreamAPI.SelectDataFile("PlayerWeapon");
+                        if (CDataStream.CDataStreamAPI.DoesDataFileValueExist("WeaponHash"))
                         {
-                            var hash = (WeaponHash)CDataStream.API.GetDataFileValue<uint>("WeaponHash");
-                            var ammo = CDataStream.API.GetDataFileValue<int>("WeaponAmmo");
+                            var hash = (WeaponHash)CDataStream.CDataStreamAPI.GetDataFileValue<uint>("WeaponHash");
+                            var ammo = CDataStream.CDataStreamAPI.GetDataFileValue<int>("WeaponAmmo");
                             Game.PlayerPed.Weapons.Give(hash, ammo, true, true);
                         }
                     }
@@ -115,7 +115,7 @@ namespace Proline.ClassicOnline.SClassic
                 {
                     CDebugActionsAPI.LogDebug("No save file to load from, attempting to create a save...");
                     /// If the player doesnt have basic info, that means the player does not have a save
-                    if (!CDataStream.API.DoesDataFileExist("PlayerInfo"))
+                    if (!CDataStream.CDataStreamAPI.DoesDataFileExist("PlayerInfo"))
                     {
                         CCoreSystem.CCoreSystemAPI.StartNewScript("PlayerSetup");
                         while (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("PlayerSetup") > 0)

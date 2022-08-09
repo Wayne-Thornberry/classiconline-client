@@ -13,7 +13,7 @@ using Console = Proline.Resource.Console;
 
 namespace Proline.ClassicOnline.CDataStream
 {
-    public static partial class API
+    public static partial class CDataStreamAPI
     {
         // SendSaveToCloud - Sends a request to the server to upload current Save (Save consists of multiple data files)
         // PullSaveFromCloud - Sends a request to download the file to the client

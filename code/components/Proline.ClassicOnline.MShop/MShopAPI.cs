@@ -50,13 +50,13 @@ namespace Proline.ClassicOnline.CShopCatalogue
                             CGameLogicAPI.SetCharacterPersonalVehicle(createdVehicle.Handle);
 
                             var id = "PlayerVehicle";
-                            CDataStream.API.CreateDataFile();
-                            CDataStream.API.AddDataFileValue("VehicleHash", createdVehicle.Model.Hash);
-                            CDataStream.API.AddDataFileValue("VehiclePosition", JsonConvert.SerializeObject(createdVehicle.Position));
+                            CDataStream.CDataStreamAPI.CreateDataFile();
+                            CDataStream.CDataStreamAPI.AddDataFileValue("VehicleHash", createdVehicle.Model.Hash);
+                            CDataStream.CDataStreamAPI.AddDataFileValue("VehiclePosition", JsonConvert.SerializeObject(createdVehicle.Position));
                             createdVehicle.IsPersistent = true;
                             if (createdVehicle.AttachedBlips.Length == 0)
                                 createdVehicle.AttachBlip();
-                            CDataStream.API.SaveDataFile(id);
+                            CDataStream.CDataStreamAPI.SaveDataFile(id);
                             CGameLogicAPI.SubtractValueFromBankBalance(vci.Price);
                         });
 

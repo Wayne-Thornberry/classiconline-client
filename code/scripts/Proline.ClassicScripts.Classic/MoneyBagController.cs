@@ -15,6 +15,7 @@ namespace Proline.ClassicOnline.SClassic
 {
     public class MoneyBagController
     {
+        private bool _updated;
 
         public async Task Execute(object[] args, CancellationToken token)
         {
@@ -24,7 +25,7 @@ namespace Proline.ClassicOnline.SClassic
 
             if(CGameLogicAPI.GetCharacterWalletBalance() > CGameLogicAPI.GetCharacterMaxWalletBalance())
             {
-                GiveMoneyBag();
+                //GiveMoneyBag();
             }
 
             while (!token.IsCancellationRequested)
@@ -40,7 +41,7 @@ namespace Proline.ClassicOnline.SClassic
                     var money = int.Parse(test[1].ToString());
                     if (id == API.GetHashKey("xm_prop_x17_bag_01b"))
                     {
-                        if(API.GetPedDrawableVariation(Game.PlayerPed.Handle, 5) != 45)
+                        if (API.GetPedDrawableVariation(Game.PlayerPed.Handle, 5) != 45)
                         {
                             GiveMoneyBag();
                         }
@@ -48,13 +49,24 @@ namespace Proline.ClassicOnline.SClassic
                     }
                 }
 
-                if (API.GetPedDrawableVariation(Game.PlayerPed.Handle, 5) != 45 && CGameLogicAPI.GetCharacterWalletBalance() > CGameLogicAPI.GetCharacterMaxWalletBalance())
+                if (CGameLogicAPI.GetCharacterWalletBalance() > CGameLogicAPI.GetCharacterMaxWalletBalance())
                 {
                     var _value = (int)(CGameLogicAPI.GetCharacterWalletBalance() - CGameLogicAPI.GetCharacterMaxWalletBalance());
                     CGameLogicAPI.SubtractValueFromWalletBalance(_value);
                     var pickup = await World.CreateAmbientPickup(PickupType.MoneyDepBag, Game.PlayerPed.Position + (Game.PlayerPed.ForwardVector * 2), new Model("xm_prop_x17_bag_01b"), _value);
                     pickup.AttachBlip();
                     pickup.IsPersistent = true; 
+                }
+
+                if (API.GetPedDrawableVariation(Game.PlayerPed.Handle, 5) == 45 && !_updated)
+                { 
+                    CGameLogicAPI.SetCharacterMaxWalletBalance(1000000);
+                    _updated = true;
+                }
+                else if (API.GetPedDrawableVariation(Game.PlayerPed.Handle, 5) != 45 && _updated)
+                {
+                    CGameLogicAPI.SetCharacterMaxWalletBalance(1000);
+                    _updated = false;
                 }
 
                 await BaseScript.Delay(0);

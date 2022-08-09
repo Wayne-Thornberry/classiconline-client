@@ -21,7 +21,7 @@ namespace Proline.ClassicOnline.SClassic
             if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("SaveNow") > 1)
                 return;
             Screen.LoadingPrompt.Show("Saving...", LoadingSpinnerType.SocialClubSaving); 
-            await CDataStream.API.SendSaveToCloud();
+            await CDataStream.CDataStreamAPI.SendSaveToCloud();
             await BaseScript.Delay(1000);
             Screen.LoadingPrompt.Hide();
         }

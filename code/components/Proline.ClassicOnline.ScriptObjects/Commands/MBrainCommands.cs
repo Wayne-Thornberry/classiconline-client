@@ -22,7 +22,7 @@ namespace Proline.ClassicOnline.CScriptBrain.Commands
                 pv.ModelHash = cv.Model.Hash;
                 pv.LastPosition = cv.Position;
                 var json = JsonConvert.SerializeObject(pv);
-                CDataStream.API.AddDataFileValue("PersonalVehicle", json);
+                CDataStream.CDataStreamAPI.AddDataFileValue("PersonalVehicle", json);
             }
         }
 
@@ -42,12 +42,12 @@ namespace Proline.ClassicOnline.CScriptBrain.Commands
                 pw.Hash = (uint)weaponHash;
                 Game.PlayerPed.Weapons.Give(weaponHash, pw.AmmoCount, true, true);
                 var list = new List<PersonalWeapon>();
-                if (CDataStream.API.DoesDataFileValueExist("PersonalWeapons"))
+                if (CDataStream.CDataStreamAPI.DoesDataFileValueExist("PersonalWeapons"))
                 {
-                    list = CDataStream.API.GetDataFileValue<List<PersonalWeapon>>("PersonalWeapons");
+                    list = CDataStream.CDataStreamAPI.GetDataFileValue<List<PersonalWeapon>>("PersonalWeapons");
                 }
                 list.Add(pw);
-                CDataStream.API.AddDataFileValue("PersonalWeapons", JsonConvert.SerializeObject(list));
+                CDataStream.CDataStreamAPI.AddDataFileValue("PersonalWeapons", JsonConvert.SerializeObject(list));
                 stat.SetValue(stat.GetValue() - 250);
 
             }

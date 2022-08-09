@@ -87,10 +87,10 @@ namespace Proline.ClassicOnline.SClassic
 
             Game.PlayerPed.Position = new Vector3(0, 0, 70);
             var id = "PlayerInfo";
-            if (CDataStream.API.DoesDataFileExist(id))
+            if (CDataStream.CDataStreamAPI.DoesDataFileExist(id))
             {
-                CDataStream.API.SelectDataFile(id);
-                CDataStream.API.SetDataFileValue("PlayerPosition", JsonConvert.SerializeObject(Game.PlayerPed.Position));
+                CDataStream.CDataStreamAPI.SelectDataFile(id);
+                CDataStream.CDataStreamAPI.SetDataFileValue("PlayerPosition", JsonConvert.SerializeObject(Game.PlayerPed.Position));
             }
 
             CCoreSystemAPI.StartNewScript("SaveNow");
@@ -112,15 +112,15 @@ namespace Proline.ClassicOnline.SClassic
         private void Finish()
         {
             var id = "CharacterLooks";
-            if (!CDataStream.API.DoesDataFileExist(id))
+            if (!CDataStream.CDataStreamAPI.DoesDataFileExist(id))
             {
                 var pedLooks = CGameLogicAPI.GetPedLooks(Game.PlayerPed.Handle);
-                CDataStream.API.CreateDataFile();
-                CDataStream.API.AddDataFileValue("Mother", pedLooks.Mother);
-                CDataStream.API.AddDataFileValue("Father", pedLooks.Father);
-                CDataStream.API.AddDataFileValue("Resemblance", pedLooks.Resemblence);
-                CDataStream.API.AddDataFileValue("SkinTone", pedLooks.SkinTone);
-                CDataStream.API.SaveDataFile(id);
+                CDataStream.CDataStreamAPI.CreateDataFile();
+                CDataStream.CDataStreamAPI.AddDataFileValue("Mother", pedLooks.Mother);
+                CDataStream.CDataStreamAPI.AddDataFileValue("Father", pedLooks.Father);
+                CDataStream.CDataStreamAPI.AddDataFileValue("Resemblance", pedLooks.Resemblence);
+                CDataStream.CDataStreamAPI.AddDataFileValue("SkinTone", pedLooks.SkinTone);
+                CDataStream.CDataStreamAPI.SaveDataFile(id);
                 CDebugActionsAPI.LogDebug(id + " Created and saved");
             }
 

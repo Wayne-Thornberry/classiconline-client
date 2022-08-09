@@ -16,7 +16,7 @@ namespace Proline.ClassicOnline.SClassic
         public async Task Execute(object[] args, CancellationToken token)
         {
             await Game.Player.ChangeModel(new Model(1885233650)); 
-            if (!CDataStream.API.HasSaveLoaded())
+            if (!CDataStream.CDataStreamAPI.HasSaveLoaded())
             {
                 PlayerCharacter character = CreateNewCharacter();
                 CCoreSystem.CCoreSystemAPI.StartNewScript("LoadDefaultStats");

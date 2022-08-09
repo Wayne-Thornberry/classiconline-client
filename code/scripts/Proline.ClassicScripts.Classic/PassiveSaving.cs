@@ -23,10 +23,10 @@ namespace Proline.ClassicOnline.SClassic
                 if (DateTime.UtcNow > nextSaveTime)
                 {
                     var id = "PlayerInfo";
-                    if (CDataStream.API.DoesDataFileExist(id))
+                    if (CDataStream.CDataStreamAPI.DoesDataFileExist(id))
                     {
-                        CDataStream.API.SelectDataFile(id);
-                        CDataStream.API.SetDataFileValue("PlayerPosition", JsonConvert.SerializeObject(Game.PlayerPed.Position));
+                        CDataStream.CDataStreamAPI.SelectDataFile(id);
+                        CDataStream.CDataStreamAPI.SetDataFileValue("PlayerPosition", JsonConvert.SerializeObject(Game.PlayerPed.Position));
                     }
                     CCoreSystemAPI.StartNewScript("SaveNow");
                     while (CCoreSystemAPI.GetInstanceCountOfScript("SaveNow") > 0)

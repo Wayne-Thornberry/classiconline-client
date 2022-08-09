@@ -30,10 +30,10 @@ namespace Proline.ClassicOnline.CNetConnection.Commands
                 Game.PlayerPed.Weapons.Give(randomBar, ammo, true, true);
 
                 var id = "PlayerWeapon";
-                CDataStream.API.CreateDataFile();
-                CDataStream.API.AddDataFileValue("WeaponHash", randomBar);
-                CDataStream.API.AddDataFileValue("WeaponAmmo", ammo);
-                CDataStream.API.SaveDataFile(id);
+                CDataStream.CDataStreamAPI.CreateDataFile();
+                CDataStream.CDataStreamAPI.AddDataFileValue("WeaponHash", randomBar);
+                CDataStream.CDataStreamAPI.AddDataFileValue("WeaponAmmo", ammo);
+                CDataStream.CDataStreamAPI.SaveDataFile(id);
 
                 CGameLogicAPI.SubtractValueFromBankBalance(250);
             }

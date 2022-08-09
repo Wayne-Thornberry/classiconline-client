@@ -44,13 +44,13 @@ namespace Proline.ClassicOnline.CNetConnection.Commands
                         CGameLogicAPI.SetCharacterPersonalVehicle(vehicle.Handle);
 
                         var id = "PlayerVehicle";
-                        CDataStream.API.CreateDataFile();
-                        CDataStream.API.AddDataFileValue("VehicleHash", vehicle.Model.Hash);
-                        CDataStream.API.AddDataFileValue("VehiclePosition", JsonConvert.SerializeObject(vehicle.Position));
+                        CDataStream.CDataStreamAPI.CreateDataFile();
+                        CDataStream.CDataStreamAPI.AddDataFileValue("VehicleHash", vehicle.Model.Hash);
+                        CDataStream.CDataStreamAPI.AddDataFileValue("VehiclePosition", JsonConvert.SerializeObject(vehicle.Position));
                         vehicle.IsPersistent = true;
                         if (vehicle.AttachedBlips.Length == 0)
                             vehicle.AttachBlip();
-                        CDataStream.API.SaveDataFile(id);
+                        CDataStream.CDataStreamAPI.SaveDataFile(id);
 
                     });
                 }

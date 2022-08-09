@@ -86,9 +86,8 @@ namespace Proline.ClassicOnline.SClassic
                         break;
                     case 2:
                         {
-
-                            //  CCoreSystemAPI.StartNewScript("DebugInterface");
                             //CCoreSystemAPI.StartNewScript("ReArmouredTruck");
+                            CCoreSystemAPI.StartNewScript("Freemode");
                             CCoreSystemAPI.StartNewScript("FMVechicleExporter");
                             CCoreSystemAPI.StartNewScript("PlayerDeath");
                             CCoreSystemAPI.StartNewScript("UIPlayerSwitch");
@@ -97,7 +96,6 @@ namespace Proline.ClassicOnline.SClassic
                             CCoreSystemAPI.StartNewScript("PassiveSaving");
                             CCoreSystemAPI.StartNewScript("UIFreemodeHUD");
                             CCoreSystemAPI.StartNewScript("BlipController");
-                            CCoreSystemAPI.StartNewScript("Freemode");
                             CCoreSystemAPI.StartNewScript("CharacterApts");
                             CCoreSystemAPI.StartNewScript("MoneyBagController");
                             CDebugActionsAPI.LogDebug($"Calling Task ID for API {Thread.CurrentThread.ManagedThreadId}");

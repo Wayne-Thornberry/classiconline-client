@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace Proline.ClassicOnline.CDataStream
 {
-    public static partial class API
+    public static partial class CDataStreamAPI
     {
 
     }
