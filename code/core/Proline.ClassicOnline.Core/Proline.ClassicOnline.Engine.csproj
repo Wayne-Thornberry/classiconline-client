@@ -5,15 +5,12 @@
 		<Configurations>Debug;Release</Configurations>
 	</PropertyGroup>
 	<ItemGroup>
-	  <Compile Remove="Parts\**" />
-	  <EmbeddedResource Remove="Parts\**" />
-	  <None Remove="Parts\**" />
-	</ItemGroup>
-	<ItemGroup>
 		<PackageReference Include="CitizenFX.Core.Client" Version="1.0.5738" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Globals\" />
+	  <Folder Include="Common\" />
+	  <Folder Include="Parts\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Reference Include="Newtonsoft.Json">

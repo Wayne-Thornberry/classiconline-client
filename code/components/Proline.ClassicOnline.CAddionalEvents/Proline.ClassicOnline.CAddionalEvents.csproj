@@ -13,6 +13,7 @@
 		<Reference Include="Newtonsoft.Json">
 			<HintPath>..\..\..\vendor\Newtonsoft.Json.dll</HintPath>
 		</Reference>
+		<ProjectReference Include="..\..\core\Proline.ClassicOnline.Core\Proline.ClassicOnline.Engine.csproj" />
 		<ProjectReference Include="..\Proline.ClassicOnline.F8Console\Proline.ClassicOnline.CDebugActions.csproj" />
 		<ProjectReference Include="..\Proline.ClassicOnline.LWScripting\Proline.ClassicOnline.CCoreSystem.csproj" />
 		<Reference Include="Proline.Resource.Client">

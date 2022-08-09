@@ -1,5 +1,6 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
+using Proline.ClassicOnline.CCoreSystem;
 using Proline.ClassicOnline.Engine.Component; 
 using Proline.Resource.Configuration;
 using Proline.Resource.IO;
@@ -23,6 +24,10 @@ namespace Proline.ClassicOnline.Engine
 
             try
             {
+                // Data system
+
+                // Event Systems
+
                 // Load the components
                 var componentJson = ResourceFile.Load("components.json");
                 var components = JsonConvert.DeserializeObject<string[]>(componentJson.Load()); 
@@ -82,6 +87,9 @@ namespace Proline.ClassicOnline.Engine
                         Console.WriteLine(e);
                     }
                 }
+
+                //CCoreSystemAPI.StartNewScript("Main");
+                // Level Scripts
             }
             catch (Exception e)
             {
