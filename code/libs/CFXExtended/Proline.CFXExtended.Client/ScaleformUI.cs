@@ -5,7 +5,7 @@ using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 
-namespace Proline.CFXExtended.Core.Scaleforms
+namespace Proline.ClassicOnline.Scaleforms
 {
     public sealed class ScaleformArgumentTXD
     {
@@ -46,7 +46,7 @@ namespace Proline.CFXExtended.Core.Scaleforms
         protected void CallFunction(string function, params object[] arguments)
         {
             API.BeginScaleformMovieMethod(Handle, function);
-            if(arguments.Length > 0 && arguments != null)
+            if (arguments.Length > 0 && arguments != null)
             {
                 foreach (var argument in arguments)
                 {
@@ -85,7 +85,7 @@ namespace Proline.CFXExtended.Core.Scaleforms
                                 argument.GetType().Name, Handle), "arguments");
                     }
                 }
-            }  
+            }
             API.EndScaleformMovieMethod();
         }
 
@@ -160,7 +160,7 @@ namespace Proline.CFXExtended.Core.Scaleforms
             float width = size.X / Screen.Width;
             float height = size.Y / Screen.Height;
 
-            API.DrawScaleformMovie(Handle, x + (width / 2.0f), y + (height / 2.0f), width, height, 255, 255, 255, 255,
+            API.DrawScaleformMovie(Handle, x + width / 2.0f, y + height / 2.0f, width, height, 255, 255, 255, 255,
                 0);
         }
 

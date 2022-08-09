@@ -35,7 +35,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{B9BD010E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{FFE2D76B-12C9-4C3A-807F-0BECD46A0BA2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proline.CFXExtended.Core", "code\libs\CFXExtended\Proline.CFXExtended.Client\Proline.CFXExtended.Core.csproj", "{60F69FE9-BE05-4634-9F4F-93ECF7ACB942}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proline.ClassicOnline.Scaleforms", "code\libs\CFXExtended\Proline.CFXExtended.Client\Proline.ClassicOnline.Scaleforms.csproj", "{60F69FE9-BE05-4634-9F4F-93ECF7ACB942}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proline.ClassicOnline.CNativeEvents", "code\components\Proline.ClassicOnline.CNativeEvents\Proline.ClassicOnline.CNativeEvents.csproj", "{28738EDB-1BCF-4DDF-972F-9ACFC701F1F9}"
 EndProject

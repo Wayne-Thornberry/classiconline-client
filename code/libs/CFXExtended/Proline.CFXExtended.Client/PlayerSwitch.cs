@@ -1,7 +1,6 @@
-﻿
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
-namespace Proline.CFXExtended.Core.Scaleforms
+namespace Proline.ClassicOnline.Scaleforms
 {
     enum PlayerSwitchChar
     {

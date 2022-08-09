@@ -4,7 +4,7 @@ using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 
-namespace Proline.CFXExtended.Core.Scaleforms
+namespace Proline.ClassicOnline.Scaleforms
 {
     public class ScaleformHud
     {
@@ -55,7 +55,7 @@ namespace Proline.CFXExtended.Core.Scaleforms
             float width = size.X / Screen.Width;
             float height = size.Y / Screen.Height;
 
-            API.DrawScaleformMovie(Handle, x + (width / 2.0f), y + (height / 2.0f), width, height, 255, 255, 255, 255,
+            API.DrawScaleformMovie(Handle, x + width / 2.0f, y + height / 2.0f, width, height, 255, 255, 255, 255,
                 0);
         }
 

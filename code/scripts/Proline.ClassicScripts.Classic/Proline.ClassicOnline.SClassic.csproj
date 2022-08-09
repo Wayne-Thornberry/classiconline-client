@@ -27,15 +27,13 @@
     <ProjectReference Include="..\..\components\Proline.ClassicOnline.MissionManager\Proline.ClassicOnline.CMissionManager.csproj" />
     <ProjectReference Include="..\..\components\Proline.ClassicOnline.MShop\Proline.ClassicOnline.CShopCatalogue.csproj" />
     <ProjectReference Include="..\..\components\Proline.ClassicOnline.ScriptObjects\Proline.ClassicOnline.CScriptBrain.csproj" />
+    <ProjectReference Include="..\..\libs\CFXExtended\Proline.CFXExtended.Client\Proline.ClassicOnline.Scaleforms.csproj" />
   </ItemGroup>
  
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\vendor\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Proline.CFXExtended.Core">
-      <HintPath>E:\artifacts\CFXExtended\Proline.CFXExtended.Core.dll</HintPath>
     </Reference>
     <Reference Include="Proline.Resource.Client">
       <HintPath>E:\artifacts\ResourceLibs\Client\Proline.Resource.Client.dll</HintPath>

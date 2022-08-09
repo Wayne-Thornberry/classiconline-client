@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
-using Proline.CFXExtended.Core.Scaleforms;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CCoreSystem;
+using Proline.ClassicOnline.Scaleforms;
 
 namespace Proline.ClassicOnline.SClassic.UI
 {

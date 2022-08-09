@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Proline.CFXExtended.Core;
 using Proline.Resource;
 using System.Reflection;
 using Proline.Resource.IO;

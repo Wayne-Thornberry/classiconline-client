@@ -2,7 +2,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CitizenFX.Core;
 using CitizenFX.Core.UI;
-using Proline.CFXExtended.Core.Scaleforms;
+using Proline.ClassicOnline.Scaleforms;
 
 namespace Proline.ClassicOnline.SClassic.Old
 {

@@ -14,9 +14,6 @@
 			<HintPath>..\..\..\vendor\Newtonsoft.Json.dll</HintPath>
 		</Reference>
 		<ProjectReference Include="..\Proline.ClassicOnline.F8Console\Proline.ClassicOnline.CDebugActions.csproj" />
-		<Reference Include="Proline.CFXExtended.Core">
-			<HintPath>E:\artifacts\CFXExtended\Proline.CFXExtended.Core.dll</HintPath>
-		</Reference>
 		<Reference Include="Proline.Resource.Client">
 			<HintPath>E:\artifacts\ResourceLibs\Client\Proline.Resource.Client.dll</HintPath>
 		</Reference>

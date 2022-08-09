@@ -13,7 +13,7 @@ namespace Proline.ClassicOnline.SClassic.UI
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("ScriptTemplate") > 1)
+            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("UIInteractionMenuNew") > 1)
                 return;
 
 

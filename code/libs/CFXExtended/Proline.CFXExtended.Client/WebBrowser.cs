@@ -1,6 +1,4 @@
-
-
-namespace Proline.CFXExtended.Core.Scaleforms
+namespace Proline.ClassicOnline.Scaleforms
 {
     public class WebBrowser : ScaleformUI
     {
