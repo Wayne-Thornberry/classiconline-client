@@ -6,8 +6,7 @@ using Proline.Resource.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Proline.ClassicOnline.CScriptBrain.Data;
+using System.Threading.Tasks; 
 using Proline.ClassicOnline.CDataStream;
 using Proline.CFXExtended.Core;
 using Proline.Resource;
@@ -15,33 +14,32 @@ using Proline.ClassicOnline.CDebugActions;
 using System.Reflection;
 using Proline.ClassicOnline.CCoreSystem;
 using Proline.Resource.IO;
-using Proline.ClassicOnline.CScriptBrain.Entity;
 using Proline.ClassicOnline.CPoolObjects;
+using Proline.ClassicOnline.CScriptObjs.Entity;
 
-namespace Proline.ClassicOnline.CScriptBrain.Tasks
+namespace Proline.ClassicOnline.CScriptObjs.Tasks
 {
-    public class ProcessScriptingObjectsAndPositions
+    public class ProcessScriptObjs
     {
         private static Log _log = new Log();
 
-        public ProcessScriptingObjectsAndPositions()
-        { 
+        public ProcessScriptObjs()
+        {
             _sm = ScriptObjectManager.GetInstance();
             _oldList = new List<int>();
         }
 
-         
+
         private ScriptObjectManager _sm;
         private List<int> _oldList;
 
         public async Task Execute()
-        { 
-            var instance = ScriptPositionManager.GetInstance(); 
+        {
             var currentHandles = CPoolObjectsAPI.GetAllExistingPoolObjects();
             foreach (var handle in currentHandles)
-            { 
-                if (!CitizenFX.Core.Native.API.DoesEntityExist(handle)) continue;
-                var modelHash = CitizenFX.Core.Native.API.GetEntityModel(handle);
+            {
+                if (!API.DoesEntityExist(handle)) continue;
+                var modelHash = API.GetEntityModel(handle);
                 if (!_sm.ContainsSO(handle) && _sm.ContainsKey(modelHash))
                 {
                     _log.Debug(handle + " Oh boy, we found a matching script object with that model hash from that handle, time to track it");
@@ -58,34 +56,16 @@ namespace Proline.ClassicOnline.CScriptBrain.Tasks
 
             foreach (var handle in removed)
             {
-                if (CitizenFX.Core.Native.API.DoesEntityExist(handle)) continue;
-                var modelHash = CitizenFX.Core.Native.API.GetEntityModel(handle);
+                if (API.DoesEntityExist(handle)) continue;
+                var modelHash = API.GetEntityModel(handle);
                 if (!_sm.ContainsKey(modelHash)) continue;
                 if (_sm.ContainsKey(handle))
-                    _sm.Remove(handle); 
+                    _sm.Remove(handle);
             }
             _oldList = newLsit;
 
             ProcessScriptObjects();
-            //return; 
 
-            if (instance.HasScriptPositionPairs())
-            {
-                foreach (var positionsPair in instance.GetScriptPositionsPairs())
-                {
-                    var vector = new Vector3(positionsPair.X, positionsPair.Y, positionsPair.Z);
-                    if (World.GetDistance(vector, Game.PlayerPed.Position) < 10f && !PosBlacklist.Contains(positionsPair))
-                    {
-                        Resource.Console.WriteLine(_log.Debug("In range"));
-                        CCoreSystemAPI.StartNewScript(positionsPair.ScriptName, vector);
-                        PosBlacklist.Add(positionsPair);
-                    }
-                    else if (World.GetDistance(vector, Game.PlayerPed.Position) > 10f && PosBlacklist.Contains(positionsPair))
-                    {
-                        PosBlacklist.Remove(positionsPair);
-                    };
-                }
-            }
         }
 
 
@@ -105,7 +85,7 @@ namespace Proline.ClassicOnline.CScriptBrain.Tasks
 
         private void ProcessScriptObject(ScriptObject so)
         {
-            if (!CitizenFX.Core.Native.API.DoesEntityExist(so.Handle))
+            if (!API.DoesEntityExist(so.Handle))
             {
                 _sm.Remove(so.Handle);
                 return;
@@ -129,7 +109,7 @@ namespace Proline.ClassicOnline.CScriptBrain.Tasks
         {
             var pos = Game.PlayerPed.Position;
             var pos2 = entity.Position;
-            return CitizenFX.Core.Native.API.Vdist2(pos.X, pos.Y, pos.Z, pos2.X, pos2.Y, pos2.Z) <= activationRange;
+            return API.Vdist2(pos.X, pos.Y, pos.Z, pos2.X, pos2.Y, pos2.Z) <= activationRange;
         }
 
 

@@ -26,7 +26,7 @@
     <ProjectReference Include="..\..\components\Proline.ClassicOnline.LWScripting\Proline.ClassicOnline.CCoreSystem.csproj" />
     <ProjectReference Include="..\..\components\Proline.ClassicOnline.MissionManager\Proline.ClassicOnline.CMissionManager.csproj" />
     <ProjectReference Include="..\..\components\Proline.ClassicOnline.MShop\Proline.ClassicOnline.CShopCatalogue.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicOnline.ScriptObjects\Proline.ClassicOnline.CScriptBrain.csproj" />
+    <ProjectReference Include="..\..\components\Proline.ClassicOnline.ScriptObjects\Proline.ClassicOnline.CScriptObjs.csproj" />
     <ProjectReference Include="..\..\libs\CFXExtended\Proline.CFXExtended.Client\Proline.ClassicOnline.Scaleforms.csproj" />
   </ItemGroup>
  

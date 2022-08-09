@@ -1,4 +1,4 @@
-﻿namespace Proline.ClassicOnline.CScriptBrain.Entity
+﻿namespace Proline.ClassicOnline.CScriptObjs.Entity
 {
     public enum EntityType
     {

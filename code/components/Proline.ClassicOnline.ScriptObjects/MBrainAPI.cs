@@ -1,14 +1,14 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.CScriptBrain.Entity;
+using Proline.ClassicOnline.CScriptObjs.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.CScriptBrain
+namespace Proline.ClassicOnline.CScriptObjs
 {
     public static class CScriptBrainAPI
     {

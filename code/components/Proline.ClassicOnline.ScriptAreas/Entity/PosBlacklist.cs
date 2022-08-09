@@ -1,7 +1,7 @@
-﻿using Proline.ClassicOnline.CScriptBrain.Data;
+﻿using Proline.ClassicOnline.CScriptAreas.Data;
 using System.Collections.Generic;
 
-namespace Proline.ClassicOnline.CScriptBrain.Entity
+namespace Proline.ClassicOnline.CScriptAreas.Entity
 {
     internal static class PosBlacklist
     {

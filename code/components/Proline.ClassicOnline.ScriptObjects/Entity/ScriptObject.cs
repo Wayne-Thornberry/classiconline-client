@@ -1,7 +1,7 @@
-﻿using Proline.ClassicOnline.CScriptBrain.Data;
+﻿using Proline.ClassicOnline.CScriptObjs.Data;
 using System.Collections.Generic;
 
-namespace Proline.ClassicOnline.CScriptBrain.Entity
+namespace Proline.ClassicOnline.CScriptObjs.Entity
 {
     public class ScriptObject
     {

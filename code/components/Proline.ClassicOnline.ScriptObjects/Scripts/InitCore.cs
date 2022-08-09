@@ -1,8 +1,6 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
 using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.CScriptBrain.Data;
-using Proline.ClassicOnline.CScriptBrain.Entity;
 using Proline.ClassicOnline.CCoreSystem.Events;
 using Proline.ClassicOnline.CCoreSystem.Internal;
 using Proline.Resource.IO;
@@ -11,22 +9,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Proline.ClassicOnline.CScriptObjs.Entity;
+using Proline.ClassicOnline.CScriptObjs.Data;
 
-namespace Proline.ClassicOnline.CScriptBrain.Scripts
+namespace Proline.ClassicOnline.CScriptObjs.Scripts
 {
     public class InitCore
     {
 
         public async Task Execute()
         {
-            var instance = ScriptPositionManager.GetInstance();
-
-            var data = ResourceFile.Load("data/brain/scriptpositions.json");
-            CDebugActionsAPI.LogDebug(data);
-            var scriptPosition = JsonConvert.DeserializeObject<ScriptPositions>(data.Load());
-            instance.AddScriptPositionPairs(scriptPosition.scriptPositionPairs);
-            PosBlacklist.Create();
-
             var data2 = ResourceFile.Load("data/brain/scriptobjects.json");
             CDebugActionsAPI.LogDebug(data2);
             var objs = JsonConvert.DeserializeObject<ScriptObjectData[]>(data2.Load());

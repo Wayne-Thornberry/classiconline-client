@@ -1,4 +1,4 @@
-﻿namespace Proline.ClassicOnline.CScriptBrain.Data
+﻿namespace Proline.ClassicOnline.CScriptAreas.Data
 {
 
     public class ScriptPositions

@@ -1,4 +1,4 @@
-﻿namespace Proline.ClassicOnline.CScriptBrain.Data
+﻿namespace Proline.ClassicOnline.CScriptObjs.Data
 {
     public class ScriptObjectData
     {

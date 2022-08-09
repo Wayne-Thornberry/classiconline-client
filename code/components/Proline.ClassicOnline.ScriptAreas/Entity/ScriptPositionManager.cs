@@ -1,9 +1,9 @@
 ﻿using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.CScriptBrain.Data;
+using Proline.ClassicOnline.CScriptAreas.Data;
 using System;
 using System.Collections.Generic;
 
-namespace Proline.ClassicOnline.CScriptBrain.Entity
+namespace Proline.ClassicOnline.CScriptAreas.Entity
 {
     internal class ScriptPositionManager
     {

@@ -1,14 +1,14 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.UI;
-using Proline.ClassicOnline.CScriptBrain;
-using Proline.ClassicOnline.CGameLogic; 
+using Proline.ClassicOnline.CGameLogic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Proline.ClassicOnline.CScriptBrain.Entity;
+using Proline.ClassicOnline.CScriptObjs.Entity;
+using Proline.ClassicOnline.CScriptObjs;
 
 namespace Proline.ClassicOnline.SClassic.Mission
 {

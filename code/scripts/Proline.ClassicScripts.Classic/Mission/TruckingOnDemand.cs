@@ -1,7 +1,7 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
-using Proline.ClassicOnline.CScriptBrain;
-using Proline.ClassicOnline.CScriptBrain.Entity;
+using Proline.ClassicOnline.CScriptObjs;
+using Proline.ClassicOnline.CScriptObjs.Entity;
 using Proline.ClassicOnline.MissionManager;
 using System;
 using System.Collections.Generic;
