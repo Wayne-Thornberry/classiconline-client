@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proline.ClassicOnline.CAddi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proline.ClassicOnline.CScriptAreas", "code\components\Proline.ClassicOnline.ScriptAreas\Proline.ClassicOnline.CScriptAreas.csproj", "{4A363264-8921-464D-8080-6DDE69FFD32E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proline.ClassicOnline.Engine", "code\core\Proline.ClassicOnline.Core\Proline.ClassicOnline.Engine.csproj", "{3031D6BB-F39E-470F-B9AC-E4141B75A126}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -119,6 +121,10 @@ Global
 		{4A363264-8921-464D-8080-6DDE69FFD32E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A363264-8921-464D-8080-6DDE69FFD32E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A363264-8921-464D-8080-6DDE69FFD32E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3031D6BB-F39E-470F-B9AC-E4141B75A126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3031D6BB-F39E-470F-B9AC-E4141B75A126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3031D6BB-F39E-470F-B9AC-E4141B75A126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3031D6BB-F39E-470F-B9AC-E4141B75A126}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
