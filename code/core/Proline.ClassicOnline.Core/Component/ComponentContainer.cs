@@ -100,7 +100,7 @@ namespace Proline.ClassicOnline.Engine.Component
                     throw new Exception("Component cannot run, component has not loaded or has already started");
                 ExecuteScript(INITSESSIONSCRIPTNAME);
             }
-            catch (ScriptDoesNotExistException e)
+            catch (ComponentScriptDoesNotExistException e)
             {
                 // if it fails to start the session start script then its fine, components can do without start or core 
             }
@@ -122,7 +122,7 @@ namespace Proline.ClassicOnline.Engine.Component
         internal void ExecuteScript(string scriptName)
         {
             if (!Scripts.ContainsKey(scriptName))
-                throw new ScriptDoesNotExistException($"{scriptName} does not exist, cannot execute");
+                throw new ComponentScriptDoesNotExistException($"{scriptName} does not exist, cannot execute");
             var script = Scripts[scriptName];
             script.Execute();
         }

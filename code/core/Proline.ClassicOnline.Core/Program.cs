@@ -49,7 +49,7 @@ namespace Proline.ClassicOnline.Engine
                     {
                         container.ExecuteScript(ComponentContainer.INITCORESCRIPTNAME);
                     }
-                    catch (ScriptDoesNotExistException e)
+                    catch (ComponentScriptDoesNotExistException e)
                     {
 
                     }
@@ -71,7 +71,7 @@ namespace Proline.ClassicOnline.Engine
                         {
                             container.ExecuteScript(ComponentContainer.INITSESSIONSCRIPTNAME);
                         }
-                        catch (ScriptDoesNotExistException e)
+                        catch (ComponentScriptDoesNotExistException e)
                         {
 
                         }
