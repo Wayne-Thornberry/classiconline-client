@@ -13,6 +13,7 @@ namespace Proline.ClassicOnline.CWorldObjects
     {
         public static string GetNearestBuilding()
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 var resourceData = ResourceFile.Load($"data/world/buildings.json");
@@ -36,13 +37,14 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return null;
         }
 
-        internal static Vector3 GetBuildingPosition(string buildingId)
+        public static Vector3 GetBuildingPosition(string buildingId)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 var resourceData2 = ResourceFile.Load($"data/world/buildings/{buildingId}.json");
@@ -51,12 +53,13 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return Vector3.One;
         }
         public static Vector3 GetBuildingEntrance(string buildingId, int entranceId = 0)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 ResourceFile resourceData3 = null;
@@ -67,13 +70,14 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return Vector3.One;
         }
 
         public static int GetNumOfBuldingEntrances(string buildingId)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 ResourceFile resourceData3 = null;
@@ -83,7 +87,7 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return 0;
         }
@@ -91,6 +95,7 @@ namespace Proline.ClassicOnline.CWorldObjects
 
         public static string GetBuildingEntranceString(string buildingId, int entranceId = 0)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 ResourceFile resourceData3 = null;
@@ -101,7 +106,7 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return "";
         }
@@ -109,6 +114,7 @@ namespace Proline.ClassicOnline.CWorldObjects
 
         public static string GetNearestBuildingEntrance(string building)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 if (string.IsNullOrEmpty(building))
@@ -130,12 +136,13 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return null;
         }
         public static Vector3 GetBuildingWorldPos(string buildingId)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 var resourceData2 = ResourceFile.Load($"data/world/buildings/{buildingId}.json");
@@ -144,13 +151,14 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return Vector3.One;
         }
 
         public static string EnterBuilding(string buildingId, string buildingEntrance)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 var resourceData2 = ResourceFile.Load($"data/world/buildings/{buildingId}.json");
@@ -162,19 +170,20 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return "";
         }
         public static Vector3 ExitBuilding(string buildingId, string accessPoint, int type = 0)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 var resourceData2 = ResourceFile.Load($"data/world/buildings/{buildingId}.json");
                 var buildingMetaData = JsonConvert.DeserializeObject<BuildingMetadata>(resourceData2.Load());
                 var entrance = buildingMetaData.AccessPoints.FirstOrDefault(e => e.Id.Equals(accessPoint));
-                CDebugActionsAPI.LogDebug(accessPoint);
-                CDebugActionsAPI.LogDebug(entrance.Id);
+                api.LogDebug(accessPoint);
+                api.LogDebug(entrance.Id);
                 Vector3 pos = Vector3.One;
                 switch (type)
                 {
@@ -185,7 +194,7 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return Vector3.One;
         }

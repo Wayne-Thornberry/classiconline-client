@@ -86,10 +86,10 @@ namespace Proline.ClassicOnline.SClassic
 
             Game.PlayerPed.Position = new Vector3(0, 0, 70);
             var id = "PlayerInfo";
-            if (CDataStream.CDataStreamAPI.DoesDataFileExist(id))
+            if (EngineAPI.DoesDataFileExist(id))
             {
-                CDataStream.CDataStreamAPI.SelectDataFile(id);
-                CDataStream.CDataStreamAPI.SetDataFileValue("PlayerPosition", JsonConvert.SerializeObject(Game.PlayerPed.Position));
+                EngineAPI.SelectDataFile(id);
+                EngineAPI.SetDataFileValue("PlayerPosition", JsonConvert.SerializeObject(Game.PlayerPed.Position));
             }
 
             EngineAPI.StartNewScript("SaveNow");
@@ -111,16 +111,16 @@ namespace Proline.ClassicOnline.SClassic
         private void Finish()
         {
             var id = "CharacterLooks";
-            if (!CDataStream.CDataStreamAPI.DoesDataFileExist(id))
+            if (!EngineAPI.DoesDataFileExist(id))
             {
                 var pedLooks = CGameLogicAPI.GetPedLooks(Game.PlayerPed.Handle);
-                CDataStream.CDataStreamAPI.CreateDataFile();
-                CDataStream.CDataStreamAPI.AddDataFileValue("Mother", pedLooks.Mother);
-                CDataStream.CDataStreamAPI.AddDataFileValue("Father", pedLooks.Father);
-                CDataStream.CDataStreamAPI.AddDataFileValue("Resemblance", pedLooks.Resemblence);
-                CDataStream.CDataStreamAPI.AddDataFileValue("SkinTone", pedLooks.SkinTone);
-                CDataStream.CDataStreamAPI.SaveDataFile(id);
-                CDebugActionsAPI.LogDebug(id + " Created and saved");
+                EngineAPI.CreateDataFile();
+                EngineAPI.AddDataFileValue("Mother", pedLooks.Mother);
+                EngineAPI.AddDataFileValue("Father", pedLooks.Father);
+                EngineAPI.AddDataFileValue("Resemblance", pedLooks.Resemblence);
+                EngineAPI.AddDataFileValue("SkinTone", pedLooks.SkinTone);
+                EngineAPI.SaveDataFile(id);
+                EngineAPI.LogDebug(id + " Created and saved");
             }
 
             ScriptStage = -1;

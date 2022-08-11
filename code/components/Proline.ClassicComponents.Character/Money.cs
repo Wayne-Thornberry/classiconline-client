@@ -2,6 +2,7 @@
 using Proline.ClassicOnline.CDataStream;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CGameLogic.Internal;
+using Proline.ClassicOnline.Engine.Parts;
 using System;
 
 namespace Proline.ClassicOnline.CGameLogic
@@ -16,18 +17,18 @@ namespace Proline.ClassicOnline.CGameLogic
                 var bankBalanceStat = MPStat.GetStat<long>("BANK_BALANCE");
                 bankBalanceStat.SetValue(Character.BankBalance);
                 var id = "PlayerInfo";
-                if (CDataStream.CDataStreamAPI.DoesDataFileExist(id))
+                if (EngineAPI.DoesDataFileExist(id))
                 {
-                    CDataStream.CDataStreamAPI.SelectDataFile(id);
-                    if (CDataStreamAPI.DoesDataFileValueExist("BankBalance"))
-                        CDataStream.CDataStreamAPI.SetDataFileValue("BankBalance", Character.BankBalance);
+                    EngineAPI.SelectDataFile(id);
+                    if (EngineAPI.DoesDataFileValueExist("BankBalance"))
+                        EngineAPI.SetDataFileValue("BankBalance", Character.BankBalance);
                     else
-                        CDataStream.CDataStreamAPI.AddDataFileValue("BankBalance", Character.BankBalance);
+                        EngineAPI.AddDataFileValue("BankBalance", Character.BankBalance);
                 }
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                EngineAPI.LogError(e);
             }
         }
 
@@ -57,18 +58,18 @@ namespace Proline.ClassicOnline.CGameLogic
                 var bankBalanceStat = MPStat.GetStat<long>("BANK_BALANCE");
                 bankBalanceStat.SetValue(Character.BankBalance);
                 var id = "PlayerInfo";
-                if (CDataStream.CDataStreamAPI.DoesDataFileExist(id))
+                if (EngineAPI.DoesDataFileExist(id))
                 {
-                    CDataStream.CDataStreamAPI.SelectDataFile(id);
-                    if (CDataStreamAPI.DoesDataFileValueExist("BankBalance"))
-                        CDataStream.CDataStreamAPI.SetDataFileValue("BankBalance", Character.BankBalance);
+                    EngineAPI.SelectDataFile(id);
+                    if (EngineAPI.DoesDataFileValueExist("BankBalance"))
+                        EngineAPI.SetDataFileValue("BankBalance", Character.BankBalance);
                     else
-                        CDataStream.CDataStreamAPI.AddDataFileValue("BankBalance", Character.BankBalance);
+                        EngineAPI.AddDataFileValue("BankBalance", Character.BankBalance);
                 }
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                EngineAPI.LogError(e);
             }
         }
 
@@ -82,18 +83,18 @@ namespace Proline.ClassicOnline.CGameLogic
                 var bankBalanceStat = MPStat.GetStat<long>("BANK_BALANCE");
                 bankBalanceStat.SetValue(Character.BankBalance);
                 var id = "PlayerInfo";
-                if (CDataStream.CDataStreamAPI.DoesDataFileExist(id))
+                if (EngineAPI.DoesDataFileExist(id))
                 {
-                    CDataStream.CDataStreamAPI.SelectDataFile(id);
-                    if (CDataStreamAPI.DoesDataFileValueExist("BankBalance"))
-                        CDataStream.CDataStreamAPI.SetDataFileValue("BankBalance", Character.BankBalance);
+                    EngineAPI.SelectDataFile(id);
+                    if (EngineAPI.DoesDataFileValueExist("BankBalance"))
+                        EngineAPI.SetDataFileValue("BankBalance", Character.BankBalance);
                     else
-                        CDataStream.CDataStreamAPI.AddDataFileValue("BankBalance", Character.BankBalance);
+                        EngineAPI.AddDataFileValue("BankBalance", Character.BankBalance);
                 }
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                EngineAPI.LogError(e);
             }
         }
 
@@ -106,18 +107,18 @@ namespace Proline.ClassicOnline.CGameLogic
                 var walletBalanceStat = MPStat.GetStat<long>("MP0_WALLET_BALANCE");
                 walletBalanceStat.SetValue(Character.WalletBalance);
                 var id = "PlayerInfo";
-                if (CDataStream.CDataStreamAPI.DoesDataFileExist(id))
+                if (EngineAPI.DoesDataFileExist(id))
                 {
-                    CDataStream.CDataStreamAPI.SelectDataFile(id);
-                    if (CDataStreamAPI.DoesDataFileValueExist("WalletBalance"))
-                        CDataStream.CDataStreamAPI.SetDataFileValue("WalletBalance", Character.WalletBalance);
+                    EngineAPI.SelectDataFile(id);
+                    if (EngineAPI.DoesDataFileValueExist("WalletBalance"))
+                        EngineAPI.SetDataFileValue("WalletBalance", Character.WalletBalance);
                     else
-                        CDataStream.CDataStreamAPI.AddDataFileValue("WalletBalance", Character.WalletBalance);
+                        EngineAPI.AddDataFileValue("WalletBalance", Character.WalletBalance);
                 }
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                EngineAPI.LogError(e);
             }
         }
 
@@ -130,18 +131,18 @@ namespace Proline.ClassicOnline.CGameLogic
                 var walletBalanceStat = MPStat.GetStat<long>("MP0_WALLET_BALANCE");
                 walletBalanceStat.SetValue(Character.WalletBalance);
                 var id = "PlayerInfo";
-                if (CDataStream.CDataStreamAPI.DoesDataFileExist(id))
+                if (EngineAPI.DoesDataFileExist(id))
                 {
-                    CDataStream.CDataStreamAPI.SelectDataFile(id);
-                    if (CDataStreamAPI.DoesDataFileValueExist("WalletBalance"))
-                        CDataStream.CDataStreamAPI.SetDataFileValue("WalletBalance", Character.WalletBalance);
+                    EngineAPI.SelectDataFile(id);
+                    if (EngineAPI.DoesDataFileValueExist("WalletBalance"))
+                        EngineAPI.SetDataFileValue("WalletBalance", Character.WalletBalance);
                     else
-                        CDataStream.CDataStreamAPI.AddDataFileValue("WalletBalance", Character.WalletBalance);
+                        EngineAPI.AddDataFileValue("WalletBalance", Character.WalletBalance);
                 }
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                EngineAPI.LogError(e);
             }
         }
 
@@ -154,18 +155,18 @@ namespace Proline.ClassicOnline.CGameLogic
                 var walletBalanceStat = MPStat.GetStat<long>("MP0_WALLET_BALANCE");
                 walletBalanceStat.SetValue(Character.WalletBalance);
                 var id = "PlayerInfo";
-                if (CDataStream.CDataStreamAPI.DoesDataFileExist(id))
+                if (EngineAPI.DoesDataFileExist(id))
                 {
-                    CDataStream.CDataStreamAPI.SelectDataFile(id);
-                    if (CDataStreamAPI.DoesDataFileValueExist("WalletBalance"))
-                        CDataStream.CDataStreamAPI.SetDataFileValue("WalletBalance", Character.WalletBalance);
+                    EngineAPI.SelectDataFile(id);
+                    if (EngineAPI.DoesDataFileValueExist("WalletBalance"))
+                        EngineAPI.SetDataFileValue("WalletBalance", Character.WalletBalance);
                     else
-                        CDataStream.CDataStreamAPI.AddDataFileValue("WalletBalance", Character.WalletBalance);
+                        EngineAPI.AddDataFileValue("WalletBalance", Character.WalletBalance);
                 }
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                EngineAPI.LogError(e);
             }
         }
 
@@ -178,7 +179,7 @@ namespace Proline.ClassicOnline.CGameLogic
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                EngineAPI.LogError(e);
             }
             return 0;
         }
@@ -193,7 +194,7 @@ namespace Proline.ClassicOnline.CGameLogic
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                EngineAPI.LogError(e);
             }
             return 0;
         }

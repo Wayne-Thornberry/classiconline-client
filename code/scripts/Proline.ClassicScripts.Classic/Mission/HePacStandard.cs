@@ -2,6 +2,7 @@ using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -90,28 +91,28 @@ namespace Proline.ClassicOnline.SClassic.Mission
                 if (entity.Model == API.GetHashKey(_cameraNameHash))
                 {
                     _cameras.Add(entity);
-                    CDebugActionsAPI.LogDebug("Found the camera");
+                    EngineAPI.LogDebug("Found the camera");
                     continue;
                 }
 
                 if (entity.Model == API.GetHashKey(_securityPanelNameHash))
                 {
                     _securityPanels.Add(entity);
-                    CDebugActionsAPI.LogDebug("Found the security panel");
+                    EngineAPI.LogDebug("Found the security panel");
                     continue;
                 }
 
                 if (entity.Model == API.GetHashKey(_vaultNameHash))
                 {
                     _vaultDoor = entity;
-                    CDebugActionsAPI.LogDebug("Found the vault door");
+                    EngineAPI.LogDebug("Found the vault door");
                 }
 
                 foreach (var doorNameHash in _doorNameHash)
                     if (entity.Model == API.GetHashKey(doorNameHash))
                     {
                         _bankDoors.Add(entity);
-                        CDebugActionsAPI.LogDebug("Found a door");
+                        EngineAPI.LogDebug("Found a door");
                     }
             }
         }
@@ -153,7 +154,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
             _vaultDoor.IsPositionFrozen = true;
             foreach (var door in _bankDoors)
             {
-                CDebugActionsAPI.LogDebug("Looping through detected door...");
+                EngineAPI.LogDebug("Looping through detected door...");
                 door.IsPositionFrozen = true;
                 API.DoorControl((uint)door.Model.Hash, door.Position.X, door.Position.Y, door.Position.Z, true, 1f, 1f,
                     1f);

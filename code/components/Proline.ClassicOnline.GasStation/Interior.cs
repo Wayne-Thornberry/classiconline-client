@@ -13,6 +13,7 @@ namespace Proline.ClassicOnline.CWorldObjects
     {
         public static Vector3 EnterInterior(string interiorId, string entranceId)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 var resourceData2 = ResourceFile.Load($"data/world/interiors/{interiorId}.json");
@@ -22,7 +23,7 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return Vector3.One;
         }
@@ -38,6 +39,7 @@ namespace Proline.ClassicOnline.CWorldObjects
 
         public static string GetNearestInterior()
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 var resourceData = ResourceFile.Load($"data/world/interiors.json");
@@ -61,13 +63,14 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return null;
         }
 
         internal static Vector3 GetBuildingInterior(string buildingId)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 var resourceData2 = ResourceFile.Load($"data/world/interiors/{buildingId}.json");
@@ -76,12 +79,13 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return Vector3.One;
         }
         public static string GetNearestInteriorExit(string interiorId = null)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 if (string.IsNullOrEmpty(interiorId))
@@ -103,7 +107,7 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return null;
         }

@@ -1,5 +1,6 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
+using Proline.ClassicOnline.CDataStream;
 using Proline.ClassicOnline.CGameLogic;
 using Proline.Resource.Framework;
 using System;
@@ -36,13 +37,14 @@ namespace Proline.ClassicOnline.CNetConnection.Commands
                         CGameLogicAPI.SetCharacterPersonalVehicle(vehicle.Handle);
 
                         var id = "PlayerVehicle";
-                        CDataStream.CDataStreamAPI.CreateDataFile();
-                        CDataStream.CDataStreamAPI.AddDataFileValue("VehicleHash", vehicle.Model.Hash);
-                        CDataStream.CDataStreamAPI.AddDataFileValue("VehiclePosition", JsonConvert.SerializeObject(vehicle.Position));
+                        var dataAPI = new CDataStreamAPI();
+                        dataAPI.CreateDataFile();
+                        dataAPI.AddDataFileValue("VehicleHash", vehicle.Model.Hash);
+                        dataAPI.AddDataFileValue("VehiclePosition", JsonConvert.SerializeObject(vehicle.Position));
                         vehicle.IsPersistent = true;
                         if (vehicle.AttachedBlips.Length == 0)
                             vehicle.AttachBlip();
-                        CDataStream.CDataStreamAPI.SaveDataFile(id);
+                        dataAPI.SaveDataFile(id);
 
                     });
                 }

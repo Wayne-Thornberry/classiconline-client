@@ -45,7 +45,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
                 if (distance < _closestDistance && IsValidModel(entity.Model) && entity != _policeVehicle && entity.Driver != null)
                 {
                     if (entity.Driver.IsDead) continue;
-                    CDebugActionsAPI.LogDebug("Found a vehicle");
+                    EngineAPI.LogDebug("Found a vehicle");
                     _target = entity;
                     _closestDistance = distance;
                 }
@@ -176,7 +176,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
         {
             if (ped == null)
             {
-                CDebugActionsAPI.LogDebug("PED IS NULL WTF?????");
+                EngineAPI.LogDebug("PED IS NULL WTF?????");
             }
             if (ped.IsInVehicle())
             {

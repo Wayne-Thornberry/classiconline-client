@@ -14,6 +14,7 @@ namespace Proline.ClassicOnline.CWorldObjects.Scripts
 
         public async Task Execute()
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 var apartmentData = ResourceFile.Load("data/world/apt_properties.json");
@@ -26,7 +27,7 @@ namespace Proline.ClassicOnline.CWorldObjects.Scripts
             }
             catch (System.Exception e)
             {
-                CDebugActionsAPI.LogDebug(e);
+                api.LogDebug(e);
             }
 
         }

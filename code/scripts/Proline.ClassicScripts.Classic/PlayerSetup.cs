@@ -5,6 +5,7 @@ using Proline.CFXExtended.Core;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CGameLogic;
 using Proline.ClassicOnline.CGameLogic.Data;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -28,15 +29,15 @@ namespace Proline.ClassicOnline.SClassic
             }
 
             var id = "PlayerInfo";
-            if (!CDataStream.CDataStreamAPI.DoesDataFileExist(id))
+            if (!EngineAPI.DoesDataFileExist(id))
             {
-                CDataStream.CDataStreamAPI.CreateDataFile();
-                CDataStream.CDataStreamAPI.AddDataFileValue("PlayerHealth", Game.PlayerPed.Health);
-                CDataStream.CDataStreamAPI.AddDataFileValue("PlayerPosition", JsonConvert.SerializeObject(Game.PlayerPed.Position));
-                CDataStream.CDataStreamAPI.AddDataFileValue("BankBalance", 0);
-                CDataStream.CDataStreamAPI.AddDataFileValue("WalletBalance", 0);
-                CDataStream.CDataStreamAPI.SaveDataFile(id);
-                CDebugActionsAPI.LogDebug(id + " Created and saved");
+                EngineAPI.CreateDataFile();
+                EngineAPI.AddDataFileValue("PlayerHealth", Game.PlayerPed.Health);
+                EngineAPI.AddDataFileValue("PlayerPosition", JsonConvert.SerializeObject(Game.PlayerPed.Position));
+                EngineAPI.AddDataFileValue("BankBalance", 0);
+                EngineAPI.AddDataFileValue("WalletBalance", 0);
+                EngineAPI.SaveDataFile(id);
+                EngineAPI.LogDebug(id + " Created and saved");
                 CGameLogicAPI.SetCharacterMaxWalletBalance(1000);
             }
 
@@ -56,25 +57,25 @@ namespace Proline.ClassicOnline.SClassic
             //}
 
             id = "PlayerOutfit";
-            if (!CDataStream.CDataStreamAPI.DoesDataFileExist(id))
+            if (!EngineAPI.DoesDataFileExist(id))
             {
-                CDataStream.CDataStreamAPI.CreateDataFile();
+                EngineAPI.CreateDataFile();
                 var outfit = new CharacterOutfit();
                 outfit.Components = list;
                 var json = JsonConvert.SerializeObject(outfit);
-                CDataStream.CDataStreamAPI.AddDataFileValue("CharacterOutfit", json);
-                CDataStream.CDataStreamAPI.SaveDataFile(id);
-                CDebugActionsAPI.LogDebug(id + " Created and saved");
+                EngineAPI.AddDataFileValue("CharacterOutfit", json);
+                EngineAPI.SaveDataFile(id);
+                EngineAPI.LogDebug(id + " Created and saved");
             }
 
             id = "PlayerStats";
-            if (!CDataStream.CDataStreamAPI.DoesDataFileExist(id))
+            if (!EngineAPI.DoesDataFileExist(id))
             {
-                CDataStream.CDataStreamAPI.CreateDataFile();
-                CDataStream.CDataStreamAPI.AddDataFileValue("MP0_WALLET_BALANCE", stat.GetValue());
-                CDataStream.CDataStreamAPI.AddDataFileValue("BANK_BALANCE", stat2.GetValue());
-                CDataStream.CDataStreamAPI.SaveDataFile(id);
-                CDebugActionsAPI.LogDebug(id + " Created and saved");
+                EngineAPI.CreateDataFile();
+                EngineAPI.AddDataFileValue("MP0_WALLET_BALANCE", stat.GetValue());
+                EngineAPI.AddDataFileValue("BANK_BALANCE", stat2.GetValue());
+                EngineAPI.SaveDataFile(id);
+                EngineAPI.LogDebug(id + " Created and saved");
             }
 
         }

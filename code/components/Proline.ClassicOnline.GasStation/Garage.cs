@@ -14,6 +14,7 @@ namespace Proline.ClassicOnline.CWorldObjects
     {
         public static void PlaceVehicleInGarageSlot(string propertyId, int index, Entity vehicle)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 var garage = GetPropertyGarage(propertyId);
@@ -32,8 +33,8 @@ namespace Proline.ClassicOnline.CWorldObjects
                 var garageLayout = JsonConvert.DeserializeObject<GarageLayout>(resourceData3.Load());
 
 
-                CDebugActionsAPI.LogDebug(garageLayout.VehicleSlots.Count());
-                CDebugActionsAPI.LogDebug(index);
+                api.LogDebug(garageLayout.VehicleSlots.Count());
+                api.LogDebug(index);
                 var slot = garageLayout.VehicleSlots[index];
                 if (slot == null)
                     throw new Exception($"Slot not found");
@@ -42,7 +43,7 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
         }
 

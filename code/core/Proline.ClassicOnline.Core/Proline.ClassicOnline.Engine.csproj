@@ -12,6 +12,7 @@
 	  <Folder Include="Common\" />
 	</ItemGroup>
 	<ItemGroup>
+	  <ProjectReference Include="..\..\components\Proline.ClassicComponents.Data\Proline.ClassicOnline.CDataStream.csproj" />
 	  <ProjectReference Include="..\..\components\Proline.ClassicOnline.LWScripting\Proline.ClassicOnline.CCoreSystem.csproj" />
 	</ItemGroup>
 	<ItemGroup>

@@ -64,7 +64,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                     SelectedItem = Items[SelectedIndex - 1];
                     Game.PlaySound("NAV_UP_DOWN", "HUD_FREEMODE_SOUNDSET");
                     Scaleform.SetSelectedIndex(SelectedIndex);
-                    CDebugActionsAPI.LogDebug(SelectedIndex);
+                    EngineAPI.LogDebug(SelectedIndex);
                 }
                 else if (Game.IsControlJustPressed(0, Control.FrontendDown))
                 {
@@ -73,7 +73,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                     SelectedItem = Items[SelectedIndex - 1];
                     Game.PlaySound("NAV_UP_DOWN", "HUD_FREEMODE_SOUNDSET");
                     Scaleform.SetSelectedIndex(SelectedIndex);
-                    CDebugActionsAPI.LogDebug(SelectedIndex);
+                    EngineAPI.LogDebug(SelectedIndex);
                 }
                 else if (Game.IsControlJustPressed(0, Control.FrontendAccept))
                 {
@@ -104,7 +104,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                             }
                             break;
                     }
-                    CDebugActionsAPI.LogDebug(SelectedIndex);
+                    EngineAPI.LogDebug(SelectedIndex);
                 }
                 else if (Game.IsControlJustPressed(0, Control.FrontendCancel))
                 {

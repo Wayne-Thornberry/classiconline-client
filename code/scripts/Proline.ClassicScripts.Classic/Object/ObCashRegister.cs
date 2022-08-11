@@ -29,8 +29,8 @@ namespace Proline.ClassicOnline.SClassic.Object
                 {
                     if (LocalEntity.Model == API.GetHashKey("prop_till_01_dam"))
                     {
-                        CDebugActionsAPI.LogDebug(((uint)LocalEntity.Model.Hash).ToString());
-                        CDebugActionsAPI.LogDebug(((uint)LocalEntity.Model.Hash).ToString());
+                        EngineAPI.LogDebug(((uint)LocalEntity.Model.Hash).ToString());
+                        EngineAPI.LogDebug(((uint)LocalEntity.Model.Hash).ToString());
                     }
 
                     if (!LocalEntity.HasBeenDamagedByAnyWeapon())

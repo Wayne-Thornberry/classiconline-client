@@ -1,5 +1,6 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
+using Proline.ClassicOnline.CDataStream;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CGameLogic;
 using Proline.ClassicOnline.CShopCatalogue.Internal;
@@ -11,6 +12,7 @@ namespace Proline.ClassicOnline.CShopCatalogue
     {
         public static void BuyVehicle(string vehicleName)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 if (CGameLogicAPI.HasCharacter())
@@ -42,15 +44,15 @@ namespace Proline.ClassicOnline.CShopCatalogue
                         {
                             var createdVehicle = e.Result;
                             CGameLogicAPI.SetCharacterPersonalVehicle(createdVehicle.Handle);
-
+                            var dataAPI = new CDataStreamAPI();
                             var id = "PlayerVehicle";
-                            CDataStream.CDataStreamAPI.CreateDataFile();
-                            CDataStream.CDataStreamAPI.AddDataFileValue("VehicleHash", createdVehicle.Model.Hash);
-                            CDataStream.CDataStreamAPI.AddDataFileValue("VehiclePosition", JsonConvert.SerializeObject(createdVehicle.Position));
+                            dataAPI.CreateDataFile();
+                            dataAPI.AddDataFileValue("VehicleHash", createdVehicle.Model.Hash);
+                            dataAPI.AddDataFileValue("VehiclePosition", JsonConvert.SerializeObject(createdVehicle.Position));
                             createdVehicle.IsPersistent = true;
                             if (createdVehicle.AttachedBlips.Length == 0)
                                 createdVehicle.AttachBlip();
-                            CDataStream.CDataStreamAPI.SaveDataFile(id);
+                            dataAPI.SaveDataFile(id);
                             CGameLogicAPI.SubtractValueFromBankBalance(vci.Price);
                         });
 
@@ -60,7 +62,7 @@ namespace Proline.ClassicOnline.CShopCatalogue
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
         }
     }

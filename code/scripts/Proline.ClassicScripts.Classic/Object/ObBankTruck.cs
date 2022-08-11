@@ -2,6 +2,7 @@
 using CitizenFX.Core.UI;
 using Proline.CFXExtended.Core;
 using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -20,14 +21,14 @@ namespace Proline.ClassicOnline.SClassic.Object
             if (args.Length > 0)
             {
                 var entityHandle = (int)args[0];
-                CDebugActionsAPI.LogDebug(entityHandle);
+                EngineAPI.LogDebug(entityHandle);
                 var entity = Entity.FromHandle(entityHandle);
                 _blip = entity.AttachBlip();
                 _blip.Sprite = BlipSprite.ArmoredTruck;
                 var stat = MPStat.GetStat<long>("MP0_WALLET_BALANCE");
                 var stat2 = MPStat.GetStat<long>("BANK_BALANCE");
-                CDebugActionsAPI.LogDebug(stat.GetValue());
-                CDebugActionsAPI.LogDebug(stat2.GetValue());
+                EngineAPI.LogDebug(stat.GetValue());
+                EngineAPI.LogDebug(stat2.GetValue());
                 while (entity.Exists() && !token.IsCancellationRequested)
                 {
                     Screen.DisplayHelpTextThisFrame("Press ~INPUT_CONTEXT~ to recive money");

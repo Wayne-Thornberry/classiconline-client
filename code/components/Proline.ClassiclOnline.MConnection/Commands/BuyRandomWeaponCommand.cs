@@ -1,4 +1,5 @@
 ﻿using CitizenFX.Core;
+using Proline.ClassicOnline.CDataStream;
 using Proline.ClassicOnline.CGameLogic;
 using Proline.Resource.Framework;
 using System;
@@ -23,10 +24,11 @@ namespace Proline.ClassicOnline.CNetConnection.Commands
                 Game.PlayerPed.Weapons.Give(randomBar, ammo, true, true);
 
                 var id = "PlayerWeapon";
-                CDataStream.CDataStreamAPI.CreateDataFile();
-                CDataStream.CDataStreamAPI.AddDataFileValue("WeaponHash", randomBar);
-                CDataStream.CDataStreamAPI.AddDataFileValue("WeaponAmmo", ammo);
-                CDataStream.CDataStreamAPI.SaveDataFile(id);
+                var dataAPI = new CDataStreamAPI();
+                dataAPI.CreateDataFile();
+                dataAPI.AddDataFileValue("WeaponHash", randomBar);
+                dataAPI.AddDataFileValue("WeaponAmmo", ammo);
+                dataAPI.SaveDataFile(id);
 
                 CGameLogicAPI.SubtractValueFromBankBalance(250);
             }

@@ -66,6 +66,7 @@ namespace Proline.ClassicOnline.CScriptObjs
 
         public static CitizenFX.Core.Entity GetNeariestEntity(EntityType type)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 CitizenFX.Core.Entity _entity = null;
@@ -77,18 +78,18 @@ namespace Proline.ClassicOnline.CScriptObjs
                     var distance = World.GetDistance(entity.Position, Game.PlayerPed.Position);
                     if (distance < _closestDistance)
                     {
-                        CDebugActionsAPI.LogDebug("Found a vehicle");
+                        api.LogDebug("Found a vehicle");
                         _entity = entity;
                         _closestDistance = distance;
                     }
                 }
                 return _entity;
             }
-            catch (Exception)
-            {
-
-                throw;
+            catch (Exception e)
+            { 
+                api.LogDebug(e); 
             }
+            return null;
         }
     }
 }

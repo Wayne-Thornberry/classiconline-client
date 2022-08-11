@@ -22,7 +22,7 @@ namespace Proline.ClassicOnline.SClassic
             //API.DisableAutomaticRespawn(false);
             //API.NetworkGetRespawnResult(2, ref test, ref tes2);
             //var x = API.NetworkGetRespawnResultFlags(2);
-            //CDebugActions.CDebugActionsAPI.LogDebug(x + "");
+            //CDebugActions.EngineAPI.LogDebug(x + "");
             //API.SetNextRespawnToCustom();
             //API.SetCustomRespawnPosition(test.X, test.Y, test.Z, 0);
             //API.NetworkRespawnCoords(Game.PlayerPed.Handle, test.X, test.Y, test.Z, false, false);

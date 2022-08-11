@@ -163,7 +163,7 @@ namespace Proline.ClassicOnline.SClassic.Buildings
                             if (World.GetDistance(Game.PlayerPed.Position, _lastPoint) > 4f)
                             {
                                 stage = 0;
-                                CDebugActionsAPI.LogDebug(stage);
+                                EngineAPI.LogDebug(stage);
                             }
                         }
                         break;
@@ -188,7 +188,7 @@ namespace Proline.ClassicOnline.SClassic.Buildings
             {
                 var x = WorldAPI.GetInteriorExit(_interior, i);
                 _interiorExits.Add(x);
-                CDebugActionsAPI.LogDebug($"{i} {JsonConvert.SerializeObject(x)}");
+                EngineAPI.LogDebug($"{i} {JsonConvert.SerializeObject(x)}");
             };
         }
     }

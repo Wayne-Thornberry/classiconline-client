@@ -91,7 +91,7 @@ namespace Proline.ClassicOnline.SClassic
                             EngineAPI.StartNewScript("BlipController");
                             EngineAPI.StartNewScript("CharacterApts");
                             EngineAPI.StartNewScript("MoneyBagController");
-                            CDebugActionsAPI.LogDebug($"Calling Task ID for API {Thread.CurrentThread.ManagedThreadId}");
+                            EngineAPI.LogDebug($"Calling Task ID for API {Thread.CurrentThread.ManagedThreadId}");
                         }
                         state = 3;
                         break;

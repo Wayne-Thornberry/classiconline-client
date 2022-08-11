@@ -10,6 +10,7 @@ namespace Proline.ClassicOnline.CGameLogic
     {
         public static bool IsInPersonalVehicle()
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 if (Character.PersonalVehicle == null)
@@ -18,7 +19,7 @@ namespace Proline.ClassicOnline.CGameLogic
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return false;
         }

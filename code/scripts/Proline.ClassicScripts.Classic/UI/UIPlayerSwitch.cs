@@ -29,10 +29,10 @@ namespace Proline.ClassicOnline.SClassic.UI
             {
                 if (Game.IsControlJustPressed(0, Control.CharacterWheel))
                 {
-                    CDebugActionsAPI.LogDebug("BUTTON PRESSED");
+                    EngineAPI.LogDebug("BUTTON PRESSED");
                     plySwitch = new PlayerSwitch();
                     await plySwitch.Load();
-                    CDebugActionsAPI.LogDebug("LOAD DONE");
+                    EngineAPI.LogDebug("LOAD DONE");
                     if (plySwitch.IsLoaded)
                     {
                         plySwitch.SetSwitchVisible(true);
@@ -43,7 +43,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                             plySwitch.SetSwitchSlot(i, 1, i, i == sel, "");
                         }
                     }
-                    CDebugActionsAPI.LogDebug("EFFECY");
+                    EngineAPI.LogDebug("EFFECY");
                     Screen.Effects.Start(ScreenEffect.SwitchHudFranklinOut, 0, true);
                     Game.PlaySound("CHARACTER_SELECT", "HUD_FRONTEND_DEFAULT_SOUNDSET");
                 }
@@ -67,7 +67,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                     var theta = rng.NextDouble() * 2 * Math.PI;
                     var x = (float)(position.X + r * Math.Cos(theta));
                     var y = (float)(position.Y + r * Math.Sin(theta));
-                    CDebugActionsAPI.LogDebug($"R: {R}, r {r}, Theta {theta}, CurrentPos {position} X {x}, Y {y}");
+                    EngineAPI.LogDebug($"R: {R}, r {r}, Theta {theta}, CurrentPos {position} X {x}, Y {y}");
 
                     API.SwitchOutPlayer(Game.PlayerPed.Handle, 1, 1);
                     await BaseScript.Delay(3000);

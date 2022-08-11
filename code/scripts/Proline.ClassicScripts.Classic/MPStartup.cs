@@ -1,5 +1,6 @@
 ﻿using Proline.CFXExtended.Core;
 using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,14 +19,14 @@ namespace Proline.ClassicOnline.SClassic
             //{ 
             //    //NativeAPI.CallNativeAPI(Hash.SET_PED_COMPONENT_VARIATION, Game.PlayerPed.Handle, i, 0, 0, 0 );
             //}
-            CDebugActionsAPI.LogDebug("Testing Persistence: " + "");//Globals.Get("EnableSomething"));
+            EngineAPI.LogDebug("Testing Persistence: " + "");//Globals.Get("EnableSomething"));
             var stat = MPStat.GetStat<long>("MP0_WALLET_BALANCE");
             var stat2 = MPStat.GetStat<long>("BANK_BALANCE");
             stat.SetValue(0);
             stat2.SetValue(0);
-            CDebugActionsAPI.LogDebug(stat.GetValue());
-            CDebugActionsAPI.LogDebug(stat2.GetValue());
-            //CDebugActionsAPI.LogDebug(await ComponentAPI.TestNetworkAPI(1,1,1));
+            EngineAPI.LogDebug(stat.GetValue());
+            EngineAPI.LogDebug(stat2.GetValue());
+            //EngineAPI.LogDebug(await ComponentAPI.TestNetworkAPI(1,1,1));
             //ComponentAPI.PlayerAPI(CitizenFX.Core.Game.Player.Name);
 
             //API.RequestIpl("");

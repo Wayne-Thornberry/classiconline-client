@@ -16,16 +16,6 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\components\Proline.ClassicComponents.Character\Proline.ClassicOnline.CGameLogic.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicComponents.Data\Proline.ClassicOnline.CDataStream.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicComponents.UI\Proline.ClassicOnline.CScreenRendering.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassiclOnline.MConnection\Proline.ClassicOnline.CNetConnection.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicOnline.DebugInterface\Proline.ClassicOnline.CGameRendering.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicOnline.F8Console\Proline.ClassicOnline.CDebugActions.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicOnline.GasStation\Proline.ClassicOnline.CWorldObjects.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicOnline.MissionManager\Proline.ClassicOnline.CMissionManager.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicOnline.MShop\Proline.ClassicOnline.CShopCatalogue.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicOnline.ScriptObjects\Proline.ClassicOnline.CScriptObjs.csproj" />
     <ProjectReference Include="..\..\core\Proline.ClassicOnline.Core\Proline.ClassicOnline.Engine.csproj" />
     
     <ProjectReference Include="..\..\libs\CFXExtended\Proline.CFXExtended.Client\Proline.ClassicOnline.Scaleforms.csproj" />

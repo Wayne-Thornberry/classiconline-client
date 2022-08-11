@@ -1,6 +1,7 @@
 ﻿using Proline.CFXExtended.Core;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -22,8 +23,8 @@ namespace Proline.ClassicOnline.SClassic
                 var walletBalance = stats.GetStat("WALLET_BALANCE");
                 var bankBalance = stats.GetStat("BANK_BALANCE");
 
-                CDebugActionsAPI.LogDebug(walletBalance);
-                CDebugActionsAPI.LogDebug(bankBalance);
+                EngineAPI.LogDebug(walletBalance);
+                EngineAPI.LogDebug(bankBalance);
 
                 walletBalanceStat.SetValue(CGameLogicAPI.GetCharacterWalletBalance());
                 bankBalanceStat.SetValue(CGameLogicAPI.GetCharacterBankBalance());

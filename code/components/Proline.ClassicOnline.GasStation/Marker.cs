@@ -9,6 +9,7 @@ namespace Proline.ClassicOnline.CWorldObjects
     {
         public static int CreateMarker(Vector3 position, float activationRange = 2f)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 var instance = MarkerManager.GetInstance();
@@ -18,13 +19,14 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return 0;
         }
 
         public static void DrawMarker(int handle)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 var instance = MarkerManager.GetInstance();
@@ -33,12 +35,13 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
         }
 
         public static bool IsInMarker(int handle, int obj)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 var instance = MarkerManager.GetInstance();
@@ -48,13 +51,14 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return false;
         }
 
         public static void DeleteMarker(int handle)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 var instance = MarkerManager.GetInstance();
@@ -63,7 +67,7 @@ namespace Proline.ClassicOnline.CWorldObjects
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
         }
     }

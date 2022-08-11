@@ -5,11 +5,11 @@ using Console = Proline.Resource.Console;
 
 namespace Proline.ClassicOnline.CDebugActions
 {
-    public static class CDebugActionsAPI
+    public class CDebugActionsAPI : ICDebugActionsAPI
     {
         private static Log _log => new Log();
 
-        public static void LogDebug(object obj, bool outputToServer = false)
+        public void LogDebug(object obj, bool outputToServer = false)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace Proline.ClassicOnline.CDebugActions
             }
         }
 
-        public static void LogWarn(object obj, bool outputToServer = false)
+        public void LogWarn(object obj, bool outputToServer = false)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace Proline.ClassicOnline.CDebugActions
             }
         }
 
-        public static void LogInfo(object obj, bool outputToServer = false)
+        public void LogInfo(object obj, bool outputToServer = false)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace Proline.ClassicOnline.CDebugActions
             }
         }
 
-        public static void LogError(object obj, bool outputToServer = false)
+        public void LogError(object obj, bool outputToServer = false)
         {
             try
             {

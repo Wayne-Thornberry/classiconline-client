@@ -14,6 +14,7 @@ namespace Proline.ClassicOnline.CGameLogic
 
         public static void SetPedLooks(int pedHandle, CharacterLooks looks)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 //if (CharacterGlobals.Character != null)
@@ -43,12 +44,13 @@ namespace Proline.ClassicOnline.CGameLogic
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
         }
 
         public static void SetPedOutfit(string outfitName, int handle)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 var outfitJson = ResourceFile.Load($"data/character/outfits/{outfitName}.json");
@@ -62,7 +64,7 @@ namespace Proline.ClassicOnline.CGameLogic
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
         }
 
@@ -73,11 +75,12 @@ namespace Proline.ClassicOnline.CGameLogic
 
         public static CharacterLooks GetPedLooks(int pedHandle)
         {
+            var api = new CDebugActionsAPI();
             try
             {
                 //int x = 0;
                 //API.GetPedHeadBlendData(pedHandle,ref x);
-                //CDebugActions.CDebugActionsAPI.LogDebug(x);
+                //CDebugActions.EngineAPI.LogDebug(x);
                 if (HasCharacter())
                     return Character.PlayerCharacter.Looks;
                 else
@@ -85,7 +88,7 @@ namespace Proline.ClassicOnline.CGameLogic
             }
             catch (Exception e)
             {
-                CDebugActionsAPI.LogError(e);
+                api.LogError(e);
             }
             return null;
         }

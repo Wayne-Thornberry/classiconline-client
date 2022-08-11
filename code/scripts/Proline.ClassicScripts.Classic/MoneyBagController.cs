@@ -25,7 +25,7 @@ namespace Proline.ClassicOnline.SClassic
                     var test = EngineAPI.GetEventData(this, "CEventNetworkPlayerCollectedAmbientPickup");
                     foreach (var item in test)
                     {
-                        CDebugActions.CDebugActionsAPI.LogDebug(item);
+                        EngineAPI.LogDebug(item);
                     }
                     var id = int.Parse(test[3].ToString());
                     var money = int.Parse(test[1].ToString());

@@ -30,7 +30,7 @@ namespace Proline.ClassicOnline.SClassic.Tools
                     _index1++;
                     _index2 = 0;
                     var max =
-                    CDataStreamAPI.GetNumOfAudioSamples();
+                    EngineAPI.GetNumOfAudioSamples();
                     if (_index1 > max)
                     {
                         _index1 = 0;
@@ -73,7 +73,7 @@ namespace Proline.ClassicOnline.SClassic.Tools
                 }
                 if (justPressed)
                 {
-                    CDataStreamAPI.GetAudioSamplesAtIndex(_index1, out string audioId, out string audioRef, out bool enabled);
+                    EngineAPI.GetAudioSamplesAtIndex(_index1, out string audioId, out string audioRef, out bool enabled);
                     API.PlaySoundFrontend(_index2, audioId, audioRef, enabled);
                     Screen.ShowSubtitle($"Id: {_index1} AudioName {audioId} AudioRef {audioRef} SoundId: {_index2} ");
                     justPressed = false;

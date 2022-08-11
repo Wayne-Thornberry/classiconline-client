@@ -1,20 +1,65 @@
-﻿using Proline.ClassicOnline.CCoreSystem.Internal;
-using Proline.ClassicOnline.CCoreSystem.Parts;
+﻿using Proline.ClassicOnline.CCoreSystem.Internal; 
 using Proline.ClassicOnline.CDebugActions;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Console = Proline.Resource.Console;
 
 namespace Proline.ClassicOnline.CCoreSystem
 {
     public partial class CCoreSystemAPI : ICCoreSystem
     {
+        public void TriggerScriptEvent(string eventName, params object[] args)
+        {
+            try
+            {
+                var sm = ListOfLiveScripts.GetInstance();
+                foreach (var item in sm)
+                {
+                    item.EnqueueEvent(eventName, args);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+        }
+
+        public bool GetEventExitsts(object scriptInstance, string eventName)
+        {
+            try
+            {
+                var sm = ListOfLiveScripts.GetInstance();
+                var script = sm.FirstOrDefault(e => e.Instance == scriptInstance);
+                return script.HasEvent(eventName);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            return false;
+        }
+
+        public object[] GetEventData(object scriptInstance, string eventName)
+        {
+            try
+            {
+                var sm = ListOfLiveScripts.GetInstance();
+                var script = sm.FirstOrDefault(e => e.Instance == scriptInstance);
+                return script.DequeueEvent(eventName);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            return new object[0];
+        }
+
         public int StartNewScript(string scriptName, params object[] args)
         {
 
             try
             {
+                var api = new CDebugActionsAPI();
                 var sm = ListOfLiveScripts.GetInstance();
                 var stl = ScriptTypeLibrary.GetInstance();
 
@@ -40,7 +85,7 @@ namespace Proline.ClassicOnline.CCoreSystem
                 script.Execute(args);
                 var scriptTask = script.ExecutionTask;
                 Console.WriteLine(String.Format("Task Id {0}, Is Complete {1}, Status {2} ", scriptTask.Id, scriptTask.IsCompleted, scriptTask.Status));
-                CDebugActionsAPI.LogDebug($"Calling Task ID for API {Task.CurrentId}");
+                api.LogDebug($"Calling Task ID for API {Task.CurrentId}");
                 return script.Id;
             }
             catch (Exception e)

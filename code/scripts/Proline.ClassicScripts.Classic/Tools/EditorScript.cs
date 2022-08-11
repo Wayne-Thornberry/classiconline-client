@@ -238,8 +238,8 @@ namespace Proline.ClassicOnline.SClassic.Tools
                 //    //    if (PointInRectangle(_p[0], _p[1], _p[2], _p[3], new Vector2(position.X, position.Y)) && entity != Game.PlayerPed && !Exists(entity))
                 //    //    {
                 //    //        _garbage.Add(entity);
-                //    //        CDebugActionsAPI.LogDebug(position);
-                //    //        CDebugActionsAPI.LogDebug(item);
+                //    //        EngineAPI.LogDebug(position);
+                //    //        EngineAPI.LogDebug(item);
                 //    //    }
                 //    //}
                 //}
@@ -340,7 +340,7 @@ namespace Proline.ClassicOnline.SClassic.Tools
             x *= -1;
             y *= -1;
             var z = _cam.Rotation.X + y * _cameraSensitivity;
-            //CDebugActionsAPI.LogDebug(z);
+            //EngineAPI.LogDebug(z);
             if (z > 89)
             {
                 z = 89;
