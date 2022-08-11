@@ -1,5 +1,6 @@
 ﻿using CitizenFX.Core;
 using Proline.ClassicOnline.CScreenRendering;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
@@ -26,7 +27,7 @@ namespace Proline.ClassicOnline.SClassic.Tools
                    + Game.PlayerPed.Health + "\n"
                    + Game.PlayerPed.Handle + "\n" +
                    _handles.Count + " Entities in the world ";
-                CScreenRenderingAPI.DrawDebugText2D(t, new PointF(0.01f, 0.05f), 0.3f, 0);
+                EngineAPI.DrawDebugText2D(t, new PointF(0.01f, 0.05f), 0.3f, 0);
                 await BaseScript.Delay(0);
             }
         }

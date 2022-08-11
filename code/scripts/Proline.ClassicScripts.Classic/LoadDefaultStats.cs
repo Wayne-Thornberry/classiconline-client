@@ -1,4 +1,5 @@
 ﻿using Proline.CFXExtended.Core;
+using Proline.ClassicOnline.CGameLogic;
 using System.Threading;
 using System.Threading.Tasks;
 
