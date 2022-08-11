@@ -3,6 +3,7 @@ using CitizenFX.Core.Native;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CGameLogic;
 using Proline.ClassicOnline.CGameLogic.Data;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17,8 +18,8 @@ namespace Proline.ClassicOnline.SClassic
             {
                 // attempt to get the player id
                 // fish for the save files from the player id
-                CCoreSystem.CCoreSystemAPI.StartNewScript("LoadDefaultOnline");
-                while (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("LoadDefaultOnline") > 0)
+                EngineAPI.StartNewScript("LoadDefaultOnline");
+                while (EngineAPI.GetInstanceCountOfScript("LoadDefaultOnline") > 0)
                 {
                     await BaseScript.Delay(1);
                 }
@@ -103,7 +104,7 @@ namespace Proline.ClassicOnline.SClassic
                     }
 
                     CGameLogicAPI.SetCharacter(character);
-                    CCoreSystem.CCoreSystemAPI.StartNewScript("LoadStats");
+                    EngineAPI.StartNewScript("LoadStats");
 
                 }
                 else
@@ -112,18 +113,18 @@ namespace Proline.ClassicOnline.SClassic
                     /// If the player doesnt have basic info, that means the player does not have a save
                     if (!CDataStream.CDataStreamAPI.DoesDataFileExist("PlayerInfo"))
                     {
-                        CCoreSystem.CCoreSystemAPI.StartNewScript("PlayerSetup");
-                        while (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("PlayerSetup") > 0)
+                        EngineAPI.StartNewScript("PlayerSetup");
+                        while (EngineAPI.GetInstanceCountOfScript("PlayerSetup") > 0)
                         {
                             await BaseScript.Delay(1);
                         }
-                        CCoreSystem.CCoreSystemAPI.StartNewScript("SaveNow");
-                        while (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("SaveNow") > 0)
+                        EngineAPI.StartNewScript("SaveNow");
+                        while (EngineAPI.GetInstanceCountOfScript("SaveNow") > 0)
                         {
                             await BaseScript.Delay(1);
                         }
                     }
-                    CCoreSystem.CCoreSystemAPI.StartNewScript("PlayerLoading");
+                    EngineAPI.StartNewScript("PlayerLoading");
                 }
 
             }

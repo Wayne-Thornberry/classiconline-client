@@ -6,7 +6,7 @@ namespace Proline.ClassicOnline.CCoreSystem.Scripts
     {
         public async Task Execute()
         {
-            CCoreSystemAPI.StartNewScript("Main");
+
         }
     }
 }

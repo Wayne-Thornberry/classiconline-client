@@ -1,4 +1,5 @@
 ﻿using CitizenFX.Core;
+using Proline.ClassicOnline.Engine.Parts;
 using Proline.ClassicOnline.MissionManager;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("Trucking") > 1)
+            if (EngineAPI.GetInstanceCountOfScript("Trucking") > 1)
                 return;
 
             if (!MissionAPIs.BeginMission())

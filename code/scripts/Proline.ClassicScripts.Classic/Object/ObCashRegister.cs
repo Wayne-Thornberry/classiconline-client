@@ -3,6 +3,7 @@ using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Proline.ClassicOnline.CCoreSystem;
 using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -48,8 +49,8 @@ namespace Proline.ClassicOnline.SClassic.Object
                                 1f,
                                 (uint)API.GetHashKey("prop_till_01"), (uint)API.GetHashKey("prop_till_01_dam"), true);
 
-                            CCoreSystemAPI.MarkScriptAsNoLongerNeeded(this);
-                            CCoreSystemAPI.TerminateScriptInstance(this);
+                            EngineAPI.MarkScriptAsNoLongerNeeded(this);
+                            EngineAPI.TerminateScriptInstance(this);
                         }
                     }
                     else
@@ -59,14 +60,14 @@ namespace Proline.ClassicOnline.SClassic.Object
                                 0, 0),
                             new Model("prop_money_bag_01"), 0);
 
-                        CCoreSystemAPI.MarkScriptAsNoLongerNeeded(this);
-                        CCoreSystemAPI.TerminateScriptInstance(this);
+                        EngineAPI.MarkScriptAsNoLongerNeeded(this);
+                        EngineAPI.TerminateScriptInstance(this);
                     }
                 }
                 else
                 {
-                    CCoreSystemAPI.MarkScriptAsNoLongerNeeded(this);
-                    CCoreSystemAPI.TerminateScriptInstance(this);
+                    EngineAPI.MarkScriptAsNoLongerNeeded(this);
+                    EngineAPI.TerminateScriptInstance(this);
                 }
                 await BaseScript.Delay(0);
             }

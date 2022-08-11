@@ -1,6 +1,7 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15,7 +16,7 @@ namespace Proline.ClassicOnline.SClassic.Tools
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("PedPropViewer") > 1)
+            if (EngineAPI.GetInstanceCountOfScript("PedPropViewer") > 1)
                 return;
 
             bool justPressed = false;

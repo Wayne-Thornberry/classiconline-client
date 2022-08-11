@@ -1,6 +1,7 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
 using Proline.ClassicOnline.CCoreSystem;
+using Proline.ClassicOnline.Engine.Parts;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -23,8 +24,8 @@ namespace Proline.ClassicOnline.SClassic
                         CDataStream.CDataStreamAPI.SelectDataFile(id);
                         CDataStream.CDataStreamAPI.SetDataFileValue("PlayerPosition", JsonConvert.SerializeObject(Game.PlayerPed.Position));
                     }
-                    CCoreSystemAPI.StartNewScript("SaveNow");
-                    while (CCoreSystemAPI.GetInstanceCountOfScript("SaveNow") > 0)
+                    EngineAPI.StartNewScript("SaveNow");
+                    while (EngineAPI.GetInstanceCountOfScript("SaveNow") > 0)
                     {
                         await BaseScript.Delay(1);
                     }

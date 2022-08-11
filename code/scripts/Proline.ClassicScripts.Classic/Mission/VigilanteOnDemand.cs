@@ -3,6 +3,7 @@ using CitizenFX.Core.UI;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CScriptObjs;
 using Proline.ClassicOnline.CScriptObjs.Entity;
+using Proline.ClassicOnline.Engine.Parts;
 using Proline.ClassicOnline.MissionManager;
 using System.Collections.Generic;
 using System.Threading;
@@ -22,7 +23,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("VigilanteOnDemand") > 1)
+            if (EngineAPI.GetInstanceCountOfScript("VigilanteOnDemand") > 1)
                 return;
             if (!MissionAPIs.BeginMission())
                 return;

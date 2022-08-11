@@ -1,5 +1,6 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.UI;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,7 +13,7 @@ namespace Proline.ClassicOnline.SClassic
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("SaveNow") > 1)
+            if (EngineAPI.GetInstanceCountOfScript("SaveNow") > 1)
                 return;
             Screen.LoadingPrompt.Show("Saving...", LoadingSpinnerType.SocialClubSaving);
             await CDataStream.CDataStreamAPI.SendSaveToCloud();

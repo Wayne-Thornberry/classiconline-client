@@ -1,4 +1,5 @@
 ﻿using Proline.ClassicOnline.CCoreSystem.Internal;
+using Proline.ClassicOnline.CCoreSystem.Parts;
 using Proline.ClassicOnline.CDebugActions;
 using System;
 using System.Linq;
@@ -7,9 +8,9 @@ using Console = Proline.Resource.Console;
 
 namespace Proline.ClassicOnline.CCoreSystem
 {
-    public static partial class CCoreSystemAPI
+    public partial class CCoreSystemAPI : ICCoreSystem
     {
-        public static int StartNewScript(string scriptName, params object[] args)
+        public int StartNewScript(string scriptName, params object[] args)
         {
 
             try
@@ -50,7 +51,7 @@ namespace Proline.ClassicOnline.CCoreSystem
         }
 
 
-        public static int GetInstanceCountOfScript(string scriptName)
+        public int GetInstanceCountOfScript(string scriptName)
 
 
         {
@@ -68,7 +69,7 @@ namespace Proline.ClassicOnline.CCoreSystem
             return 0;
         }
 
-        public static void MarkScriptAsNoLongerNeeded(object callingClass)
+        public void MarkScriptAsNoLongerNeeded(object callingClass)
         {
             try
             {
@@ -84,7 +85,7 @@ namespace Proline.ClassicOnline.CCoreSystem
             }
         }
 
-        public static void MarkScriptAsNoLongerNeeded(string scriptName)
+        public void MarkScriptAsNoLongerNeeded(string scriptName)
         {
             try
             {
@@ -107,7 +108,7 @@ namespace Proline.ClassicOnline.CCoreSystem
         /// Terminates all script instances with the passed scriptName
         /// </summary>
         /// <param name="scriptName"></param>
-        public static void TerminateScript(string scriptName)
+        public void TerminateScript(string scriptName)
         {
             try
             {
@@ -129,7 +130,7 @@ namespace Proline.ClassicOnline.CCoreSystem
         /// Terminates the passed script object task instance
         /// </summary>
         /// <param name="scriptInstance"></param>
-        public static void TerminateScriptInstance(object scriptInstance)
+        public void TerminateScriptInstance(object scriptInstance)
         {
             try
             {
@@ -150,7 +151,7 @@ namespace Proline.ClassicOnline.CCoreSystem
         /// 
         /// </summary>
         /// <param name="taskId"></param>
-        public static void TerminateScriptTask(int taskId)
+        public void TerminateScriptTask(int taskId)
         {
             try
             {

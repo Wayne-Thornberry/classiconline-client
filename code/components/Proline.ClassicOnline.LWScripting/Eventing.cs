@@ -1,12 +1,13 @@
 ﻿using Proline.ClassicOnline.CCoreSystem.Internal;
+using Proline.ClassicOnline.CCoreSystem.Parts;
 using System;
 using System.Linq;
 
 namespace Proline.ClassicOnline.CCoreSystem
 {
-    public static partial class CCoreSystemAPI
+    public partial class CCoreSystemAPI : ICCoreSystem
     {
-        public static void TriggerScriptEvent(string eventName, params object[] args)
+        public void TriggerScriptEvent(string eventName, params object[] args)
         {
             try
             {
@@ -22,7 +23,7 @@ namespace Proline.ClassicOnline.CCoreSystem
             }
         }
 
-        public static bool GetEventExitsts(object scriptInstance, string eventName)
+        public bool GetEventExitsts(object scriptInstance, string eventName)
         {
             try
             {
@@ -37,7 +38,7 @@ namespace Proline.ClassicOnline.CCoreSystem
             return false;
         }
 
-        public static object[] GetEventData(object scriptInstance, string eventName)
+        public object[] GetEventData(object scriptInstance, string eventName)
         {
             try
             {

@@ -3,6 +3,7 @@ using CitizenFX.Core.Native;
 using Proline.ClassicOnline.CCoreSystem;
 using Proline.ClassicOnline.CPoolObjects;
 using Proline.ClassicOnline.CScriptObjs.Entity;
+using Proline.ClassicOnline.Engine.Parts;
 using Proline.Resource.Logging;
 using System.Collections.Generic;
 using System.Linq;
@@ -87,7 +88,7 @@ namespace Proline.ClassicOnline.CScriptObjs.Tasks
                 if (IsEntityWithinActivationRange(entity, Game.PlayerPed, item.ActivationRange) && so.State == 0)
                 {
                     _log.Debug(so.Handle + " Player is within range here, we should start the script and no longer track this for processing");
-                    CCoreSystemAPI.StartNewScript(item.ScriptName, so.Handle);
+                    EngineAPI.StartNewScript(item.ScriptName, so.Handle);
                     so.State = 1;
                     _sm.Remove(so.Handle);
                     return;

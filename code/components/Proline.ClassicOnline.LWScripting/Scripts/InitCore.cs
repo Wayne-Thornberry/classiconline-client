@@ -36,6 +36,7 @@ namespace Proline.ClassicOnline.CCoreSystem.Scripts
                 await BaseScript.Delay(1000);
             }
 
+
         }
     }
 }

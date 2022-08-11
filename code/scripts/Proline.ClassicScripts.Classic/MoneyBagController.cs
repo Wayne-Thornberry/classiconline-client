@@ -2,6 +2,7 @@
 using CitizenFX.Core.Native;
 using Proline.ClassicOnline.CCoreSystem;
 using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,14 +15,14 @@ namespace Proline.ClassicOnline.SClassic
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (CCoreSystemAPI.GetInstanceCountOfScript("MoneyBagController") > 1)
+            if (EngineAPI.GetInstanceCountOfScript("MoneyBagController") > 1)
                 return;
 
             while (!token.IsCancellationRequested)
             {
-                if (CCoreSystemAPI.GetEventExitsts(this, "CEventNetworkPlayerCollectedAmbientPickup"))
+                if (EngineAPI.GetEventExitsts(this, "CEventNetworkPlayerCollectedAmbientPickup"))
                 {
-                    var test = CCoreSystemAPI.GetEventData(this, "CEventNetworkPlayerCollectedAmbientPickup");
+                    var test = EngineAPI.GetEventData(this, "CEventNetworkPlayerCollectedAmbientPickup");
                     foreach (var item in test)
                     {
                         CDebugActions.CDebugActionsAPI.LogDebug(item);

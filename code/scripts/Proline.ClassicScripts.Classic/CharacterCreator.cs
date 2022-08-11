@@ -6,6 +6,7 @@ using Proline.ClassicOnline.CCoreSystem;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CGameLogic;
 using Proline.ClassicOnline.CGameLogic.Data;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -24,8 +25,8 @@ namespace Proline.ClassicOnline.SClassic
             _interiorId = API.GetInteriorAtCoords(_interiorLoc.X, _interiorLoc.Y, _interiorLoc.Z);
             _selectedOutfit = new CharacterOutfit();// Default outfit from json 
             ScriptStage = 0;
-            CCoreSystem.CCoreSystemAPI.StartNewScript("LoadDefaultOnline");
-            while (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("LoadDefaultOnline") > 0)
+            EngineAPI.StartNewScript("LoadDefaultOnline");
+            while (EngineAPI.GetInstanceCountOfScript("LoadDefaultOnline") > 0)
             {
                 await BaseScript.Delay(1);
             }
@@ -77,8 +78,8 @@ namespace Proline.ClassicOnline.SClassic
             Screen.LoadingPrompt.Show("Loading Classic Online...");
             //API.SwitchOutPlayer(Game.PlayerPed.Handle, 1, 1); 
 
-            CCoreSystemAPI.StartNewScript("PlayerSetup");
-            while (CCoreSystemAPI.GetInstanceCountOfScript("PlayerSetup") > 0)
+            EngineAPI.StartNewScript("PlayerSetup");
+            while (EngineAPI.GetInstanceCountOfScript("PlayerSetup") > 0)
             {
                 await BaseScript.Delay(1);
             }
@@ -91,19 +92,19 @@ namespace Proline.ClassicOnline.SClassic
                 CDataStream.CDataStreamAPI.SetDataFileValue("PlayerPosition", JsonConvert.SerializeObject(Game.PlayerPed.Position));
             }
 
-            CCoreSystemAPI.StartNewScript("SaveNow");
-            while (CCoreSystemAPI.GetInstanceCountOfScript("SaveNow") > 0)
+            EngineAPI.StartNewScript("SaveNow");
+            while (EngineAPI.GetInstanceCountOfScript("SaveNow") > 0)
             {
                 await BaseScript.Delay(1);
             }
 
-            CCoreSystemAPI.StartNewScript("PlayerLoading");
-            while (CCoreSystemAPI.GetInstanceCountOfScript("PlayerLoading") > 0)
+            EngineAPI.StartNewScript("PlayerLoading");
+            while (EngineAPI.GetInstanceCountOfScript("PlayerLoading") > 0)
             {
                 await BaseScript.Delay(1);
             }
             Screen.LoadingPrompt.Hide();
-            CCoreSystemAPI.StartNewScript("StartIntro");
+            EngineAPI.StartNewScript("StartIntro");
 
         }
 

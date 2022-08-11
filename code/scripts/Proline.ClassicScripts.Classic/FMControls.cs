@@ -1,5 +1,6 @@
 ﻿using CitizenFX.Core;
 using Proline.ClassicOnline.CCoreSystem;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17,7 +18,7 @@ namespace Proline.ClassicOnline.SClassic
             {
                 if (Game.IsControlJustReleased(0, Control.InteractionMenu))
                 {
-                    CCoreSystemAPI.StartNewScript("UIInteractionMenu");
+                    EngineAPI.StartNewScript("UIInteractionMenu");
                 }
                 await BaseScript.Delay(0);
             }

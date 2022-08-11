@@ -3,6 +3,7 @@ using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Proline.ClassicOnline.CCoreSystem;
 using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -48,20 +49,20 @@ namespace Proline.ClassicOnline.SClassic
                             API.SetNoLoadingScreen(true);
                             API.DoScreenFadeIn(500);
 
-                            CCoreSystemAPI.StartNewScript("UIMainMenu");
-                            while (CCoreSystemAPI.GetInstanceCountOfScript("UIMainMenu") > 0)
+                            EngineAPI.StartNewScript("UIMainMenu");
+                            while (EngineAPI.GetInstanceCountOfScript("UIMainMenu") > 0)
                             {
                                 await BaseScript.Delay(1);
                             }
 
-                            if (CCoreSystemAPI.GetInstanceCountOfScript("CharacterCreator") > 0)
+                            if (EngineAPI.GetInstanceCountOfScript("CharacterCreator") > 0)
                             {
                                 state = 999;
                                 break;
                             }
-                            else if (CCoreSystemAPI.GetInstanceCountOfScript("PlayerLoading") > 0)
+                            else if (EngineAPI.GetInstanceCountOfScript("PlayerLoading") > 0)
                             {
-                                while (CCoreSystemAPI.GetInstanceCountOfScript("PlayerLoading") > 0)
+                                while (EngineAPI.GetInstanceCountOfScript("PlayerLoading") > 0)
                                 {
                                     await BaseScript.Delay(1);
                                 }
@@ -78,18 +79,18 @@ namespace Proline.ClassicOnline.SClassic
                         break;
                     case 2:
                         {
-                            //CCoreSystemAPI.StartNewScript("ReArmouredTruck");
-                            CCoreSystemAPI.StartNewScript("Freemode");
-                            CCoreSystemAPI.StartNewScript("FMVechicleExporter");
-                            CCoreSystemAPI.StartNewScript("PlayerDeath");
-                            CCoreSystemAPI.StartNewScript("UIPlayerSwitch");
-                            CCoreSystemAPI.StartNewScript("FMControls");
-                            CCoreSystemAPI.StartNewScript("VehicleFuel");
-                            CCoreSystemAPI.StartNewScript("PassiveSaving");
-                            CCoreSystemAPI.StartNewScript("UIFreemodeHUD");
-                            CCoreSystemAPI.StartNewScript("BlipController");
-                            CCoreSystemAPI.StartNewScript("CharacterApts");
-                            CCoreSystemAPI.StartNewScript("MoneyBagController");
+                            //EngineAPI.StartNewScript("ReArmouredTruck");
+                            EngineAPI.StartNewScript("Freemode");
+                            EngineAPI.StartNewScript("FMVechicleExporter");
+                            EngineAPI.StartNewScript("PlayerDeath");
+                            EngineAPI.StartNewScript("UIPlayerSwitch");
+                            EngineAPI.StartNewScript("FMControls");
+                            EngineAPI.StartNewScript("VehicleFuel");
+                            EngineAPI.StartNewScript("PassiveSaving");
+                            EngineAPI.StartNewScript("UIFreemodeHUD");
+                            EngineAPI.StartNewScript("BlipController");
+                            EngineAPI.StartNewScript("CharacterApts");
+                            EngineAPI.StartNewScript("MoneyBagController");
                             CDebugActionsAPI.LogDebug($"Calling Task ID for API {Thread.CurrentThread.ManagedThreadId}");
                         }
                         state = 3;
@@ -108,13 +109,13 @@ namespace Proline.ClassicOnline.SClassic
                         //}
                         break;
                     case 999:
-                        while (CCoreSystemAPI.GetInstanceCountOfScript("CharacterCreator") > 0)
+                        while (EngineAPI.GetInstanceCountOfScript("CharacterCreator") > 0)
                         {
                             await BaseScript.Delay(1);
                         }
 
 
-                        while (CCoreSystemAPI.GetInstanceCountOfScript("StartIntro") > 0)
+                        while (EngineAPI.GetInstanceCountOfScript("StartIntro") > 0)
                         {
                             await BaseScript.Delay(1);
                         }

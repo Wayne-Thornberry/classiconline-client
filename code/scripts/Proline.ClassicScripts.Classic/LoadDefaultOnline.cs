@@ -1,6 +1,7 @@
 ﻿using CitizenFX.Core;
 using Proline.ClassicOnline.CGameLogic;
 using Proline.ClassicOnline.CGameLogic.Data;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,8 +15,8 @@ namespace Proline.ClassicOnline.SClassic
             if (!CDataStream.CDataStreamAPI.HasSaveLoaded())
             {
                 PlayerCharacter character = CreateNewCharacter();
-                CCoreSystem.CCoreSystemAPI.StartNewScript("LoadDefaultStats");
-                while (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("LoadDefaultStats") > 0)
+                EngineAPI.StartNewScript("LoadDefaultStats");
+                while (EngineAPI.GetInstanceCountOfScript("LoadDefaultStats") > 0)
                 {
                     await BaseScript.Delay(1);
                 }

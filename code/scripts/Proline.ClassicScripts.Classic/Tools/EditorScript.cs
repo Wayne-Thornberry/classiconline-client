@@ -65,7 +65,7 @@ namespace Proline.ClassicOnline.SClassic.Tools
                 else if (Game.IsControlJustReleased(0, Control.FrontendCancel))
                 {
                     break;
-                    //CCoreSystemAPI.MarkScriptAsNoLongerNeeded();
+                    //EngineAPI.MarkScriptAsNoLongerNeeded();
                 }
                 else
                 {

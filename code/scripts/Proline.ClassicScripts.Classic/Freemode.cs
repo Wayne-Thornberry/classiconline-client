@@ -2,6 +2,7 @@
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Proline.ClassicOnline.CCoreSystem;
+using Proline.ClassicOnline.Engine.Parts;
 using Proline.ClassicOnline.MissionManager;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace Proline.ClassicOnline.SClassic
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("Freemode") > 1)
+            if (EngineAPI.GetInstanceCountOfScript("Freemode") > 1)
                 return;
 
 
@@ -42,9 +43,9 @@ namespace Proline.ClassicOnline.SClassic
                                 _hasHelpTextDisplayed = true;
                             }
                             if (Game.IsControlJustPressed(0, Control.Context) &&
-                                CCoreSystemAPI.GetInstanceCountOfScript("TruckingOnDemand") == 0)
+                                EngineAPI.GetInstanceCountOfScript("TruckingOnDemand") == 0)
                             {
-                                CCoreSystemAPI.StartNewScript("TruckingOnDemand", currentVehicle.Handle);
+                                EngineAPI.StartNewScript("TruckingOnDemand", currentVehicle.Handle);
                             }
                         }
                         else if (currentVehicle.Model == VehicleHash.Police || currentVehicle.Model == VehicleHash.Police2)
@@ -56,9 +57,9 @@ namespace Proline.ClassicOnline.SClassic
                                 _hasHelpTextDisplayed = true;
                             }
                             if (Game.IsControlJustPressed(0, Control.Context) &&
-                                CCoreSystemAPI.GetInstanceCountOfScript("VigilanteOnDemand") == 0)
+                                EngineAPI.GetInstanceCountOfScript("VigilanteOnDemand") == 0)
                             {
-                                CCoreSystemAPI.StartNewScript("VigilanteOnDemand", currentVehicle.Handle);
+                                EngineAPI.StartNewScript("VigilanteOnDemand", currentVehicle.Handle);
                             }
                         }
                     }
@@ -74,9 +75,9 @@ namespace Proline.ClassicOnline.SClassic
                         World.DrawMarker(MarkerType.VerticalCylinder, _missionTruckingLocationStart, new Vector3(0, 0, 0),
                             new Vector3(0, 0, 0), new Vector3(1, 1, 1), System.Drawing.Color.FromArgb(150, 145, 0, 0));
 
-                        if (World.GetDistance(Game.PlayerPed.Position, _missionTruckingLocationStart) <= 2f && CCoreSystemAPI.GetInstanceCountOfScript("Trucking") == 0)
+                        if (World.GetDistance(Game.PlayerPed.Position, _missionTruckingLocationStart) <= 2f && EngineAPI.GetInstanceCountOfScript("Trucking") == 0)
                         {
-                            CCoreSystemAPI.StartNewScript("Trucking");
+                            EngineAPI.StartNewScript("Trucking");
                         }
                     }
                 }

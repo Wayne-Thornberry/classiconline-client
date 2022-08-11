@@ -23,10 +23,11 @@
     <ProjectReference Include="..\..\components\Proline.ClassicOnline.DebugInterface\Proline.ClassicOnline.CGameRendering.csproj" />
     <ProjectReference Include="..\..\components\Proline.ClassicOnline.F8Console\Proline.ClassicOnline.CDebugActions.csproj" />
     <ProjectReference Include="..\..\components\Proline.ClassicOnline.GasStation\Proline.ClassicOnline.CWorldObjects.csproj" />
-    <ProjectReference Include="..\..\components\Proline.ClassicOnline.LWScripting\Proline.ClassicOnline.CCoreSystem.csproj" />
     <ProjectReference Include="..\..\components\Proline.ClassicOnline.MissionManager\Proline.ClassicOnline.CMissionManager.csproj" />
     <ProjectReference Include="..\..\components\Proline.ClassicOnline.MShop\Proline.ClassicOnline.CShopCatalogue.csproj" />
     <ProjectReference Include="..\..\components\Proline.ClassicOnline.ScriptObjects\Proline.ClassicOnline.CScriptObjs.csproj" />
+    <ProjectReference Include="..\..\core\Proline.ClassicOnline.Core\Proline.ClassicOnline.Engine.csproj" />
+    
     <ProjectReference Include="..\..\libs\CFXExtended\Proline.CFXExtended.Client\Proline.ClassicOnline.Scaleforms.csproj" />
   </ItemGroup>
  

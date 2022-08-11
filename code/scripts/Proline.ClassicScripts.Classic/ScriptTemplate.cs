@@ -1,4 +1,5 @@
 ﻿using CitizenFX.Core;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ namespace Proline.ClassicOnline.SClassic
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("ScriptTemplate") > 1)
+            if (EngineAPI.GetInstanceCountOfScript("ScriptTemplate") > 1)
                 return;
 
 

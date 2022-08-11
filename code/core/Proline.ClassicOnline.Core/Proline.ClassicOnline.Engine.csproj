@@ -10,7 +10,9 @@
 	<ItemGroup>
 	  <Folder Include="Globals\" />
 	  <Folder Include="Common\" />
-	  <Folder Include="Parts\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\components\Proline.ClassicOnline.LWScripting\Proline.ClassicOnline.CCoreSystem.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 		<Reference Include="Newtonsoft.Json">

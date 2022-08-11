@@ -3,6 +3,7 @@ using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Proline.ClassicOnline.CCoreSystem;
 using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.Engine.Parts;
 using Proline.ClassicOnline.Scaleforms;
 using System.Linq;
 using System.Threading;
@@ -81,7 +82,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                     {
                         case 1:
                             {
-                                CCoreSystemAPI.StartNewScript("PlayerLoading");
+                                EngineAPI.StartNewScript("PlayerLoading");
                                 Stage = -1;
                                 Hide();
                             }
@@ -95,7 +96,7 @@ namespace Proline.ClassicOnline.SClassic.UI
                                 {
                                     await BaseScript.Delay(0);
                                 }
-                                CCoreSystemAPI.StartNewScript("CharacterCreator");
+                                EngineAPI.StartNewScript("CharacterCreator");
                                 Stage = -1;
                                 Hide();
                                 Screen.LoadingPrompt.Hide();

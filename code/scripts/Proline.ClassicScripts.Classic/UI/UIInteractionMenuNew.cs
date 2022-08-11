@@ -1,4 +1,5 @@
 ﻿using CitizenFX.Core;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 namespace Proline.ClassicOnline.SClassic.UI
@@ -12,7 +13,7 @@ namespace Proline.ClassicOnline.SClassic.UI
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("UIInteractionMenuNew") > 1)
+            if (EngineAPI.GetInstanceCountOfScript("UIInteractionMenuNew") > 1)
                 return;
 
 

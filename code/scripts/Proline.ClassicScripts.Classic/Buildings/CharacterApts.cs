@@ -3,6 +3,7 @@ using CitizenFX.Core.Native;
 using Newtonsoft.Json;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CWorldObjects;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,7 +28,7 @@ namespace Proline.ClassicOnline.SClassic.Buildings
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("CharacterApts") > 1)
+            if (EngineAPI.GetInstanceCountOfScript("CharacterApts") > 1)
                 return;
             var properties = new string[] { "apt_richmaj_he_01", "apt_dpheights_he_01" };
             var stage = 0;

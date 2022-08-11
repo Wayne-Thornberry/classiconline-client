@@ -16,7 +16,8 @@ namespace Proline.ClassicOnline.CCoreSystem.Commands
                 return;
             }
             var scriptName = args[0].ToString();
-            CCoreSystemAPI.StartNewScript(scriptName);
+            var coreAPI = new CCoreSystemAPI();
+            coreAPI.StartNewScript(scriptName);
         }
     }
 }

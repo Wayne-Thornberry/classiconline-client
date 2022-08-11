@@ -3,6 +3,7 @@ using CitizenFX.Core.UI;
 using Proline.ClassicOnline.CGameLogic;
 using Proline.ClassicOnline.CScriptObjs;
 using Proline.ClassicOnline.CScriptObjs.Entity;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -19,7 +20,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
         public async Task Execute(object[] args, CancellationToken token)
         {
             // Dupe protection
-            if (CCoreSystem.CCoreSystemAPI.GetInstanceCountOfScript("StealAVehicle") > 1)
+            if (EngineAPI.GetInstanceCountOfScript("StealAVehicle") > 1)
                 return;
             _closestDistance = 99999.0f;
             _payout = 1000;

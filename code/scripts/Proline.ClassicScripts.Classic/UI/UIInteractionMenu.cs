@@ -19,7 +19,7 @@ namespace Proline.ClassicOnline.SClassic.UI
             //    await controller.Process();
             //    if (!menu.Visible)
             //    {
-            //        CCoreSystemAPI.MarkScriptAsNoLongerNeeded(this);
+            //        EngineAPI.MarkScriptAsNoLongerNeeded(this);
             //    }
             //    await BaseScript.Delay(0);
             //}
