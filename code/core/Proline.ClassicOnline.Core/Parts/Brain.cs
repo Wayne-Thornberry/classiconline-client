@@ -1,4 +1,4 @@
-﻿using Proline.ClassicOnline.Common.Data;
+﻿using Proline.ClassicOnline.CGameLogic.Data;
 using Proline.ClassicOnline.CScriptObjs;
 
 namespace Proline.ClassicOnline.Engine.Parts

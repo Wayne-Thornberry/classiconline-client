@@ -1,7 +1,7 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.Common.Data;
+using Proline.ClassicOnline.CGameLogic.Data;
 using System;
 using System.Collections.Generic;
 

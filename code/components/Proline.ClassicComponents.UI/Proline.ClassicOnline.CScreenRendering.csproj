@@ -21,8 +21,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-
-		<ProjectReference Include="..\..\..\Proline.ClassicOnline.Common\Proline.ClassicOnline.Common.csproj" />
 	  <ProjectReference Include="..\Proline.ClassicOnline.ScriptObjects\Proline.ClassicOnline.CScriptObjs.csproj" />
 	</ItemGroup>
  

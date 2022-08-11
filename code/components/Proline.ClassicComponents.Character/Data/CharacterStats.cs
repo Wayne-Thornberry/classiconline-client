@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Proline.ClassicOnline.Common.Data
+namespace Proline.ClassicOnline.CGameLogic.Data
 {
     public class CharacterStats : Dictionary<string, object>
     {

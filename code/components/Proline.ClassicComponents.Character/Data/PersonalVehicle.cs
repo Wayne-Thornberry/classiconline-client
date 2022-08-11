@@ -1,6 +1,6 @@
 ﻿using CitizenFX.Core;
 
-namespace Proline.ClassicOnline.Common.Data
+namespace Proline.ClassicOnline.CGameLogic.Data
 {
     public class PersonalVehicle
     {

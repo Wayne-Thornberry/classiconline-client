@@ -9,8 +9,6 @@
 		<PackageReference Include="CitizenFX.Core.Client" Version="1.0.5738" />
 	</ItemGroup>
 	<ItemGroup>
-
-		<ProjectReference Include="..\..\..\Proline.ClassicOnline.Common\Proline.ClassicOnline.Common.csproj" />
 		<Reference Include="Microsoft.CSharp" />
 		<Reference Include="Newtonsoft.Json">
 			<HintPath>..\..\..\vendor\Newtonsoft.Json.dll</HintPath>

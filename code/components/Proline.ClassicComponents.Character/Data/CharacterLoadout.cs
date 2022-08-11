@@ -1,12 +1,8 @@
-﻿namespace Proline.ClassicOnline.Common.Data
+﻿namespace Proline.ClassicOnline.CGameLogic.Data
 {
-    public struct PedOverlay
+    public class CharacterLoadout
     {
-        public int Index { get; set; }
-        public float Opacity { get; set; }
-        public int ColorType { get; set; }
-        public int PrimaryColor { get; set; }
-        public int SecondaryColor { get; set; }
+        public WeaponComponent[] Weapons { get; set; }
     }
 
 

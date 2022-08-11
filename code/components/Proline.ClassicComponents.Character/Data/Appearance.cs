@@ -1,4 +1,4 @@
-﻿namespace Proline.ClassicOnline.Common.Data
+﻿namespace Proline.ClassicOnline.CGameLogic.Data
 {
     public struct Appearance
     {
