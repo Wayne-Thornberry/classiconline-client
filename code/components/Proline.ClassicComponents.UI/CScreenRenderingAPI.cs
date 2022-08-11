@@ -3,6 +3,7 @@ using CitizenFX.Core.Native;
 using System;
 using System.Drawing;
 using System.Threading.Tasks;
+using Console = Proline.Resource.Console;
 
 namespace Proline.ClassicOnline.CScreenRendering
 {

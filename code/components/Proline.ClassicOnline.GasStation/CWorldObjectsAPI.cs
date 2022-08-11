@@ -8,6 +8,7 @@ using Proline.ClassicOnline.CWorldObjects.Internal;
 using Proline.Resource.IO;
 using System;
 using System.Linq;
+using Console = Proline.Resource.Console;
 
 namespace Proline.ClassicOnline.CWorldObjects
 {

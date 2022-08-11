@@ -4,6 +4,7 @@ using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CGameLogic.Data;
 using System;
 using System.Collections.Generic;
+using Console = Proline.Resource.Console;
 
 namespace Proline.ClassicOnline.CScriptObjs
 {

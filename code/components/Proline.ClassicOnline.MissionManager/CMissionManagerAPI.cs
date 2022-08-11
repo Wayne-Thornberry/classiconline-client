@@ -1,6 +1,7 @@
 ﻿using CitizenFX.Core;
 using Proline.ClassicOnline.CMissionManager.Internal;
 using System;
+using Console = Proline.Resource.Console;
 
 namespace Proline.ClassicOnline.CMissionManager
 {

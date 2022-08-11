@@ -5,6 +5,7 @@ using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CGameLogic;
 using Proline.ClassicOnline.CShopCatalogue.Internal;
 using System;
+using Console = Proline.Resource.Console;
 
 namespace Proline.ClassicOnline.CShopCatalogue
 {

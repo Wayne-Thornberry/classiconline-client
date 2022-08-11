@@ -3,6 +3,7 @@ using Proline.ClassicOnline.CDebugActions;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Console = Proline.Resource.Console;
 
 namespace Proline.ClassicOnline.CCoreSystem
 {
