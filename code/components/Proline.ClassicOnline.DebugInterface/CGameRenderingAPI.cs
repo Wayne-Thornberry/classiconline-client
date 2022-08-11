@@ -1,5 +1,6 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
+using Proline.ClassicOnline.Common;
 using Proline.ClassicOnline.CScreenRendering;
 using System;
 using System.Drawing;
@@ -23,7 +24,7 @@ namespace Proline.ClassicOnline.CGameRendering
             var p = new PointF(x, y);//(x / 1280) * 1f, (y / 720) * 1f);
 
             if (p == PointF.Empty) return;
-            var api = new CScreenRendering();
+            var api = new CScreenRenderingAPI();
             api.DrawDebugText2D(text, p, scale, font);
         }
 

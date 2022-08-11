@@ -11,7 +11,8 @@ namespace Proline.ClassicOnline.CWorldObjects.Commands
 
         protected override void OnCommandExecute(params object[] args)
         {
-            var entrance = WorldAPI.GetBuildingPosition(WorldAPI.GetNearestBuilding());
+            var api = new CWorldObjectsAPI();
+            var entrance = api.GetBuildingPosition(api.GetNearestBuilding());
             Game.PlayerPed.Position = entrance;
         }
     }

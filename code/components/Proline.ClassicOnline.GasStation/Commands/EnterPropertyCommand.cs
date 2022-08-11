@@ -12,7 +12,8 @@ namespace Proline.ClassicOnline.CWorldObjects.Commands
         {
             if (args.Length == 3)
             {
-                WorldAPI.EnterProperty(args[0].ToString(), args[1].ToString(), args[2].ToString());
+                var api = new CWorldObjectsAPI();
+                api.EnterProperty(args[0].ToString(), args[1].ToString(), args[2].ToString());
             }
         }
     }

@@ -3,10 +3,11 @@ using Proline.ClassicOnline.CDebugActions;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Proline.ClassicOnline.Common;
 
 namespace Proline.ClassicOnline.CCoreSystem
 {
-    public partial class CCoreSystemAPI : ICCoreSystem
+    public partial class CCoreSystemAPI : ICCoreSystemAPI
     {
         public void TriggerScriptEvent(string eventName, params object[] args)
         {

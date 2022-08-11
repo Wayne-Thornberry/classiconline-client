@@ -15,18 +15,18 @@ namespace Proline.ClassicOnline.SClassic
             if (EngineAPI.GetInstanceCountOfScript("MarkerTest") > 1)
                 return;
 
-            var handle = WorldAPI.CreateMarker(Game.PlayerPed.Position);
+            var handle = CWorldObjects.CWorldObjects.CreateMarker(Game.PlayerPed.Position);
 
             while (!token.IsCancellationRequested)
             {
-                WorldAPI.DrawMarker(handle);
-                if (WorldAPI.IsInMarker(handle, Game.PlayerPed.Handle))
+                CWorldObjects.CWorldObjects.DrawMarker(handle);
+                if (CWorldObjects.CWorldObjects.IsInMarker(handle, Game.PlayerPed.Handle))
                 {
                     break;
                 }
                 await BaseScript.Delay(0);
             }
-            WorldAPI.DeleteMarker(handle);
+            CWorldObjects.CWorldObjects.DeleteMarker(handle);
         }
     }
 }

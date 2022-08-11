@@ -42,6 +42,7 @@
 
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\..\Proline.ClassicOnline.Common\Proline.ClassicOnline.Common.csproj" />
     <ProjectReference Include="..\Proline.ClassicOnline.F8Console\Proline.ClassicOnline.CDebugActions.csproj" />
   </ItemGroup>
 

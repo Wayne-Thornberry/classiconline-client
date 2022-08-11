@@ -1,4 +1,5 @@
-﻿using Proline.ClassicOnline.CPoolObjects.Internal;
+﻿using Proline.ClassicOnline.Common;
+using Proline.ClassicOnline.CPoolObjects.Internal;
 
 namespace Proline.ClassicOnline.CPoolObjects
 {

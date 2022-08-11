@@ -13,7 +13,8 @@ namespace Proline.ClassicOnline.CShopCatalogue.Commands
             if (args.Length > 0)
             {
                 var vehicle = args[0].ToString();
-                CShopCatalogueAPI.BuyVehicle(vehicle);
+                var api = new CShopCatalogueAPI();
+                api.BuyVehicle(vehicle);
             }
 
         }

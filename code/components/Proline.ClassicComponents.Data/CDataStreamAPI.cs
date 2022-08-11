@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using Proline.ClassicOnline.CDataStream.Data;
 using Proline.ClassicOnline.CDataStream.Internal;
 using Proline.ClassicOnline.CDebugActions;
+using Proline.ClassicOnline.Common;
 using Proline.Resource.IO;
 using Proline.ServerAccess.IO;
 using System;

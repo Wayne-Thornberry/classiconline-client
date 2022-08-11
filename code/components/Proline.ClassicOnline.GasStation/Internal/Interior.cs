@@ -50,17 +50,17 @@ namespace Proline.ClassicOnline.CWorldObjects.Internal
 
         #region StaticMethods
 
-        public static bool IsEntityInAInterior(Entity entity)
+        public bool IsEntityInAInterior(Entity entity)
         {
             return GetInteriorIdAtCords(entity.Position) != 0;
         }
 
-        public static int GetInteriorIdAtCords(Vector3 position)
+        public int GetInteriorIdAtCords(Vector3 position)
         {
             return API.GetInteriorAtCoords(position.X, position.Y, position.Z);
         }
 
-        public static void SetInteriorActive(int interiorId, bool toggle)
+        public void SetInteriorActive(int interiorId, bool toggle)
         {
             API.SetInteriorActive(interiorId, toggle);
         }
@@ -70,32 +70,32 @@ namespace Proline.ClassicOnline.CWorldObjects.Internal
             API.LoadInterior(interiorId);
         }
 
-        public static int GetInteriorGroup(int interiorId)
+        public int GetInteriorGroup(int interiorId)
         {
             return API.GetInteriorGroupId(interiorId);
         }
 
-        public static void RefreshInterior(int interiorId)
+        public void RefreshInterior(int interiorId)
         {
             API.RefreshInterior(interiorId);
         }
 
-        public static bool IsInteriorDisabled(int interiorId)
+        public bool IsInteriorDisabled(int interiorId)
         {
             return API.IsInteriorDisabled(interiorId);
         }
 
-        public static void DisableInterior(int interiorId, bool toggle)
+        public void DisableInterior(int interiorId, bool toggle)
         {
             API.DisableInterior(interiorId, toggle);
         }
 
-        public static bool IsInteriorReady(int interiorId)
+        public bool IsInteriorReady(int interiorId)
         {
             return API.IsInteriorReady(interiorId);
         }
 
-        public static bool IsEntityInInterior(int interiorId, Entity entity)
+        public bool IsEntityInInterior(int interiorId, Entity entity)
         {
             return API.GetInteriorFromEntity(entity.Handle) == interiorId;
         }
@@ -120,7 +120,7 @@ namespace Proline.ClassicOnline.CWorldObjects.Internal
         }
 
 
-        public static Vector3 ConvertLocalToWorld(Vector3 originPosition, Vector3 originRotation, Vector3 localPosition)
+        public Vector3 ConvertLocalToWorld(Vector3 originPosition, Vector3 originRotation, Vector3 localPosition)
         {
             var radi = Math.PI / 180 * originRotation.Z;
             var rotation = Quaternion.RotationAxis(new Vector3(0, 0, 1), (float)radi);
@@ -129,7 +129,7 @@ namespace Proline.ClassicOnline.CWorldObjects.Internal
             return newVector;
         }
 
-        public static Vector3 ConvertWorldToLocal(Vector3 originPosition, Vector3 originRotation, Vector3 worldPosition)
+        public Vector3 ConvertWorldToLocal(Vector3 originPosition, Vector3 originRotation, Vector3 worldPosition)
         {
             var radi = -Math.PI / 180 * originRotation.Z;
             var newVector = Vector3.Subtract(worldPosition, originPosition);

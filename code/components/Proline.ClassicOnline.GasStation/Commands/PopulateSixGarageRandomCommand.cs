@@ -23,7 +23,8 @@ namespace Proline.ClassicOnline.CWorldObjects.Commands
                 //Random random = new Random();
                 //VehicleHash randomBar = (VehicleHash)values.GetValue(random.Next(values.Length));
                 var vehicle = await World.CreateVehicle(new Model(VehicleHash.Buffalo3), Game.PlayerPed.Position);
-                WorldAPI.PlaceVehicleInGarageSlot("6CarGarage", i, vehicle);
+                var api = new CWorldObjectsAPI();
+                api.PlaceVehicleInGarageSlot("6CarGarage", i, vehicle);
             }
         }
     }
