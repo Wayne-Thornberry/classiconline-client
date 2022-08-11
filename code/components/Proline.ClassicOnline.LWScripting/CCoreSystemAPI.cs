@@ -1,9 +1,8 @@
-﻿using Proline.ClassicOnline.CCoreSystem.Internal; 
+﻿using Proline.ClassicOnline.CCoreSystem.Internal;
 using Proline.ClassicOnline.CDebugActions;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Proline.ClassicOnline.Common;
 
 namespace Proline.ClassicOnline.CCoreSystem
 {

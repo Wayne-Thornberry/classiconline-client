@@ -1,9 +1,4 @@
 ﻿using Proline.ClassicOnline.CDataStream;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.Engine.Parts
 {
@@ -20,38 +15,38 @@ namespace Proline.ClassicOnline.Engine.Parts
             var api = new CDataStreamAPI();
             api.CreateDataFile();
         }
-       public static bool DoesDataFileExist(string id)
+        public static bool DoesDataFileExist(string id)
         {
             var api = new CDataStreamAPI();
             return api.DoesDataFileExist(id);
         }
-       public static bool DoesDataFileValueExist(string key)
+        public static bool DoesDataFileValueExist(string key)
         {
             var api = new CDataStreamAPI();
             return api.DoesDataFileExist(key);
         }
-       public static object GetDataFileValue(string key)
+        public static object GetDataFileValue(string key)
         {
             var api = new CDataStreamAPI();
             return api.GetDataFileValue(key);
         }
-       public static T GetDataFileValue<T>(string key)
+        public static T GetDataFileValue<T>(string key)
         {
             var api = new CDataStreamAPI();
             return api.GetDataFileValue<T>(key);
         }
-       public static void SaveDataFile(string identifier)
+        public static void SaveDataFile(string identifier)
         {
             var api = new CDataStreamAPI();
             api.SaveDataFile(identifier);
         }
-       public static void SelectDataFile(string identifier)
+        public static void SelectDataFile(string identifier)
         {
             var api = new CDataStreamAPI();
             api.SelectDataFile(identifier);
         }
-        public static void SetDataFileValue(string key, object value) 
-        { 
+        public static void SetDataFileValue(string key, object value)
+        {
             var api = new CDataStreamAPI();
             api.SetDataFileValue(key, value);
         }

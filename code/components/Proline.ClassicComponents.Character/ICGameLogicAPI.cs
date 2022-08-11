@@ -1,7 +1,7 @@
 ﻿using CitizenFX.Core;
 using Proline.ClassicOnline.Common.Data;
 
-namespace Proline.ClassicOnline.Common
+namespace Proline.ClassicOnline.CGameLogic
 {
     public interface ICGameLogicAPI
     {

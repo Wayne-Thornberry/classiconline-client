@@ -1,7 +1,5 @@
 ﻿using CitizenFX.Core;
-using Proline.ClassicOnline.CMissionManager.Internal;
-using Proline.ClassicOnline.MissionManager;
-using System;
+using Proline.ClassicOnline.CMissionManager;
 
 namespace Proline.ClassicOnline.Engine.Parts
 {
@@ -35,7 +33,7 @@ namespace Proline.ClassicOnline.Engine.Parts
 
         }
         public static void SetMissionFlag(bool enable)
-        { 
+        {
 
             var api = new CMissionManagerAPI();
             api.SetMissionFlag(enable);

@@ -2,7 +2,7 @@
 using CitizenFX.Core.Native;
 using Proline.ClassicOnline.CCoreSystem;
 using Proline.ClassicOnline.CPoolObjects;
-using Proline.ClassicOnline.CScriptObjs.Entity;
+using Proline.ClassicOnline.CScriptObjs.Internal;
 using Proline.Resource.Logging;
 using System.Collections.Generic;
 using System.Linq;

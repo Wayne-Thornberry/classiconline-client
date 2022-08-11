@@ -1,6 +1,5 @@
 ﻿using CitizenFX.Core;
 using Proline.ClassicOnline.Engine.Parts;
-using Proline.ClassicOnline.MissionManager;
 using System.Threading;
 using System.Threading.Tasks;
 

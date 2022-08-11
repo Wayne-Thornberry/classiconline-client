@@ -1,6 +1,5 @@
 ﻿using CitizenFX.Core;
 using Newtonsoft.Json;
-using Proline.ClassicOnline.CCoreSystem;
 using Proline.ClassicOnline.Engine.Parts;
 using System;
 using System.Threading;

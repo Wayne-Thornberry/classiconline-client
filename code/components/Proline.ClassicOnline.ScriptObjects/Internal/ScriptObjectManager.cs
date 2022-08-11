@@ -1,7 +1,7 @@
 ﻿using Proline.ClassicOnline.CScriptObjs.Data;
 using System.Collections.Generic;
 
-namespace Proline.ClassicOnline.CScriptObjs.Entity
+namespace Proline.ClassicOnline.CScriptObjs.Internal
 {
     internal class ScriptObjectManager
     {

@@ -1,9 +1,9 @@
-﻿using CitizenFX.Core; 
+﻿using CitizenFX.Core;
 
 namespace Proline.ClassicOnline.Common.Data
 {
     public class PlayerCharacter : Entity
-    { 
+    {
         public char Gender { get; set; } = 'm';
         public string SpawnLocation { get; set; } = "LAST_LOCATION";
         public float[] LastPosition { get; set; } = { 0f, 0f, 70f };

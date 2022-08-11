@@ -1,10 +1,4 @@
-﻿using Proline.ClassicOnline.CDataStream;
-using Proline.ClassicOnline.CDebugActions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Proline.ClassicOnline.CDebugActions;
 
 namespace Proline.ClassicOnline.Engine.Parts
 {
@@ -17,7 +11,7 @@ namespace Proline.ClassicOnline.Engine.Parts
             api.LogDebug(obj, outputToServer);
         }
         public static void LogError(object obj, bool outputToServer = false)
-        { 
+        {
             var api = new CDebugActionsAPI();
             api.LogError(obj, outputToServer);
         }
@@ -29,7 +23,7 @@ namespace Proline.ClassicOnline.Engine.Parts
         public static void LogWarn(object obj, bool outputToServer = false)
         {
             var api = new CDebugActionsAPI();
-            api.LogWarn(obj, outputToServer); 
+            api.LogWarn(obj, outputToServer);
         }
     }
 }

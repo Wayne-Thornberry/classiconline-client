@@ -1,21 +1,17 @@
-﻿using Proline.ClassicOnline.CDataStream;
-using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.CGameLogic;
-using Proline.ClassicOnline.Engine.Parts;
-using System;
+﻿using Proline.ClassicOnline.CGameLogic;
 
 namespace Proline.ClassicOnline.Engine.Parts
 {
     public static partial class EngineAPI
     {
         public static void SetCharacterBankBalance(long value)
-        { 
+        {
             var api = new CGameLogicAPI();
             api.SetCharacterBankBalance(value);
         }
 
         public static long GetCharacterMaxWalletBalance()
-        { 
+        {
             var api = new CGameLogicAPI();
             return api.GetCharacterMaxWalletBalance();
         }
@@ -31,8 +27,8 @@ namespace Proline.ClassicOnline.Engine.Parts
         {
 
             var api = new CGameLogicAPI();
-           return api.HasBankBalance(price);
-        }  
+            return api.HasBankBalance(price);
+        }
 
         public static void AddValueToBankBalance(long value)
         {

@@ -1,4 +1,4 @@
-﻿namespace Proline.ClassicOnline.Common
+﻿namespace Proline.ClassicOnline.CShopCatalogue
 {
     public interface ICShopCatalogueAPI
     {

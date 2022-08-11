@@ -1,12 +1,5 @@
 ﻿using CitizenFX.Core;
-using CitizenFX.Core.Native;
-using Newtonsoft.Json;
-using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CWorldObjects;
-using Proline.ClassicOnline.CWorldObjects.Data.Ownership;
-using Proline.Resource.IO;
-using System;
-using System.Linq;
 
 namespace Proline.ClassicOnline.Engine.Parts
 {

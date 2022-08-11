@@ -1,9 +1,6 @@
 ﻿using CitizenFX.Core;
 using Proline.ClassicOnline.Common.Data;
-using Proline.ClassicOnline.CScriptObjs;
-using Proline.ClassicOnline.CScriptObjs.Entity;
 using Proline.ClassicOnline.Engine.Parts;
-using Proline.ClassicOnline.MissionManager;
 using System.Threading;
 using System.Threading.Tasks;
 

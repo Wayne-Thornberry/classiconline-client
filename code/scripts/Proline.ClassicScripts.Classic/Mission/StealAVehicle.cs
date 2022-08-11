@@ -1,9 +1,6 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.UI;
-using Proline.ClassicOnline.CGameLogic;
 using Proline.ClassicOnline.Common.Data;
-using Proline.ClassicOnline.CScriptObjs;
-using Proline.ClassicOnline.CScriptObjs.Entity;
 using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;

@@ -3,7 +3,7 @@ using CitizenFX.Core.Native;
 using System;
 using System.Threading.Tasks;
 
-namespace Proline.CFXExtended.Core
+namespace Proline.ClassicOnline.CScreenRendering.Old
 {
     public class PedHeadshot : IDisposable
     {
@@ -26,7 +26,7 @@ namespace Proline.CFXExtended.Core
 
         public async Task LoadHeadShot()
         {
-            API.RegisterPedheadshot(CitizenFX.Core.Game.PlayerPed.Handle);
+            API.RegisterPedheadshot(Game.PlayerPed.Handle);
             while (!HasLoaded)
             {
                 await BaseScript.Delay(0);

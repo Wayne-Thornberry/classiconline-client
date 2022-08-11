@@ -1,8 +1,5 @@
 ﻿using CitizenFX.Core;
-using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CWorldObjects;
-using Proline.ClassicOnline.CWorldObjects.Internal;
-using System;
 
 namespace Proline.ClassicOnline.Engine.Parts
 {
@@ -23,7 +20,7 @@ namespace Proline.ClassicOnline.Engine.Parts
         }
 
         public static bool IsInMarker(int handle, int obj)
-        { 
+        {
             var api = new CWorldObjectsAPI();
             return api.IsInMarker(handle, obj);
         }

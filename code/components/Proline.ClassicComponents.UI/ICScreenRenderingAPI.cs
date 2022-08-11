@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.Common
+namespace Proline.ClassicOnline.CScreenRendering
 {
     public interface ICScreenRenderingAPI
     {

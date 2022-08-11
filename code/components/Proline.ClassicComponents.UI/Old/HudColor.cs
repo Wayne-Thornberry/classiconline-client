@@ -1,4 +1,4 @@
-namespace Proline.CFXExtended.Core
+namespace Proline.ClassicOnline.CScreenRendering.Old
 {
     public enum HudColor
     {

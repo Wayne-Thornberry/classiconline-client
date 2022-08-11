@@ -2,7 +2,6 @@
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Newtonsoft.Json;
-using Proline.ClassicOnline.CScreenRendering;
 using Proline.ClassicOnline.Engine.Parts;
 using Proline.Resource;
 using System.Collections.Generic;

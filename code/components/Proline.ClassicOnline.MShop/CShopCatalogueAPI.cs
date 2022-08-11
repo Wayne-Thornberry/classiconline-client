@@ -3,7 +3,6 @@ using Newtonsoft.Json;
 using Proline.ClassicOnline.CDataStream;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CGameLogic;
-using Proline.ClassicOnline.Common;
 using Proline.ClassicOnline.CShopCatalogue.Internal;
 using System;
 

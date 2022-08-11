@@ -1,15 +1,13 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.Common;
 using Proline.ClassicOnline.Common.Data;
-using Proline.ClassicOnline.CScriptObjs.Entity;
 using System;
 using System.Collections.Generic;
 
 namespace Proline.ClassicOnline.CScriptObjs
 {
-    public class CScriptBrainAPI : ICScriptBrainAPI
+    public class CCScriptObjsAPI : ICScriptObjsAPI
     {
         public int[] GetEntityHandlesByTypes(EntityType type)
         {

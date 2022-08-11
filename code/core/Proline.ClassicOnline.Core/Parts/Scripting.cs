@@ -1,10 +1,4 @@
 ﻿using Proline.ClassicOnline.CCoreSystem;
-using Proline.ClassicOnline.CCoreSystem.Internal;
-using Proline.ClassicOnline.CDebugActions;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Console = Proline.Resource.Console;
 
 namespace Proline.ClassicOnline.Engine.Parts
 {
@@ -17,20 +11,20 @@ namespace Proline.ClassicOnline.Engine.Parts
         }
 
 
-        public static int GetInstanceCountOfScript(string scriptName) 
-        { 
+        public static int GetInstanceCountOfScript(string scriptName)
+        {
             var coreAPI = new CCoreSystemAPI();
-            return coreAPI.GetInstanceCountOfScript(scriptName); 
+            return coreAPI.GetInstanceCountOfScript(scriptName);
         }
 
         public static void MarkScriptAsNoLongerNeeded(object callingClass)
-        { 
+        {
             var coreAPI = new CCoreSystemAPI();
-            coreAPI.MarkScriptAsNoLongerNeeded(callingClass); 
+            coreAPI.MarkScriptAsNoLongerNeeded(callingClass);
         }
 
         public static void MarkScriptAsNoLongerNeeded(string scriptName)
-        { 
+        {
             var coreAPI = new CCoreSystemAPI();
             coreAPI.MarkScriptAsNoLongerNeeded(scriptName);
         }
@@ -40,9 +34,9 @@ namespace Proline.ClassicOnline.Engine.Parts
         /// </summary>
         /// <param name="scriptName"></param>
         public static void TerminateScript(string scriptName)
-        { 
+        {
             var coreAPI = new CCoreSystemAPI();
-            coreAPI.TerminateScript(scriptName); 
+            coreAPI.TerminateScript(scriptName);
         }
 
         /// <summary>
@@ -52,7 +46,7 @@ namespace Proline.ClassicOnline.Engine.Parts
         public static void TerminateScriptInstance(object scriptInstance)
         {
             var coreAPI = new CCoreSystemAPI();
-            coreAPI.TerminateScriptInstance(scriptInstance); 
+            coreAPI.TerminateScriptInstance(scriptInstance);
         }
 
         /// <summary>
@@ -62,7 +56,7 @@ namespace Proline.ClassicOnline.Engine.Parts
         public static void TerminateScriptTask(int taskId)
         {
             var coreAPI = new CCoreSystemAPI();
-            coreAPI.TerminateScriptInstance(taskId); 
+            coreAPI.TerminateScriptInstance(taskId);
         }
     }
 }

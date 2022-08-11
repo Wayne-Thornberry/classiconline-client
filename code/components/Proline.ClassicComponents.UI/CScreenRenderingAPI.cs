@@ -1,6 +1,5 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
-using Proline.ClassicOnline.Common;
 using System;
 using System.Drawing;
 using System.Threading.Tasks;

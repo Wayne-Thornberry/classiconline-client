@@ -1,11 +1,5 @@
 ﻿using CitizenFX.Core;
-using Newtonsoft.Json;
-using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CWorldObjects;
-using Proline.ClassicOnline.CWorldObjects.Data.Ownership;
-using Proline.ClassicOnline.CWorldObjects.Internal;
-using Proline.Resource.IO;
-using System;
 
 namespace Proline.ClassicOnline.Engine.Parts
 {
@@ -71,7 +65,7 @@ namespace Proline.ClassicOnline.Engine.Parts
         public static string ExitProperty(string propertyId, string propertyPart, string exitId)
         {
             var api = new CWorldObjectsAPI();
-            return api.ExitProperty(propertyId,  propertyPart,  exitId);
+            return api.ExitProperty(propertyId, propertyPart, exitId);
 
         }
 

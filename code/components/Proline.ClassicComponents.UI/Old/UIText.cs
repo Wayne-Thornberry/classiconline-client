@@ -4,7 +4,7 @@ using System;
 using System.Drawing;
 using System.Text;
 
-namespace Proline.CFXExtended.Core
+namespace Proline.ClassicOnline.CScreenRendering.Old
 {
     public class UIText
     {

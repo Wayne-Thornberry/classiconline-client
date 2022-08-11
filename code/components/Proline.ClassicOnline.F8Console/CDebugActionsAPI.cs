@@ -1,5 +1,4 @@
-﻿using Proline.ClassicOnline.Common;
-using Proline.Resource.Logging;
+﻿using Proline.Resource.Logging;
 using Proline.ServerAccess.IO;
 using System;
 using Console = Proline.Resource.Console;

@@ -1,6 +1,6 @@
 ﻿using CitizenFX.Core;
 
-namespace Proline.ClassicOnline.Common
+namespace Proline.ClassicOnline.CWorldObjects
 {
     public interface ICWorldObjectsAPI
     {

@@ -1,9 +1,8 @@
 ﻿using CitizenFX.Core;
 using Proline.ClassicOnline.CMissionManager.Internal;
-using Proline.ClassicOnline.Common;
 using System;
 
-namespace Proline.ClassicOnline.MissionManager
+namespace Proline.ClassicOnline.CMissionManager
 {
     public partial class CMissionManagerAPI : ICMissionManagerAPI
     {

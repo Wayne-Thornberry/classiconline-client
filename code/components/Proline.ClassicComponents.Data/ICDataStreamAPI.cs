@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Proline.ClassicOnline.Common
+namespace Proline.ClassicOnline.CDataStream
 {
     public interface ICDataStreamAPI
     {

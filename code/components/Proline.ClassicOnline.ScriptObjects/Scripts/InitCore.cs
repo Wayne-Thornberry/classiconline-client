@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CScriptObjs.Data;
-using Proline.ClassicOnline.CScriptObjs.Entity;
+using Proline.ClassicOnline.CScriptObjs.Internal;
 using Proline.Resource.IO;
 using System.Collections.Generic;
 using System.Threading.Tasks;

@@ -3,7 +3,7 @@
 
 using CitizenFX.Core.Native;
 
-namespace Proline.CFXExtended.Core
+namespace Proline.ClassicOnline.CScreenRendering.Old
 {
     public class UIBox
     {

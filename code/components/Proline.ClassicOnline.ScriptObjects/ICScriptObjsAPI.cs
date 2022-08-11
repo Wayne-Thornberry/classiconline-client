@@ -1,8 +1,8 @@
-﻿using Proline.ClassicOnline.Common.Data; 
+﻿using Proline.ClassicOnline.Common.Data;
 
-namespace Proline.ClassicOnline.Common
+namespace Proline.ClassicOnline.CScriptObjs
 {
-    public interface ICScriptBrainAPI
+    public interface ICScriptObjsAPI
     {
         int[] GetEntityHandlesByTypes(EntityType type);
         CitizenFX.Core.Entity GetNeariestEntity(EntityType type);

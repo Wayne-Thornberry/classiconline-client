@@ -4,7 +4,6 @@ using Newtonsoft.Json;
 using Proline.ClassicOnline.CDataStream;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CGameLogic.Internal;
-using Proline.ClassicOnline.Common;
 using Proline.ClassicOnline.Common.Data;
 using Proline.Resource.IO;
 using System;

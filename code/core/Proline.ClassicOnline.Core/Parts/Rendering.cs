@@ -1,9 +1,5 @@
 ﻿using CitizenFX.Core;
-using CitizenFX.Core.Native;
-using Newtonsoft.Json;
 using Proline.ClassicOnline.CGameRendering;
-using Proline.Resource.IO;
-using System;
 
 namespace Proline.ClassicOnline.Engine.Parts
 {
