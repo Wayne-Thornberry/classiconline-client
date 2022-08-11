@@ -10,10 +10,11 @@ namespace Proline.ClassicOnline.CGameLogic.Commands
 
         protected override void OnCommandExecute(params object[] args)
         {
+            var api = new CGameLogicAPI();
             if (args.Length > 0)
             {
                 long.TryParse(args[0].ToString(), out var value);
-                CGameLogicAPI.SetCharacterWalletBalance(value);
+                api.SetCharacterWalletBalance(value);
             }
 
         }

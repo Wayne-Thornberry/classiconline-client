@@ -1,10 +1,6 @@
 ﻿using CitizenFX.Core;
-using CitizenFX.Core.UI;
-using Proline.ClassicOnline.CDebugActions;
-using Proline.ClassicOnline.CScriptObjs;
-using Proline.ClassicOnline.CScriptObjs.Entity;
-using Proline.ClassicOnline.Engine.Parts;
-using Proline.ClassicOnline.MissionManager;
+using CitizenFX.Core.UI; 
+using Proline.ClassicOnline.Engine.Parts; 
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,7 +21,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
             // Dupe protection
             if (EngineAPI.GetInstanceCountOfScript("VigilanteOnDemand") > 1)
                 return;
-            if (!MissionAPIs.BeginMission())
+            if (!EngineAPI.BeginMission())
                 return;
             _blips = new List<Blip>();
             _closestDistance = 99999f;
@@ -33,10 +29,10 @@ namespace Proline.ClassicOnline.SClassic.Mission
             //_truckSpawnLoc = new Vector3(829.9249f, -2950.439f, 4.902536f);
             //_trailerSpawnLoc = new Vector3(865.3315f, -2986.426f, 4.900764f);
             _policeVehicle = (Vehicle)Entity.FromHandle(int.Parse(args[0].ToString()));
-            MissionAPIs.TrackPoolObjectForMission(_policeVehicle);
+            EngineAPI.TrackPoolObjectForMission(_policeVehicle);
 
 
-            var handles = CScriptBrainAPI.GetEntityHandlesByTypes(EntityType.VEHICLE);
+            var handles = EngineAPI.GetEntityHandlesByTypes(EntityType.VEHICLE);
 
             foreach (var item in handles)
             {
@@ -55,7 +51,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
                 return;
 
 
-            MissionAPIs.TrackPoolObjectForMission(_target);
+            EngineAPI.TrackPoolObjectForMission(_target);
 
             Setup();
 
@@ -69,7 +65,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
             }
 
             Teardown();
-            MissionAPIs.EndMission();
+            EngineAPI.EndMission();
 
         }
 
@@ -77,7 +73,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
         {
             if (IsAllTargetsDead())
             {
-                CGameLogic.CGameLogicAPI.AddValueToBankBalance(_payout);
+                EngineAPI.AddValueToBankBalance(_payout);
             }
 
             DeleteAllBlips(_policeVehicle);
@@ -120,7 +116,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
                 item.RelationshipGroup = new RelationshipGroup(0);
                 item.RelationshipGroup.SetRelationshipBetweenGroups(Game.PlayerPed.RelationshipGroup, Relationship.Hate, true);
                 item.Task.FightAgainstHatedTargets(15f);
-                MissionAPIs.TrackPoolObjectForMission(item);
+                EngineAPI.TrackPoolObjectForMission(item);
             }
         }
 

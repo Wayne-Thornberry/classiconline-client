@@ -24,7 +24,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
             // Dupe protection
             if (EngineAPI.GetInstanceCountOfScript("TruckingOnDemand") > 1)
                 return;
-            if (!MissionAPIs.BeginMission())
+            if (!EngineAPI.BeginMission())
                 return;
 
             _closestDistance = 99999f;
@@ -59,9 +59,9 @@ namespace Proline.ClassicOnline.SClassic.Mission
             _deliveryBlip = World.CreateBlip(_deliveryLoc);
 
 
-            MissionAPIs.TrackPoolObjectForMission(_truck);
-            MissionAPIs.TrackPoolObjectForMission(_trailer);
-            MissionAPIs.TrackPoolObjectForMission(_deliveryBlip);
+            EngineAPI.TrackPoolObjectForMission(_truck);
+            EngineAPI.TrackPoolObjectForMission(_trailer);
+            EngineAPI.TrackPoolObjectForMission(_deliveryBlip);
 
             while (!token.IsCancellationRequested)
             {
@@ -82,14 +82,14 @@ namespace Proline.ClassicOnline.SClassic.Mission
                     if (World.GetDistance(_trailer.Position, _deliveryLoc) < 10f)
                     {
                         _trailer.Delete();
-                        CGameLogic.CGameLogicAPI.AddValueToBankBalance(_payout);
+                        EngineAPI.AddValueToBankBalance(_payout);
                         break;
                     }
                 }
 
                 await BaseScript.Delay(0);
             }
-            MissionAPIs.EndMission();
+            EngineAPI.EndMission();
         }
 
         private bool IsValidModel(Model model)

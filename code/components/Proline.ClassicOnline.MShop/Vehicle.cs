@@ -13,9 +13,10 @@ namespace Proline.ClassicOnline.CShopCatalogue
         public static void BuyVehicle(string vehicleName)
         {
             var api = new CDebugActionsAPI();
+            var gameApi = new CGameLogicAPI();
             try
             {
-                if (CGameLogicAPI.HasCharacter())
+                if (gameApi.HasCharacter())
                 {
                     var manager = CatalougeManager.GetInstance();
                     var catalouge = manager.GetCatalouge("VehicleCatalouge");
@@ -25,9 +26,9 @@ namespace Proline.ClassicOnline.CShopCatalogue
 
                     if (vci == null)
                         throw new Exception("Catalouge Item not found");
-                    if (CGameLogicAPI.HasBankBalance(vci.Price))
+                    if (gameApi.HasBankBalance(vci.Price))
                     {
-                        var currentVehicle = CGameLogicAPI.GetPersonalVehicle();
+                        var currentVehicle = gameApi.GetPersonalVehicle();
                         if (currentVehicle != null)
                         {
                             foreach (var item in currentVehicle.AttachedBlips)
@@ -43,7 +44,7 @@ namespace Proline.ClassicOnline.CShopCatalogue
                         task.ContinueWith(e =>
                         {
                             var createdVehicle = e.Result;
-                            CGameLogicAPI.SetCharacterPersonalVehicle(createdVehicle.Handle);
+                            gameApi.SetCharacterPersonalVehicle(createdVehicle.Handle);
                             var dataAPI = new CDataStreamAPI();
                             var id = "PlayerVehicle";
                             dataAPI.CreateDataFile();
@@ -53,7 +54,7 @@ namespace Proline.ClassicOnline.CShopCatalogue
                             if (createdVehicle.AttachedBlips.Length == 0)
                                 createdVehicle.AttachBlip();
                             dataAPI.SaveDataFile(id);
-                            CGameLogicAPI.SubtractValueFromBankBalance(vci.Price);
+                            gameApi.SubtractValueFromBankBalance(vci.Price);
                         });
 
                     }

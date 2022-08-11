@@ -14,7 +14,8 @@ namespace Proline.ClassicOnline.CNetConnection.Commands
 
         protected override void OnCommandExecute(params object[] args)
         {
-            if (CGameLogicAPI.GetCharacterBankBalance() > 250)
+            var api = new CGameLogicAPI();
+            if (api.GetCharacterBankBalance() > 250)
             {
 
                 Array values = Enum.GetValues(typeof(WeaponHash));
@@ -30,7 +31,7 @@ namespace Proline.ClassicOnline.CNetConnection.Commands
                 dataAPI.AddDataFileValue("WeaponAmmo", ammo);
                 dataAPI.SaveDataFile(id);
 
-                CGameLogicAPI.SubtractValueFromBankBalance(250);
+                api.SubtractValueFromBankBalance(250);
             }
         }
     }

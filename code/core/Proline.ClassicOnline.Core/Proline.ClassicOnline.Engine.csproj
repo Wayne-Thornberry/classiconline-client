@@ -12,8 +12,19 @@
 	  <Folder Include="Common\" />
 	</ItemGroup>
 	<ItemGroup>
+	  <ProjectReference Include="..\..\components\Proline.ClassicComponents.Character\Proline.ClassicOnline.CGameLogic.csproj" />
 	  <ProjectReference Include="..\..\components\Proline.ClassicComponents.Data\Proline.ClassicOnline.CDataStream.csproj" />
+	  <ProjectReference Include="..\..\components\Proline.ClassiclOnline.MConnection\Proline.ClassicOnline.CNetConnection.csproj" />
+	  <ProjectReference Include="..\..\components\Proline.ClassicOnline.CAddionalEvents\Proline.ClassicOnline.CAddionalEvents.csproj" />
+	  <ProjectReference Include="..\..\components\Proline.ClassicOnline.CNativeEvents\Proline.ClassicOnline.CNativeEvents.csproj" />
+	  <ProjectReference Include="..\..\components\Proline.ClassicOnline.CPoolObjects\Proline.ClassicOnline.CPoolObjects.csproj" />
+	  <ProjectReference Include="..\..\components\Proline.ClassicOnline.DebugInterface\Proline.ClassicOnline.CGameRendering.csproj" />
+	  <ProjectReference Include="..\..\components\Proline.ClassicOnline.F8Console\Proline.ClassicOnline.CDebugActions.csproj" />
+	  <ProjectReference Include="..\..\components\Proline.ClassicOnline.GasStation\Proline.ClassicOnline.CWorldObjects.csproj" />
 	  <ProjectReference Include="..\..\components\Proline.ClassicOnline.LWScripting\Proline.ClassicOnline.CCoreSystem.csproj" />
+	  <ProjectReference Include="..\..\components\Proline.ClassicOnline.MissionManager\Proline.ClassicOnline.CMissionManager.csproj" />
+	  <ProjectReference Include="..\..\components\Proline.ClassicOnline.MShop\Proline.ClassicOnline.CShopCatalogue.csproj" />
+	  <ProjectReference Include="..\..\components\Proline.ClassicOnline.ScriptAreas\Proline.ClassicOnline.CScriptAreas.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 		<Reference Include="Newtonsoft.Json">

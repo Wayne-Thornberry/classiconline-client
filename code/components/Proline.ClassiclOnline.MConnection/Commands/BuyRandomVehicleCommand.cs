@@ -16,17 +16,18 @@ namespace Proline.ClassicOnline.CNetConnection.Commands
         protected override void OnCommandExecute(params object[] args)
         {
 
-            if (CGameLogicAPI.GetCharacterBankBalance() > 250)
+            var api = new CGameLogicAPI();
+            if (api.GetCharacterBankBalance() > 250)
             {
-                if (CGameLogicAPI.HasCharacter())
+                if (api.HasCharacter())
                 {
-                    if (CGameLogicAPI.GetPersonalVehicle() != null)
+                    if (api.GetPersonalVehicle() != null)
                     {
-                        CGameLogicAPI.DeletePersonalVehicle();
+                        api.DeletePersonalVehicle();
                     }
 
 
-                    CGameLogicAPI.SetCharacterBankBalance(250);
+                    api.SetCharacterBankBalance(250);
                     Array values = Enum.GetValues(typeof(VehicleHash));
                     Random random = new Random();
                     VehicleHash randomBar = (VehicleHash)values.GetValue(random.Next(values.Length));
@@ -34,7 +35,7 @@ namespace Proline.ClassicOnline.CNetConnection.Commands
                     task.ContinueWith(e =>
                     {
                         var vehicle = e.Result;
-                        CGameLogicAPI.SetCharacterPersonalVehicle(vehicle.Handle);
+                        api.SetCharacterPersonalVehicle(vehicle.Handle);
 
                         var id = "PlayerVehicle";
                         var dataAPI = new CDataStreamAPI();

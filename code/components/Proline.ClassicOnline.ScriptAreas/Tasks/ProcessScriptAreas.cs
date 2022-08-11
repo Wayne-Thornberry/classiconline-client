@@ -28,7 +28,8 @@ namespace Proline.ClassicOnline.CScriptAreas.Tasks
                     if (World.GetDistance(vector, Game.PlayerPed.Position) < 10f && !PosBlacklist.Contains(positionsPair))
                     {
                         Resource.Console.WriteLine(_log.Debug("In range"));
-                        CCoreSystemAPI.StartNewScript(positionsPair.ScriptName, vector);
+                        var api = new CCoreSystemAPI();
+                        api.StartNewScript(positionsPair.ScriptName, vector);
                         PosBlacklist.Add(positionsPair);
                     }
                     else if (World.GetDistance(vector, Game.PlayerPed.Position) > 10f && PosBlacklist.Contains(positionsPair))

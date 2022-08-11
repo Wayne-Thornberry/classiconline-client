@@ -113,7 +113,7 @@ namespace Proline.ClassicOnline.SClassic
             var id = "CharacterLooks";
             if (!EngineAPI.DoesDataFileExist(id))
             {
-                var pedLooks = CGameLogicAPI.GetPedLooks(Game.PlayerPed.Handle);
+                var pedLooks = EngineAPI.GetPedLooks(Game.PlayerPed.Handle);
                 EngineAPI.CreateDataFile();
                 EngineAPI.AddDataFileValue("Mother", pedLooks.Mother);
                 EngineAPI.AddDataFileValue("Father", pedLooks.Father);
@@ -199,12 +199,12 @@ namespace Proline.ClassicOnline.SClassic
 
         public void RefreshCharacter(char gender)
         {
-            CGameLogicAPI.SetPedGender(Game.PlayerPed.Handle, gender);
+            EngineAPI.SetPedGender(Game.PlayerPed.Handle, gender);
         }
 
         public void UpdateHeritage()
         {
-            CGameLogicAPI.SetPedLooks(Game.PlayerPed.Handle, new CharacterLooks()
+            EngineAPI.SetPedLooks(Game.PlayerPed.Handle, new CharacterLooks()
             {
                 Mother = _selectedMother,
                 Father = _selectedFather,

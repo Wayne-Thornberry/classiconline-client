@@ -144,9 +144,9 @@ namespace Proline.ClassicOnline.SClassic.Buildings
                                             var vehicle = new Vehicle(_vehicles[i]);
                                             if (Game.PlayerPed.CurrentVehicle == vehicle)
                                             {
-                                                var pv = CGameLogic.CGameLogicAPI.GetPersonalVehicle();
+                                                var pv = EngineAPI.GetPersonalVehicle();
                                                 pv.Delete();
-                                                CGameLogic.CGameLogicAPI.SetCharacterPersonalVehicle(_vehicles[i]);
+                                                EngineAPI.SetCharacterPersonalVehicle(_vehicles[i]);
                                                 vehicle.AttachBlip();
                                                 continue;
                                             }

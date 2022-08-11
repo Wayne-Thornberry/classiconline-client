@@ -35,7 +35,8 @@ namespace Proline.ClassicOnline.CScriptAreas.Entity
 
         internal void AddScriptPositionPairs(ScriptPositionsPair[] scriptPositionPairs)
         {
-            CDebugActionsAPI.LogDebug($"Added {scriptPositionPairs.Length} to track for script positions");
+            var api = new CDebugActionsAPI();
+            api.LogDebug($"Added {scriptPositionPairs.Length} to track for script positions");
             _scriptPositionPairs = scriptPositionPairs;
         }
     }

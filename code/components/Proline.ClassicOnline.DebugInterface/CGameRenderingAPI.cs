@@ -6,10 +6,10 @@ using System.Drawing;
 
 namespace Proline.ClassicOnline.CGameRendering
 {
-    public static class CGameRenderingAPI
+    public class CGameRenderingAPI : ICGameRenderingAPI
     {
 
-        public static void DrawDebugText3D(string text, Vector3 vector3, float scale2, int font)
+        public void DrawDebugText3D(string text, Vector3 vector3, float scale2, int font)
         {
             var camCoords = API.GetGameplayCamCoords();
             var distance = API.Vdist2(camCoords.X, camCoords.Y, camCoords.Z, vector3.X, vector3.Y, vector3.Z);
@@ -23,30 +23,31 @@ namespace Proline.ClassicOnline.CGameRendering
             var p = new PointF(x, y);//(x / 1280) * 1f, (y / 720) * 1f);
 
             if (p == PointF.Empty) return;
-            CScreenRenderingAPI.DrawDebugText2D(text, p, scale, font);
+            var api = new CScreenRendering();
+            api.DrawDebugText2D(text, p, scale, font);
         }
 
-        public static void DrawEntityBoundingBox(int ent, int r, int g, int b, int a)
+        public void DrawEntityBoundingBox(int ent, int r, int g, int b, int a)
         {
             var box = GetEntityBoundingBox(ent);
             DrawBoundingBox(box, r, g, b, a);
         }
 
 
-        public static void DrawBoundingBox(Vector3 start, Vector3 end, int r, int g, int b, int a)
+        public void DrawBoundingBox(Vector3 start, Vector3 end, int r, int g, int b, int a)
         {
             var box = GetBoundingBox(start, end);
             DrawBoundingBox(box, r, g, b, a);
         }
 
 
-        public static void DrawBoundingBoxFromPoints(Vector3[] points, int r, int g, int b, int a)
+        public void DrawBoundingBoxFromPoints(Vector3[] points, int r, int g, int b, int a)
         {
             DrawBoundingBox(points, r, g, b, a);
         }
 
 
-        public static void DrawBoundingPlaneFromPoints(Vector3[] points, int r, int g, int b, int a)
+        public void DrawBoundingPlaneFromPoints(Vector3[] points, int r, int g, int b, int a)
         {
             DrawBoundingPlane(points, r, g, b, a);
         }
@@ -56,7 +57,7 @@ namespace Proline.ClassicOnline.CGameRendering
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        internal static Vector3[] GetBoundingBox(Vector3 start, Vector3 end, float heading = 0f)
+        public Vector3[] GetBoundingBox(Vector3 start, Vector3 end, float heading = 0f)
         {
             Vector3 min = Vector3.Zero;
             Vector3 max = Vector3.Zero;
@@ -90,7 +91,7 @@ namespace Proline.ClassicOnline.CGameRendering
             return retval;
         }
 
-        public static Vector3 ConvertWorldToLocal(Vector3 origin, float originRotation, Vector3 Worldposition)
+        public Vector3 ConvertWorldToLocal(Vector3 origin, float originRotation, Vector3 Worldposition)
         {
             var radi = -Math.PI / 180 * originRotation;
             var newVector = Vector3.Subtract(Worldposition, origin);
@@ -99,7 +100,7 @@ namespace Proline.ClassicOnline.CGameRendering
             return rotatedVector;
         }
 
-        public static Vector3 ConvertLocalToWorld(Vector3 origin, float originRotation, Vector3 localPosition)
+        public Vector3 ConvertLocalToWorld(Vector3 origin, float originRotation, Vector3 localPosition)
         {
             var radi = Math.PI / 180 * originRotation;
             var rotation = Quaternion.RotationAxis(Vector3.ForwardLH, (float)radi);
@@ -113,7 +114,7 @@ namespace Proline.ClassicOnline.CGameRendering
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        internal static Vector3[] GetEntityBoundingBox(int entity)
+        public Vector3[] GetEntityBoundingBox(int entity)
         {
             Vector3 min = Vector3.Zero;
             Vector3 max = Vector3.Zero;
@@ -146,7 +147,7 @@ namespace Proline.ClassicOnline.CGameRendering
         /// <param name="g"></param>
         /// <param name="b"></param>
         /// <param name="a"></param>
-        private static void DrawBoundingBox(Vector3[] box, int r, int g, int b, int a)
+        private void DrawBoundingBox(Vector3[] box, int r, int g, int b, int a)
         {
             var polyMatrix = GetBoundingBoxPolyMatrix(box);
             var edgeMatrix = GetBoundingBoxEdgeMatrix(box);
@@ -163,7 +164,7 @@ namespace Proline.ClassicOnline.CGameRendering
         /// <param name="g"></param>
         /// <param name="b"></param>
         /// <param name="a"></param>
-        private static void DrawBoundingPlane(Vector3[] box, int r, int g, int b, int a)
+        private void DrawBoundingPlane(Vector3[] box, int r, int g, int b, int a)
         {
             var polyMatrix = GetBoundingPlanePolyMatrix(box);
             var edgeMatrix = GetBoundingPlaneEdgeMatrix(box);
@@ -177,7 +178,7 @@ namespace Proline.ClassicOnline.CGameRendering
         /// </summary>
         /// <param name="box"></param>
         /// <returns></returns>
-        private static Vector3[][] GetBoundingBoxPolyMatrix(Vector3[] box)
+        private Vector3[][] GetBoundingBoxPolyMatrix(Vector3[] box)
         {
             return new Vector3[12][]
             {
@@ -206,7 +207,7 @@ namespace Proline.ClassicOnline.CGameRendering
         /// </summary>
         /// <param name="box"></param>
         /// <returns></returns>
-        private static Vector3[][] GetBoundingBoxEdgeMatrix(Vector3[] box)
+        private Vector3[][] GetBoundingBoxEdgeMatrix(Vector3[] box)
         {
             return new Vector3[12][]
             {
@@ -233,7 +234,7 @@ namespace Proline.ClassicOnline.CGameRendering
         /// </summary>
         /// <param name="box"></param>
         /// <returns></returns>
-        private static Vector3[][] GetBoundingPlanePolyMatrix(Vector3[] box)
+        private Vector3[][] GetBoundingPlanePolyMatrix(Vector3[] box)
         {
             return new Vector3[12][]
             {
@@ -262,7 +263,7 @@ namespace Proline.ClassicOnline.CGameRendering
         /// </summary>
         /// <param name="box"></param>
         /// <returns></returns>
-        private static Vector3[][] GetBoundingPlaneEdgeMatrix(Vector3[] box)
+        private Vector3[][] GetBoundingPlaneEdgeMatrix(Vector3[] box)
         {
             return new Vector3[12][]
             {
@@ -291,7 +292,7 @@ namespace Proline.ClassicOnline.CGameRendering
         /// <param name="g"></param>
         /// <param name="b"></param>
         /// <param name="a"></param>
-        private static void DrawPolyMatrix(Vector3[][] polyCollection, int r, int g, int b, int a)
+        private void DrawPolyMatrix(Vector3[][] polyCollection, int r, int g, int b, int a)
         {
             foreach (var poly in polyCollection)
             {
@@ -318,7 +319,7 @@ namespace Proline.ClassicOnline.CGameRendering
         /// <param name="g"></param>
         /// <param name="b"></param>
         /// <param name="a"></param>
-        private static void DrawEdgeMatrix(Vector3[][] linesCollection, int r, int g, int b, int a)
+        private void DrawEdgeMatrix(Vector3[][] linesCollection, int r, int g, int b, int a)
         {
             foreach (var line in linesCollection)
             {

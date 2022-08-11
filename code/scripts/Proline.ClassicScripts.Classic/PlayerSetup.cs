@@ -38,7 +38,7 @@ namespace Proline.ClassicOnline.SClassic
                 EngineAPI.AddDataFileValue("WalletBalance", 0);
                 EngineAPI.SaveDataFile(id);
                 EngineAPI.LogDebug(id + " Created and saved");
-                CGameLogicAPI.SetCharacterMaxWalletBalance(1000);
+                EngineAPI.SetCharacterMaxWalletBalance(1000);
             }
 
 

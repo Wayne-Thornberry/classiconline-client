@@ -35,14 +35,14 @@ namespace Proline.ClassicOnline.SClassic
                         {
                             GiveMoneyBag();
                         }
-                        CGameLogicAPI.AddValueToWalletBalance(money);
+                        EngineAPI.AddValueToWalletBalance(money);
                     }
                 }
 
-                if (CGameLogicAPI.GetCharacterWalletBalance() > CGameLogicAPI.GetCharacterMaxWalletBalance())
+                if (EngineAPI.GetCharacterWalletBalance() > EngineAPI.GetCharacterMaxWalletBalance())
                 {
-                    var _value = (int)(CGameLogicAPI.GetCharacterWalletBalance() - CGameLogicAPI.GetCharacterMaxWalletBalance());
-                    CGameLogicAPI.SubtractValueFromWalletBalance(_value);
+                    var _value = (int)(EngineAPI.GetCharacterWalletBalance() - EngineAPI.GetCharacterMaxWalletBalance());
+                    EngineAPI.SubtractValueFromWalletBalance(_value);
                     var pickup = await World.CreateAmbientPickup(PickupType.MoneyDepBag, Game.PlayerPed.Position + (Game.PlayerPed.ForwardVector * 2), new Model("xm_prop_x17_bag_01b"), _value);
                     pickup.AttachBlip();
                     pickup.IsPersistent = true;
@@ -50,12 +50,12 @@ namespace Proline.ClassicOnline.SClassic
 
                 if (API.GetPedDrawableVariation(Game.PlayerPed.Handle, 5) == 45 && !_updated)
                 {
-                    CGameLogicAPI.SetCharacterMaxWalletBalance(1000000);
+                    EngineAPI.SetCharacterMaxWalletBalance(1000000);
                     _updated = true;
                 }
                 else if (API.GetPedDrawableVariation(Game.PlayerPed.Handle, 5) != 45 && _updated)
                 {
-                    CGameLogicAPI.SetCharacterMaxWalletBalance(1000);
+                    EngineAPI.SetCharacterMaxWalletBalance(1000);
                     _updated = false;
                 }
 

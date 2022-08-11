@@ -3,6 +3,7 @@ using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using Newtonsoft.Json;
 using Proline.ClassicOnline.CScreenRendering;
+using Proline.ClassicOnline.Engine.Parts;
 using Proline.Resource;
 using System.Collections.Generic;
 using System.Drawing;
@@ -84,7 +85,7 @@ namespace Proline.ClassicOnline.SClassic.Tools
                         new Vector3(0, 0, 0), new Vector3(1, 1, 1), Color.FromArgb(150, 255, 255, 255));
                 }
 
-                CScreenRenderingAPI.ScreenRelToWorld(_cam.Position, _cam.Rotation, new Vector2(_cx, _cy), out var dir);
+                EngineAPI.ScreenRelToWorld(_cam.Position, _cam.Rotation, new Vector2(_cx, _cy), out var dir);
                 _raycastResult = World.Raycast(_cam.Position, dir, 1000f, IntersectOptions.Everything);
                 if (_raycastResult.DitHit)
                 {
@@ -152,7 +153,7 @@ namespace Proline.ClassicOnline.SClassic.Tools
             {
                 _cx = Game.GetControlNormal(0, Control.CursorX);
                 _cy = Game.GetControlNormal(0, Control.CursorY);
-                CScreenRenderingAPI.ScreenRelToWorld(_cam.Position, _cam.Rotation, new Vector2(_cx, _cy), out var dir);
+                EngineAPI.ScreenRelToWorld(_cam.Position, _cam.Rotation, new Vector2(_cx, _cy), out var dir);
                 _raycastResult = World.Raycast(_cam.Position, dir, 1000f, IntersectOptions.Everything);
                 if (_raycastResult.DitHit)
                 {

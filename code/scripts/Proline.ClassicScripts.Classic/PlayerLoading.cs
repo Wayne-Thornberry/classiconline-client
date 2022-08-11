@@ -33,8 +33,8 @@ namespace Proline.ClassicOnline.SClassic
                         EngineAPI.SelectDataFile("PlayerInfo");
                         character.Health = EngineAPI.GetDataFileValue<int>("PlayerHealth");
                         character.Position = EngineAPI.GetDataFileValue<Vector3>("PlayerPosition");
-                        CGameLogicAPI.SetCharacterBankBalance(EngineAPI.GetDataFileValue<long>("BankBalance"));
-                        CGameLogicAPI.SetCharacterWalletBalance(EngineAPI.GetDataFileValue<long>("WalletBalance"));
+                        EngineAPI.SetCharacterBankBalance(EngineAPI.GetDataFileValue<long>("BankBalance"));
+                        EngineAPI.SetCharacterWalletBalance(EngineAPI.GetDataFileValue<long>("WalletBalance"));
                     }
 
                     if (EngineAPI.DoesDataFileExist("PlayerStats"))
@@ -54,7 +54,7 @@ namespace Proline.ClassicOnline.SClassic
                         var resemblence = EngineAPI.GetDataFileValue<float>("Resemblance");
                         var skintone = EngineAPI.GetDataFileValue<float>("SkinTone");
 
-                        CGameLogicAPI.SetPedLooks(Game.PlayerPed.Handle, new CharacterLooks()
+                        EngineAPI.SetPedLooks(Game.PlayerPed.Handle, new CharacterLooks()
                         {
                             Mother = mother,
                             Father = father,
@@ -88,7 +88,7 @@ namespace Proline.ClassicOnline.SClassic
                             vehicle.IsPersistent = true;
                             if (vehicle.AttachedBlips.Length == 0)
                                 vehicle.AttachBlip();
-                            CGameLogicAPI.SetCharacterPersonalVehicle(vehicle.Handle);
+                            EngineAPI.SetCharacterPersonalVehicle(vehicle.Handle);
                         }
                     }
 
@@ -103,7 +103,7 @@ namespace Proline.ClassicOnline.SClassic
                         }
                     }
 
-                    CGameLogicAPI.SetCharacter(character);
+                    EngineAPI.SetCharacter(character);
                     EngineAPI.StartNewScript("LoadStats");
 
                 }

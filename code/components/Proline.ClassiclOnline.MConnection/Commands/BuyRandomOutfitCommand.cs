@@ -12,11 +12,12 @@ namespace Proline.ClassicOnline.CNetConnection.Commands
 
         protected override void OnCommandExecute(params object[] args)
         {
-            if (CGameLogicAPI.GetCharacterBankBalance() > 250)
+            var api = new CGameLogicAPI();
+            if (api.GetCharacterBankBalance() > 250)
             {
                 Game.Player.Character.Style.RandomizeOutfit();
                 Game.Player.Character.Style.RandomizeProps();
-                CGameLogicAPI.SetCharacterBankBalance(250);
+                api.SetCharacterBankBalance(250);
             }
         }
     }

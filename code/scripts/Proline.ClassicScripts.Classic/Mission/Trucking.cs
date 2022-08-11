@@ -22,7 +22,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
             if (EngineAPI.GetInstanceCountOfScript("Trucking") > 1)
                 return;
 
-            if (!MissionAPIs.BeginMission())
+            if (!EngineAPI.BeginMission())
                 return;
 
             _truckSpawnLoc = new Vector3(829.9249f, -2950.439f, 4.902536f);
@@ -30,8 +30,8 @@ namespace Proline.ClassicOnline.SClassic.Mission
             _truck = await World.CreateVehicle(VehicleHash.Phantom, _truckSpawnLoc, 180);
             _trailer = await World.CreateVehicle(VehicleHash.Trailers2, _trailerSpawnLoc, 270);
 
-            MissionAPIs.TrackPoolObjectForMission(_truck);
-            MissionAPIs.TrackPoolObjectForMission(_trailer);
+            EngineAPI.TrackPoolObjectForMission(_truck);
+            EngineAPI.TrackPoolObjectForMission(_trailer);
 
             _deliveryLoc = new Vector3(-430.9589f, -2713.246f, 5.000218f);
             _payout = (int)(10.0f * World.GetDistance(_trailer.Position, _deliveryLoc));
@@ -39,7 +39,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
             _truck.AttachBlip();
             _trailer.AttachBlip();
             _deliveryBlip = World.CreateBlip(_deliveryLoc);
-            MissionAPIs.TrackPoolObjectForMission(_deliveryBlip);
+            EngineAPI.TrackPoolObjectForMission(_deliveryBlip);
 
             while (!token.IsCancellationRequested)
             {
@@ -60,14 +60,14 @@ namespace Proline.ClassicOnline.SClassic.Mission
                     if (World.GetDistance(_trailer.Position, _deliveryLoc) < 10f)
                     {
                         _trailer.Delete();
-                        CGameLogic.CGameLogicAPI.AddValueToBankBalance(_payout);
+                        EngineAPI.AddValueToBankBalance(_payout);
                         break;
                     }
                 }
 
                 await BaseScript.Delay(0);
             }
-            MissionAPIs.EndMission();
+            EngineAPI.EndMission();
         }
     }
 }

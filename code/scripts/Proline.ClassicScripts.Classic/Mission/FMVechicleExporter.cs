@@ -1,9 +1,8 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
-using Proline.CFXExtended.Core;
-using Proline.ClassicOnline.CScreenRendering;
-using Proline.ClassicOnline.MissionManager;
+using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -31,7 +30,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
             while (!token.IsCancellationRequested)
             {
 
-                if (Game.PlayerPed.IsInVehicle() && !MissionAPIs.GetMissionFlag() && !CGameLogic.CGameLogicAPI.IsInPersonalVehicle() && !MissionAPIs.IsInMissionVehicle())
+                if (Game.PlayerPed.IsInVehicle() && !EngineAPI.GetMissionFlag() && !EngineAPI.IsInPersonalVehicle() && !EngineAPI.IsInMissionVehicle())
                 {
                     _targetVehicle = Game.PlayerPed.CurrentVehicle;
                     if (!_oneTime)
@@ -42,7 +41,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
                         _blip.IsFlashing = true;
                         Screen.DisplayHelpTextThisFrame("Deliver this vehicle to the docks to earn some money");
                         API.PlaySoundFrontend(-1, "INFO", "HUD_FRONTEND_DEFAULT_SOUNDSET", true);
-                        CScreenRenderingAPI.FlashBlip(_blip);
+                        EngineAPI.FlashBlip(_blip);
                         _oneTime = true;
                     }
 

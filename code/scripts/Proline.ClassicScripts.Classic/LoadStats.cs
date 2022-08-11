@@ -11,9 +11,9 @@ namespace Proline.ClassicOnline.SClassic
     {
         public async Task Execute(object[] args, CancellationToken token)
         {
-            if (CGameLogicAPI.HasCharacter())
+            if (EngineAPI.HasCharacter())
             {
-                var stats = CGameLogicAPI.GetChracterStats();
+                var stats = EngineAPI.GetChracterStats();
                 if (stats == null)
                     return;
                 var walletBalanceStat = MPStat.GetStat<long>("MP0_WALLET_BALANCE");
@@ -26,8 +26,8 @@ namespace Proline.ClassicOnline.SClassic
                 EngineAPI.LogDebug(walletBalance);
                 EngineAPI.LogDebug(bankBalance);
 
-                walletBalanceStat.SetValue(CGameLogicAPI.GetCharacterWalletBalance());
-                bankBalanceStat.SetValue(CGameLogicAPI.GetCharacterBankBalance());
+                walletBalanceStat.SetValue(EngineAPI.GetCharacterWalletBalance());
+                bankBalanceStat.SetValue(EngineAPI.GetCharacterBankBalance());
             }
         }
     }

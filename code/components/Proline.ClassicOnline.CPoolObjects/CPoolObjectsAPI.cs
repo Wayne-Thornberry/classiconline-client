@@ -2,9 +2,9 @@
 
 namespace Proline.ClassicOnline.CPoolObjects
 {
-    public static class CPoolObjectsAPI
+    public class CPoolObjectsAPI : ICPoolObjectsAPI
     {
-        public static int[] GetAllExistingPoolObjects()
+        public int[] GetAllExistingPoolObjects()
         {
             return PoolObjectManager.TrackedHandles;
         }

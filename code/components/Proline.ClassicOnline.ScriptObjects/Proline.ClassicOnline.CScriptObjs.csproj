@@ -12,8 +12,6 @@
 
   <ItemGroup>
 	  
-    <ProjectReference Include="..\..\core\Proline.ClassicOnline.Core\Proline.ClassicOnline.Engine.csproj" />
-	  
     <ProjectReference Include="..\Proline.ClassicComponents.Character\Proline.ClassicOnline.CGameLogic.csproj" />
     <ProjectReference Include="..\Proline.ClassicComponents.Data\Proline.ClassicOnline.CDataStream.csproj" />
     <ProjectReference Include="..\Proline.ClassicOnline.CPoolObjects\Proline.ClassicOnline.CPoolObjects.csproj" /> 

@@ -12,7 +12,8 @@ namespace Proline.ClassicOnline.CShopCatalogue.Scripts
         public async Task Execute()
         {
             var data = ResourceFile.Load("data/catalogue/catalogue-vehicles.json");
-            CDebugActionsAPI.LogDebug(data);
+            var api = new CDebugActionsAPI();
+            api.LogDebug(data);
             CatalougeManager.GetInstance().Register("VehicleCatalouge", JsonConvert.DeserializeObject<VehicleCatalouge>(data.Load()));
         }
     }

@@ -16,6 +16,7 @@
 	</ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\components\Proline.ClassicComponents.Character\Proline.ClassicOnline.CGameLogic.csproj" />
     <ProjectReference Include="..\..\core\Proline.ClassicOnline.Core\Proline.ClassicOnline.Engine.csproj" />
     
     <ProjectReference Include="..\..\libs\CFXExtended\Proline.CFXExtended.Client\Proline.ClassicOnline.Scaleforms.csproj" />

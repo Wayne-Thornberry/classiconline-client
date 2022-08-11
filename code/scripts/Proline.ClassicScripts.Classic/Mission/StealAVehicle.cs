@@ -52,9 +52,9 @@ namespace Proline.ClassicOnline.SClassic.Mission
                 {
                     if (!Game.PlayerPed.IsInVehicle())
                     {
-                        if (CGameLogicAPI.HasCharacter())
+                        if (EngineAPI.HasCharacter())
                         {
-                            CGameLogic.CGameLogicAPI.SetCharacterBankBalance(CGameLogic.CGameLogicAPI.GetCharacterBankBalance() + _payout);
+                            EngineAPI.SetCharacterBankBalance(EngineAPI.GetCharacterBankBalance() + _payout);
                         }
                         _targetEntity.Delete();
                         break;

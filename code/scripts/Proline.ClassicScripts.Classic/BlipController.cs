@@ -1,5 +1,6 @@
 ﻿using CitizenFX.Core;
 using Proline.ClassicOnline.CGameLogic;
+using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,12 +14,12 @@ namespace Proline.ClassicOnline.SClassic
 
             while (!token.IsCancellationRequested)
             {
-                if (CGameLogicAPI.HasCharacter())
+                if (EngineAPI.HasCharacter())
                 {
                     if (Game.PlayerPed.IsInVehicle())
                     {
                         var currentVehicle = Game.PlayerPed.CurrentVehicle;
-                        var personalVehicle = CGameLogicAPI.GetPersonalVehicle();
+                        var personalVehicle = EngineAPI.GetPersonalVehicle();
                         if (personalVehicle != null)
                         {
                             if (currentVehicle == personalVehicle)
@@ -32,7 +33,7 @@ namespace Proline.ClassicOnline.SClassic
                     }
                     else
                     {
-                        var personalVehicle = CGameLogicAPI.GetPersonalVehicle();
+                        var personalVehicle = EngineAPI.GetPersonalVehicle();
                         if (personalVehicle != null)
                         {
                             foreach (var blip in personalVehicle.AttachedBlips)

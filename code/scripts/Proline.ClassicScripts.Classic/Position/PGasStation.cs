@@ -48,7 +48,7 @@ namespace Proline.ClassicOnline.SClassic.Position
                         EngineAPI.LogDebug(_fillAmount);
                         var cost = (int)(_fillAmount * 100.00f);
                         EngineAPI.LogDebug(cost);
-                        CGameLogicAPI.SetCharacterBankBalance(CGameLogicAPI.GetCharacterBankBalance() - cost);
+                        EngineAPI.SetCharacterBankBalance(EngineAPI.GetCharacterBankBalance() - cost);
                         _fillAmount = 0f;
                         _isFilling = false;
                     }

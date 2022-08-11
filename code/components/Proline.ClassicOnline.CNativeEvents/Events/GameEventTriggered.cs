@@ -46,8 +46,9 @@ namespace Proline.ClassicOnline.CNativeEvents.Events
         /// <param name="vehicleDamageTypeFlag">Vehicle damage type flag, 93 is vehicle tires damaged, others unknown.</param>
         private void VehicleDestroyed(int vehicle, int attacker, uint weaponHash, bool isMeleeDamage, int vehicleDamageTypeFlag)
         {
+            var api = new CDebugActionsAPI();
             //TriggerEvent(eventName + ":VehicleDestroyed", vehicle, attacker, weaponHash, isMeleeDamage, vehicleDamageTypeFlag);
-            CDebugActionsAPI.LogDebug($"[{eventName}:VehicleDestroyed] vehicle: {vehicle}, attacker: {attacker}, weaponHash: {weaponHash}, isMeleeDamage: {isMeleeDamage}, vehicleDamageTypeFlag: {vehicleDamageTypeFlag}");
+            api.LogDebug($"[{eventName}:VehicleDestroyed] vehicle: {vehicle}, attacker: {attacker}, weaponHash: {weaponHash}, isMeleeDamage: {isMeleeDamage}, vehicleDamageTypeFlag: {vehicleDamageTypeFlag}");
         }
 
         /// <summary>
@@ -57,8 +58,9 @@ namespace Proline.ClassicOnline.CNativeEvents.Events
         /// <param name="vehicle">Vehicle that was used to kill the ped.</param>
         private void PedKilledByVehicle(int ped, int vehicle)
         {
+            var api = new CDebugActionsAPI();
             //TriggerEvent(eventName + ":PedKilledByVehicle", ped, vehicle);
-            CDebugActionsAPI.LogDebug($"[{eventName}:PedKilledByVehicle] ped: {ped}, vehicle: {vehicle}");
+            api.LogDebug($"[{eventName}:PedKilledByVehicle] ped: {ped}, vehicle: {vehicle}");
         }
 
         /// <summary>
@@ -70,8 +72,9 @@ namespace Proline.ClassicOnline.CNativeEvents.Events
         /// <param name="isMeleeDamage">True if the ped was killed with a melee weapon (including unarmed).</param>
         private void PedKilledByPlayer(int ped, int player, uint weaponHash, bool isMeleeDamage)
         {
+            var api = new CDebugActionsAPI();
             //TriggerEvent(eventName + ":PedKilledByPlayer", ped, player, weaponHash, isMeleeDamage);
-            CDebugActionsAPI.LogDebug($"[{eventName}:PedKilledByPlayer] ped: {ped}, player: {player}, weaponHash: {weaponHash}, isMeleeDamage: {isMeleeDamage}");
+            api.LogDebug($"[{eventName}:PedKilledByPlayer] ped: {ped}, player: {player}, weaponHash: {weaponHash}, isMeleeDamage: {isMeleeDamage}");
         }
 
         /// <summary>
@@ -83,8 +86,9 @@ namespace Proline.ClassicOnline.CNativeEvents.Events
         /// <param name="isMeleeDamage">True if the ped was killed using a melee weapon (including unarmed).</param>
         private void PedKilledByPed(int ped, int attackerPed, uint weaponHash, bool isMeleeDamage)
         {
+            var api = new CDebugActionsAPI();
             //TriggerEvent(eventName + ":PedKilledByPed", ped, attackerPed, weaponHash, isMeleeDamage);
-            CDebugActionsAPI.LogDebug($"[{eventName}:PedKilledByPed] ped: {ped}, attackerPed: {attackerPed}, weaponHash: {weaponHash}, isMeleeDamage: {isMeleeDamage}");
+            api.LogDebug($"[{eventName}:PedKilledByPed] ped: {ped}, attackerPed: {attackerPed}, weaponHash: {weaponHash}, isMeleeDamage: {isMeleeDamage}");
         }
 
         /// <summary>
@@ -96,8 +100,9 @@ namespace Proline.ClassicOnline.CNativeEvents.Events
         /// <param name="isMeleeDamage">True whenever the ped was killed using a melee weapon (including unarmed).</param>
         private void PedDied(int ped, int attacker, uint weaponHash, bool isMeleeDamage)
         {
+            var api = new CDebugActionsAPI();
             //TriggerEvent(eventName + ":PedDied", ped, attacker, weaponHash, isMeleeDamage);
-            CDebugActionsAPI.LogDebug($"[{eventName}:PedDied] ped: {ped}, attacker: {attacker}, weaponHash: {weaponHash}, isMeleeDamage: {isMeleeDamage}");
+            api.LogDebug($"[{eventName}:PedDied] ped: {ped}, attacker: {attacker}, weaponHash: {weaponHash}, isMeleeDamage: {isMeleeDamage}");
         }
 
         /// <summary>
@@ -109,8 +114,9 @@ namespace Proline.ClassicOnline.CNativeEvents.Events
         /// <param name="isMeleeDamage">True whenever the entity was killed/destroyed with a melee weapon.</param>
         private void EntityKilled(int entity, int attacker, uint weaponHash, bool isMeleeDamage)
         {
+            var api = new CDebugActionsAPI();
             // TriggerEvent(eventName + ":EntityKilled", entity, attacker, weaponHash, isMeleeDamage);
-            CDebugActionsAPI.LogDebug($"[{eventName}:EntityKilled] entity: {entity}, attacker: {attacker}, weaponHash: {weaponHash}, isMeleeDamage: {isMeleeDamage}");
+            api.LogDebug($"[{eventName}:EntityKilled] entity: {entity}, attacker: {attacker}, weaponHash: {weaponHash}, isMeleeDamage: {isMeleeDamage}");
         }
 
         /// <summary>
@@ -123,8 +129,9 @@ namespace Proline.ClassicOnline.CNativeEvents.Events
         /// <param name="vehicleDamageTypeFlag">Vehicle damage type flag, 93 is vehicle tire damage, others are unknown.</param>
         private void VehicleDamaged(int vehicle, int attacker, uint weaponHash, bool isMeleeDamage, int vehicleDamageTypeFlag)
         {
+            var api = new CDebugActionsAPI();
             //TriggerEvent(eventName + ":VehicleDamaged", vehicle, attacker, weaponHash, isMeleeDamage, vehicleDamageTypeFlag);
-            CDebugActionsAPI.LogDebug($"[{eventName}:VehicleDamaged] vehicle: {vehicle}, attacker: {attacker}, weaponHash: {weaponHash}, vehicleDamageTypeFlag: {vehicleDamageTypeFlag}");
+            api.LogDebug($"[{eventName}:VehicleDamaged] vehicle: {vehicle}, attacker: {attacker}, weaponHash: {weaponHash}, vehicleDamageTypeFlag: {vehicleDamageTypeFlag}");
         }
 
         /// <summary>
@@ -136,8 +143,9 @@ namespace Proline.ClassicOnline.CNativeEvents.Events
         /// <param name="isMeleeDamage">True if the damage was done using a melee weapon (including unarmed).</param>
         private void EntityDamaged(int entity, int attacker, uint weaponHash, bool isMeleeDamage)
         {
+            var api = new CDebugActionsAPI();
             //TriggerEvent(eventName + ":EntityDamaged", entity, attacker, weaponHash, isMeleeDamage);
-            CDebugActionsAPI.LogDebug($"[{eventName}:EntityDamaged] entity: {entity}, attacker: {attacker}, weaponHash: {weaponHash}, isMeleeDamage: {isMeleeDamage}");
+            api.LogDebug($"[{eventName}:EntityDamaged] entity: {entity}, attacker: {attacker}, weaponHash: {weaponHash}, isMeleeDamage: {isMeleeDamage}");
         }
 
 
@@ -148,7 +156,8 @@ namespace Proline.ClassicOnline.CNativeEvents.Events
         /// <param name="data"></param>
         internal void OnGameEventTriggered(string eventName, List<object> data)
         {
-            CDebugActionsAPI.LogDebug($"[{eventName}]");
+            var api = new CDebugActionsAPI();
+            api.LogDebug($"[{eventName}]");
             if (eventName == "CEventNetworkEntityDamage")
             {
                 Entity victim = Entity.FromHandle(int.Parse(data[0].ToString()));
@@ -219,10 +228,11 @@ namespace Proline.ClassicOnline.CNativeEvents.Events
             }
             else
             {
-                CCoreSystemAPI.TriggerScriptEvent(eventName, data.ToArray());
+                var coreApi = new CCoreSystemAPI();
+                coreApi.TriggerScriptEvent(eventName, data.ToArray());
                 foreach (var item in data)
                 {
-                    CDebugActionsAPI.LogDebug($"[{item}]");
+                    api.LogDebug($"[{item}]");
                 }
             }
         }

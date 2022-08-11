@@ -1,7 +1,7 @@
 ﻿using CitizenFX.Core.Native;
 using System;
 
-namespace Proline.CFXExtended.Core
+namespace Proline.ClassicOnline.CGameLogic
 {
     internal interface IStat
     {

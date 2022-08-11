@@ -20,10 +20,10 @@ namespace Proline.ClassicOnline.SClassic
                 {
                     await BaseScript.Delay(1);
                 }
-                CGameLogicAPI.SetCharacter(character);
+                EngineAPI.SetCharacter(character);
             }
 
-            CGameLogic.CGameLogicAPI.SetPedOutfit("mp_m_defaultoutfit", Game.PlayerPed.Handle);
+            EngineAPI.SetPedOutfit("mp_m_defaultoutfit", Game.PlayerPed.Handle);
         }
 
         private static PlayerCharacter CreateNewCharacter()

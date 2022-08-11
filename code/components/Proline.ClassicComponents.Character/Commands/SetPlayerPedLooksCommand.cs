@@ -15,10 +15,11 @@ namespace Proline.ClassicOnline.CGameLogic.Commands
             var looks = new CharacterLooks();
             if (args.Length == 3)
             {
+                var api = new CGameLogicAPI();
                 looks.Father = int.Parse(args[0].ToString());
                 looks.Mother = int.Parse(args[1].ToString());
                 looks.Resemblence = float.Parse(args[2].ToString());
-                CGameLogicAPI.SetPedLooks(Game.PlayerPed.Handle, looks);
+                api.SetPedLooks(Game.PlayerPed.Handle, looks);
             }
 
         }

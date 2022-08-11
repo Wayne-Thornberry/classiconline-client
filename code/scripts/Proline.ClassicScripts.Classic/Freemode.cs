@@ -1,9 +1,7 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
-using CitizenFX.Core.UI;
-using Proline.ClassicOnline.CCoreSystem;
-using Proline.ClassicOnline.Engine.Parts;
-using Proline.ClassicOnline.MissionManager;
+using CitizenFX.Core.UI; 
+using Proline.ClassicOnline.Engine.Parts; 
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -29,7 +27,7 @@ namespace Proline.ClassicOnline.SClassic
             while (!token.IsCancellationRequested)
             {
 
-                if (!MissionAPIs.GetMissionFlag())
+                if (!EngineAPI.GetMissionFlag())
                 {
                     if (Game.PlayerPed.CurrentVehicle != null)
                     {
