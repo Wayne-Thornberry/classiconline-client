@@ -1,4 +1,5 @@
 ﻿using Proline.ClassicOnline.CPoolObjects.Internal;
+using Proline.ClassicOnline.EventQueue;
 using Proline.Resource.Logging;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,7 @@ namespace Proline.ClassicOnline.CPoolObjects.Tasks
         {
             foreach (var item in handles)
             {
+                ComponentEvent.InvokeEvent("CEventEntityBeginTracking", item);
                 //CDebugActions.CDebugActionsAPI.LogDebug($"Added Handle {item} Found, Exists: {API.DoesEntityExist(item)}");
             }
         }
@@ -48,6 +50,7 @@ namespace Proline.ClassicOnline.CPoolObjects.Tasks
         {
             foreach (var item in handles)
             {
+                ComponentEvent.InvokeEvent("CEventEntityEndTracking", item);
                 //CDebugActions.CDebugActionsAPI.LogDebug($"Removed Handle {item} Found, Exists: {API.DoesEntityExist(item)}");
             }
         }
