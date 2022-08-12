@@ -16,53 +16,12 @@ namespace Proline.ClassicOnline.CScriptObjs.Tasks
 
         public ProcessScriptObjs()
         {
-            _sm = ScriptObjectManager.GetInstance();
-            _oldList = new List<int>();
-        }
+            _sm = ScriptObjectManager.GetInstance(); 
+        } 
 
-
-        private ScriptObjectManager _sm;
-        private List<int> _oldList;
+        private ScriptObjectManager _sm; 
 
         public async Task Execute()
-        {
-            var api = new CPoolObjectsAPI();
-            var currentHandles = api.GetAllExistingPoolObjects();
-            foreach (var handle in currentHandles)
-            {
-                if (!API.DoesEntityExist(handle)) continue;
-                var modelHash = API.GetEntityModel(handle);
-                if (!_sm.ContainsSO(handle) && _sm.ContainsKey(modelHash))
-                {
-                    _log.Debug(handle + " Oh boy, we found a matching script object with that model hash from that handle, time to track it");
-                    _sm.AddSO(handle, new ScriptObject()
-                    {
-                        Data = _sm.Get(modelHash),
-                        Handle = handle,
-                        State = 0,
-                    });
-                }
-            }
-            var newLsit = new List<int>(currentHandles);
-            var removed = newLsit.Except(_oldList).ToArray();
-
-            foreach (var handle in removed)
-            {
-                if (API.DoesEntityExist(handle)) continue;
-                var modelHash = API.GetEntityModel(handle);
-                if (!_sm.ContainsKey(modelHash)) continue;
-                if (_sm.ContainsKey(handle))
-                    _sm.Remove(handle);
-            }
-            _oldList = newLsit;
-
-            ProcessScriptObjects();
-
-        }
-
-
-
-        private void ProcessScriptObjects()
         {
             var values = _sm.GetValues();
             if (values == null)
@@ -73,7 +32,7 @@ namespace Proline.ClassicOnline.CScriptObjs.Tasks
                 var so = quew.Dequeue();
                 ProcessScriptObject(so);
             }
-        }
+        } 
 
         private void ProcessScriptObject(ScriptObject so)
         {
@@ -82,7 +41,7 @@ namespace Proline.ClassicOnline.CScriptObjs.Tasks
                 _sm.Remove(so.Handle);
                 return;
             }
-            var entity = CitizenFX.Core.Entity.FromHandle(so.Handle);
+            var entity = Entity.FromHandle(so.Handle);
             foreach (var item in so.Data)
             {
                 if (IsEntityWithinActivationRange(entity, Game.PlayerPed, item.ActivationRange) && so.State == 0)

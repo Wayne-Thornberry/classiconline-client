@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CitizenFX.Core.Native;
+using Proline.ClassicOnline.CScriptObjs.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +13,20 @@ namespace Proline.ClassicOnline.CScriptObjs.Events
     {
         public void OnEventInvoked(object[] args)
         {
-            Console.WriteLine(this.GetType().Name + " Invoked");
+            //Console.WriteLine(this.GetType().Name + " Invoked");
+            if (args == null || args.Length == 0)
+                return;
+            var handle = (int)args[0];
+
+            var _sm = ScriptObjectManager.GetInstance();
+
+            if (API.DoesEntityExist(handle)) 
+                return;
+            var modelHash = API.GetEntityModel(handle);
+            if (!_sm.ContainsKey(modelHash)) 
+                return;
+            if (_sm.ContainsKey(handle))
+                _sm.Remove(handle);
         }
     }
 }
