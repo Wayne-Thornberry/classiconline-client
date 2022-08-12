@@ -18,15 +18,17 @@ namespace Proline.ClassicOnline.CGameLogic
         bool HasBankBalance(long price);
         bool HasCharacter();
         bool IsInPersonalVehicle();
-        void SetCharacter(PlayerCharacter character);
+        void SetCharacter(int character);
         void SetCharacterBankBalance(long value);
         void SetCharacterMaxWalletBalance(int value);
         void SetCharacterPersonalVehicle(int handle);
         void SetCharacterWalletBalance(long value);
         void SetPedGender(int handle, char gender);
-        void SetPedLooks(int pedHandle, CharacterLooks looks);
+        void SetPedLooks(int handle, int mother, int father, float parentResemblence, float skinResemblence);
         void SetPedOutfit(string outfitName, int handle);
         void SubtractValueFromBankBalance(long value);
         void SubtractValueFromWalletBalance(long value);
+        int CreateNewCharacter();
+        void SetStatLong(string statName, long value);
     }
 }

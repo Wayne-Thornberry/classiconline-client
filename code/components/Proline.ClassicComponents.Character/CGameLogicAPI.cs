@@ -15,11 +15,18 @@ namespace Proline.ClassicOnline.CGameLogic
     public class CGameLogicAPI : ICGameLogicAPI
     {
 
-        public void SetPedLooks(int pedHandle, CharacterLooks looks)
+        public void SetPedLooks(int pedHandle, int mother, int father, float parent, float skin)
         {
             var api = new CDebugActionsAPI();
             try
             {
+                var looks = new CharacterLooks()
+                {
+                    Mother = mother,
+                    Father = father,
+                    Resemblence = parent,
+                    SkinTone = skin,
+                };
                 //if (CharacterGlobals.Character != null)
                 //    CharacterGlobals.Character.Looks = looks;
                 API.SetPedHeadBlendData(pedHandle, looks.Father, looks.Mother, 0, looks.Father, looks.Mother, 0, looks.Resemblence, looks.SkinTone, 0, true);
@@ -50,6 +57,7 @@ namespace Proline.ClassicOnline.CGameLogic
                 api.LogError(e);
             }
         }
+         
 
         public void SetPedOutfit(string outfitName, int handle)
         {
@@ -101,9 +109,11 @@ namespace Proline.ClassicOnline.CGameLogic
             return Character.PlayerCharacter.Stats;
         }
 
-        public void SetCharacter(PlayerCharacter character)
+        public void SetCharacter(int character)
         {
-            Character.PlayerCharacter = character;
+            if (CharacterManager.Characters == null)
+                return; 
+            Character.PlayerCharacter = CharacterManager.Characters[character]; 
         }
         public bool HasCharacter()
         {
@@ -361,6 +371,21 @@ namespace Proline.ClassicOnline.CGameLogic
         public void SetCharacterPersonalVehicle(int handle)
         {
             Character.PersonalVehicle = new CharacterPersonalVehicle(handle);
+        }
+
+        public int CreateNewCharacter()
+        {
+            var character = new PlayerCharacter(Game.PlayerPed.Handle)
+            {
+                Stats = new CharacterStats()
+            };
+            CharacterManager.Characters[CharacterManager.NextCharacterIndex++] = character;
+            return CharacterManager.NextCharacterIndex;
+        }
+
+        public void SetStatLong(string stat, long value)
+        {
+            Character.PlayerCharacter.Stats.SetStat(stat, value); 
         }
     }
 }

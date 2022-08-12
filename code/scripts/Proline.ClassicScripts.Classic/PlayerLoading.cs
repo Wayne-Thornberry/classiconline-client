@@ -24,13 +24,13 @@ namespace Proline.ClassicOnline.SClassic
                 await EngineAPI.PullSaveFromCloud(); // Sends a load request to the server
                 if (EngineAPI.HasSaveLoaded())
                 {
-                    PlayerCharacter character = CreateNewCharacter();
+                    int character = EngineAPI.CreateCharacter();
 
                     if (EngineAPI.DoesDataFileExist("PlayerInfo"))
                     {
                         EngineAPI.SelectDataFile("PlayerInfo");
-                        character.Health = EngineAPI.GetDataFileValue<int>("PlayerHealth");
-                        character.Position = EngineAPI.GetDataFileValue<Vector3>("PlayerPosition");
+                        Game.PlayerPed.Health = EngineAPI.GetDataFileValue<int>("PlayerHealth");
+                        Game.PlayerPed.Position = EngineAPI.GetDataFileValue<Vector3>("PlayerPosition");
                         EngineAPI.SetCharacterBankBalance(EngineAPI.GetDataFileValue<long>("BankBalance"));
                         EngineAPI.SetCharacterWalletBalance(EngineAPI.GetDataFileValue<long>("WalletBalance"));
                     }
@@ -40,8 +40,9 @@ namespace Proline.ClassicOnline.SClassic
                         EngineAPI.SelectDataFile("PlayerStats");
                         var x = EngineAPI.GetDataFileValue<int>("MP0_WALLET_BALANCE");
                         var y = EngineAPI.GetDataFileValue<int>("BANK_BALANCE");
-                        character.Stats.SetStat("WALLET_BALANCE", x);
-                        character.Stats.SetStat("BANK_BALANCE", y);
+
+                        EngineAPI.SetStatLong("WALLET_BALANCE", x);
+                        EngineAPI.SetStatLong("BANK_BALANCE", x);
                     }
 
                     if (EngineAPI.DoesDataFileExist("CharacterLooks"))
@@ -52,13 +53,10 @@ namespace Proline.ClassicOnline.SClassic
                         var resemblence = EngineAPI.GetDataFileValue<float>("Resemblance");
                         var skintone = EngineAPI.GetDataFileValue<float>("SkinTone");
 
-                        EngineAPI.SetPedLooks(Game.PlayerPed.Handle, new CharacterLooks()
-                        {
-                            Mother = mother,
-                            Father = father,
-                            Resemblence = resemblence * 0.1f,
-                            SkinTone = skintone * 0.1f,
-                        });
+                        EngineAPI.SetPedLooks(Game.PlayerPed.Handle, mother,
+                            father,
+                             resemblence * 0.1f,
+                           skintone * 0.1f);
                     }
 
                     if (EngineAPI.DoesDataFileExist("PlayerOutfit"))
@@ -127,13 +125,6 @@ namespace Proline.ClassicOnline.SClassic
 
             }
 
-        }
-
-        private static PlayerCharacter CreateNewCharacter()
-        {
-            var character = new PlayerCharacter(Game.PlayerPed.Handle);
-            character.Stats = new CharacterStats();
-            return character;
         }
 
     }

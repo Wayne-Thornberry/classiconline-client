@@ -5,12 +5,12 @@ namespace Proline.ClassicOnline.Engine.Parts
 {
 
     public static partial class EngineAPI
-    {
+    { 
 
-        public static void SetPedLooks(int pedHandle, CharacterLooks looks)
+        public static void SetPedLooks(int handle, int mother, int father, float v1, float v2)
         {
             var api = new CGameLogicAPI();
-            api.SetPedLooks(pedHandle, looks);
+            api.SetPedLooks(handle, mother, father, v1, v2);
         }
 
         public static void SetPedOutfit(string outfitName, int handle)
@@ -37,7 +37,14 @@ namespace Proline.ClassicOnline.Engine.Parts
             return api.GetCharacterStats();
         }
 
-        public static void SetCharacter(PlayerCharacter character)
+
+        public static int CreateCharacter()
+        {
+            var api = new CGameLogicAPI();
+            return api.CreateNewCharacter();
+        }
+
+        public static void SetCharacter(int character)
         {
             var api = new CGameLogicAPI();
             api.SetCharacter(character);

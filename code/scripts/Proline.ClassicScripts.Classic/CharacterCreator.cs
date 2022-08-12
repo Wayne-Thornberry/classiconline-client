@@ -201,13 +201,7 @@ namespace Proline.ClassicOnline.SClassic
 
         public void UpdateHeritage()
         {
-            EngineAPI.SetPedLooks(Game.PlayerPed.Handle, new CharacterLooks()
-            {
-                Mother = _selectedMother,
-                Father = _selectedFather,
-                Resemblence = _resemblence * 0.1f,
-                SkinTone = _skin * 0.1f,
-            });
+            EngineAPI.SetPedLooks(Game.PlayerPed.Handle, _selectedMother, _selectedFather, _resemblence * 0.1f, _skin * 0.1f);
         }
 
     }

@@ -12,25 +12,18 @@ namespace Proline.ClassicOnline.SClassic
         {
             await Game.Player.ChangeModel(new Model(1885233650));
             if (!EngineAPI.HasSaveLoaded())
-            {
-                PlayerCharacter character = CreateNewCharacter();
+            { 
                 EngineAPI.StartNewScript("LoadDefaultStats");
                 while (EngineAPI.GetInstanceCountOfScript("LoadDefaultStats") > 0)
                 {
                     await BaseScript.Delay(1);
                 }
-                EngineAPI.SetCharacter(character);
+                EngineAPI.SetCharacter(EngineAPI.CreateCharacter());
             }
 
             EngineAPI.SetPedOutfit("mp_m_defaultoutfit", Game.PlayerPed.Handle);
         }
 
-        private static PlayerCharacter CreateNewCharacter()
-        {
-            var character = new PlayerCharacter(Game.PlayerPed.Handle);
-            character.Stats = new CharacterStats();
-            return character;
-        }
 
     }
 }

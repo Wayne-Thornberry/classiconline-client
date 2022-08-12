@@ -11,15 +11,14 @@ namespace Proline.ClassicOnline.CGameLogic.Commands
         }
 
         protected override void OnCommandExecute(params object[] args)
-        {
-            var looks = new CharacterLooks();
+        { 
             if (args.Length == 3)
             {
                 var api = new CGameLogicAPI();
-                looks.Father = int.Parse(args[0].ToString());
-                looks.Mother = int.Parse(args[1].ToString());
-                looks.Resemblence = float.Parse(args[2].ToString());
-                api.SetPedLooks(Game.PlayerPed.Handle, looks);
+                var Father = int.Parse(args[0].ToString());
+                var Mother = int.Parse(args[1].ToString());
+                var Resemblence = float.Parse(args[2].ToString());
+                api.SetPedLooks(Game.PlayerPed.Handle, Mother, Father, Resemblence, 0f);
             }
 
         }
