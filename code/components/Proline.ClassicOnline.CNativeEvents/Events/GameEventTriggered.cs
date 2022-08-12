@@ -238,10 +238,7 @@ namespace Proline.ClassicOnline.CNativeEvents.Events
             {
                 var coreApi = new CCoreSystemAPI();
                 coreApi.TriggerScriptEvent(eventName, data.ToArray());
-                foreach (var item in data)
-                {
-                    api.LogDebug($"[{item}]");
-                }
+                ComponentEvent.InvokeEvent(eventName, data.ToArray());
             }
         }
     }

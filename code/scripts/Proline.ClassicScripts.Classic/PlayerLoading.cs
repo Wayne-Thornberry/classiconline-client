@@ -25,6 +25,7 @@ namespace Proline.ClassicOnline.SClassic
                 if (EngineAPI.HasSaveLoaded())
                 {
                     int character = EngineAPI.CreateCharacter();
+                    EngineAPI.SetCharacter(character);
 
                     if (EngineAPI.DoesDataFileExist("PlayerInfo"))
                     {
@@ -99,7 +100,6 @@ namespace Proline.ClassicOnline.SClassic
                         }
                     }
 
-                    EngineAPI.SetCharacter(character);
                     EngineAPI.StartNewScript("LoadStats");
 
                 }

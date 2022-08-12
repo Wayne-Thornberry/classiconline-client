@@ -20,7 +20,6 @@ namespace Proline.ClassicOnline.SClassic
             _interiorLoc = new Vector3(402.668f, -1003.000f, -98.004f);
             _spawnLocation = new Vector3(405.83f, -997.13f, -99.004f);
             _interiorId = API.GetInteriorAtCoords(_interiorLoc.X, _interiorLoc.Y, _interiorLoc.Z);
-            _selectedOutfit = new CharacterOutfit();// Default outfit from json 
             ScriptStage = 0;
             EngineAPI.StartNewScript("LoadDefaultOnline");
             while (EngineAPI.GetInstanceCountOfScript("LoadDefaultOnline") > 0)
@@ -129,7 +128,6 @@ namespace Proline.ClassicOnline.SClassic
         private Camera _closeUpCamera;
         private Camera _photoCamera;
         private Vector3 _spawnLocation;
-        private CharacterOutfit _selectedOutfit;
         private int _interiorId;
         private int _selectedMother;
         private int _selectedFather;

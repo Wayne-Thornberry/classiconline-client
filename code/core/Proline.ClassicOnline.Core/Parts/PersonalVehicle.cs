@@ -25,8 +25,9 @@ namespace Proline.ClassicOnline.Engine.Parts
 
 
         public static void SetCharacterPersonalVehicle(int handle)
-        {
-
+        { 
+            var api = new CGameLogicAPI();
+            api.SetCharacterPersonalVehicle(handle);
         }
     }
 }

@@ -8,6 +8,7 @@ using Proline.ClassicOnline.CGameLogic.Internal;
 using Console = Proline.Resource.Console;
 using Proline.Resource.IO;
 using System;
+using System.Collections.Generic;
 
 namespace Proline.ClassicOnline.CGameLogic
 {
@@ -375,16 +376,22 @@ namespace Proline.ClassicOnline.CGameLogic
 
         public int CreateNewCharacter()
         {
+            if (CharacterManager.Characters == null)
+                CharacterManager.Characters = new List<PlayerCharacter>();
             var character = new PlayerCharacter(Game.PlayerPed.Handle)
             {
                 Stats = new CharacterStats()
             };
-            CharacterManager.Characters[CharacterManager.NextCharacterIndex++] = character;
-            return CharacterManager.NextCharacterIndex;
+            CharacterManager.Characters.Add(character);
+            var index = CharacterManager.NextCharacterIndex;
+            CharacterManager.NextCharacterIndex++;
+            return index;
         }
 
         public void SetStatLong(string stat, long value)
         {
+            if (Character.PlayerCharacter.Stats == null)
+                Character.PlayerCharacter.Stats = new CharacterStats();
             Character.PlayerCharacter.Stats.SetStat(stat, value); 
         }
     }
