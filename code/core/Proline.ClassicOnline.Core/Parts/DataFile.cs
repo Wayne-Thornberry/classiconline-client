@@ -23,7 +23,7 @@ namespace Proline.ClassicOnline.Engine.Parts
         public static bool DoesDataFileValueExist(string key)
         {
             var api = new CDataStreamAPI();
-            return api.DoesDataFileExist(key);
+            return api.DoesDataFileValueExist(key);
         }
         public static object GetDataFileValue(string key)
         {
@@ -39,6 +39,11 @@ namespace Proline.ClassicOnline.Engine.Parts
         {
             var api = new CDataStreamAPI();
             api.SaveDataFile(identifier);
+        }
+        public static string GetSelectedDataFile()
+        {
+            var api = new CDataStreamAPI();
+            return api.GetSelectedDataFile();
         }
         public static void SelectDataFile(string identifier)
         {

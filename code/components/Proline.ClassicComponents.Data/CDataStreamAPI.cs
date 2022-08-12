@@ -45,6 +45,22 @@ namespace Proline.ClassicOnline.CDataStream
             }
         }
 
+        public string GetSelectedDataFile()
+        {
+            var api = new CDebugActionsAPI();
+            try
+            { 
+                var fm = DataFileManager.GetInstance();
+                var saveFile = fm.ActiveFile;
+                return saveFile.Name;
+            }
+            catch (Exception e)
+            {
+                api.LogError(e.ToString());
+            }
+            return "";
+        }
+
         public bool DoesDataFileExist(string id)
         {
             var api = new CDebugActionsAPI();

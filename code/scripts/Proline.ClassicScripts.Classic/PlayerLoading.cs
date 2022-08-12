@@ -35,6 +35,11 @@ namespace Proline.ClassicOnline.SClassic
                         EngineAPI.SetCharacterBankBalance(EngineAPI.GetDataFileValue<long>("BankBalance"));
                         EngineAPI.SetCharacterWalletBalance(EngineAPI.GetDataFileValue<long>("WalletBalance"));
                     }
+                    else
+                    {
+                        EngineAPI.LogDebug("PlayerStats does not exist");
+                    }
+                    EngineAPI.LogDebug(EngineAPI.GetSelectedDataFile());
 
                     if (EngineAPI.DoesDataFileExist("PlayerStats"))
                     {
@@ -45,11 +50,17 @@ namespace Proline.ClassicOnline.SClassic
                         EngineAPI.SetStatLong("WALLET_BALANCE", x);
                         EngineAPI.SetStatLong("BANK_BALANCE", x);
                     }
+                    else
+                    {
+                        EngineAPI.LogDebug("PlayerStats does not exist");
+                    }
+                    EngineAPI.LogDebug(EngineAPI.GetSelectedDataFile());
 
                     if (EngineAPI.DoesDataFileExist("CharacterLooks"))
                     {
                         EngineAPI.SelectDataFile("CharacterLooks");
                         var mother = EngineAPI.GetDataFileValue<int>("Mother");
+                        EngineAPI.LogDebug("DASDSAUIODHBAUIDJABNDJASDDANSJKDBNSADJK:::: " + mother);
                         var father = EngineAPI.GetDataFileValue<int>("Father");
                         var resemblence = EngineAPI.GetDataFileValue<float>("Resemblance");
                         var skintone = EngineAPI.GetDataFileValue<float>("SkinTone");
@@ -59,6 +70,11 @@ namespace Proline.ClassicOnline.SClassic
                              resemblence * 0.1f,
                            skintone * 0.1f);
                     }
+                    else
+                    {
+                        EngineAPI.LogDebug("CharacterLooks does not exist");
+                    }
+                    EngineAPI.LogDebug(EngineAPI.GetSelectedDataFile());
 
                     if (EngineAPI.DoesDataFileExist("PlayerOutfit"))
                     {
@@ -72,13 +88,21 @@ namespace Proline.ClassicOnline.SClassic
 
                         }
                     }
+                    else
+                    {
+                        EngineAPI.LogDebug("PlayerOutfit does not exist");
+                    }
+
+                    EngineAPI.LogDebug(EngineAPI.GetSelectedDataFile());
 
                     if (EngineAPI.DoesDataFileExist("PlayerVehicle"))
                     {
                         EngineAPI.SelectDataFile("PlayerVehicle");
                         if (EngineAPI.DoesDataFileValueExist("VehicleHash"))
                         {
+                            EngineAPI.LogDebug("vehicleASD:::: ");
                             var pv = (VehicleHash)(uint)EngineAPI.GetDataFileValue<int>("VehicleHash");
+                            EngineAPI.LogDebug("vehicleASD:::: " + pv);
                             var position = EngineAPI.GetDataFileValue<Vector3>("VehiclePosition");
                             var vehicle = await World.CreateVehicle(new Model(pv), Game.PlayerPed.Position);
                             vehicle.PlaceOnNextStreet();
@@ -88,7 +112,12 @@ namespace Proline.ClassicOnline.SClassic
                             EngineAPI.SetCharacterPersonalVehicle(vehicle.Handle);
                         }
                     }
+                    else
+                    {
+                        EngineAPI.LogDebug("PlayerVehicle does not exist");
+                    }
 
+                    EngineAPI.LogDebug(EngineAPI.GetSelectedDataFile());
                     if (EngineAPI.DoesDataFileExist("PlayerWeapon"))
                     {
                         EngineAPI.SelectDataFile("PlayerWeapon");
@@ -99,6 +128,11 @@ namespace Proline.ClassicOnline.SClassic
                             Game.PlayerPed.Weapons.Give(hash, ammo, true, true);
                         }
                     }
+                    else
+                    {
+                        EngineAPI.LogDebug("PlayerWeapon does not exist");
+                    }
+                    EngineAPI.LogDebug(EngineAPI.GetSelectedDataFile());
 
                     EngineAPI.StartNewScript("LoadStats");
 
