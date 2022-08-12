@@ -1,4 +1,5 @@
 ﻿using CitizenFX.Core;
+using Proline.ClassicOnline.EventQueue;
 using Proline.Resource.Framework;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,7 @@ namespace Proline.ClassicOnline.Engine.Component
             var types = assembly.GetTypes();
             var scriptTypes = types.Where(e => ((object)e.GetMethod("Execute")) != null).ToArray();
             var commandTypes = types.Where(e => (object)e.BaseType == typeof(ResourceCommand)).ToArray();
+            var eventTypes = types.Where(e => (object)e.GetMethod("OnEventInvoked") != null).ToArray();
 
             componentContainer.Name = assembly.GetName().Name;
             Console.WriteLine($"Getting object from assembly {componentContainer.Name}");
@@ -53,6 +55,11 @@ namespace Proline.ClassicOnline.Engine.Component
             {
                 var command = (ResourceCommand)Activator.CreateInstance(item);
                 componentContainer.Commands.Add(command);
+            }
+
+            foreach (var item in eventTypes)
+            {
+                ComponentEvent.RegisterEvent(item); 
             }
             componentContainer._hasLoaded = true;
             return componentContainer;

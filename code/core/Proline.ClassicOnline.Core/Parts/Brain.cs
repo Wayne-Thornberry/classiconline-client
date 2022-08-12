@@ -1,4 +1,5 @@
-﻿using Proline.ClassicOnline.CGameLogic.Data;
+﻿using CitizenFX.Core;
+using Proline.ClassicOnline.CGameLogic.Data;
 using Proline.ClassicOnline.CScriptObjs;
 
 namespace Proline.ClassicOnline.Engine.Parts
@@ -10,7 +11,7 @@ namespace Proline.ClassicOnline.Engine.Parts
             var api = new CCScriptObjsAPI();
             return api.GetEntityHandlesByTypes(type);
         }
-        public static CitizenFX.Core.Entity GetNeariestEntity(EntityType type)
+        public static Entity GetNeariestEntity(EntityType type)
         {
             var api = new CCScriptObjsAPI();
             return api.GetNeariestEntity(type);

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Proline.ClassicOnline.Engine.Component;
 using Proline.ClassicOnline.Engine.Parts;
+using Proline.ClassicOnline.EventQueue;
 using Proline.Resource.IO;
 using System;
 using System.Collections.Generic;
@@ -83,22 +84,6 @@ namespace Proline.ClassicOnline.Engine
                     }
                 }
 
-                //var lsAssembly = ScriptingConfigSection.ModuleConfig;
-                //Console.WriteLine("Retrived config section");
-                //var _lwScriptManager = ScriptTypeLibrary.GetInstance();
-
-                //if (lsAssembly != null)
-                //{
-                //    Console.WriteLine($"Loading level scripts. from {lsAssembly.LevelScriptAssemblies.Count()} assemblies");
-                //    foreach (var item in lsAssembly.LevelScriptAssemblies)
-                //    {
-                //        _lwScriptManager.ProcessAssembly(item);
-                //    }
-                //    ScriptTypeLibrary.HasLoadedScripts = true;
-                //}
-
-                //var gc = new GarbageCleaner();
-                //var task = Task.Factory.StartNew(gc.Execute);
 
                 EngineAPI.StartNewScript("Main");
             }

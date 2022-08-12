@@ -7,7 +7,7 @@ using Console = Proline.Resource.Console;
 
 namespace Proline.ClassicOnline.CCoreSystem
 {
-    public partial class CCoreSystemAPI : ICCoreSystemAPI
+    public class CCoreSystemAPI : ICCoreSystemAPI
     {
         public void TriggerScriptEvent(string eventName, params object[] args)
         {

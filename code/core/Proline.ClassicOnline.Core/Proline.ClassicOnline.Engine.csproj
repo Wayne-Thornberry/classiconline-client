@@ -24,6 +24,7 @@
 	  <ProjectReference Include="..\..\components\Proline.ClassicOnline.MissionManager\Proline.ClassicOnline.CMissionManager.csproj" />
 	  <ProjectReference Include="..\..\components\Proline.ClassicOnline.MShop\Proline.ClassicOnline.CShopCatalogue.csproj" />
 	  <ProjectReference Include="..\..\components\Proline.ClassicOnline.ScriptAreas\Proline.ClassicOnline.CScriptAreas.csproj" />
+	  <ProjectReference Include="..\..\libs\Proline.ClassicOnline.EventQueue\Proline.ClassicOnline.EventQueue.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 		<Reference Include="Newtonsoft.Json">

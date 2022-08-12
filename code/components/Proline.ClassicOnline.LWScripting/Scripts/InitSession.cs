@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using Proline.ClassicOnline.EventQueue;
+using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CCoreSystem.Scripts
 {
@@ -6,7 +7,8 @@ namespace Proline.ClassicOnline.CCoreSystem.Scripts
     {
         public async Task Execute()
         {
-
+            ComponentEvent.InvokeEvent("CTestEventRandomInput");
+            ComponentEvent.InvokeEvent("CPublicTestEventRandomInput");
         }
     }
 }
