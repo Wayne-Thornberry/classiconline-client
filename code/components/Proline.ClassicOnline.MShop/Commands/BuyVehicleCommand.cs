@@ -1,4 +1,6 @@
-﻿using Proline.Resource.Framework;
+﻿using Newtonsoft.Json;
+using Proline.Resource.Framework;
+using Proline.Resource.IO;
 
 namespace Proline.ClassicOnline.CShopCatalogue.Commands
 {

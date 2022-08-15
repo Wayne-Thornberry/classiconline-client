@@ -1,8 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using CitizenFX.Core;
+using CitizenFX.Core.Native;
+using Newtonsoft.Json;
 using Proline.ClassicOnline.CDebugActions;
 using Proline.ClassicOnline.CShopCatalogue.Internal;
 
 using Proline.Resource.IO;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Proline.ClassicOnline.CShopCatalogue.Scripts
@@ -15,6 +18,9 @@ namespace Proline.ClassicOnline.CShopCatalogue.Scripts
             var api = new CDebugActionsAPI();
             api.LogDebug(data);
             CatalougeManager.GetInstance().Register("VehicleCatalouge", JsonConvert.DeserializeObject<VehicleCatalouge>(data.Load()));
+
+
+          
         }
     }
 }
