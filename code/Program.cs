@@ -13,8 +13,7 @@ namespace ClassicOnline.Game
 
         private static void Main(string[] args)
         {
-            Console.WriteLine($"Started ClassicOnline"); 
-
+            Console.WriteLine($"Started ClassicOnline");  
             try
             { 
                 Component.InitializeComponents(); 
