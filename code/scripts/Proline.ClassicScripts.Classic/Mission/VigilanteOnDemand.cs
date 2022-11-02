@@ -1,6 +1,6 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.UI;
-using Proline.ClassicOnline.CGameLogic.Data;
+using CGameLogic.Data;
 using Proline.ClassicOnline.Engine.Parts;
 using System.Collections.Generic;
 using System.Threading;

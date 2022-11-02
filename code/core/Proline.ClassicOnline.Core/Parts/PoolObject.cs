@@ -1,4 +1,4 @@
-﻿using Proline.ClassicOnline.CPoolObjects;
+﻿using CPoolObjects; 
 
 namespace Proline.ClassicOnline.Engine.Parts
 {

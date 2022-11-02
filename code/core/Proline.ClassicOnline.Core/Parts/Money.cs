@@ -1,4 +1,6 @@
-﻿using Proline.ClassicOnline.CGameLogic;
+﻿
+
+using CGameLogic;
 
 namespace Proline.ClassicOnline.Engine.Parts
 {

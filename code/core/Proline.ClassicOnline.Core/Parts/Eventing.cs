@@ -1,4 +1,4 @@
-﻿using Proline.ClassicOnline.CCoreSystem;
+﻿using CCoreSystem; 
 
 namespace Proline.ClassicOnline.Engine.Parts
 {
@@ -13,7 +13,7 @@ namespace Proline.ClassicOnline.Engine.Parts
         public static bool GetEventExitsts(object scriptInstance, string eventName)
         {
             var coreAPI = new CCoreSystemAPI();
-            return coreAPI.GetEventExitsts(scriptInstance, eventName);
+            return coreAPI.GetEventExists(scriptInstance, eventName);
         }
 
         public static object[] GetEventData(object scriptInstance, string eventName)
