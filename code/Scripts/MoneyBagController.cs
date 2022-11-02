@@ -18,7 +18,7 @@ namespace Proline.ClassicOnline.SClassic
 
             while (!token.IsCancellationRequested)
             {
-                if (EngineAPI.GetEventExitsts(this, "CEventNetworkPlayerCollectedAmbientPickup"))
+                if (EngineAPI.GetEventExists(this, "CEventNetworkPlayerCollectedAmbientPickup"))
                 {
                     var test = EngineAPI.GetEventData(this, "CEventNetworkPlayerCollectedAmbientPickup");
                     foreach (var item in test)
