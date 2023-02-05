@@ -23,7 +23,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
             _closestDistance = 99999.0f;
             _payout = 1000;
 
-            var handles = EngineAPI.GetEntityHandlesByTypes(EntityType.VEHICLE);
+            var handles = EngineAPI.GetEntityHandlesByTypes((int)EntityType.VEHICLE);
 
             foreach (var item in handles)
             {

@@ -33,7 +33,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
             EngineAPI.TrackPoolObjectForMission(_policeVehicle);
 
 
-            var handles = EngineAPI.GetEntityHandlesByTypes(EntityType.VEHICLE);
+            var handles = EngineAPI.GetEntityHandlesByTypes((int)EntityType.VEHICLE);
 
             foreach (var item in handles)
             {

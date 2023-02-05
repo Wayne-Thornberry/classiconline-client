@@ -4,6 +4,7 @@ using CGameLogic;
 using Proline.ClassicOnline.Engine.Parts;
 using System.Threading;
 using System.Threading.Tasks;
+using Proline.OnlineEngine.Core;
 
 namespace Proline.ClassicOnline.SClassic
 {

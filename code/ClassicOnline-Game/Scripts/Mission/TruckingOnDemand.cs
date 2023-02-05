@@ -32,7 +32,7 @@ namespace Proline.ClassicOnline.SClassic.Mission
             _truck = (Vehicle)Entity.FromHandle(int.Parse(args[0].ToString()));
 
 
-            var handles = EngineAPI.GetEntityHandlesByTypes(EntityType.VEHICLE);
+            var handles = EngineAPI.GetEntityHandlesByTypes((int)EntityType.VEHICLE);
 
             foreach (var item in handles)
             {

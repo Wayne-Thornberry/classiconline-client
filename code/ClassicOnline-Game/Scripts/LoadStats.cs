@@ -1,5 +1,6 @@
 ﻿using CGameLogic;
 using Proline.ClassicOnline.Engine.Parts;
+using Proline.OnlineEngine.Core;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,8 +19,8 @@ namespace Proline.ClassicOnline.SClassic
                 var bankBalanceStat = MPStat.GetStat<long>("BANK_BALANCE");
 
 
-                var walletBalance = stats.GetStat("WALLET_BALANCE");
-                var bankBalance = stats.GetStat("BANK_BALANCE");
+                var walletBalance = stats["WALLET_BALANCE"];
+                var bankBalance = stats["BANK_BALANCE"];
 
                 EngineAPI.LogDebug(walletBalance);
                 EngineAPI.LogDebug(bankBalance);
